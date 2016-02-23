@@ -3,7 +3,7 @@ apptools==4.2.1
 atom==0.3.9
 backports.ssl-match-hostname==3.2a3
 blaze==0.7.0
-Canopy==1.5.2.dev7471
+Canopy==1.5.2
 canopydebugger==0.1.1.dev0
 canopydebugger-addon==0.1.1.dev0
 casuarius==1.1
@@ -14,6 +14,7 @@ configobj==5.0.6
 coverage==3.7.1
 DataShape==0.4.2
 docutils==0.12
+ecdsa==0.13
 enable==4.4.1
 enaml==0.9.8
 enclosure==0.2
@@ -23,6 +24,7 @@ envisage==4.4.0
 esky==0.9.8.dev0
 etsproxy==0.1.2
 Examples==7.3
+Fabric==1.10.2
 faulthandler==2.4
 feedparser==5.1.3
 flake8==2.2.5
@@ -47,13 +49,14 @@ libxml2==2.9.2
 MarkupSafe==0.23
 matplotlib==1.4.2
 mccabe==0.3.1
-memory-profiler==0.31.0
+memory-profiler==0.31
 MKL==10.3
 mock==1.0.1
 nose==1.3.4
 numpy==1.9.2
 oauth2client==2.0.0
 pandas==0.16.2
+paramiko==1.16.0
 pep8==1.6.2
 PIL==1.1.7
 ply==3.4
@@ -72,9 +75,9 @@ Pygments==2.0.2
 pyparsing==2.0.2
 PySide==1.2.2
 pytest==2.8.5
-python-dateutil==2.2.0
+python-dateutil==2.2
 PythonDoc==2.7.3
-pytz==2014.9.0
+pytz==2014.9
 PyYAML==3.11
 pyzmq==14.5.0
 Qt==4.8.6
@@ -85,7 +88,7 @@ scipy==0.15.1
 shiboken==1.2.2
 six==1.10.0
 ssl-match-hostname==3.4.0.2
-supplement===0.5dev.dev202
+supplement==0.5.dev0
 sympy==0.7.6
 tornado==4.0.2
 traits==4.5.0
