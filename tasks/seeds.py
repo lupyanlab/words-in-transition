@@ -21,6 +21,8 @@ def create_seed_info():
     """Create a csv of info about the seeds on the server."""
     seeds = Path(seeds_dir).listdir('*.wav', names_only=True)
     seed_info = pd.DataFrame({'filename': seeds})
+    seed_info['category'] = seed_info.filename.str.extract('([a-z]+)\d\.wav')
+    seed_info['id'] = seed_info.groupby('category').cumcount()
     seed_info['url'] = url_dst + seed_info.filename
     seed_info.to_csv(seed_info_csv, index=False)
 
@@ -29,6 +31,15 @@ def put_seeds_on_server():
     """Copy the seed files to the server."""
     # sudo('mkdir ' + host_dst)
     put(seeds_dir, host_dst, use_sudo=True)
+
+@task(create_seed_info)
+def create_loop_merge():
+    """Create a loop and merge spreadsheet."""
+    seed_info = pd.read_csv(seed_info_csv)
+    loop_merge = seed_info.pivot('category', 'id', 'url')
+    loop_merge.reset_index(inplace=True)
+    loop_merge['loop_merge_row'] = range(1, len(loop_merge)+1)
+    loop_merge.to_csv('loop_merge.csv', index=False)
 
 @task
 def download_survey(name):
