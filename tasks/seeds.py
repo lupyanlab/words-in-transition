@@ -19,10 +19,11 @@ seed_info_csv = 'norm-seeds/all-seeds.csv'
 @task
 def create_seed_info():
     """Create a csv of info about the seeds on the server."""
+    re_filename = '([a-z]+)_\d+\.wav'
     seeds = Path(seeds_dir).listdir('*.wav', names_only=True)
     seed_info = pd.DataFrame({'filename': seeds})
-    seed_info['category'] = seed_info.filename.str.extract('([a-z]+)\d\.wav')
-    seed_info['id'] = seed_info.groupby('category').cumcount()
+    seed_info['category'] = seed_info.filename.str.extract(re_filename)
+    seed_info['id'] = seed_info.groupby('category').cumcount() + 1
     seed_info['url'] = url_dst + seed_info.filename
     seed_info.to_csv(seed_info_csv, index=False)
 
