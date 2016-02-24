@@ -56,20 +56,40 @@ def create_loop_merge():
     loop_merge.to_csv(outfile, index=False)
 
 @task
-def download_qualtrics_file_info():
-    """Download info including urls from Qualtrics library."""
-    creds = get_creds()
-    qualtrics = Qualtrics(**creds)
-    response = qualtrics.get(Request='getQualtricsIdsForLibrary', Format='JSON', LibraryID='UR_3yiQbNZVD204sE5')
-    print(response.json())
+def download_survey(name='sound_similarity_6'):
+    """Download the survey data."""
+    qualtrics = Qualtrics(**get_creds())
+    responses = qualtrics.get_survey_responses(name)
+    responses.to_csv('norm-seeds/survey-1/sound_similarity_6.csv', index=False)
 
 @task
-def download_survey(name):
-    """Download a survey from Qualtrics."""
-    creds = get_creds()
-    qualtrics = Qualtrics(**creds)
-    survey = qualtrics.get_survey(name)
-    print(survey)
+def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
+    """Parse the data in tidy format."""
+    survey = pd.read_csv(name, skiprows=[0, ])
+
+    id_col = 'workerId'
+
+    is_odd_col = survey.columns.str.contains('odd_one_out\ ')
+    odd_cols = survey.columns[is_odd_col].tolist()
+    odd = pd.melt(survey, id_col, odd_cols,
+                  var_name = 'qualtrics', value_name = 'odd_one_out')
+
+    odd['loop_merge_row'] = odd.qualtrics.str.extract('\((\d)\)$').astype(int) 
+
+    loop_merge = pd.read_csv('norm-seeds/survey-1/loop_merge.csv')
+
+    file_map = pd.melt(loop_merge.drop('loop_merge_row', axis=1),
+                       'category', var_name='odd_one_out', value_name='url')
+    file_map['odd_one_out'] = file_map.odd_one_out.astype(int)
+    file_map['filename'] = file_map.url.apply(lambda x: Path(x).name)
+    file_map.drop('url', axis=1, inplace=True)
+
+    odd = odd.merge(loop_merge[['category', 'loop_merge_row']])
+    odd = odd.merge(file_map)
+    odd.sort(['workerId', 'category'], inplace=True)
+
+    odd = odd[['workerId', 'category', 'filename']]
+    odd.to_csv('norm-seeds/survey-1/odd_one_out.csv', index=False)
 
 def get_creds():
     qualtrics_api_creds = 'qualtrics_api_creds.yml'
