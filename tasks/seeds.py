@@ -4,18 +4,31 @@ from invoke import task
 import yaml
 from unipath import Path
 from fabric.api import env
-from fabric.operations import run, put
+from fabric.operations import run, sudo, put
+import pandas as pd
 
 from .qualtrics import Qualtrics
 
+seeds_dir = 'seeds'
 env.host_string = 'pierce@sapir.psych.wisc.edu'
+host_dst = '/var/www/stimuli/words-in-transition/'
+url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/seeds/'
 
-@task(help={'seeds_dir': 'Location of directory containing seeds'})
-def put_seeds_on_server(seeds_dir='seeds'):
+seed_info_csv = 'seed_info.csv'
+
+@task
+def create_seed_info():
+    """Create a csv of info about the seeds on the server."""
+    seeds = Path(seeds_dir).listdir('*.wav', names_only=True)
+    seed_info = pd.DataFrame({'filename': seeds})
+    seed_info['url'] = url_dst + seed_info.filename
+    seed_info.to_csv(seed_info_csv, index=False)
+
+@task(create_seed_info)
+def put_seeds_on_server():
     """Copy the seed files to the server."""
-    dst = '/var/www/stimuli/words-in-transition'
-    run('mkdir ' + dst)
-    put(seeds_dir, dst)
+    # sudo('mkdir ' + host_dst)
+    put(seeds_dir, host_dst, use_sudo=True)
 
 @task
 def download_survey(name):

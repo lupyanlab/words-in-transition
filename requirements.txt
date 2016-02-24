@@ -4,8 +4,6 @@ atom==0.3.9
 backports.ssl-match-hostname==3.2a3
 blaze==0.7.0
 Canopy==1.5.2
-canopydebugger==0.1.1.dev0
-canopydebugger-addon==0.1.1.dev0
 casuarius==1.1
 chaco==4.5.0
 cloud==2.4.6
