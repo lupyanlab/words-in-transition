@@ -9,12 +9,12 @@ import pandas as pd
 
 from .qualtrics import Qualtrics
 
-seeds_dir = 'seeds'
+seeds_dir = 'norm-seeds/all-seeds'
 env.host_string = 'pierce@sapir.psych.wisc.edu'
 host_dst = '/var/www/stimuli/words-in-transition/'
 url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/seeds/'
 
-seed_info_csv = 'seed_info.csv'
+seed_info_csv = 'norm-seeds/all-seeds.csv'
 
 @task
 def create_seed_info():
@@ -35,11 +35,12 @@ def put_seeds_on_server():
 @task(create_seed_info)
 def create_loop_merge():
     """Create a loop and merge spreadsheet."""
+    outfile = 'norm-seeds/survey-1/loop_merge.csv'
     seed_info = pd.read_csv(seed_info_csv)
     loop_merge = seed_info.pivot('category', 'id', 'url')
     loop_merge.reset_index(inplace=True)
     loop_merge['loop_merge_row'] = range(1, len(loop_merge)+1)
-    loop_merge.to_csv('loop_merge.csv', index=False)
+    loop_merge.to_csv(outfile, index=False)
 
 @task
 def download_survey(name):
