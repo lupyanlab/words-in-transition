@@ -89,6 +89,8 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
 
     # combine filters
     subjs = pd.merge(survey[[id_col, 'failed_catch_trial']], problem)
+    subjs['failed_catch_trial'] = subjs.failed_catch_trial.astype(int)
+    subjs['problem_with_audio'] = subjs.problem_with_audio.astype(int)
 
     # tidy the survey data
     is_odd_col = survey.columns.str.contains('odd_one_out\ ')
