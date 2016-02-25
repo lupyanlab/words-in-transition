@@ -69,6 +69,28 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
 
     id_col = 'workerId'
 
+    # label the workers who passed the catch trial
+    survey['failed_catch_trial'] = ~survey.describe_catch.str.contains(
+        'piano', case=False
+    )
+
+    # export the subjects to deny payment
+    survey.ix[survey.failed_catch_trial].to_csv('norm-seeds/survey-1/bad_subjs.csv', index=False)
+
+    # label the workers who reported problems with audio
+    is_problem_col = survey.columns.str.contains('problems\ ')
+    problem_cols = survey.columns[is_problem_col].tolist()
+    problem = pd.melt(survey, id_col, problem_cols,
+                      var_name = 'qualtrics', value_name = 'problem_with_audio')
+
+    problem['loop_merge_row'] = problem.qualtrics.str.extract('\((\d)\)$').astype(int)
+    problem['problem_with_audio'] = problem.problem_with_audio.fillna(False).astype(bool)
+    problem.drop('qualtrics', axis=1, inplace=True)
+
+    # combine filters
+    subjs = pd.merge(survey[[id_col, 'failed_catch_trial']], problem)
+
+    # tidy the survey data
     is_odd_col = survey.columns.str.contains('odd_one_out\ ')
     odd_cols = survey.columns[is_odd_col].tolist()
     odd = pd.melt(survey, id_col, odd_cols,
@@ -86,9 +108,10 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
 
     odd = odd.merge(loop_merge[['category', 'loop_merge_row']])
     odd = odd.merge(file_map)
+    odd = odd.merge(subjs)
     odd.sort(['workerId', 'category'], inplace=True)
 
-    odd = odd[['workerId', 'category', 'filename']]
+    odd = odd[['workerId', 'failed_catch_trial', 'problem_with_audio', 'category', 'filename']]
     odd.to_csv('norm-seeds/survey-1/odd_one_out.csv', index=False)
 
 def get_creds():
