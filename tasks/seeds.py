@@ -46,10 +46,18 @@ def put_seeds_on_server(src_dir=None):
     put(src_dir, host_dst, use_sudo=True)
 
 @task
-def create_loop_merge():
+def create_loop_merge(survey):
     """Create a loop and merge spreadsheet."""
-    outfile = 'norm-seeds/survey-1/loop_merge.csv'
+    outfile = 'norm-seeds/{survey}/loop_merge.csv'.format(survey=survey)
     seed_info = pd.read_csv(seed_info_csv)
+
+    if survey == 'survey-2':
+        odd_sounds = pd.read_csv('norm-seeds/survey-1/odd_sounds.csv')
+        seeds_to_keep = ~seed_info.filename.isin(odd_sounds.filename)
+        seed_info = seed_info.ix[seeds_to_keep].reset_index(drop=True)
+        # reset id value to be 1:4
+        seed_info['id'] = seed_info.groupby('category').cumcount() + 1
+
     loop_merge = seed_info.pivot('category', 'id', 'url')
     loop_merge.reset_index(inplace=True)
     loop_merge['loop_merge_row'] = range(1, len(loop_merge)+1)
