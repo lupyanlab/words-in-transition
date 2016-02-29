@@ -63,24 +63,42 @@ def create_loop_merge(survey):
     loop_merge['loop_merge_row'] = range(1, len(loop_merge)+1)
     loop_merge.to_csv(outfile, index=False)
 
+def get_survey_dir(survey_name):
+    survey_dirs = dict(
+        sound_similarity_6='norm-seeds/survey-1',
+        sound_similarity_4='norm-seeds/survey-2',
+    )
+    return survey_dirs[survey_name]
+
+def get_survey_path(survey_name, csv_name=None):
+    csv_name = csv_name or survey_name
+    output = '{}/{}.csv'
+    survey_dir = get_survey_dir(survey_name)
+    return output.format(survey_dir, csv_name)
+
 @task
 def download_survey_responses(survey_name):
     """Download the survey data."""
     qualtrics = Qualtrics(**get_creds())
     responses = qualtrics.get_survey_responses(survey_name)
-
-    output = 'norm-seeds/{}/{}'
-    paths = dict(
-        sound_similarity_6=('survey-1', 'sound_similarity_6.csv'),
-        sound_similarity_4=('survey-2', 'sound_similarity_4.csv')
-    )
-    args = paths[survey_name]
-    responses.to_csv(output.format(*args), index=False)
+    output = get_survey_path(survey_name)
+    responses.to_csv(output, index=False)
 
 @task
-def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
+def tidy_survey(survey_name):
     """Parse the data in tidy format."""
-    survey = pd.read_csv(name, skiprows=[0, ])
+    # inputs
+    survey_csv = get_survey_path(survey_name)
+    survey = pd.read_csv(survey_csv, skiprows=[0, ])
+
+    loop_merge_csv = get_survey_path(survey_name, 'loop_merge')
+    loop_merge = pd.read_csv(loop_merge_csv)
+
+    # outputs
+    bad_subjs_csv = get_survey_path(survey_name, 'bad_subjs')
+    odd_one_out_csv = get_survey_path(survey_name, 'odd_one_out')
+
+    # Begin tidying
 
     id_col = 'workerId'
 
@@ -90,7 +108,7 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
     )
 
     # export the subjects to deny payment
-    survey.ix[survey.failed_catch_trial].to_csv('norm-seeds/survey-1/bad_subjs.csv', index=False)
+    survey.ix[survey.failed_catch_trial].to_csv(bad_subjs_csv, index=False)
 
     # label the workers who reported problems with audio
     is_problem_col = survey.columns.str.contains('problems\ ')
@@ -115,8 +133,6 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
 
     odd['loop_merge_row'] = odd.qualtrics.str.extract('\((\d)\)$').astype(int) 
 
-    loop_merge = pd.read_csv('norm-seeds/survey-1/loop_merge.csv')
-
     file_map = pd.melt(loop_merge.drop('loop_merge_row', axis=1),
                        'category', var_name='odd_one_out', value_name='url')
     file_map['odd_one_out'] = file_map.odd_one_out.astype(int)
@@ -129,7 +145,7 @@ def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
     odd.sort(['workerId', 'category'], inplace=True)
 
     odd = odd[['workerId', 'failed_catch_trial', 'problem_with_audio', 'category', 'filename']]
-    odd.to_csv('norm-seeds/survey-1/odd_one_out.csv', index=False)
+    odd.to_csv(odd_one_out_csv, index=False)
 
 def get_creds():
     qualtrics_api_creds = 'qualtrics_api_creds.yml'
