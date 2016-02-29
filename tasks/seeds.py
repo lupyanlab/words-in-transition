@@ -64,11 +64,18 @@ def create_loop_merge(survey):
     loop_merge.to_csv(outfile, index=False)
 
 @task
-def download_survey(name='sound_similarity_6'):
+def download_survey_responses(survey_name):
     """Download the survey data."""
     qualtrics = Qualtrics(**get_creds())
-    responses = qualtrics.get_survey_responses(name)
-    responses.to_csv('norm-seeds/survey-1/sound_similarity_6.csv', index=False)
+    responses = qualtrics.get_survey_responses(survey_name)
+
+    output = 'norm-seeds/{}/{}'
+    paths = dict(
+        sound_similarity_6=('survey-1', 'sound_similarity_6.csv'),
+        sound_similarity_4=('survey-2', 'sound_similarity_4.csv')
+    )
+    args = paths[survey_name]
+    responses.to_csv(output.format(*args), index=False)
 
 @task
 def tidy_survey(name='norm-seeds/survey-1/sound_similarity_6.csv'):
