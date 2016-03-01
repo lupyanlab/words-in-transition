@@ -28,13 +28,16 @@ ggplot(sound_similarity_6, aes(x = filename, y = n)) +
 
 ggsave("survey-1/odd_one_out.png", height = 10)
 
-odd_sounds <- odd_one_out_counts %>%
+odd_sounds <- sound_similarity_6 %>%
   filter(odd_one_out == "odd") %>%
   select(category, filename)
 
 write.csv(odd_sounds, "survey-1/odd_sounds.csv", row.names = FALSE)
 
 # survey-2
+
+selected_seeds <- read.csv("survey-2/selected_seeds.csv") %>%
+  select(category, filename)
 
 sound_similarity_4 <- read.csv("survey-2/odd_one_out.csv") %>%
   count_valid_responses
@@ -46,3 +49,11 @@ ggplot(sound_similarity_4, aes(x = filename, y = n)) +
   ggtitle("Odd one out (4 per category)")
 
 ggsave("survey-2/odd_one_out.png", height = 10)
+
+final_seeds <- left_join(selected_seeds, sound_similarity_4) %>%
+  filter(category %in% c("glass", "tear", "zipper", "water")) %>%
+  mutate(n = ifelse(is.na(n), 0, n)) %>%
+  group_by(category) %>%
+  arrange(desc(n))
+
+write.csv(final_seeds, "survey-2/final_seeds.csv", row.names = FALSE)

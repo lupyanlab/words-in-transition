@@ -1,5 +1,5 @@
 from __future__ import print_function
-
+import os
 from invoke import task, run as local_run
 import yaml
 from unipath import Path
@@ -57,6 +57,10 @@ def create_loop_merge(survey):
         seed_info = seed_info.ix[seeds_to_keep].reset_index(drop=True)
         # reset id value to be 1:4
         seed_info['id'] = seed_info.groupby('category').cumcount() + 1
+
+        # save the selection to file
+        selected_csv = get_survey_path('sound_similarity_4', 'selected_seeds')
+        seed_info.to_csv(selected_csv, index=False)
 
     loop_merge = seed_info.pivot('category', 'id', 'url')
     loop_merge.reset_index(inplace=True)
@@ -150,3 +154,16 @@ def tidy_survey(survey_name):
 def get_creds():
     qualtrics_api_creds = 'qualtrics_api_creds.yml'
     return yaml.load(open(qualtrics_api_creds))
+
+@task
+def select_final_seeds():
+    final_seeds_csv = get_survey_path('sound_similarity_4', 'final_seeds')
+    final_seeds = pd.read_csv(final_seeds_csv)
+    final_dir = 'norm-seeds/final-seeds'
+    if not os.path.isdir(final_dir):
+        os.mkdir(final_dir)
+    for seed in final_seeds.filename.tolist():
+        src = Path(seeds_dir, seed)
+        dst = Path(final_dir, seed)
+        mv = 'cp {src} {dst}'
+        local_run(mv.format(src=src, dst=dst))
