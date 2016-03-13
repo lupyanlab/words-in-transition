@@ -4,3 +4,4 @@ qualtrics_api_creds.yml
 *.pyc
 .Rproj.user
 *.zip
+venv/
