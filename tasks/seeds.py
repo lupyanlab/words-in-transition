@@ -13,6 +13,9 @@ seeds_dir = 'norm-seeds/all-seeds'
 host_dst = '/var/www/stimuli/words-in-transition/'
 url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/all-seeds/'
 
+project_root = Path('.').absolute()
+tasks_dir = Path(project_root, 'tasks')
+
 seed_info_csv = 'norm-seeds/all-seeds.csv'
 
 @task
@@ -80,9 +83,13 @@ def get_survey_path(survey_name, csv_name=None):
     survey_dir = get_survey_dir(survey_name)
     return output.format(survey_dir, csv_name)
 
-@task
+@task(help={'survey_name': 'sound_similarity_6 or sound_similarity_4'})
 def download_survey_responses(survey_name):
-    """Download the survey data."""
+    """Download the survey data.
+
+    Args:
+        survey_name: 'sound_similarity_6' or 'sound_similarity_4'
+    """
     qualtrics = Qualtrics(**get_creds())
     responses = qualtrics.get_survey_responses(survey_name)
     output = get_survey_path(survey_name)
@@ -135,7 +142,7 @@ def tidy_survey(survey_name):
     odd = pd.melt(survey, id_col, odd_cols,
                   var_name = 'qualtrics', value_name = 'odd_one_out')
 
-    odd['loop_merge_row'] = odd.qualtrics.str.extract('\((\d)\)$').astype(int) 
+    odd['loop_merge_row'] = odd.qualtrics.str.extract('\((\d)\)$').astype(int)
 
     file_map = pd.melt(loop_merge.drop('loop_merge_row', axis=1),
                        'category', var_name='odd_one_out', value_name='url')
@@ -152,7 +159,7 @@ def tidy_survey(survey_name):
     odd.to_csv(odd_one_out_csv, index=False)
 
 def get_creds():
-    qualtrics_api_creds = 'qualtrics_api_creds.yml'
+    qualtrics_api_creds = Path(tasks_dir, 'qualtrics_api_creds.yml')
     return yaml.load(open(qualtrics_api_creds))
 
 @task
