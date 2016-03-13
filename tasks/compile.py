@@ -83,7 +83,25 @@ def questions():
     questions.to_csv(Path(data_dir, 'questions.csv'), index=False)
 
 
-@task(questions)
+@task
+def subjects():
+    """Process the MTurk assignments so they can be merged with responses."""
+    mturk = pd.read_csv(Path(raw_data_dir, 'mturk_survey_results.csv'))
+    split = mturk.completionCode.str.split('-')
+    def zip_codes(completion_code):
+        try:
+            return {k: v for k, v in enumerate(completion_code)}
+        except TypeError:
+            return {}
+    codes = pd.DataFrame.from_records(split.apply(zip_codes))
+    codes['subj_id'] = mturk.WorkerId
+    labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
+    labeled.dropna(subset=['response_id'], inplace=True)
+    labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
+    labeled.to_csv(Path(data_dir, 'subjects.csv'), index=False)
+
+
+@task(questions, subjects)
 def responses():
     """Process the response models."""
     responses = pd.read_json(Path(raw_data_dir, 'ratings.Response.json'))
@@ -93,7 +111,13 @@ def responses():
 
     questions = pd.read_csv(Path(data_dir, 'questions.csv'))
     responses = responses.merge(questions)
+
+    subjects = pd.read_csv(Path(data_dir, 'subjects.csv'))
+    responses = responses.merge(subjects)
+
     responses.to_csv(Path(data_dir, 'responses.csv'), index=False)
+
+
 
 
 def unfold(objects, name):
