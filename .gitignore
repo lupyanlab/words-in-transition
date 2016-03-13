@@ -3,3 +3,4 @@ qualtrics_api_creds.yml
 *.swp
 *.pyc
 .Rproj.user
+*.zip
