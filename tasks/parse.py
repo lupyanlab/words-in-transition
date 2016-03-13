@@ -89,7 +89,11 @@ def questions():
 
 @task
 def subjects():
-    """Process the MTurk assignments so they can be merged with responses."""
+    """Process the MTurk assignments so they can be merged with responses.
+
+    TODO: Some people took the survey multiple times, so codes should be labeled
+          with run number for each subject.
+    """
     mturk = pd.read_csv(Path(snapshot_dir, 'mturk_survey_results.csv'))
     split = mturk.completionCode.str.split('-')
     def zip_codes(completion_code):
@@ -100,7 +104,18 @@ def subjects():
     codes = pd.DataFrame.from_records(split.apply(zip_codes))
     codes['subj_id'] = mturk.WorkerId
     labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
-    labeled.dropna(subset=['response_id'], inplace=True)
+
+    def coerce_int(x):
+        # replace non-int response_ids with missing values
+        try:
+            int(x)
+        except ValueError:
+            return ''
+        else:
+            return x
+
+    labeled['response_id'] = labeled.response_id.apply(coerce_int)
+    labeled = labeled.ix[labeled.response_id != '']
     labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
     labeled.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
 
