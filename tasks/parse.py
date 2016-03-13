@@ -99,8 +99,6 @@ def questions():
     questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
 
 
-
-
 @task
 def subjects():
     """Process the MTurk assignments so they can be merged with responses.
@@ -148,7 +146,8 @@ def responses():
     responses = responses.merge(questions)
 
     subjects = pd.read_csv(Path(csv_output_dir, 'subjects.csv'))
-    responses = responses.merge(subjects)
+    # use inner join to only use data we know where it came from
+    responses = responses.merge(subjects, how='inner')
 
     responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
 

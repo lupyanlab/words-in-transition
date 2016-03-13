@@ -1,0 +1,16 @@
+"message_id","audio","chain_id","parent_id","generation","rejected","verified","start_at","end_at","game_name","chain_name","message_name","seed_id"
+116,"words-in-transition/glass/gen-1_VAFHGHd.wav",5,34,1,"False","True",378.76993871,2457.6003,"words-in-transition","glass","gen-1_VAFHGHd.wav",34
+87,"words-in-transition/glass/gen-1_diq3vqw.wav",5,35,1,"False","True",2045.38505,4133.16182342,"words-in-transition","glass","gen-1_diq3vqw.wav",35
+36,"words-in-transition/glass/seed_cUc3ZE4.wav",5,NA,0,"False","True",73.8461538462,600,"words-in-transition","glass","seed_cUc3ZE4.wav",36
+37,"words-in-transition/glass/seed_xdtwqdU.wav",5,NA,0,"False","True",127.938461538,3024,"words-in-transition","glass","seed_xdtwqdU.wav",37
+204,"words-in-transition/tear/gen-1_8f4V57G.wav",6,40,1,"False","True",0,1080.97825385,"words-in-transition","tear","gen-1_8f4V57G.wav",40
+86,"words-in-transition/tear/gen-1_OnSYP8u.wav",6,39,1,"False","True",1996.8,4551.84516129,"words-in-transition","tear","gen-1_OnSYP8u.wav",39
+110,"words-in-transition/tear/gen-1_eWPpA95.wav",6,40,1,"False","True",678.40005,2750.07354358,"words-in-transition","tear","gen-1_eWPpA95.wav",40
+135,"words-in-transition/tear/gen-1_vcA2JMS.wav",6,39,1,"False","True",275.692307692,1599.01538462,"words-in-transition","tear","gen-1_vcA2JMS.wav",39
+50,"words-in-transition/water/gen-1.wav",7,43,1,"False","True",0,NA,"words-in-transition","water","gen-1.wav",43
+95,"words-in-transition/water/gen-1_CkkNYyc.wav",7,45,1,"False","True",0,NA,"words-in-transition","water","gen-1_CkkNYyc.wav",45
+88,"words-in-transition/water/gen-1_FU8op1B.wav",7,43,1,"False","True",2290.23667097,6826.667,"words-in-transition","water","gen-1_FU8op1B.wav",43
+115,"words-in-transition/water/gen-1_PhnHKIl.wav",7,42,1,"False","True",303.589711538,2331.56898462,"words-in-transition","water","gen-1_PhnHKIl.wav",42
+70,"words-in-transition/zipper/gen-1_S9iSkF7.wav",8,48,1,"False","True",2340.57145,3645.68271935,"words-in-transition","zipper","gen-1_S9iSkF7.wav",48
+132,"words-in-transition/zipper/gen-1_eqkbAZV.wav",8,49,1,"False","True",0,1203.85624231,"words-in-transition","zipper","gen-1_eqkbAZV.wav",49
+113,"words-in-transition/zipper/gen-1_j72o0yS.wav",8,47,1,"False","True",0,NA,"words-in-transition","zipper","gen-1_j72o0yS.wav",47

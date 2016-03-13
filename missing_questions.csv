@@ -1,0 +1,16 @@
+"question_id","choices","given","survey_id","answer","seed_id","chain_name","question_type","survey_name","num_questions_per_player"
+149,"[34, 38, 42, 46]",116,8,34,34,"glass","true_seed","between-1",10
+150,"[34, 38, 42, 46]",115,8,42,42,"water","true_seed","between-1",10
+128,"[35, 39, 43, 47]",87,7,35,35,"glass","true_seed","between-2",10
+133,"[35, 39, 43, 47]",86,7,39,39,"tear","true_seed","between-2",10
+135,"[35, 39, 43, 47]",135,7,39,39,"tear","true_seed","between-2",10
+127,"[35, 39, 43, 47]",88,7,43,43,"water","true_seed","between-2",10
+122,"[36, 40, 44, 48]",36,6,36,36,"glass","catch_trial","between-3",10
+105,"[36, 40, 44, 48]",110,6,40,40,"tear","true_seed","between-3",10
+115,"[36, 40, 44, 48]",204,6,40,40,"tear","true_seed","between-3",10
+107,"[36, 40, 44, 48]",70,6,48,48,"zipper","true_seed","between-3",10
+103,"[37, 41, 45, 49]",37,5,37,37,"glass","catch_trial","between-4",10
+94,"[37, 41, 45, 49]",132,5,49,49,"zipper","true_seed","between-4",10
+43,"[42, 43, 44, 45]",50,3,43,43,"water","true_seed","within-category-water",10
+49,"[42, 43, 44, 45]",95,3,45,45,"water","true_seed","within-category-water",10
+76,"[46, 47, 48, 49]",113,4,47,47,"zipper","true_seed","within-category-zipper",10
