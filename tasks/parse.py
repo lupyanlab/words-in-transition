@@ -3,8 +3,9 @@ import pandas as pd
 from unipath import Path
 
 
-raw_data_dir = Path('data-raw')
-data_dir = Path('data')
+r_pkg_root = Path('wordsintransition')
+raw_data_dir = Path(r_pkg_root, 'data-raw')
+data_dir = Path(r_pkg_root, 'data')
 assert raw_data_dir.exists()
 
 @task
