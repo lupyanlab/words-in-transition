@@ -1,4 +1,4 @@
-from invoke import task
+from invoke import task, run
 import pandas as pd
 from unipath import Path
 
@@ -6,6 +6,13 @@ from unipath import Path
 raw_data_dir = Path('data-raw')
 data_dir = Path('data')
 assert raw_data_dir.exists()
+
+@task
+def load():
+    """Load data from telephone-app dir."""
+    app_data = Path('../telephone-app/words-in-transition')
+    cmd = 'cp -r {app_data}/* {raw_data_dir}'
+    run(cmd.format(app_data=app_data, raw_data_dir=raw_data_dir))
 
 
 @task
