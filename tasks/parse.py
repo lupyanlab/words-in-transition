@@ -3,24 +3,20 @@ import pandas as pd
 from unipath import Path
 
 
-r_pkg_root = Path('wordsintransition')
-raw_data_dir = Path(r_pkg_root, 'data-raw')
-data_dir = Path(r_pkg_root, 'data')
-assert raw_data_dir.exists()
+# data source: snapshot and mturk data from telephone-app directory
+app_dir = Path('../telephone-app')
+snapshot_dir = Path(app_dir, 'words-in-transition')
 
-@task
-def load():
-    """Load data from telephone-app dir."""
-    app_data = Path('../telephone-app/words-in-transition')
-    cmd = 'cp -r {app_data}/* {raw_data_dir}'
-    run(cmd.format(app_data=app_data, raw_data_dir=raw_data_dir))
+# destination: raw data dir inside R pkg
+r_pkg_root = Path('wordsintransition')
+csv_output_dir = Path(r_pkg_root, 'data-raw')
 
 
 @task
 def messages():
     """Process the message models."""
     message_model = 'grunt.Message.json'
-    messages = pd.read_json(Path(raw_data_dir, message_model))
+    messages = pd.read_json(Path(snapshot_dir, message_model))
 
     del messages['model']
 
@@ -39,14 +35,14 @@ def messages():
 
     label_seed_messages(messages)
 
-    messages.to_csv(Path(data_dir, 'messages.csv'), index=False)
+    messages.to_csv(Path(csv_output_dir, 'messages.csv'), index=False)
 
 
 @task(messages)
 def questions():
     """Process the question models."""
     question_model_dump = 'ratings.Question.json'
-    questions = pd.read_json(Path(raw_data_dir, question_model_dump))
+    questions = pd.read_json(Path(snapshot_dir, question_model_dump))
 
     del questions['model']
 
@@ -56,7 +52,7 @@ def questions():
     questions.rename(columns=dict(pk='question_id', survey='survey_id'),
                      inplace=True)
 
-    messages = pd.read_csv(Path(data_dir, 'messages.csv'))
+    messages = pd.read_csv(Path(csv_output_dir, 'messages.csv'))
     seed_map = messages[['message_id', 'seed_id', 'chain_name']]
     questions = questions.merge(seed_map, left_on='given', right_on='message_id')
     del questions['message_id']  # redundant with given
@@ -88,13 +84,13 @@ def questions():
 
     questions = questions.apply(determine_question_type, axis=1)
 
-    questions.to_csv(Path(data_dir, 'questions.csv'), index=False)
+    questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
 
 
 @task
 def subjects():
     """Process the MTurk assignments so they can be merged with responses."""
-    mturk = pd.read_csv(Path(raw_data_dir, 'mturk_survey_results.csv'))
+    mturk = pd.read_csv(Path(snapshot_dir, 'mturk_survey_results.csv'))
     split = mturk.completionCode.str.split('-')
     def zip_codes(completion_code):
         try:
@@ -106,24 +102,24 @@ def subjects():
     labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
     labeled.dropna(subset=['response_id'], inplace=True)
     labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
-    labeled.to_csv(Path(data_dir, 'subjects.csv'), index=False)
+    labeled.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
 
 
 @task(questions, subjects)
 def responses():
     """Process the response models."""
-    responses = pd.read_json(Path(raw_data_dir, 'ratings.Response.json'))
+    responses = pd.read_json(Path(snapshot_dir, 'ratings.Response.json'))
     unfold_model_fields(responses, ['selection', 'question'])
     responses.rename(columns=dict(pk='response_id', question='question_id'),
                      inplace=True)
 
-    questions = pd.read_csv(Path(data_dir, 'questions.csv'))
+    questions = pd.read_csv(Path(csv_output_dir, 'questions.csv'))
     responses = responses.merge(questions)
 
-    subjects = pd.read_csv(Path(data_dir, 'subjects.csv'))
+    subjects = pd.read_csv(Path(csv_output_dir, 'subjects.csv'))
     responses = responses.merge(subjects)
 
-    responses.to_csv(Path(data_dir, 'responses.csv'), index=False)
+    responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
 
 
 
