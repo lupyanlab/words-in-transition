@@ -15,9 +15,7 @@ csv_output_dir = Path(r_pkg_root, 'data-raw')
 @task
 def messages():
     """Process the message models."""
-    message_model = 'grunt.Message.json'
-    messages = pd.read_json(Path(snapshot_dir, message_model))
-
+    messages = pd.read_json(Path(snapshot_dir, 'grunt.Message.json'))
     del messages['model']
 
     message_model_fields = (
@@ -38,12 +36,22 @@ def messages():
     messages.to_csv(Path(csv_output_dir, 'messages.csv'), index=False)
 
 
-@task(messages)
+@task
+def survey():
+    """Process the survey models."""
+    surveys = pd.read_json(Path(snapshot_dir, 'ratings.Survey.json'))
+    del surveys['model']
+
+    unfold_model_fields(surveys, ['name', 'num_questions_per_player'])
+    surveys.rename(columns=dict(pk='survey_id', name='survey_name'),
+                   inplace=True)
+    surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
+
+
+@task(messages, survey)
 def questions():
     """Process the question models."""
-    question_model_dump = 'ratings.Question.json'
-    questions = pd.read_json(Path(snapshot_dir, question_model_dump))
-
+    questions = pd.read_json(Path(snapshot_dir, 'ratings.Question.json'))
     del questions['model']
 
     question_model_fields = 'choices given survey answer'.split()
@@ -84,7 +92,13 @@ def questions():
 
     questions = questions.apply(determine_question_type, axis=1)
 
+    # Merge survey name
+    surveys = pd.read_csv(Path(csv_output_dir, 'surveys.csv'))
+    questions = questions.merge(surveys)
+
     questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
+
+
 
 
 @task
@@ -124,6 +138,8 @@ def subjects():
 def responses():
     """Process the response models."""
     responses = pd.read_json(Path(snapshot_dir, 'ratings.Response.json'))
+    del responses['model']
+
     unfold_model_fields(responses, ['selection', 'question'])
     responses.rename(columns=dict(pk='response_id', question='question_id'),
                      inplace=True)
@@ -135,8 +151,6 @@ def responses():
     responses = responses.merge(subjects)
 
     responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
-
-
 
 
 def unfold(objects, name):

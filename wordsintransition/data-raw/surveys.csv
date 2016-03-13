@@ -1,0 +1,10 @@
+survey_id,survey_name,num_questions_per_player
+1,within-category-glass,10
+2,within-category-tear,10
+3,within-category-water,10
+4,within-category-zipper,10
+5,between-4,10
+6,between-3,10
+7,between-2,10
+8,between-1,10
+9,test,10
