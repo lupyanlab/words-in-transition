@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-from .seeds import *
-from .design import *
-from .qualtrics import *
-from .compile import *
+from invoke import Collection
+
+import seeds
+import docs
+import parse
+
+namespace = Collection(seeds, docs, parse)
