@@ -27,7 +27,7 @@ responses <- responses %>%
   label_correct %>%
   label_bad_subjs
 
-match_to_seed <- filter(responses, question_type != "catch_trial", is_bad_subj == FALSE)
+match_to_seed <- filter(responses, question_type != "catch_trial")
 
 ggplot(match_to_seed, aes(x = survey_type, y = is_correct)) +
   geom_point(aes(group = given, color = chain_name), stat = "summary", fun.y = "mean",
