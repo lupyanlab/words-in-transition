@@ -45,6 +45,7 @@ def survey():
     unfold_model_fields(surveys, ['name', 'num_questions_per_player'])
     surveys.rename(columns=dict(pk='survey_id', name='survey_name'),
                    inplace=True)
+    surveys['survey_type'] = surveys.survey_name.str.split('-').str.get(0)
     surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
 
 
