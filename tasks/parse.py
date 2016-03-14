@@ -152,6 +152,9 @@ def responses():
     # use inner join to only use data we know where it came from
     responses = responses.merge(subjects, how='inner')
 
+    messages = pd.read_csv(Path(csv_output_dir, 'messages.csv'))
+    responses = responses.merge(messages)
+
     responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
 
 
