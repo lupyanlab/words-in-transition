@@ -65,16 +65,18 @@ def questions():
     questions = questions.merge(seed_map, left_on='given', right_on='message_id')
     del questions['message_id']  # redundant with given
 
+    chain_seeds = seed_map[['chain_name', 'seed_id']].drop_duplicates()
+
     def determine_answer(question):
         if question.seed_id in question.choices:
             seed_id = question.seed_id
         else:
             # get chain name of true seed
-            seed_chain = seed_map.ix[seed_map.seed_id == question.seed_id, 'chain_name']
+            seed_chain = chain_seeds.ix[chain_seeds.seed_id == question.seed_id, 'chain_name'].values[0]
             # label choices by chain name
-            choice_info = seed_map.ix[seed_map.seed_id.isin(question.choices)]
+            choice_info = chain_seeds.ix[chain_seeds.seed_id.isin(question.choices)]
             # select choice from same chain name as seed
-            seed_id = choice_info.ix[choice_info.chain_name == seed_chain, 'seed_id']
+            seed_id = choice_info.ix[choice_info.chain_name == seed_chain, 'seed_id'].values[0]
         question['answer'] = seed_id
         return question
 
