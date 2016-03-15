@@ -41,8 +41,16 @@ def make_questions(questions_json, messages):
     question_model_fields = ['choices', 'given', 'survey', 'answer']
     unfold_model_fields(questions, question_model_fields)
 
-    questions.rename(columns=dict(pk='question_id', survey='survey_id', given='message_id'),
+    questions.rename(columns=dict(pk='question_pk', survey='survey_id', given='message_id'),
                      inplace=True)
+
+    # question id is unique combination of choices and given message
+    # question pk is unique for all question models in the db
+    question_id_str = questions.choices.astype(str) + questions.message_id.astype(str)
+    questions['question_id_str'] = question_id_str
+    question_id_map = {qstr: qid for qid, qstr in enumerate(question_id_str.unique())}
+    questions['question_id'] = questions.question_id_str.apply(lambda x: question_id_map[x])
+    del questions['question_id_str']
 
     seed_map = messages[['message_id', 'seed_id', 'chain_name']]
     questions = questions.merge(seed_map)
@@ -117,7 +125,7 @@ def make_responses(responses_json):
     del responses['model']
 
     unfold_model_fields(responses, ['selection', 'question'])
-    responses.rename(columns=dict(pk='response_id', question='question_id'),
+    responses.rename(columns=dict(pk='response_id', question='question_pk'),
                      inplace=True)
 
     return responses

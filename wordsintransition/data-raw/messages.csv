@@ -117,10 +117,10 @@ message_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_at
 524,words-in-transition/glass/gen-6_jchWP7T.wav,5,483.0,6,False,True,0.0,,words-in-transition,glass,gen-6_jchWP7T.wav,34
 544,words-in-transition/glass/gen-6_oHQN5LH.wav,5,489.0,6,True,True,0.0,,words-in-transition,glass,gen-6_oHQN5LH.wav,34
 554,words-in-transition/glass/gen-6_sIuU4FR.wav,5,460.0,6,False,True,322.221523077,1595.38949231,words-in-transition,glass,gen-6_sIuU4FR.wav,35
-549,words-in-transition/glass/gen-6_tQTN10x.wav,5,491.0,6,False,False,0.0,,words-in-transition,glass,gen-6_tQTN10x.wav,36
+549,words-in-transition/glass/gen-6_tQTN10x.wav,5,491.0,6,False,True,471.543769231,1817.58689231,words-in-transition,glass,gen-6_tQTN10x.wav,36
 533,words-in-transition/glass/gen-6_xUOSCVK.wav,5,471.0,6,False,True,1385.74615385,3175.10769231,words-in-transition,glass,gen-6_xUOSCVK.wav,34
 520,words-in-transition/glass/gen-6_xknRzKm.wav,5,464.0,6,False,True,0.0,,words-in-transition,glass,gen-6_xknRzKm.wav,35
-556,words-in-transition/glass/gen-7.wav,5,549.0,7,False,False,0.0,,words-in-transition,glass,gen-7.wav,36
+556,words-in-transition/glass/gen-7.wav,5,549.0,7,False,True,426.666730769,1501.86689231,words-in-transition,glass,gen-7.wav,36
 566,words-in-transition/glass/gen-7_Edh6q2Y.wav,5,533.0,7,False,True,0.0,,words-in-transition,glass,gen-7_Edh6q2Y.wav,34
 562,words-in-transition/glass/gen-7_SWYJqg4.wav,5,529.0,7,True,True,0.0,,words-in-transition,glass,gen-7_SWYJqg4.wav,37
 34,words-in-transition/glass/seed.wav,5,,0,False,True,0.0,,words-in-transition,glass,seed.wav,34
@@ -406,7 +406,7 @@ message_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_at
 124,words-in-transition/zipper/gen-2.wav,8,97.0,2,True,True,0.0,,words-in-transition,zipper,gen-2.wav,49
 207,words-in-transition/zipper/gen-2_20CZETe.wav,8,65.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_20CZETe.wav,49
 150,words-in-transition/zipper/gen-2_7xIMs7c.wav,8,105.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_7xIMs7c.wav,48
-539,words-in-transition/zipper/gen-2_8TRqzzC.wav,8,113.0,2,False,False,0.0,,words-in-transition,zipper,gen-2_8TRqzzC.wav,47
+539,words-in-transition/zipper/gen-2_8TRqzzC.wav,8,113.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_8TRqzzC.wav,47
 193,words-in-transition/zipper/gen-2_J8whZvD.wav,8,90.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_J8whZvD.wav,46
 198,words-in-transition/zipper/gen-2_L3vdRND.wav,8,117.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_L3vdRND.wav,47
 182,words-in-transition/zipper/gen-2_Mzp83qK.wav,8,103.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_Mzp83qK.wav,48
@@ -423,7 +423,7 @@ message_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_at
 158,words-in-transition/zipper/gen-2_xqlqhue.wav,8,118.0,2,False,True,0.0,,words-in-transition,zipper,gen-2_xqlqhue.wav,49
 212,words-in-transition/zipper/gen-3.wav,8,202.0,3,False,True,0.0,,words-in-transition,zipper,gen-3.wav,49
 255,words-in-transition/zipper/gen-3_0JfOmON.wav,8,162.0,3,False,True,0.0,,words-in-transition,zipper,gen-3_0JfOmON.wav,49
-540,words-in-transition/zipper/gen-3_0Lp3Ukr.wav,8,539.0,3,False,False,0.0,,words-in-transition,zipper,gen-3_0Lp3Ukr.wav,47
+540,words-in-transition/zipper/gen-3_0Lp3Ukr.wav,8,539.0,3,False,True,0.0,,words-in-transition,zipper,gen-3_0Lp3Ukr.wav,47
 241,words-in-transition/zipper/gen-3_5bY2EoD.wav,8,154.0,3,False,True,0.0,3720.19390385,words-in-transition,zipper,gen-3_5bY2EoD.wav,46
 227,words-in-transition/zipper/gen-3_7eKK2hZ.wav,8,187.0,3,False,True,0.0,,words-in-transition,zipper,gen-3_7eKK2hZ.wav,47
 244,words-in-transition/zipper/gen-3_CHDSu21.wav,8,158.0,3,False,True,0.0,,words-in-transition,zipper,gen-3_CHDSu21.wav,49
@@ -500,14 +500,14 @@ message_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_at
 553,words-in-transition/zipper/gen-6_zpbZWto.wav,8,548.0,6,True,True,0.0,,words-in-transition,zipper,gen-6_zpbZWto.wav,47
 499,words-in-transition/zipper/gen-7.wav,8,462.0,7,False,True,0.0,,words-in-transition,zipper,gen-7.wav,48
 512,words-in-transition/zipper/gen-7_3MbX2fP.wav,8,456.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_3MbX2fP.wav,46
-561,words-in-transition/zipper/gen-7_4dJUtYX.wav,8,430.0,7,False,False,0.0,,words-in-transition,zipper,gen-7_4dJUtYX.wav,49
+561,words-in-transition/zipper/gen-7_4dJUtYX.wav,8,430.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_4dJUtYX.wav,49
 517,words-in-transition/zipper/gen-7_BsjkUkL.wav,8,508.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_BsjkUkL.wav,46
 565,words-in-transition/zipper/gen-7_KIjQI9U.wav,8,488.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_KIjQI9U.wav,46
 528,words-in-transition/zipper/gen-7_Muvl0HM.wav,8,484.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_Muvl0HM.wav,49
 521,words-in-transition/zipper/gen-7_O6HtAHa.wav,8,477.0,7,False,True,497.169230769,2092.25384615,words-in-transition,zipper,gen-7_O6HtAHa.wav,48
 525,words-in-transition/zipper/gen-7_TNrcF0g.wav,8,494.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_TNrcF0g.wav,48
 532,words-in-transition/zipper/gen-7_WNWQOeP.wav,8,505.0,7,False,True,0.0,,words-in-transition,zipper,gen-7_WNWQOeP.wav,49
-557,words-in-transition/zipper/gen-7_ydmEqN7.wav,8,435.0,7,False,False,0.0,,words-in-transition,zipper,gen-7_ydmEqN7.wav,49
+557,words-in-transition/zipper/gen-7_ydmEqN7.wav,8,435.0,7,False,True,345.6,1754.58461538,words-in-transition,zipper,gen-7_ydmEqN7.wav,49
 46,words-in-transition/zipper/seed.wav,8,,0,False,True,0.0,,words-in-transition,zipper,seed.wav,46
 49,words-in-transition/zipper/seed_4SsN51C.wav,8,,0,False,True,0.0,,words-in-transition,zipper,seed_4SsN51C.wav,49
 48,words-in-transition/zipper/seed_9LHQOgu.wav,8,,0,False,True,0.0,,words-in-transition,zipper,seed_9LHQOgu.wav,48

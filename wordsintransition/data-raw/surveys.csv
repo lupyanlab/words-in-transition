@@ -11,3 +11,11 @@ survey_id,survey_name,num_questions_per_player,survey_type
 11,same-2,10,same
 12,same-3,10,same
 13,same-4,10,same
+14,between-1-missing,3,between
+15,between-2-missing,5,between
+16,between-3-missing,5,between
+17,between-4-missing,3,between
+18,same-1-missing,7,same
+19,same-2-missing,7,same
+20,same-3-missing,9,same
+21,same-4-missing,11,same

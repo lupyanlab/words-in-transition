@@ -1,5 +1,6 @@
 library(dplyr)
 library(ggplot2)
+library(lme4)
 
 library(wordsintransition)
 data(responses)
@@ -13,3 +14,6 @@ ggplot(match_to_seed, aes(x = survey_type, y = is_correct)) +
              shape = 1, size = 4) +
   geom_point(stat = "summary", fun.y = "mean", size = 6) +
   geom_line(aes(group = message_id, color = chain_name), stat = "summary", fun.y = "mean")
+
+mod <- glmer(is_correct ~ 1 + (1|message_id), 
+             offset = 0.25, family = "binomial", data = match_to_seed)
