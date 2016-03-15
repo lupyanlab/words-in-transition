@@ -1,70 +1,49 @@
-from invoke import task, run
 import pandas as pd
-from unipath import Path
 
 
-# data source: snapshot and mturk data from telephone-app directory
-app_dir = Path('../telephone-app')
-snapshot_dir = Path(app_dir, 'words-in-transition')
-
-# destination: raw data dir inside R pkg
-r_pkg_root = Path('wordsintransition')
-csv_output_dir = Path(r_pkg_root, 'data-raw')
-
-
-@task
-def messages():
-    """Process the message models."""
-    messages = pd.read_json(Path(snapshot_dir, 'grunt.Message.json'))
+def make_messages(messages_json):
+    messages = pd.read_json(messages_json)
     del messages['model']
 
-    message_model_fields = (
-        'audio chain parent generation rejected verified start_at end_at'
-    ).split()
+    message_model_fields = ['audio', 'chain', 'parent', 'generation', 'rejected', 'verified', 'start_at', 'end_at']
     unfold_model_fields(messages, message_model_fields)
 
+    # extract game name and chain name from path to wav
     extract_from_path(messages)
 
-    messages.sort_values(['game_name', 'chain_name', 'message_name'],
-                         inplace=True)
-
-    rename_ids = dict(pk='message_id', chain='chain_id', parent='parent_id')
-    messages.rename(columns=rename_ids, inplace=True)
+    messages.sort_values(['game_name', 'chain_name', 'message_name'], inplace=True)
+    messages.rename(columns=dict(pk='message_id', chain='chain_id', parent='parent_id'), inplace=True)
 
     label_seed_messages(messages)
 
-    messages.to_csv(Path(csv_output_dir, 'messages.csv'), index=False)
+    return messages
 
 
-@task
-def survey():
-    """Process the survey models."""
-    surveys = pd.read_json(Path(snapshot_dir, 'ratings.Survey.json'))
+def make_surveys(surveys_json):
+    surveys = pd.read_json(surveys_json)
     del surveys['model']
 
     unfold_model_fields(surveys, ['name', 'num_questions_per_player'])
     surveys.rename(columns=dict(pk='survey_id', name='survey_name'),
                    inplace=True)
+
     surveys['survey_type'] = surveys.survey_name.str.split('-').str.get(0)
-    surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
+
+    return surveys
 
 
-@task(messages, survey)
-def questions():
-    """Process the question models."""
-    questions = pd.read_json(Path(snapshot_dir, 'ratings.Question.json'))
+def make_questions(questions_json, messages):
+    questions = pd.read_json(questions_json)
     del questions['model']
 
-    question_model_fields = 'choices given survey answer'.split()
+    question_model_fields = ['choices', 'given', 'survey', 'answer']
     unfold_model_fields(questions, question_model_fields)
 
-    questions.rename(columns=dict(pk='question_id', survey='survey_id'),
+    questions.rename(columns=dict(pk='question_id', survey='survey_id', given='message_id'),
                      inplace=True)
 
-    messages = pd.read_csv(Path(csv_output_dir, 'messages.csv'))
     seed_map = messages[['message_id', 'seed_id', 'chain_name']]
-    questions = questions.merge(seed_map, left_on='given', right_on='message_id')
-    del questions['message_id']  # redundant with given
+    questions = questions.merge(seed_map)
 
     chain_seeds = seed_map[['chain_name', 'seed_id']].drop_duplicates()
 
@@ -84,7 +63,7 @@ def questions():
     questions = questions.apply(determine_answer, axis=1)
 
     def determine_question_type(question):
-        if question.given in question.choices:
+        if question.message_id in question.choices:
             question_type = 'catch_trial'
         elif question.seed_id in question.choices:
             question_type = 'true_seed'
@@ -95,21 +74,16 @@ def questions():
 
     questions = questions.apply(determine_question_type, axis=1)
 
-    # Merge survey name
-    surveys = pd.read_csv(Path(csv_output_dir, 'surveys.csv'))
-    questions = questions.merge(surveys)
-
-    questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
+    return questions
 
 
-@task
-def subjects():
+def make_subjects(subjects_csv):
     """Process the MTurk assignments so they can be merged with responses.
 
     TODO: Some people took the survey multiple times, so codes should be labeled
           with run number for each subject.
     """
-    mturk = pd.read_csv(Path(snapshot_dir, 'mturk_survey_results.csv'))
+    mturk = pd.read_csv(subjects_csv)
     split = mturk.completionCode.str.split('-')
     def zip_codes(completion_code):
         try:
@@ -131,31 +105,20 @@ def subjects():
 
     labeled['response_id'] = labeled.response_id.apply(coerce_int)
     labeled = labeled.ix[labeled.response_id != '']
+    labeled['response_id'] = labeled.response_id.astype(int)
     labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
-    labeled.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
+    return labeled
 
 
-@task(questions, subjects)
-def responses():
-    """Process the response models."""
-    responses = pd.read_json(Path(snapshot_dir, 'ratings.Response.json'))
+def make_responses(responses_json):
+    responses = pd.read_json(responses_json)
     del responses['model']
 
     unfold_model_fields(responses, ['selection', 'question'])
     responses.rename(columns=dict(pk='response_id', question='question_id'),
                      inplace=True)
 
-    questions = pd.read_csv(Path(csv_output_dir, 'questions.csv'))
-    responses = responses.merge(questions)
-
-    subjects = pd.read_csv(Path(csv_output_dir, 'subjects.csv'))
-    # use inner join to only use data we know where it came from
-    responses = responses.merge(subjects, how='inner')
-
-    messages = pd.read_csv(Path(csv_output_dir, 'messages.csv'))
-    responses = responses.merge(messages)
-
-    responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
+    return responses
 
 
 def unfold(objects, name):
