@@ -4,26 +4,12 @@ library(ggplot2)
 library(wordsintransition)
 data(responses)
 
-label_correct <- function(frame) {
-  mutate(frame, is_correct = selection == answer)
-}
+responses$is_correct <- as.numeric(responses$selection == responses$answer)
 
-responses <- label_correct(responses)
+catch_trials <- filter(responses, question_type == "catch_trial")
 
-responses %>%
-  group_by(survey_name, question_type) %>%
-  summarize(
-    n = n(),
-    accuracy = mean(is_correct)
-  )
-
-
-responses %>% filter(question_type == "catch_trial", survey_name == "within-category-glass")
-
-
-responses %>% group_by(survey_name, question_type) %>% summarize(num_questions = length(unique(question_id)))
-# Why do between-3 and between-4 only have 3 catch trials?
-
-between3_catch <- responses %>% 
-  filter(survey_name == "between-3", question_type == "catch_trial")
-between3_catch$given %>% unique()
+ggplot(catch_trials, aes(x = survey_type, y = is_correct)) +
+  geom_point(aes(group = message_id, color = chain_name), stat = "summary", fun.y = "mean",
+             shape = 1, size = 4) +
+  geom_point(stat = "summary", fun.y = "mean", size = 6) +
+  geom_line(aes(group = message_id, color = chain_name), stat = "summary", fun.y = "mean")

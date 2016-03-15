@@ -315,10 +315,6 @@ question_id,choices,message_id,survey_id,answer,seed_id,chain_name,question_type
 156,"[34, 38, 42, 46]",90,8,46,46,zipper,true_seed,between-1,10,between
 160,"[34, 38, 42, 46]",55,8,46,46,zipper,true_seed,between-1,10,between
 163,"[34, 38, 42, 46]",46,8,46,46,zipper,catch_trial,between-1,10,between
-168,"[34, 38, 42, 46]",34,9,34,34,glass,catch_trial,test,10,test
-165,"[34, 38, 42, 46]",38,9,38,38,tear,catch_trial,test,10,test
-166,"[34, 38, 42, 46]",42,9,42,42,water,catch_trial,test,10,test
-167,"[34, 38, 42, 46]",46,9,46,46,zipper,catch_trial,test,10,test
 21,"[38, 39, 40, 41]",54,2,38,38,tear,true_seed,within-category-tear,10,within
 22,"[38, 39, 40, 41]",62,2,38,38,tear,true_seed,within-category-tear,10,within
 23,"[38, 39, 40, 41]",59,2,41,41,tear,true_seed,within-category-tear,10,within

@@ -7,7 +7,6 @@ survey_id,survey_name,num_questions_per_player,survey_type
 6,between-3,10,between
 7,between-2,10,between
 8,between-1,10,between
-9,test,10,test
 10,same-1,10,same
 11,same-2,10,same
 12,same-3,10,same

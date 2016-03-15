@@ -29,6 +29,8 @@ def make_surveys(surveys_json):
 
     surveys['survey_type'] = surveys.survey_name.str.split('-').str.get(0)
 
+    surveys = surveys[surveys.survey_type != 'test']
+
     return surveys
 
 
