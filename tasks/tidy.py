@@ -14,7 +14,8 @@ def make_messages(messages_json):
     messages.sort_values(['game_name', 'chain_name', 'message_name'], inplace=True)
     messages.rename(columns=dict(pk='message_id', chain='chain_id', parent='parent_id'), inplace=True)
 
-    label_seed_messages(messages)
+    messages['seed_id'] = messages.apply(find_message_on_branch, generation=0, frame=messages, axis=1)
+    messages['first_gen_id'] = messages.apply(find_message_on_branch, generation=1, frame=messages, axis=1)
 
     return messages
 
@@ -149,6 +150,26 @@ def extract_from_path(frame):
     for i, name in enumerate(path_args):
         frame[name] = splits.str.get(i)
 
+def find_message_on_branch(message, generation, frame):
+    if message.generation == generation:
+        return message.message_id
+    elif message.generation < generation:
+        # message will never be found
+        return -1
+    else:
+        parent = frame.ix[frame.message_id == message.parent_id].squeeze()
+        return find_message_on_branch(parent, generation, frame)
+
+def label_seed_messages(frame):
+    frame['seed_id'] = frame.apply(find_message_on_branch, generation=0, frame=frame, axis=1)
+
+    def find_seed(message):
+        if message.generation == 0:
+            return message.message_id
+        parent = frame.ix[frame.message_id == message.parent_id].squeeze()
+        return find_seed(parent)
+
+    frame['seed_id'] = frame.apply(find_seed, axis=1)
 
 def label_seed_messages(frame):
 

@@ -67,3 +67,15 @@ survey_id,survey_name,num_questions_per_player,survey_type
 67,same-2-g5,10,same
 68,same-3-g5,10,same
 69,same-4-g5,10,same
+70,within-glass-g678,10,within
+71,within-tear-g678,10,within
+72,within-water-g678,10,within
+73,within-zipper-g678,10,within
+74,between-1-g678,10,between
+75,between-2-g678,10,between
+76,between-3-g678,10,between
+77,between-4-g678,10,between
+78,same-1-g678,10,same
+79,same-2-g678,10,same
+80,same-3-g678,10,same
+81,same-4-g678,10,same

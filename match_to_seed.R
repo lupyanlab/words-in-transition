@@ -25,7 +25,8 @@ passed_catch_trials <- responses %>%
 
 match_to_seed <- filter(responses,
                         rejected == "False",
-                        question_type != "catch_trial")
+                        question_type != "catch_trial") #,
+                        #subj_id %in% passed_catch_trials)
 
 # Between
 between <- filter(match_to_seed, survey_type == "between")
@@ -37,7 +38,7 @@ ggplot(between, aes(x = generation, y = is_correct)) +
   geom_line(aes(group = seed_id, color = chain_name), stat = "summary", fun.y = "mean")
 
 ggplot(between, aes(x = generation, y = is_correct)) +
-  geom_line(aes(group = message_id, color = chain_name), stat = "summary", fun.y = "mean")
+  geom_line(aes(group = first_gen_id, color = chain_name), stat = "summary", fun.y = "mean")
 
 
 
