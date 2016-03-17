@@ -3,10 +3,8 @@ library(ggplot2)
 library(lme4)
 
 library(wordsintransition)
+devtools::load_all("wordsintransition")
 data(responses)
-
-responses$is_correct <- as.numeric(responses$selection == responses$answer)
-responses$chance <- 0.25
 
 survey_type_map <- data_frame(
   survey_type = c("between", "same", "within"),

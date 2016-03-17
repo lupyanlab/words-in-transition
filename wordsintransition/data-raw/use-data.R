@@ -14,4 +14,10 @@ for(path in data_files) {
   assign(name, frame)
 }
 
+# Tidy responses data
+# TODO: Move these functions to invoke tasks.
+responses <- mutate(responses,
+                    is_correct = as.numeric(selection == answer),
+                    chance = 0.25)
+
 use_data(messages, questions, responses, subjects, surveys, overwrite = TRUE)
