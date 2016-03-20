@@ -19,15 +19,25 @@ tasks_dir = Path(project_root, 'tasks')
 seed_info_csv = 'norm-seeds/all-seeds.csv'
 
 @task
-def convert_wav_to_mp3(src_dir=None):
+def convert_wav_to_mp3(src_dir=None, dst_dir=None):
     """Convert wav sounds to mp3."""
     if src_dir is None:
         src_dir = seeds_dir
+    if dst_dir is None:
+        dst_dir = src_dir
+
+    src_dir = Path(src_dir)
+    assert src_dir.exists()
+
+    dst_dir = Path(dst_dir)
+    if not dst_dir.exists():
+        dst_dir.mkdir(True)
+
     wav_seeds = Path(src_dir).listdir('*.wav', names_only=True)
     for wav in wav_seeds:
         mp3 = Path(wav).stem + '.mp3'
         cmd = 'ffmpeg -i {} -codec:a libmp3lame -qscale:a 2 {}'
-        local_run(cmd.format(Path(src_dir, wav), Path(src_dir, mp3)))
+        local_run(cmd.format(Path(src_dir, wav), Path(dst_dir, mp3)))
 
 @task
 def create_seed_info():
