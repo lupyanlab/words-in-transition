@@ -132,6 +132,38 @@ def make_responses(responses_json):
     return responses
 
 
+def make_transcription_surveys(surveys_json):
+    surveys = pd.read_json(surveys_json)
+    del surveys['model']
+
+    unfold_model_fields(surveys, ['name', 'catch_trial_id'])
+    surveys.rename(columns=dict(pk='transcription_survey_id', name='transcription_survey_name'), inplace=True)
+
+    return surveys
+
+
+def make_transcription_questions(questions_json):
+    questions = pd.read_json(questions_json)
+    del questions['model']
+
+    unfold_model_fields(questions, ['given', 'survey'])
+    questions.rename(columns=dict(pk='message_to_transcribe_id', given='message_id', survey='transcription_survey_id'),
+                     inplace=True)
+
+    return questions
+
+
+def make_transcriptions(transcriptions_json):
+    transcriptions = pd.read_json(transcriptions_json)
+    del transcriptions['model']
+
+    unfold_model_fields(transcriptions, ['message', 'text'])
+    transcriptions.rename(columns=dict(pk='transcription_id', message='message_to_transcribe_id'),
+                          inplace=True)
+
+    return transcriptions
+
+
 def unfold(objects, name):
     """Pull the named value out of a list of objects."""
     return objects.apply(lambda x: x[name])

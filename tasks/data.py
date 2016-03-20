@@ -44,6 +44,15 @@ def csv():
     responses = responses.merge(messages)
     responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
 
+    transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
+    transcription_questions = make_transcription_questions(Path(src_dir, 'transcribe.MessageToTranscribe.json'))
+    transcriptions = make_transcriptions(Path(src_dir, 'transcribe.Transcription.json'))
+
+    transcriptions = transcriptions.merge(transcription_questions)
+    transcriptions = transcriptions.merge(transcription_surveys)
+    transcriptions = transcriptions.merge(messages[['message_id', 'seed_id', 'chain_name']])
+    transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
+
 
 @task
 def rdata():
