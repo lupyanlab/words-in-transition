@@ -1,0 +1,33 @@
+workerId,qualtrics_col,choice,filename,row,survey_name,chain_name,text,choice_filename
+AYCHPTQRYDT7G,glass-34 (4),3,glass-34,4,match_to_seed_1,glass,dahduhda,water-42
+AYCHPTQRYDT7G,tear-41 (3),3,tear-41,3,match_to_seed_1,tear,shiyah,water-42
+AYCHPTQRYDT7G,glass-35 (2),4,glass-35,2,match_to_seed_1,glass,gorecto,zipper-47
+AYCHPTQRYDT7G,tear-39 (1),4,tear-39,1,match_to_seed_1,tear,a chechyu,zipper-47
+AYCHPTQRYDT7G,water-45 (3),4,water-45,3,match_to_seed_1,water,galonggalong,zipper-47
+AYCHPTQRYDT7G,water-42 (3),1,water-42,3,match_to_seed_1,water,Chicochicochicochico,glass-34
+AYCHPTQRYDT7G,zipper-49 (3),1,zipper-49,3,match_to_seed_1,zipper,iszit,glass-34
+AYCHPTQRYDT7G,zipper-47 (1),2,zipper-47,1,match_to_seed_1,zipper,veep,tear-39
+A3FUW3458K3KO,glass-34 (3),1.0,glass-34,3,match_to_seed_2,glass,dundunduh,glass-35
+A3KOVCQYR8K3HY,glass-34 (4),1.0,glass-34,4,match_to_seed_2,glass,dahduhda,glass-35
+A2UF2FRGVW4T89,water-42 (3),1.0,water-42,3,match_to_seed_2,water,Chicochicochicochico,glass-35
+A3KOVCQYR8K3HY,water-42 (3),1.0,water-42,3,match_to_seed_2,water,Chicochicochicochico,glass-35
+A3FUW3458K3KO,water-45 (3),1.0,water-45,3,match_to_seed_2,water,galonggalong,glass-35
+A2UF2FRGVW4T89,zipper-49 (1),1.0,zipper-49,1,match_to_seed_2,zipper,izit,glass-35
+A2UF2FRGVW4T89,glass-34 (4),3.0,glass-34,4,match_to_seed_2,glass,dahduhda,water-45
+A2UF2FRGVW4T89,water-45 (2),3.0,water-45,2,match_to_seed_2,water,glonglong,water-45
+A3KOVCQYR8K3HY,water-45 (3),3.0,water-45,3,match_to_seed_2,water,galonggalong,water-45
+A3FUW3458K3KO,zipper-49 (2),3.0,zipper-49,2,match_to_seed_2,zipper,izzit,water-45
+A3FUW3458K3KO,glass-35 (2),4.0,glass-35,2,match_to_seed_2,glass,gorecto,zipper-49
+A2UF2FRGVW4T89,tear-39 (1),4.0,tear-39,1,match_to_seed_2,tear,a chechyu,zipper-49
+A3FUW3458K3KO,tear-39 (1),4.0,tear-39,1,match_to_seed_2,tear,a chechyu,zipper-49
+A3KOVCQYR8K3HY,tear-41 (2),4.0,tear-41,2,match_to_seed_2,tear,sheyah,zipper-49
+A2UF2FRGVW4T89,zipper-47 (2),4.0,zipper-47,2,match_to_seed_2,zipper,veeb,zipper-49
+A3FUW3458K3KO,zipper-47 (2),4.0,zipper-47,2,match_to_seed_2,zipper,veeb,zipper-49
+A3KOVCQYR8K3HY,zipper-49 (1),4.0,zipper-49,1,match_to_seed_2,zipper,izit,zipper-49
+A2UF2FRGVW4T89,glass-35 (3),2.0,glass-35,3,match_to_seed_2,glass,Goracto,tear-41
+A3KOVCQYR8K3HY,glass-35 (3),2.0,glass-35,3,match_to_seed_2,glass,Goracto,tear-41
+A3KOVCQYR8K3HY,tear-39 (1),2.0,tear-39,1,match_to_seed_2,tear,a chechyu,tear-41
+A2UF2FRGVW4T89,tear-41 (2),2.0,tear-41,2,match_to_seed_2,tear,sheyah,tear-41
+A3FUW3458K3KO,tear-41 (4),2.0,tear-41,4,match_to_seed_2,tear,cheea,tear-41
+A3FUW3458K3KO,water-42 (1),2.0,water-42,1,match_to_seed_2,water,chewchewshewa,tear-41
+A3KOVCQYR8K3HY,zipper-47 (1),2.0,zipper-47,1,match_to_seed_2,zipper,veep,tear-41
