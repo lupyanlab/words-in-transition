@@ -35,9 +35,7 @@ def put_seeds_on_server():
 @task
 def sound_info():
     """Create a csv of info about the seeds on the server."""
-    url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/{}'.format(
-        match_transcriptions_seeds_dir
-    )
+    url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/transcription-sources/'
     re_filename = r'^([a-z]+)-(\d+)\.mp3$'
     seeds = Path(match_transcriptions_seeds_dir).listdir('*.mp3', names_only=True)
     seed_info = pd.DataFrame({'filename': seeds})
@@ -79,13 +77,13 @@ def tidy_survey():
         choice_map['choice'] = choice_map.choice_label.str.extract('(\d)', expand=True).astype(int)
         choice_map['choice_filename'] = choice_map.url.apply(lambda x: Path(x).stem)
         choice_map = choice_map[['choice', 'choice_filename']]
-        
+
         id_col = 'workerId'
 
         survey = pd.melt(survey, id_col, var_name='qualtrics_col', value_name='choice')
         re_seed = r'^([a-z]+\-\d+)\ \((\d)\)$'
         survey[['filename', 'row']] = survey.qualtrics_col.str.extract(re_seed, expand=True)
-        
+
         survey.dropna(inplace=True)
         survey['row'] = survey.row.astype(int)
         survey['survey_name'] = survey_name
@@ -95,4 +93,8 @@ def tidy_survey():
         all_surveys.append(survey)
 
     final = pd.concat(all_surveys)
+    final.sort_values(id_col, inplace=True)
+
+    final['choice_category'] = final.choice_filename.str.split('-').str.get(0)
+
     final.to_csv('match-transcriptions/match_transcriptions.csv', index=False)
