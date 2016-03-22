@@ -42,6 +42,9 @@ def sound_info():
     seed_info[['category', 'message_id']] = seed_info.filename.str.extract(re_filename, expand=True)
     seed_info['url'] = url_dst + seed_info.filename
 
+    # Add survey name
+    seed_info['survey_name'] = 'match_to_seed_' + (seed_info.groupby('category').cumcount() + 1).astype(str)
+
     seed_info.to_csv('match-transcriptions/source_info.csv', index=False)
 
 @task
