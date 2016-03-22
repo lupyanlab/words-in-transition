@@ -93,11 +93,24 @@ def tidy_survey():
         survey = survey.merge(loop_merge)
         survey = survey.merge(choice_map)
 
+        # Label the question type
+        survey_info = pd.read_csv('match-transcriptions/source_info.csv')
+        survey_info['question_type'] = 'exact'
+        survey_info['question_type'] = survey_info.question_type.where(survey_info.survey_name == survey_name, 'category')
+        survey_info['filename'] = survey_info.filename.apply(lambda x: Path(x).stem)
+        survey_info = survey_info[['filename', 'question_type']]
+        survey = survey.merge(survey_info)
+
         all_surveys.append(survey)
 
     final = pd.concat(all_surveys)
     final.sort_values(id_col, inplace=True)
 
     final['choice_category'] = final.choice_filename.str.split('-').str.get(0)
+
+    final.rename(columns=dict(chain_name='text_category'), inplace=True)
+
+    final = final[[id_col, 'survey_name', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
+    final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
     final.to_csv('match-transcriptions/match_transcriptions.csv', index=False)
