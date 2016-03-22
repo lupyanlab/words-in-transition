@@ -20,4 +20,9 @@ responses <- mutate(responses,
                     is_correct = as.numeric(selection == answer),
                     chance = 0.25)
 
-use_data(messages, questions, responses, subjects, surveys, transcriptions, overwrite = TRUE)
+# Tidy transcriptions
+transcriptions <- transcriptions %>%
+  filter(chain_name != "alligator_1.wav",  # catch trial
+         transcription_survey_name == "hand picked 1")
+
+use_data(messages, questions, responses, subjects, surveys, transcriptions, matches, overwrite = TRUE)

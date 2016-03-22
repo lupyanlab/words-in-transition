@@ -12,6 +12,10 @@ def get_transcriptions():
     run('cp wordsintransition/data-raw/transcriptions.csv match-transcriptions/')
 
 @task
+def put_matches():
+    run('cp match-transcriptions/match_transcriptions.csv wordsintransition/data-raw/matches.csv')
+
+@task
 def summarize():
     run('Rscript describe_transcriptions.R')
 

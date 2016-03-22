@@ -2,11 +2,12 @@ library(dplyr)
 library(stringr)
 library(ggplot2)
 
-guesses <- read.csv("match-transcriptions/match_transcriptions.csv",
-                    stringsAsFactors = FALSE)
-guesses$chance <- 0.25
+library(wordsintransition)
+data(matches)
 
-accuracy <- guesses %>%
+matches$chance <- 0.25
+
+accuracy <- matches %>%
   group_by(text_category, question_type, text) %>%
   summarize(
     accuracy = mean(is_correct),
@@ -22,8 +23,6 @@ ggplot(guesses, aes(x = 1, y = is_correct)) +
   geom_bar(stat = "summary", fun.y = "mean") +
   facet_wrap("question_type")
 
-summary(glm(is_correct ~ 1, offset = chance, data = guesses))
-summary(glm(is_correct ~ 1, offset = chance, data = filter(guesses, question_type == "exact")))
-summary(glm(is_correct ~ 1, offset = chance, data = filter(guesses, question_type == "category")))
-
-glmer(is_correct ~ question_type + (question_type|subj_))
+summary(glm(is_correct ~ 1, offset = chance, data = matches))
+summary(glm(is_correct ~ 1, offset = chance, data = filter(matches, question_type == "exact")))
+summary(glm(is_correct ~ 1, offset = chance, data = filter(matches, question_type == "category")))
