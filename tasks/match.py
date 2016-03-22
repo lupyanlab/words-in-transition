@@ -108,9 +108,9 @@ def tidy_survey():
 
     final['choice_category'] = final.choice_filename.str.split('-').str.get(0)
 
-    final.rename(columns=dict(chain_name='text_category'), inplace=True)
+    final.rename(columns=dict(workerId='subj_id', chain_name='text_category'), inplace=True)
 
-    final = final[[id_col, 'survey_name', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
+    final = final[['subj_id', 'survey_name', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
     final.to_csv('match-transcriptions/match_transcriptions.csv', index=False)

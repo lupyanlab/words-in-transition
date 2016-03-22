@@ -1,4 +1,4 @@
-workerId,survey_name,text,text_category,question_type,choice_filename,choice_category,is_correct
+subj_id,survey_name,text,text_category,question_type,choice_filename,choice_category,is_correct
 A002160837SWJFPIAI7L7,match_to_seed_1,sheah,tear,category,glass-34,glass,0
 A002160837SWJFPIAI7L7,match_to_seed_1,veep,zipper,exact,zipper-47,zipper,1
 A002160837SWJFPIAI7L7,match_to_seed_1,a chechyu,tear,exact,tear-39,tear,1
