@@ -1,11 +1,14 @@
 from invoke import task, run
 from unipath import Path
 import pandas as pd
+import json
 
 from .qualtrics import Qualtrics
 from .seeds import convert_wav_to_mp3, get_creds
+from .survey import pluck
 
 match_transcriptions_seeds_dir = 'match-transcriptions/transcription-sources/'
+qualtrics_survey_dir = 'match-transcriptions/surveys/'
 
 @task
 def get_transcriptions():
@@ -57,6 +60,26 @@ def survey_info():
     reject_ixs = transcriptions.index[transcriptions.rejected == 1.0]
     transcriptions.drop(reject_ixs, inplace=True)
     transcriptions.to_csv('match-transcriptions/survey-1.csv')
+
+
+def loop_merge(transcriptions_csv, version):
+    versions = dict(1=['glass-34', 'tear-39', 'water-42', 'zipper-47'],
+                    2=['glass-35', 'tear-41', 'water-45', 'zipper-49'])
+    assert version in versions,\
+        "don't know seeds for version {}".format(version)
+
+    transcriptions = pd.read_csv(transcriptions_csv)
+    transcriptions = transcriptions[['chain_name', 'text']]
+
+    source_info = pd.read_csv('match-transcriptions/source_info.csv')
+
+    for i, choice in enumerate(versions[version]):
+        field = 'choice_{}'.format(i)
+        transcriptions[field] =
+
+
+
+
 
 @task
 def download_qualtrics():
@@ -119,3 +142,10 @@ def tidy_survey():
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
     final.to_csv('match-transcriptions/match_transcriptions.csv', index=False)
+
+
+def create_survey():
+    """Create the surveys from template."""
+    template_json = Path(qualtrics_survey_dir, 'template.qsf')
+    template = json.load(open(template_json))
+    return json.dumps(template)
