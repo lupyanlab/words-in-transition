@@ -5,3 +5,6 @@ qualtrics_api_creds.yml
 .Rproj.user
 *.zip
 venv/
+
+# py.test
+.cache/
