@@ -22,9 +22,6 @@ def put_matches():
 def summarize():
     run('Rscript describe_transcriptions.R')
 
-@task
-def get_seed_wavs():
-    raise NotImplementedError
 
 @task
 def convert():
@@ -62,22 +59,6 @@ def survey_info():
     transcriptions.to_csv('match-transcriptions/survey-1.csv')
 
 
-def loop_merge(transcriptions_csv, version):
-    versions = dict(1=['glass-34', 'tear-39', 'water-42', 'zipper-47'],
-                    2=['glass-35', 'tear-41', 'water-45', 'zipper-49'])
-    assert version in versions,\
-        "don't know seeds for version {}".format(version)
-
-    transcriptions = pd.read_csv(transcriptions_csv)
-    transcriptions = transcriptions[['chain_name', 'text']]
-
-    source_info = pd.read_csv('match-transcriptions/source_info.csv')
-
-    for i, choice in enumerate(versions[version]):
-        field = 'choice_{}'.format(i)
-        transcriptions[field] =
-
-
 
 
 
@@ -94,10 +75,11 @@ def download_qualtrics():
 def tidy_survey():
     all_surveys = []
     for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
-        survey = pd.read_csv('match-transcriptions/qualtrics/{}.csv'.format(survey_name),
-                             skiprows=[0,])
+        survey_csv = Path(qualtrics_survey_dir, 'match_to_seed/responses/{}.csv'.format(survey_name))
+        survey = pd.read_csv(survey_csv, skiprows=[0,])
 
-        loop_merge = pd.read_csv('match-transcriptions/loop_merge/{}.csv'.format(survey_name))
+        loop_merge_csv = Path(qualtrics_survey_dir, 'match_to_seed/loop_merge/{}.csv'.format(survey_name))
+        loop_merge = pd.read_csv(loop_merge_csv)
 
         choice_cols = ['choice_1', 'choice_2', 'choice_3', 'choice_4']
         choices = loop_merge[choice_cols].drop_duplicates()
@@ -141,7 +123,7 @@ def tidy_survey():
     final = final[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
-    final.to_csv('match-transcriptions/match_transcriptions.csv', index=False)
+    final.to_csv('match-transcriptions/matches.csv', index=False)
 
 
 def create_survey():
