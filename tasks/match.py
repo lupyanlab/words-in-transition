@@ -61,16 +61,7 @@ def tidy():
     survey_names = ['match_to_seed_1', 'match_to_seed_2']
     surveys = [tidy_survey(survey_name) for survey_name in survey_names]
     matches = pd.concat(surveys)
-    matches.sort_values('workerId', inplace=True)
-
-    matches['seed_id'] = matches.filename.str.split('-').str.get(1)
-    matches['choice_category'] = matches.choice_filename.str.split('-').str.get(0)
-
-    matches.rename(columns=dict(workerId='subj_id', chain_name='text_category'), inplace=True)
-
-    matches = matches[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
-    matches['is_correct'] = (matches.text_category == matches.choice_category).astype(int)
-
+    matches.sort_values('subj_id', inplace=True)
     matches.to_csv('match-transcriptions/matches.csv', index=False)
 
 
@@ -164,5 +155,14 @@ def tidy_survey(survey_name):
     survey_info['filename'] = survey_info.filename.apply(lambda x: Path(x).stem)
     survey_info = survey_info[['filename', 'question_type']]
     survey = survey.merge(survey_info)
+
+    # Clean up
+    survey['seed_id'] = survey.filename.str.split('-').str.get(1)
+    survey['choice_category'] = survey.choice_filename.str.split('-').str.get(0)
+
+    survey.rename(columns=dict(workerId='subj_id', chain_name='text_category'), inplace=True)
+
+    survey = survey[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
+    survey['is_correct'] = (survey.text_category == survey.choice_category).astype(int)
 
     return survey
