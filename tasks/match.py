@@ -58,8 +58,9 @@ def download():
 @task
 def tidy():
     """Compile all Qualtrics response data into a single csv."""
-    survey_names = ['match_to_seed_1', 'match_to_seed_2']
-    surveys = [tidy_survey(survey_name) for survey_name in survey_names]
+    names = ['match_to_seed', ]
+    versions = [1, 2]
+    surveys = [tidy_survey(name, version) for name in names for version in versions]
     matches = pd.concat(surveys)
     matches.sort_values('subj_id', inplace=True)
     matches.to_csv('match-transcriptions/matches.csv', index=False)
@@ -120,11 +121,13 @@ def loop_merge(transcriptions_csv, version):
         field = 'choice_{}'.format(i)
 
 
-def tidy_survey(survey_name):
-    survey_csv = Path(surveys_dir, 'match_to_seed/responses/{}.csv'.format(survey_name))
+def tidy_survey(survey_name, survey_version):
+    survey_name_version = '{}_{}'.format(survey_name, survey_version)
+
+    survey_csv = Path(surveys_dir, 'match_to_seed/responses/{}.csv'.format(survey_name_version))
     survey = pd.read_csv(survey_csv, skiprows=[0,])
 
-    loop_merge_csv = Path(surveys_dir, 'match_to_seed/loop_merge/{}.csv'.format(survey_name))
+    loop_merge_csv = Path(surveys_dir, 'match_to_seed/loop_merge/{}.csv'.format(survey_name_version))
     loop_merge = pd.read_csv(loop_merge_csv)
 
     choice_cols = ['choice_1', 'choice_2', 'choice_3', 'choice_4']
@@ -144,14 +147,14 @@ def tidy_survey(survey_name):
 
     survey.dropna(inplace=True)
     survey['row'] = survey.row.astype(int)
-    survey['survey_name'] = survey_name
+    survey['survey_name'] = survey_name_version
     survey = survey.merge(loop_merge)
     survey = survey.merge(choice_map)
 
     # Label the question type
     survey_info = pd.read_csv('match-transcriptions/source_info.csv')
     survey_info['question_type'] = 'exact'
-    survey_info['question_type'] = survey_info.question_type.where(survey_info.survey_name == survey_name, 'category')
+    survey_info['question_type'] = survey_info.question_type.where(survey_info.survey_name == survey_name_version, 'category')
     survey_info['filename'] = survey_info.filename.apply(lambda x: Path(x).stem)
     survey_info = survey_info[['filename', 'question_type']]
     survey = survey.merge(survey_info)
@@ -159,9 +162,7 @@ def tidy_survey(survey_name):
     # Clean up
     survey['seed_id'] = survey.filename.str.split('-').str.get(1)
     survey['choice_category'] = survey.choice_filename.str.split('-').str.get(0)
-
     survey.rename(columns=dict(workerId='subj_id', chain_name='text_category'), inplace=True)
-
     survey = survey[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
     survey['is_correct'] = (survey.text_category == survey.choice_category).astype(int)
 
