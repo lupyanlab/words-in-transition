@@ -7,7 +7,13 @@ people.
 
 We also got transcriptions of the seed files themselves.
 
-Matching transcriptions to seeds
-================================
+Surveys
+=======
 
-1. 
+1. Match to imitation
+
+Can people match the transcription of an imitation back to the original seed?
+
+2. Match to seed
+
+Can people match the transcription of the original seed back to the sound?
