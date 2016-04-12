@@ -5,7 +5,7 @@ transcriptions <- read.csv("match-transcriptions/transcriptions.csv",
 
 survey_names <- c("hand picked 1", "hand picked 1 seeds")
 frequencies <- transcriptions %>%
-    filter(chain_name != "alligator_1.wav",  # catch trial
+    filter(!grepl("\\.wav$", chain_name),  # catch trials have files as chain names
            transcription_survey_name %in% survey_names) %>%
     count(transcription_survey_name, chain_name, seed_id, message_id, text) %>%
     arrange(desc(n)) %>%
@@ -26,6 +26,6 @@ match_to_seed_transcriptions <- frequencies %>%
   select_transcriptions_to_match("match_to_seed")
 
 # Commented out until "hand picked 1 seeds" transcription survey data is in
-# match_to_source_transcriptions <- frequencies %>%
-#   filter(transcription_survey_name == "hand picked 1 seeds") %>%
-#   select_transcriptions_to_match("match_to_source")
+match_to_source_transcriptions <- frequencies %>%
+  filter(transcription_survey_name == "hand picked 1 seeds") %>%
+  select_transcriptions_to_match("match_to_source")
