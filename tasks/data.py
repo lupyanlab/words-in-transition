@@ -47,6 +47,8 @@ def csv():
     transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
     transcription_questions = make_transcription_questions(Path(src_dir, 'transcribe.MessageToTranscribe.json'))
     transcriptions = make_transcriptions(Path(src_dir, 'transcribe.Transcription.json'))
+    # Apparently some people used ASCII characters
+    transcriptions['text'] = transcriptions.text.str.encode('utf-8')
 
     transcriptions = transcriptions.merge(transcription_questions)
     transcriptions = transcriptions.merge(transcription_surveys)
