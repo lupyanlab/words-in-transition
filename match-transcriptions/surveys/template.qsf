@@ -1,1 +1,454 @@
-{"SurveyEntry":{"SurveyID":"SV_bQnnwWdW55BhwHz","SurveyName":"match_transcriptions_template","SurveyDescription":null,"SurveyOwnerID":"UR_3yiQbNZVD204sE5","SurveyBrandID":"uwmadison","DivisionID":null,"SurveyLanguage":"EN","SurveyActiveResponseSet":"RS_e38loS5PQ0fDYGx","SurveyStatus":"Inactive","SurveyStartDate":"0000-00-00 00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2016-04-07 06:16:15","CreatorID":"UR_3yiQbNZVD204sE5","LastModified":"2016-04-07 06:19:50","LastAccessed":"0000-00-00 00:00:00","LastActivated":"0000-00-00 00:00:00","Deleted":null},"SurveyElements":[{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"BL","PrimaryAttribute":"Survey Blocks","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"0":{"Type":"Default","Description":"Instructions Block","ID":"BL_398wMnMLK5zkDfT","BlockElements":[{"Type":"Question","QuestionID":"QID2"}]},"1":{"Type":"Trash","Description":"Trash \/ Unused Questions","ID":"BL_6XPxSPsd3f9UrUV","BlockElements":[]},"5":{"Type":"Standard","SubType":"","Description":"my-block-name","ID":"BL_5bSTFwNFzRS0hSd","BlockElements":[{"Type":"Question","QuestionID":"QID8"}],"Options":{"BlockLocking":"false","RandomizeQuestions":"false","Looping":"Static","LoopingOptions":{"Static":{"1":{"1":"my-row-num","2":"my-chain-nam","3":"my-text","4":"my-choice-1-url","5":"my-choice-2-url","6":"my-choice-3-url","7":"my-choice-4-url"}},"Randomization":"Subset","TotalRandSubset":"1"}}}}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"BR","PrimaryAttribute":"FL_17","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"FL_16":0,"FL_12":0,"FL_13":0,"FL_10":0,"FL_11":0,"FL_14":0,"FL_15":0,"FL_8":0}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"FL","PrimaryAttribute":"Survey Flow","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"Type":"Root","FlowID":"FL_1","Flow":[{"Type":"EmbeddedData","FlowID":"FL_6","EmbeddedData":[{"Description":"workerId","Type":"Recipient","Field":"workerId","VariableType":"Nominal"},{"Description":"survey","Type":"Recipient","Field":"survey","VariableType":"Nominal"},{"Description":"assignmentId","Type":"Recipient","Field":"assignmentId","VariableType":"Nominal"}]},{"Type":"Block","ID":"BL_398wMnMLK5zkDfT","FlowID":"FL_2"},{"Type":"BlockRandomizer","FlowID":"FL_17","SubSet":1,"EvenPresentation":false,"Flow":[{"Type":"Standard","ID":"BL_5bSTFwNFzRS0hSd","FlowID":"FL_8"}]},{"Type":"EndSurvey","FlowID":"FL_7","EndingType":"Advanced","Options":{"Advanced":"true","SurveyTermination":"Redirect","EOSRedirectURL":"http:\/\/sapir.psych.wisc.edu\/TurkGate\/codes\/generate.php?stamp=10010287&responseID=${e:\/\/Field\/ResponseID}"}}],"Properties":{"Count":17}}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"SO","PrimaryAttribute":"Survey Options","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"BackButton":"false","SaveAndContinue":"true","SurveyProtection":"PublicSurvey","BallotBoxStuffingPrevention":"false","NoIndex":"Yes","SurveyExpiration":null,"SurveyTermination":"DefaultMessage","Header":"","Footer":"","ProgressBarDisplay":"Text","PartialData":"+1 week","ValidationMessage":null,"PreviousButton":"  <<  ","NextButton":"  >>  ","SkinLibrary":"uwmadison","SkinType":"MQ","Skin":"uwmadison1_possible","NewScoring":1,"libraryId":"","nextButtonMid":"","previousButtonMid":"","headerMid":"","footerMid":"","QuestionsPerPage":"","PageTransition":"Fade","ExternalCSS":null,"CustomStyles":{"errorStyles":{"selector":".Skin .ValidationError","styles":{"color":null,"backgroundColor":null,"borderColor":null}},"errorStylesBG":{"selector":".Skin .HeaderValidationError, .Skin .HeaderValidationError li a","styles":{"color":null,"backgroundColor":null}},"pageStyles":{"selector":"#SurveyEngineBody","styles":{"backgroundColor":null}},"textStyles":{"selector":".SkinInner","styles":{"fontFamily":null,"fontSize":null,"fontWeight":null,"fontStyle":null,"textDecoration":null,"color":null}},"questionStyles":{"selector":".Skin .QuestionText","styles":{"fontFamily":null,"fontSize":null,"fontWeight":null,"fontStyle":null,"textDecoration":null,"color":null}},"choiceStyles":{"selector":".Skin .horizontalbar th.ylabel, .Skin .Matrix table td, .Skin .Matrix table th, .Skin .Matrix table thead th, .Skin .Matrix table thead td, .Skin .PGR .DragAndDrop .Items label, .Skin .QuestionBody ul.ChoiceStructure, .Skin .PGR .DragAndDrop .Group ul, .Skin .PGR .DragAndDrop .Group h2, .Skin .PGR .DragAndDrop .Items ul, .Skin .PGR .DragAndDrop .Items h2, .Skin .DD .QuestionBody table.ChoiceStructure, .Skin .PGR .DragAndDrop .NoColumns td.groupsContainerTd div ul, .Skin .PGR .DragAndDrop .NoColumns td.groupsContainerTd div h2, .Skin .SBS thead th, .Skin .SBS td, .Skin .SBS .Answers td, .Skin .SBS .Answers th, .SBS table.ChoiceStructure, .Skin .horizontalbar thead table.LabelDescriptions tr td, .Skin .horizontalbar thead tr td.NotApplicable, .QuestionBody th, .Skin .QuestionBody .MC .MAVR label, .Skin .QuestionBody .MC .SAVR label, .Skin .SBS thead th, .Skin .SBS td, .Skin .RO .DND ul li, .Skin .reg, .SkinInner .ChoiceStructure, .Skin thead, .Skin .GAP .ChoiceStructure thead th, .Skin .GAP .ChoiceStructure .c4, .Skin .GAP .ChoiceStructure th, .Skin .GAP .ChoiceStructure .WhyText, .SkinInner .ChoiceStructure .LightBG, .Skin .QuestionOuter.Highlight .Inner .reg, .Skin .QuestionOuter.Highlight .Inner .alt, .Skin .QuestionOuter.Highlight .Inner .ReadableAlt       ","styles":{"fontFamily":null,"fontSize":null,"fontWeight":null,"fontStyle":null,"textDecoration":null,"color":null}},"headerStyles":{"selector":".Skin div#Header","styles":{"color":null}},"footerStyles":{"selector":".Skin #Footer","styles":{"color":null}},"questionSeparatorStyles":{"selector":".Skin .Separator","styles":{"backgroundColor":null,"display":"block"}},"highlightStyles":{"selector":".Skin .QuestionOuter.Highlight .Inner, .Skin .QuestionOuter.Highlight .Inner .reg, .Skin .QuestionOuter.Highlight .Inner .alt, .Skin .QuestionOuter.Highlight .Inner .ReadableAlt","styles":{"backgroundColor":null}},"highlightStylesAlt":{"selector":".Skin .QuestionOuter.Highlight .Inner .ReadableAlt, .Skin .QuestionOuter.Highlight .Inner .LightBG","styles":{"backgroundColor":null}},"textEntryStyles":{"selector":".Skin select, .Skin .InputText","styles":{"color":null}},"borderStyles":{"selector":".Skin .CS .horizontalbar table.sliderGrid tr.xlabel th, .Skin .CS .horizontalbar .ylabel, .Skin .CS .horizontalbar table.sliderGrid tr td.value, .Skin .Slider .horizontalbar table.sliderGrid tr.xlabel th, .Skin .BorderColor, .Skin .DarkBorderColor, .Skin .Slider .horizontalbar table.sliderGrid tr td.value, .Skin thead, .Skin .GAP .ChoiceStructure thead th  ","styles":{"borderColor":null}},"altRowStyles":{"selector":".Skin .ReadableAlt, .Skin .LightBG","styles":{"backgroundColor":null}},"customCSS":null},"HighlightQuestions":"off","EOSMessage":"","ShowExportTags":"false","CollectGeoLocation":"false","SurveyTitle":"Online Survey Software | Qualtrics Survey Solutions","SurveyMetaDescription":"Qualtrics sophisticated online survey software solutions make creating online surveys easy. Learn more about Research Suite and get a free account today.","PasswordProtection":"No","AnonymizeResponse":"No","Password":"","RefererCheck":"No","RefererURL":"http:\/\/","EOSMessageLibrary":"","EOSRedirectURL":"http:\/\/","EmailThankYou":"false","ThankYouEmailMessageLibrary":null,"ThankYouEmailMessage":null,"ValidateMessage":"false","ValidationMessageLibrary":null,"InactiveSurvey":"DefaultMessage","InactiveMessageLibrary":"","InactiveMessage":"","AvailableLanguages":{"EN":[]},"ProtectSelectionIds":true}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"SCO","PrimaryAttribute":"Scoring","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"ScoringCategories":[],"ScoringCategoryGroups":[],"ScoringSummaryCategory":null,"ScoringSummaryAfterQuestions":0,"ScoringSummaryAfterSurvey":0,"DefaultScoringCategory":null,"AutoScoringCategory":null}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"STAT","PrimaryAttribute":"Survey Statistics","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"MobileCompatible":false,"ID":"Survey Statistics"}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"QC","PrimaryAttribute":"Survey Question Count","SecondaryAttribute":"15","TertiaryAttribute":null,"Payload":null},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"RS","PrimaryAttribute":"RS_e38loS5PQ0fDYGx","SecondaryAttribute":"Default Response Set","TertiaryAttribute":null,"Payload":null},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"SQ","PrimaryAttribute":"QID2","SecondaryAttribute":"instructions","TertiaryAttribute":null,"Payload":{"QuestionText":"<div>In this short survey, you will be given a new word someone else invented and you'll have to try to guess what they were talking about. For each word you are given, you will have four choices as to what that word could mean.&nbsp;<\/div><div><br><\/div><div>The choices for what the word could mean are four different sound effects, so you need working speakers (preferably headphones) in order to complete the HIT.<\/div><div><br><\/div><div>Please listen to all of the sounds completely before you make your response. You can play each sound as many times as you like.<\/div>","DefaultChoices":false,"DataExportTag":"I1","QuestionType":"DB","Selector":"TB","Configuration":{"QuestionDescriptionOption":"SpecifyLabel"},"QuestionDescription":"instructions","ChoiceOrder":[],"Validation":{"Settings":{"Type":"None"}},"GradingData":[],"Language":[],"QuestionID":"QID2"}},{"SurveyID":"SV_bQnnwWdW55BhwHz","Element":"SQ","PrimaryAttribute":"QID8","SecondaryAttribute":"my-question-label","TertiaryAttribute":null,"Payload":{"QuestionText":"<div style=\"text-align: center;\"><span style=\"font-size:16px;\">Someone invented the following word to name one of the choices below. Which one is it?<\/span><\/div>\n\n<div>&nbsp;<\/div>\n\n<div style=\"text-align: center;\"><span style=\"font-size:22px;\"><strong>${lm:\/\/Field\/3}<\/strong><\/span><\/div>","DataExportTag":"my-question-name","QuestionType":"MC","Selector":"SAHR","SubSelector":"TX","Configuration":{"QuestionDescriptionOption":"SpecifyLabel","LabelPosition":"BELOW"},"QuestionDescription":"my-question-label","Choices":{"1":{"Display":"<embed class=\"qmedia\" flashvars=\"file=${lm:\/\/Field\/4}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http:\/\/adobe.com\/flashplayer\/\" src=\"..\/WRQualtricsShared\/Flash\/flvplayer.swf\" type=\"application\/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"><\/embed>"},"2":{"Display":"<embed class=\"qmedia\" flashvars=\"file=${lm:\/\/Field\/5}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http:\/\/adobe.com\/flashplayer\/\" src=\"..\/WRQualtricsShared\/Flash\/flvplayer.swf\" type=\"application\/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"><\/embed>"},"3":{"Display":"<embed class=\"qmedia\" flashvars=\"file=${lm:\/\/Field\/6}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http:\/\/adobe.com\/flashplayer\/\" src=\"..\/WRQualtricsShared\/Flash\/flvplayer.swf\" type=\"application\/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"><\/embed>"},"4":{"Display":"<embed class=\"qmedia\" flashvars=\"file=${lm:\/\/Field\/7}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http:\/\/adobe.com\/flashplayer\/\" src=\"..\/WRQualtricsShared\/Flash\/flvplayer.swf\" type=\"application\/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"><\/embed>"}},"ChoiceOrder":["1","2","3","4"],"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"Language":[],"QuestionID":"QID8","Randomization":{"Type":"Advanced","TotalRandSubset":""}}}]}
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_bQnnwWdW55BhwHz",
+    "SurveyName": "match_transcriptions_template",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_3yiQbNZVD204sE5",
+    "SurveyBrandID": "uwmadison",
+    "DivisionID": null,
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_e38loS5PQ0fDYGx",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2016-04-07 06:16:15",
+    "CreatorID": "UR_3yiQbNZVD204sE5",
+    "LastModified": "2016-04-07 06:19:50",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "0": {
+          "Type": "Default",
+          "Description": "Instructions Block",
+          "ID": "BL_398wMnMLK5zkDfT",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID2"
+            }
+          ]
+        },
+        "1": {
+          "Type": "Trash",
+          "Description": "Trash / Unused Questions",
+          "ID": "BL_6XPxSPsd3f9UrUV",
+          "BlockElements": []
+        },
+        "5": {
+          "Type": "Standard",
+          "SubType": "",
+          "Description": "my-block-name",
+          "ID": "BL_5bSTFwNFzRS0hSd",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID8"
+            }
+          ],
+          "Options": {
+            "BlockLocking": "false",
+            "RandomizeQuestions": "false",
+            "Looping": "Static",
+            "LoopingOptions": {
+              "Static": {
+                "1": {
+                  "1": "my-row-num",
+                  "2": "my-chain-nam",
+                  "3": "my-text",
+                  "4": "my-choice-1-url",
+                  "5": "my-choice-2-url",
+                  "6": "my-choice-3-url",
+                  "7": "my-choice-4-url"
+                }
+              },
+              "Randomization": "Subset",
+              "TotalRandSubset": "1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "BR",
+      "PrimaryAttribute": "FL_17",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "FL_16": 0,
+        "FL_12": 0,
+        "FL_13": 0,
+        "FL_10": 0,
+        "FL_11": 0,
+        "FL_14": 0,
+        "FL_15": 0,
+        "FL_8": 0
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Type": "Root",
+        "FlowID": "FL_1",
+        "Flow": [
+          {
+            "Type": "EmbeddedData",
+            "FlowID": "FL_6",
+            "EmbeddedData": [
+              {
+                "Description": "workerId",
+                "Type": "Recipient",
+                "Field": "workerId",
+                "VariableType": "Nominal"
+              },
+              {
+                "Description": "survey",
+                "Type": "Recipient",
+                "Field": "survey",
+                "VariableType": "Nominal"
+              },
+              {
+                "Description": "assignmentId",
+                "Type": "Recipient",
+                "Field": "assignmentId",
+                "VariableType": "Nominal"
+              }
+            ]
+          },
+          {
+            "Type": "Block",
+            "ID": "BL_398wMnMLK5zkDfT",
+            "FlowID": "FL_2"
+          },
+          {
+            "Type": "BlockRandomizer",
+            "FlowID": "FL_17",
+            "SubSet": 1,
+            "EvenPresentation": false,
+            "Flow": [
+              {
+                "Type": "Standard",
+                "ID": "BL_5bSTFwNFzRS0hSd",
+                "FlowID": "FL_8"
+              }
+            ]
+          },
+          {
+            "Type": "EndSurvey",
+            "FlowID": "FL_7",
+            "EndingType": "Advanced",
+            "Options": {
+              "Advanced": "true",
+              "SurveyTermination": "Redirect",
+              "EOSRedirectURL": "http://sapir.psych.wisc.edu/TurkGate/codes/generate.php?stamp=10010287&responseID=${e://Field/ResponseID}"
+            }
+          }
+        ],
+        "Properties": {
+          "Count": 17
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SurveyExpiration": null,
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "Text",
+        "PartialData": "+1 week",
+        "ValidationMessage": null,
+        "PreviousButton": "  <<  ",
+        "NextButton": "  >>  ",
+        "SkinLibrary": "uwmadison",
+        "SkinType": "MQ",
+        "Skin": "uwmadison1_possible",
+        "NewScoring": 1,
+        "libraryId": "",
+        "nextButtonMid": "",
+        "previousButtonMid": "",
+        "headerMid": "",
+        "footerMid": "",
+        "QuestionsPerPage": "",
+        "PageTransition": "Fade",
+        "ExternalCSS": null,
+        "CustomStyles": {
+          "errorStyles": {
+            "selector": ".Skin .ValidationError",
+            "styles": {
+              "color": null,
+              "backgroundColor": null,
+              "borderColor": null
+            }
+          },
+          "errorStylesBG": {
+            "selector": ".Skin .HeaderValidationError, .Skin .HeaderValidationError li a",
+            "styles": {
+              "color": null,
+              "backgroundColor": null
+            }
+          },
+          "pageStyles": {
+            "selector": "#SurveyEngineBody",
+            "styles": {
+              "backgroundColor": null
+            }
+          },
+          "textStyles": {
+            "selector": ".SkinInner",
+            "styles": {
+              "fontFamily": null,
+              "fontSize": null,
+              "fontWeight": null,
+              "fontStyle": null,
+              "textDecoration": null,
+              "color": null
+            }
+          },
+          "questionStyles": {
+            "selector": ".Skin .QuestionText",
+            "styles": {
+              "fontFamily": null,
+              "fontSize": null,
+              "fontWeight": null,
+              "fontStyle": null,
+              "textDecoration": null,
+              "color": null
+            }
+          },
+          "choiceStyles": {
+            "selector": ".Skin .horizontalbar th.ylabel, .Skin .Matrix table td, .Skin .Matrix table th, .Skin .Matrix table thead th, .Skin .Matrix table thead td, .Skin .PGR .DragAndDrop .Items label, .Skin .QuestionBody ul.ChoiceStructure, .Skin .PGR .DragAndDrop .Group ul, .Skin .PGR .DragAndDrop .Group h2, .Skin .PGR .DragAndDrop .Items ul, .Skin .PGR .DragAndDrop .Items h2, .Skin .DD .QuestionBody table.ChoiceStructure, .Skin .PGR .DragAndDrop .NoColumns td.groupsContainerTd div ul, .Skin .PGR .DragAndDrop .NoColumns td.groupsContainerTd div h2, .Skin .SBS thead th, .Skin .SBS td, .Skin .SBS .Answers td, .Skin .SBS .Answers th, .SBS table.ChoiceStructure, .Skin .horizontalbar thead table.LabelDescriptions tr td, .Skin .horizontalbar thead tr td.NotApplicable, .QuestionBody th, .Skin .QuestionBody .MC .MAVR label, .Skin .QuestionBody .MC .SAVR label, .Skin .SBS thead th, .Skin .SBS td, .Skin .RO .DND ul li, .Skin .reg, .SkinInner .ChoiceStructure, .Skin thead, .Skin .GAP .ChoiceStructure thead th, .Skin .GAP .ChoiceStructure .c4, .Skin .GAP .ChoiceStructure th, .Skin .GAP .ChoiceStructure .WhyText, .SkinInner .ChoiceStructure .LightBG, .Skin .QuestionOuter.Highlight .Inner .reg, .Skin .QuestionOuter.Highlight .Inner .alt, .Skin .QuestionOuter.Highlight .Inner .ReadableAlt       ",
+            "styles": {
+              "fontFamily": null,
+              "fontSize": null,
+              "fontWeight": null,
+              "fontStyle": null,
+              "textDecoration": null,
+              "color": null
+            }
+          },
+          "headerStyles": {
+            "selector": ".Skin div#Header",
+            "styles": {
+              "color": null
+            }
+          },
+          "footerStyles": {
+            "selector": ".Skin #Footer",
+            "styles": {
+              "color": null
+            }
+          },
+          "questionSeparatorStyles": {
+            "selector": ".Skin .Separator",
+            "styles": {
+              "backgroundColor": null,
+              "display": "block"
+            }
+          },
+          "highlightStyles": {
+            "selector": ".Skin .QuestionOuter.Highlight .Inner, .Skin .QuestionOuter.Highlight .Inner .reg, .Skin .QuestionOuter.Highlight .Inner .alt, .Skin .QuestionOuter.Highlight .Inner .ReadableAlt",
+            "styles": {
+              "backgroundColor": null
+            }
+          },
+          "highlightStylesAlt": {
+            "selector": ".Skin .QuestionOuter.Highlight .Inner .ReadableAlt, .Skin .QuestionOuter.Highlight .Inner .LightBG",
+            "styles": {
+              "backgroundColor": null
+            }
+          },
+          "textEntryStyles": {
+            "selector": ".Skin select, .Skin .InputText",
+            "styles": {
+              "color": null
+            }
+          },
+          "borderStyles": {
+            "selector": ".Skin .CS .horizontalbar table.sliderGrid tr.xlabel th, .Skin .CS .horizontalbar .ylabel, .Skin .CS .horizontalbar table.sliderGrid tr td.value, .Skin .Slider .horizontalbar table.sliderGrid tr.xlabel th, .Skin .BorderColor, .Skin .DarkBorderColor, .Skin .Slider .horizontalbar table.sliderGrid tr td.value, .Skin thead, .Skin .GAP .ChoiceStructure thead th  ",
+            "styles": {
+              "borderColor": null
+            }
+          },
+          "altRowStyles": {
+            "selector": ".Skin .ReadableAlt, .Skin .LightBG",
+            "styles": {
+              "backgroundColor": null
+            }
+          },
+          "customCSS": null
+        },
+        "HighlightQuestions": "off",
+        "EOSMessage": "",
+        "ShowExportTags": "false",
+        "CollectGeoLocation": "false",
+        "SurveyTitle": "Online Survey Software | Qualtrics Survey Solutions",
+        "SurveyMetaDescription": "Qualtrics sophisticated online survey software solutions make creating online surveys easy. Learn more about Research Suite and get a free account today.",
+        "PasswordProtection": "No",
+        "AnonymizeResponse": "No",
+        "Password": "",
+        "RefererCheck": "No",
+        "RefererURL": "http://",
+        "EOSMessageLibrary": "",
+        "EOSRedirectURL": "http://",
+        "EmailThankYou": "false",
+        "ThankYouEmailMessageLibrary": null,
+        "ThankYouEmailMessage": null,
+        "ValidateMessage": "false",
+        "ValidationMessageLibrary": null,
+        "InactiveSurvey": "DefaultMessage",
+        "InactiveMessageLibrary": "",
+        "InactiveMessage": "",
+        "AvailableLanguages": {
+          "EN": []
+        },
+        "ProtectSelectionIds": true
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": false,
+        "ID": "Survey Statistics"
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "15",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_e38loS5PQ0fDYGx",
+      "SecondaryAttribute": "Default Response Set",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID2",
+      "SecondaryAttribute": "instructions",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "<div>In this short survey, you will be given a new word someone else invented and you'll have to try to guess what they were talking about. For each word you are given, you will have four choices as to what that word could mean.&nbsp;</div><div><br></div><div>The choices for what the word could mean are four different sound effects, so you need working speakers (preferably headphones) in order to complete the HIT.</div><div><br></div><div>Please listen to all of the sounds completely before you make your response. You can play each sound as many times as you like.</div>",
+        "DefaultChoices": false,
+        "DataExportTag": "I1",
+        "QuestionType": "DB",
+        "Selector": "TB",
+        "Configuration": {
+          "QuestionDescriptionOption": "SpecifyLabel"
+        },
+        "QuestionDescription": "instructions",
+        "ChoiceOrder": [],
+        "Validation": {
+          "Settings": {
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "QuestionID": "QID2"
+      }
+    },
+    {
+      "SurveyID": "SV_bQnnwWdW55BhwHz",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID8",
+      "SecondaryAttribute": "my-question-label",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "<div style=\"text-align: center;\"><span style=\"font-size:16px;\">Someone invented the following word to name one of the choices below. Which one is it?</span></div>\n\n<div>&nbsp;</div>\n\n<div style=\"text-align: center;\"><span style=\"font-size:22px;\"><strong>${lm://Field/3}</strong></span></div>",
+        "DataExportTag": "my-question-name",
+        "QuestionType": "MC",
+        "Selector": "SAHR",
+        "SubSelector": "TX",
+        "Configuration": {
+          "QuestionDescriptionOption": "SpecifyLabel",
+          "LabelPosition": "BELOW"
+        },
+        "QuestionDescription": "my-question-label",
+        "Choices": {
+          "1": {
+            "Display": "<embed class=\"qmedia\" flashvars=\"file=${lm://Field/4}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"../WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"></embed>"
+          },
+          "2": {
+            "Display": "<embed class=\"qmedia\" flashvars=\"file=${lm://Field/5}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"../WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"></embed>"
+          },
+          "3": {
+            "Display": "<embed class=\"qmedia\" flashvars=\"file=${lm://Field/6}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"../WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"></embed>"
+          },
+          "4": {
+            "Display": "<embed class=\"qmedia\" flashvars=\"file=${lm://Field/7}&amp;width=100&amp;height=20&amp;type=mp3&amp;autostart=false\" height=\"22\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"../WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"110\" wmode=\"transparent\"></embed>"
+          }
+        },
+        "ChoiceOrder": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "QuestionID": "QID8",
+        "Randomization": {
+          "Type": "Advanced",
+          "TotalRandSubset": ""
+        }
+      }
+    }
+  ]
+}
