@@ -5,5 +5,6 @@ import seeds
 import docs
 import data
 import match
+import transcrip
 
-namespace = Collection(seeds, docs, data, match)
+namespace = Collection(seeds, docs, data, match, transcrip)
