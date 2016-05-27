@@ -9,14 +9,14 @@ import pandas as pd
 
 from .qualtrics import Qualtrics
 
-seeds_dir = 'norm-seeds/all-seeds'
+seeds_dir = 'reports/1-determine-seeds/all-seeds'
 host_dst = '/var/www/stimuli/words-in-transition/'
 url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/all-seeds/'
 
 project_root = Path('.').absolute()
 tasks_dir = Path(project_root, 'tasks')
 
-seed_info_csv = 'norm-seeds/all-seeds.csv'
+seed_info_csv = 'reports/1-determine-seeds/all-seeds.csv'
 
 @task
 def convert_wav_to_mp3(src_dir=None, dst_dir=None):

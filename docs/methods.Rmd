@@ -18,7 +18,7 @@ To do this, we started with 6 categories of sounds, and 6 exemplars of each
 category. Then we had norming participants to listen to each of the sounds
 in a category and pick the one that was the most different. After an initial
 round of norming, we removed the most egregious outliers, and ran another
-round of norming, this time with 5 categories of sounds and 5 exemplars in
+round of norming, this time with 6 categories of sounds and 4 exemplars in
 each category. Again participants picked the outlier sound.
 
 ## Collecting imitations

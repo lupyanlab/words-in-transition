@@ -1,3 +1,4 @@
+"""Convert json DB dumps from telephone app to csvs for analysis."""
 import pandas as pd
 
 
