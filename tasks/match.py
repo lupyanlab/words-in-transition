@@ -5,63 +5,13 @@ import pandas as pd
 from .qualtrics import Qualtrics
 from .seeds import convert_wav_to_mp3, get_creds
 
-match_transcriptions_seeds_dir = 'match-transcriptions/transcription-sources/'
 report_dir = Path('reports/5-match-to-seed-transcriptions/')
 qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
 
-@task
-def get_transcriptions():
-    run('cp wordsintransition/data-raw/transcriptions.csv match-transcriptions/')
-
-@task
-def put_matches():
-    run('cp match-transcriptions/match_transcriptions.csv wordsintransition/data-raw/matches.csv')
-
-@task
-def summarize():
-    run('Rscript describe_transcriptions.R')
-
-@task
-def get_seed_wavs():
-    raise NotImplementedError
-
-@task
-def convert():
-    convert_wav_to_mp3(match_transcriptions_seeds_dir)
-
-@task
-def put_seeds_on_server():
-    from fabric.api import env
-    from fabric.operations import put
-    src_dir = match_transcriptions_seeds_dir
-    host_dst = '/var/www/stimuli/words-in-transition'
-    env.host_string = 'pierce@sapir.psych.wisc.edu'
-    put(src_dir, host_dst, use_sudo=True)
-
-@task
-def sound_info():
-    """Create a csv of info about the seeds on the server."""
-    url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/transcription-sources/'
-    re_filename = r'^([a-z]+)-(\d+)\.mp3$'
-    seeds = Path(match_transcriptions_seeds_dir).listdir('*.mp3', names_only=True)
-    seed_info = pd.DataFrame({'filename': seeds})
-    seed_info[['category', 'message_id']] = seed_info.filename.str.extract(re_filename, expand=True)
-    seed_info['url'] = url_dst + seed_info.filename
-
-    # Add survey name
-    seed_info['survey_name'] = 'match_to_seed_' + (seed_info.groupby('category').cumcount() + 1).astype(str)
-
-    seed_info.to_csv('match-transcriptions/source_info.csv', index=False)
-
-@task
-def survey_info():
-    transcriptions = pd.read_csv('match-transcriptions/selected-edited.csv')
-    reject_ixs = transcriptions.index[transcriptions.rejected == 1.0]
-    transcriptions.drop(reject_ixs, inplace=True)
-    transcriptions.to_csv('match-transcriptions/survey-1.csv')
 
 @task
 def download_qualtrics():
+    """Download match imitation data from Qualtrics."""
     qualtrics = Qualtrics(**get_creds())
     for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
         responses = qualtrics.get_survey_responses(survey_name)
@@ -73,6 +23,7 @@ def download_qualtrics():
 
 @task
 def tidy_survey():
+    """Process match imitation surveys from Qualtrics."""
     all_surveys = []
     for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
         survey = pd.read_csv(
