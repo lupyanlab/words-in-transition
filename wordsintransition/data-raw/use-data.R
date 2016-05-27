@@ -32,6 +32,7 @@ use_data(
   imitations,
   match_imitations,
   transcriptions,
+  frequencies,
   match_transcriptions,
   overwrite = TRUE
 )

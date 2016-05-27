@@ -1,403 +1,361 @@
-transcription_id,message_to_transcribe_id,text,message_id,transcription_survey_id,transcription_survey_name,catch_trial_id,seed_id,chain_name
-1,15,izut,505,2,hand picked 1 test,10,49,zipper
-213,15,izzit,505,2,hand picked 1 test,10,49,zipper
-224,15,ézzip,505,2,hand picked 1 test,10,49,zipper
-19,6,izzip,505,1,hand picked 1,1,49,zipper
-20,6,izzit,505,1,hand picked 1,1,49,zipper
-43,6,izit,505,1,hand picked 1,1,49,zipper
-47,6,izzit,505,1,hand picked 1,1,49,zipper
-56,6,izzit,505,1,hand picked 1,1,49,zipper
-58,6,eezzit,505,1,hand picked 1,1,49,zipper
-63,6,izit,505,1,hand picked 1,1,49,zipper
-74,6,Izzip,505,1,hand picked 1,1,49,zipper
-83,6,izzzzit,505,1,hand picked 1,1,49,zipper
-94,6,izit,505,1,hand picked 1,1,49,zipper
-104,6,iszit,505,1,hand picked 1,1,49,zipper
-114,6,iszit,505,1,hand picked 1,1,49,zipper
-118,6,Izzzit,505,1,hand picked 1,1,49,zipper
-126,6,izip,505,1,hand picked 1,1,49,zipper
-133,6,Izzzip,505,1,hand picked 1,1,49,zipper
-136,6,izit,505,1,hand picked 1,1,49,zipper
-144,6,iszzzip,505,1,hand picked 1,1,49,zipper
-155,6,izzitt,505,1,hand picked 1,1,49,zipper
-170,6,ZIP,505,1,hand picked 1,1,49,zipper
-173,6,izzit,505,1,hand picked 1,1,49,zipper
-191,6,izit,505,1,hand picked 1,1,49,zipper
-206,6,Izzzit,505,1,hand picked 1,1,49,zipper
-209,6,izziiiip,505,1,hand picked 1,1,49,zipper
-2,18,chewchewchew,563,2,hand picked 1 test,10,42,water
-219,18,shcho-shcho-shcho-shchow,563,2,hand picked 1 test,10,42,water
-10,9,Chicochicochicochico,563,1,hand picked 1,1,42,water
-22,9,CHOCHOCCHOOCHO,563,1,hand picked 1,1,42,water
-25,9,chunshumchunshum,563,1,hand picked 1,1,42,water
-27,9,chewchewshewa,563,1,hand picked 1,1,42,water
-44,9,chogugoshcheoo,563,1,hand picked 1,1,42,water
-65,9,choooo chooo chooo choooo,563,1,hand picked 1,1,42,water
-67,9,shuckchuchuyukchu,563,1,hand picked 1,1,42,water
-68,9,chewscutcutsew,563,1,hand picked 1,1,42,water
-81,9,Chockakaka,563,1,hand picked 1,1,42,water
-82,9,schgoschgoschgoscho,563,1,hand picked 1,1,42,water
-95,9,chooskoochoo,563,1,hand picked 1,1,42,water
-109,9,chuckchuckchukchu,563,1,hand picked 1,1,42,water
-119,9,Choochoochoochoo,563,1,hand picked 1,1,42,water
-124,9,chu-chu-chu-chu,563,1,hand picked 1,1,42,water
-138,9,yodumbdumbshoe,563,1,hand picked 1,1,42,water
-146,9,shoshopchuchu,563,1,hand picked 1,1,42,water
-161,9,zhoezhoezhoezhoe,563,1,hand picked 1,1,42,water
-176,9,CHEW,563,1,hand picked 1,1,42,water
-177,9,chochochocho,563,1,hand picked 1,1,42,water
-187,9,chuchuchuchu,563,1,hand picked 1,1,42,water
-198,9,Gshoogshoogshoogshoo,563,1,hand picked 1,1,42,water
-207,9,luck ju ju ju ju luck,563,1,hand picked 1,1,42,water
-3,13,gorato,502,2,hand picked 1 test,10,35,glass
-215,13,goratto,502,2,hand picked 1 test,10,35,glass
-222,13,gaurato,502,2,hand picked 1 test,10,35,glass
-6,4,Goracto,502,1,hand picked 1,1,35,glass
-29,4,gorcto,502,1,hand picked 1,1,35,glass
-33,4,DIRECTO,502,1,hand picked 1,1,35,glass
-46,4,gorecto,502,1,hand picked 1,1,35,glass
-52,4,goracto,502,1,hand picked 1,1,35,glass
-54,4,roracto,502,1,hand picked 1,1,35,glass
-66,4,goracto,502,1,hand picked 1,1,35,glass
-78,4,gorecto,502,1,hand picked 1,1,35,glass
-80,4,Gorracto,502,1,hand picked 1,1,35,glass
-101,4,gorato,502,1,hand picked 1,1,35,glass
-105,4,garrotto,502,1,hand picked 1,1,35,glass
-107,4,garratto,502,1,hand picked 1,1,35,glass
-120,4,Goracto,502,1,hand picked 1,1,35,glass
-128,4,correcto,502,1,hand picked 1,1,35,glass
-131,4,directo,502,1,hand picked 1,1,35,glass
-148,4,gorecto,502,1,hand picked 1,1,35,glass
-151,4,garecto,502,1,hand picked 1,1,35,glass
-160,4,CORRECTO,502,1,hand picked 1,1,35,glass
-165,4,dorakdo,502,1,hand picked 1,1,35,glass
-175,4,gorakdoh,502,1,hand picked 1,1,35,glass
-183,4,goracto,502,1,hand picked 1,1,35,glass
-190,4,Garage door,502,1,hand picked 1,1,35,glass
-199,4,Ygoradtdo,502,1,hand picked 1,1,35,glass
-204,4,gordato,502,1,hand picked 1,1,35,glass
-4,11,veep,377,2,hand picked 1 test,10,47,zipper
-217,11,veep,377,2,hand picked 1 test,10,47,zipper
-13,2,eeeep,377,1,hand picked 1,1,47,zipper
-15,2,veep,377,1,hand picked 1,1,47,zipper
-18,2,ceep,377,1,hand picked 1,1,47,zipper
-21,2,veep,377,1,hand picked 1,1,47,zipper
-45,2,zeep,377,1,hand picked 1,1,47,zipper
-61,2,feep,377,1,hand picked 1,1,47,zipper
-64,2,zeeee pp,377,1,hand picked 1,1,47,zipper
-77,2,Veep,377,1,hand picked 1,1,47,zipper
-85,2,veeeep,377,1,hand picked 1,1,47,zipper
-98,2,veep,377,1,hand picked 1,1,47,zipper
-99,2,veeb,377,1,hand picked 1,1,47,zipper
-111,2,veeb,377,1,hand picked 1,1,47,zipper
-115,2,Veeeep,377,1,hand picked 1,1,47,zipper
-132,2,veep,377,1,hand picked 1,1,47,zipper
-134,2,beep,377,1,hand picked 1,1,47,zipper
-156,2,veyip,377,1,hand picked 1,1,47,zipper
-157,2,veekup,377,1,hand picked 1,1,47,zipper
-174,2,veeeeee,377,1,hand picked 1,1,47,zipper
-179,2,BEEP,377,1,hand picked 1,1,47,zipper
-180,2,veep,377,1,hand picked 1,1,47,zipper
-189,2,veeep,377,1,hand picked 1,1,47,zipper
-200,2,Bveeeeeep,377,1,hand picked 1,1,47,zipper
-201,2,veeeeeep,377,1,hand picked 1,1,47,zipper
-5,10,alligator,569,2,hand picked 1 test,10,569,alligator_1_kkd0O0k.wav
-216,10,alligator,569,2,hand picked 1 test,10,569,alligator_1_kkd0O0k.wav
-7,14,sheya,522,2,hand picked 1 test,10,41,tear
-214,14,tscheeah,522,2,hand picked 1 test,10,41,tear
-223,14,shi-aaah,522,2,hand picked 1 test,10,41,tear
-12,5,sheyah,522,1,hand picked 1,1,41,tear
-23,5,sheeaa,522,1,hand picked 1,1,41,tear
-30,5,SHEAY,522,1,hand picked 1,1,41,tear
-36,5,sheah,522,1,hand picked 1,1,41,tear
-55,5,tchiah,522,1,hand picked 1,1,41,tear
-60,5,shiiaap,522,1,hand picked 1,1,41,tear
-69,5,cheea,522,1,hand picked 1,1,41,tear
-75,5,Chia,522,1,hand picked 1,1,41,tear
-87,5,sheeeaaah,522,1,hand picked 1,1,41,tear
-88,5,Shear,522,1,hand picked 1,1,41,tear
-100,5,schiya,522,1,hand picked 1,1,41,tear
-110,5,cheeaa,522,1,hand picked 1,1,41,tear
-121,5,sheah,522,1,hand picked 1,1,41,tear
-123,5,Sheeyaa,522,1,hand picked 1,1,41,tear
-143,5,sheya,522,1,hand picked 1,1,41,tear
-145,5,sheeya,522,1,hand picked 1,1,41,tear
-150,5,shiyah,522,1,hand picked 1,1,41,tear
-153,5,shiyah,522,1,hand picked 1,1,41,tear
-171,5,sheyah,522,1,hand picked 1,1,41,tear
-172,5,SHE,522,1,hand picked 1,1,41,tear
-184,5,sheah,522,1,hand picked 1,1,41,tear
-195,5,Shiyaab,522,1,hand picked 1,1,41,tear
-210,5,cheeyah,522,1,hand picked 1,1,41,tear
-8,16,dun dun dah,566,2,hand picked 1 test,10,34,glass
-218,16,dundundah,566,2,hand picked 1 test,10,34,glass
-14,7,dundunda,566,1,hand picked 1,1,34,glass
-28,7,dundundah,566,1,hand picked 1,1,34,glass
-41,7,dundunda,566,1,hand picked 1,1,34,glass
-49,7,duh duh dah,566,1,hand picked 1,1,34,glass
-50,7,dunduhduh,566,1,hand picked 1,1,34,glass
-53,7,DUNDUNTA,566,1,hand picked 1,1,34,glass
-72,7,Tantata,566,1,hand picked 1,1,34,glass
-73,7,tunduntah,566,1,hand picked 1,1,34,glass
-86,7,dundunduh,566,1,hand picked 1,1,34,glass
-91,7,dundunda,566,1,hand picked 1,1,34,glass
-103,7,dundunda,566,1,hand picked 1,1,34,glass
-112,7,dundunda,566,1,hand picked 1,1,34,glass
-122,7,Dundunda,566,1,hand picked 1,1,34,glass
-127,7,dun-du-dah,566,1,hand picked 1,1,34,glass
-130,7,dahduhda,566,1,hand picked 1,1,34,glass
-141,7,dundunda,566,1,hand picked 1,1,34,glass
-152,7,temthemda,566,1,hand picked 1,1,34,glass
-162,7,dundunda,566,1,hand picked 1,1,34,glass
-163,7,dundunduh,566,1,hand picked 1,1,34,glass
-185,7,dundunda,566,1,hand picked 1,1,34,glass
-196,7,dundundah,566,1,hand picked 1,1,34,glass
-202,7,dun dun dah,566,1,hand picked 1,1,34,glass
-9,17,achechu,560,2,hand picked 1 test,10,39,tear
-221,17,achit-chew,560,2,hand picked 1 test,10,39,tear
-31,8,achichuwe,560,1,hand picked 1,1,39,tear
-32,8,ititchum,560,1,hand picked 1,1,39,tear
-34,8,Atitchoo,560,1,hand picked 1,1,39,tear
-40,8,achichoo,560,1,hand picked 1,1,39,tear
-48,8,ATTETCHUW,560,1,hand picked 1,1,39,tear
-51,8,a chechyu,560,1,hand picked 1,1,39,tear
-57,8,Achetssue,560,1,hand picked 1,1,39,tear
-70,8,Achechew,560,1,hand picked 1,1,39,tear
-90,8,achechsshshshshoooo,560,1,hand picked 1,1,39,tear
-92,8,pachechu,560,1,hand picked 1,1,39,tear
-93,8,ashechechu,560,1,hand picked 1,1,39,tear
-113,8,achechchu,560,1,hand picked 1,1,39,tear
-125,8,Achetshooo,560,1,hand picked 1,1,39,tear
-137,8,achechu,560,1,hand picked 1,1,39,tear
-140,8,a-chitch-shu,560,1,hand picked 1,1,39,tear
-154,8,achechhh-shu,560,1,hand picked 1,1,39,tear
-164,8,A SHOE,560,1,hand picked 1,1,39,tear
-178,8,achishoe,560,1,hand picked 1,1,39,tear
-181,8,achetshue,560,1,hand picked 1,1,39,tear
-188,8,A church shoe,560,1,hand picked 1,1,39,tear
-194,8,achitchu,560,1,hand picked 1,1,39,tear
-203,8,Achedtshhhooo,560,1,hand picked 1,1,39,tear
-212,8,ahchich-choo,560,1,hand picked 1,1,39,tear
-11,12,glong glong,466,2,hand picked 1 test,10,45,water
-220,12,Glong-glong,466,2,hand picked 1 test,10,45,water
-225,12,glonglong,466,2,hand picked 1 test,10,45,water
-16,3,glongglong,466,1,hand picked 1,1,45,water
-17,3,glonglong,466,1,hand picked 1,1,45,water
-24,3,glonglong,466,1,hand picked 1,1,45,water
-26,3,GLONGLONG,466,1,hand picked 1,1,45,water
-37,3,glongglong,466,1,hand picked 1,1,45,water
-62,3,glon glon,466,1,hand picked 1,1,45,water
-71,3,glongglong,466,1,hand picked 1,1,45,water
-76,3,Glongglong,466,1,hand picked 1,1,45,water
-89,3,glonglong,466,1,hand picked 1,1,45,water
-96,3,glongglong,466,1,hand picked 1,1,45,water
-102,3,glongglong,466,1,hand picked 1,1,45,water
-108,3,glongglong,466,1,hand picked 1,1,45,water
-117,3,Glong Glong,466,1,hand picked 1,1,45,water
-129,3,glong-glong,466,1,hand picked 1,1,45,water
-142,3,glonglong,466,1,hand picked 1,1,45,water
-147,3,glongglong,466,1,hand picked 1,1,45,water
-149,3,glongalon,466,1,hand picked 1,1,45,water
-167,3,GLONG GLONG,466,1,hand picked 1,1,45,water
-168,3,glonglong,466,1,hand picked 1,1,45,water
-169,3,glong-glong,466,1,hand picked 1,1,45,water
-192,3,Glong,466,1,hand picked 1,1,45,water
-193,3,galonggalong,466,1,hand picked 1,1,45,water
-197,3,glonglong,466,1,hand picked 1,1,45,water
-208,3,glong glong,466,1,hand picked 1,1,45,water
-35,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-38,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-39,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav
-42,1,aligator,568,1,hand picked 1,1,568,alligator_1.wav
-59,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-79,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav
-84,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-97,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-106,1,aligator,568,1,hand picked 1,1,568,alligator_1.wav
-116,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav
-135,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-139,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-158,1,ALLIGATOR ,568,1,hand picked 1,1,568,alligator_1.wav
-159,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-166,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-182,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-186,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav
-205,1,Aligator,568,1,hand picked 1,1,568,alligator_1.wav
-211,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav
-226,22,pfff,41,3,hand picked 1 seeds,19,41,tear
-243,22,crish,41,3,hand picked 1 seeds,19,41,tear
-247,22,frarr,41,3,hand picked 1 seeds,19,41,tear
-251,22,Rip,41,3,hand picked 1 seeds,19,41,tear
-262,22,Chrrrrup,41,3,hand picked 1 seeds,19,41,tear
-273,22,gweeshhhht,41,3,hand picked 1 seeds,19,41,tear
-288,22,huhwish,41,3,hand picked 1 seeds,19,41,tear
-293,22,rrrrip,41,3,hand picked 1 seeds,19,41,tear
-300,22,Tearing,41,3,hand picked 1 seeds,19,41,tear
-311,22,air,41,3,hand picked 1 seeds,19,41,tear
-321,22,chraw,41,3,hand picked 1 seeds,19,41,tear
-330,22,zeeeep,41,3,hand picked 1 seeds,19,41,tear
-334,22,schwoo,41,3,hand picked 1 seeds,19,41,tear
-341,22,Crunch,41,3,hand picked 1 seeds,19,41,tear
-350,22,sheerk,41,3,hand picked 1 seeds,19,41,tear
-365,22,shrash,41,3,hand picked 1 seeds,19,41,tear
-377,22,scratch,41,3,hand picked 1 seeds,19,41,tear
-380,22,ssscrrriii,41,3,hand picked 1 seeds,19,41,tear
-391,22,pufft,41,3,hand picked 1 seeds,19,41,tear
-396,22,tear,41,3,hand picked 1 seeds,19,41,tear
-227,20,grink,35,3,hand picked 1 seeds,19,35,glass
-237,20,klickitt,35,3,hand picked 1 seeds,19,35,glass
-246,20,glasses clanking,35,3,hand picked 1 seeds,19,35,glass
-252,20,clappun,35,3,hand picked 1 seeds,19,35,glass
-264,20,Clinket,35,3,hand picked 1 seeds,19,35,glass
-272,20,breetu,35,3,hand picked 1 seeds,19,35,glass
-283,20,eeka,35,3,hand picked 1 seeds,19,35,glass
-297,20,cribbett,35,3,hand picked 1 seeds,19,35,glass
-304,20,Cranking,35,3,hand picked 1 seeds,19,35,glass
-316,20,kricht,35,3,hand picked 1 seeds,19,35,glass
-332,20,ding,35,3,hand picked 1 seeds,19,35,glass
-338,20,ka-tick,35,3,hand picked 1 seeds,19,35,glass
-351,20,click,35,3,hand picked 1 seeds,19,35,glass
-356,20,klak,35,3,hand picked 1 seeds,19,35,glass
-359,20,clink,35,3,hand picked 1 seeds,19,35,glass
-367,20,clink,35,3,hand picked 1 seeds,19,35,glass
-382,20,katink,35,3,hand picked 1 seeds,19,35,glass
-385,20,klika,35,3,hand picked 1 seeds,19,35,glass
-402,20,clink,35,3,hand picked 1 seeds,19,35,glass
-228,27,bugongong,34,3,hand picked 1 seeds,19,34,glass
-240,27,cluclaclut,34,3,hand picked 1 seeds,19,34,glass
-241,27,a piece of metal being dropped,34,3,hand picked 1 seeds,19,34,glass
-259,27,clipapap,34,3,hand picked 1 seeds,19,34,glass
-265,27,Bubtedew,34,3,hand picked 1 seeds,19,34,glass
-271,27,didingdink,34,3,hand picked 1 seeds,19,34,glass
-280,27,atinga,34,3,hand picked 1 seeds,19,34,glass
-289,27,clatter,34,3,hand picked 1 seeds,19,34,glass
-302,27,Clanking,34,3,hand picked 1 seeds,19,34,glass
-315,27,tintanging,34,3,hand picked 1 seeds,19,34,glass
-327,27,ta-ting-go,34,3,hand picked 1 seeds,19,34,glass
-335,27,ding,34,3,hand picked 1 seeds,19,34,glass
-344,27,ting-ding,34,3,hand picked 1 seeds,19,34,glass
-345,27,clank,34,3,hand picked 1 seeds,19,34,glass
-362,27,clank,34,3,hand picked 1 seeds,19,34,glass
-371,27,clunk,34,3,hand picked 1 seeds,19,34,glass
-383,27,patinka,34,3,hand picked 1 seeds,19,34,glass
-386,27,oqueo,34,3,hand picked 1 seeds,19,34,glass
-397,27,cling,34,3,hand picked 1 seeds,19,34,glass
-229,23,ploosh,42,3,hand picked 1 seeds,19,42,water
-248,23,splooaoo,42,3,hand picked 1 seeds,19,42,water
-253,23,Splash,42,3,hand picked 1 seeds,19,42,water
-260,23,wishaz,42,3,hand picked 1 seeds,19,42,water
-266,23,Swished,42,3,hand picked 1 seeds,19,42,water
-275,23,blorgh,42,3,hand picked 1 seeds,19,42,water
-281,23,wellow,42,3,hand picked 1 seeds,19,42,water
-296,23,pushawater,42,3,hand picked 1 seeds,19,42,water
-299,23,Water,42,3,hand picked 1 seeds,19,42,water
-313,23,shplush,42,3,hand picked 1 seeds,19,42,water
-324,23,sploonge,42,3,hand picked 1 seeds,19,42,water
-326,23,swish,42,3,hand picked 1 seeds,19,42,water
-342,23,splowsh,42,3,hand picked 1 seeds,19,42,water
-349,23,splash,42,3,hand picked 1 seeds,19,42,water
-363,23,splash,42,3,hand picked 1 seeds,19,42,water
-368,23,whoosh,42,3,hand picked 1 seeds,19,42,water
-381,23,spluush,42,3,hand picked 1 seeds,19,42,water
-388,23,foovo,42,3,hand picked 1 seeds,19,42,water
-399,23,whoosh,42,3,hand picked 1 seeds,19,42,water
-230,25,ziip,49,3,hand picked 1 seeds,19,49,zipper
-235,25,zimp,49,3,hand picked 1 seeds,19,49,zipper
-242,25,vritt,49,3,hand picked 1 seeds,19,49,zipper
-257,25,Zip,49,3,hand picked 1 seeds,19,49,zipper
-261,25,bahvup,49,3,hand picked 1 seeds,19,49,zipper
-263,25,ziiip,49,3,hand picked 1 seeds,19,49,zipper
-274,25,pzzzzzuit,49,3,hand picked 1 seeds,19,49,zipper
-287,25,zuhhip,49,3,hand picked 1 seeds,19,49,zipper
-292,25,zzzzip,49,3,hand picked 1 seeds,19,49,zipper
-301,25,Zipper,49,3,hand picked 1 seeds,19,49,zipper
-309,25,fft,49,3,hand picked 1 seeds,19,49,zipper
-320,25,zhrup,49,3,hand picked 1 seeds,19,49,zipper
-323,25,zup,49,3,hand picked 1 seeds,19,49,zipper
-331,25,wreep,49,3,hand picked 1 seeds,19,49,zipper
-343,25,Burp,49,3,hand picked 1 seeds,19,49,zipper
-352,25,brip,49,3,hand picked 1 seeds,19,49,zipper
-364,25,zip,49,3,hand picked 1 seeds,19,49,zipper
-372,25,zipping,49,3,hand picked 1 seeds,19,49,zipper
-376,25,vvvrrip,49,3,hand picked 1 seeds,19,49,zipper
-387,25,pfiph,49,3,hand picked 1 seeds,19,49,zipper
-398,25,zip,49,3,hand picked 1 seeds,19,49,zipper
-231,21,kushhh,39,3,hand picked 1 seeds,19,39,tear
-238,21,richipit,39,3,hand picked 1 seeds,19,39,tear
-239,21,paper being torn,39,3,hand picked 1 seeds,19,39,tear
-244,21,stusstt,39,3,hand picked 1 seeds,19,39,tear
-269,21,Tarip,39,3,hand picked 1 seeds,19,39,tear
-276,21,Kuhssssssuit,39,3,hand picked 1 seeds,19,39,tear
-284,21,kuhzip,39,3,hand picked 1 seeds,19,39,tear
-294,21,clickadrag,39,3,hand picked 1 seeds,19,39,tear
-305,21,Tearing,39,3,hand picked 1 seeds,19,39,tear
-319,21,kitzee,39,3,hand picked 1 seeds,19,39,tear
-322,21,kizzle,39,3,hand picked 1 seeds,19,39,tear
-328,21,kureep,39,3,hand picked 1 seeds,19,39,tear
-347,21,tashir,39,3,hand picked 1 seeds,19,39,tear
-354,21,smudge,39,3,hand picked 1 seeds,19,39,tear
-366,21,shrish,39,3,hand picked 1 seeds,19,39,tear
-370,21,scrape,39,3,hand picked 1 seeds,19,39,tear
-384,21,crisshhh,39,3,hand picked 1 seeds,19,39,tear
-389,21,cliflika,39,3,hand picked 1 seeds,19,39,tear
-395,21,rip,39,3,hand picked 1 seeds,19,39,tear
-232,26,balooshboosh,45,3,hand picked 1 seeds,19,45,water
-245,26,water lapping on a shore,45,3,hand picked 1 seeds,19,45,water
-249,26,shirpahuhuh,45,3,hand picked 1 seeds,19,45,water
-254,26,wuuwaaa,45,3,hand picked 1 seeds,19,45,water
-268,26,Wooshed,45,3,hand picked 1 seeds,19,45,water
-278,26,Buhlorghorgh,45,3,hand picked 1 seeds,19,45,water
-282,26,atrishown,45,3,hand picked 1 seeds,19,45,water
-291,26,sloosh-splash,45,3,hand picked 1 seeds,19,45,water
-303,26,Splash,45,3,hand picked 1 seeds,19,45,water
-312,26,water,45,3,hand picked 1 seeds,19,45,water
-314,26,fljushpah,45,3,hand picked 1 seeds,19,45,water
-329,26,swash,45,3,hand picked 1 seeds,19,45,water
-336,26,splunge-plunge,45,3,hand picked 1 seeds,19,45,water
-346,26,swoosh,45,3,hand picked 1 seeds,19,45,water
-357,26,blowosh,45,3,hand picked 1 seeds,19,45,water
-361,26,sploosh,45,3,hand picked 1 seeds,19,45,water
-375,26,splash,45,3,hand picked 1 seeds,19,45,water
-378,26,splush,45,3,hand picked 1 seeds,19,45,water
-390,26,pkiluffa,45,3,hand picked 1 seeds,19,45,water
-400,26,splash,45,3,hand picked 1 seeds,19,45,water
-233,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-256,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-258,19,echo,570,3,hand picked 1 seeds,19,570,camel_1.wav
-267,19,Camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-279,19,Camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-286,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-290,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-298,19,Camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-307,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-308,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-317,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-333,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-337,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-340,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-348,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-358,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-373,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-374,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-392,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-401,19,camel,570,3,hand picked 1 seeds,19,570,camel_1.wav
-234,24,brrip,47,3,hand picked 1 seeds,19,47,zipper
-236,24,fizzim,47,3,hand picked 1 seeds,19,47,zipper
-250,24,vritt,47,3,hand picked 1 seeds,19,47,zipper
-255,24,Zip,47,3,hand picked 1 seeds,19,47,zipper
-270,24,rrrzip,47,3,hand picked 1 seeds,19,47,zipper
-277,24,przzzzzt,47,3,hand picked 1 seeds,19,47,zipper
-285,24,whuup,47,3,hand picked 1 seeds,19,47,zipper
-295,24,growwff,47,3,hand picked 1 seeds,19,47,zipper
-306,24,Zipping,47,3,hand picked 1 seeds,19,47,zipper
-310,24,grunt,47,3,hand picked 1 seeds,19,47,zipper
-318,24,zhrip,47,3,hand picked 1 seeds,19,47,zipper
-325,24,wreep,47,3,hand picked 1 seeds,19,47,zipper
-339,24,zzzip,47,3,hand picked 1 seeds,19,47,zipper
-353,24,breep,47,3,hand picked 1 seeds,19,47,zipper
-355,24,rip,47,3,hand picked 1 seeds,19,47,zipper
-360,24,zip,47,3,hand picked 1 seeds,19,47,zipper
-369,24,zip,47,3,hand picked 1 seeds,19,47,zipper
-379,24,vrri,47,3,hand picked 1 seeds,19,47,zipper
-393,24,zwip,47,3,hand picked 1 seeds,19,47,zipper
-394,24,zip,47,3,hand picked 1 seeds,19,47,zipper
+transcription_id,message_to_transcribe_id,text,message_id,transcription_survey_id,transcription_survey_name,catch_trial_id,seed_id,chain_name,is_catch_trial
+19,6,izzip,505,1,hand picked 1,1,49,zipper,0
+20,6,izzit,505,1,hand picked 1,1,49,zipper,0
+43,6,izit,505,1,hand picked 1,1,49,zipper,0
+47,6,izzit,505,1,hand picked 1,1,49,zipper,0
+56,6,izzit,505,1,hand picked 1,1,49,zipper,0
+58,6,eezzit,505,1,hand picked 1,1,49,zipper,0
+63,6,izit,505,1,hand picked 1,1,49,zipper,0
+74,6,Izzip,505,1,hand picked 1,1,49,zipper,0
+83,6,izzzzit,505,1,hand picked 1,1,49,zipper,0
+94,6,izit,505,1,hand picked 1,1,49,zipper,0
+104,6,iszit,505,1,hand picked 1,1,49,zipper,0
+114,6,iszit,505,1,hand picked 1,1,49,zipper,0
+118,6,Izzzit,505,1,hand picked 1,1,49,zipper,0
+126,6,izip,505,1,hand picked 1,1,49,zipper,0
+133,6,Izzzip,505,1,hand picked 1,1,49,zipper,0
+136,6,izit,505,1,hand picked 1,1,49,zipper,0
+144,6,iszzzip,505,1,hand picked 1,1,49,zipper,0
+155,6,izzitt,505,1,hand picked 1,1,49,zipper,0
+170,6,ZIP,505,1,hand picked 1,1,49,zipper,0
+173,6,izzit,505,1,hand picked 1,1,49,zipper,0
+191,6,izit,505,1,hand picked 1,1,49,zipper,0
+206,6,Izzzit,505,1,hand picked 1,1,49,zipper,0
+209,6,izziiiip,505,1,hand picked 1,1,49,zipper,0
+10,9,Chicochicochicochico,563,1,hand picked 1,1,42,water,0
+22,9,CHOCHOCCHOOCHO,563,1,hand picked 1,1,42,water,0
+25,9,chunshumchunshum,563,1,hand picked 1,1,42,water,0
+27,9,chewchewshewa,563,1,hand picked 1,1,42,water,0
+44,9,chogugoshcheoo,563,1,hand picked 1,1,42,water,0
+65,9,choooo chooo chooo choooo,563,1,hand picked 1,1,42,water,0
+67,9,shuckchuchuyukchu,563,1,hand picked 1,1,42,water,0
+68,9,chewscutcutsew,563,1,hand picked 1,1,42,water,0
+81,9,Chockakaka,563,1,hand picked 1,1,42,water,0
+82,9,schgoschgoschgoscho,563,1,hand picked 1,1,42,water,0
+95,9,chooskoochoo,563,1,hand picked 1,1,42,water,0
+109,9,chuckchuckchukchu,563,1,hand picked 1,1,42,water,0
+119,9,Choochoochoochoo,563,1,hand picked 1,1,42,water,0
+124,9,chu-chu-chu-chu,563,1,hand picked 1,1,42,water,0
+138,9,yodumbdumbshoe,563,1,hand picked 1,1,42,water,0
+146,9,shoshopchuchu,563,1,hand picked 1,1,42,water,0
+161,9,zhoezhoezhoezhoe,563,1,hand picked 1,1,42,water,0
+176,9,CHEW,563,1,hand picked 1,1,42,water,0
+177,9,chochochocho,563,1,hand picked 1,1,42,water,0
+187,9,chuchuchuchu,563,1,hand picked 1,1,42,water,0
+198,9,Gshoogshoogshoogshoo,563,1,hand picked 1,1,42,water,0
+207,9,luck ju ju ju ju luck,563,1,hand picked 1,1,42,water,0
+6,4,Goracto,502,1,hand picked 1,1,35,glass,0
+29,4,gorcto,502,1,hand picked 1,1,35,glass,0
+33,4,DIRECTO,502,1,hand picked 1,1,35,glass,0
+46,4,gorecto,502,1,hand picked 1,1,35,glass,0
+52,4,goracto,502,1,hand picked 1,1,35,glass,0
+54,4,roracto,502,1,hand picked 1,1,35,glass,0
+66,4,goracto,502,1,hand picked 1,1,35,glass,0
+78,4,gorecto,502,1,hand picked 1,1,35,glass,0
+80,4,Gorracto,502,1,hand picked 1,1,35,glass,0
+101,4,gorato,502,1,hand picked 1,1,35,glass,0
+105,4,garrotto,502,1,hand picked 1,1,35,glass,0
+107,4,garratto,502,1,hand picked 1,1,35,glass,0
+120,4,Goracto,502,1,hand picked 1,1,35,glass,0
+128,4,correcto,502,1,hand picked 1,1,35,glass,0
+131,4,directo,502,1,hand picked 1,1,35,glass,0
+148,4,gorecto,502,1,hand picked 1,1,35,glass,0
+151,4,garecto,502,1,hand picked 1,1,35,glass,0
+160,4,CORRECTO,502,1,hand picked 1,1,35,glass,0
+165,4,dorakdo,502,1,hand picked 1,1,35,glass,0
+175,4,gorakdoh,502,1,hand picked 1,1,35,glass,0
+183,4,goracto,502,1,hand picked 1,1,35,glass,0
+190,4,Garage door,502,1,hand picked 1,1,35,glass,0
+199,4,Ygoradtdo,502,1,hand picked 1,1,35,glass,0
+204,4,gordato,502,1,hand picked 1,1,35,glass,0
+13,2,eeeep,377,1,hand picked 1,1,47,zipper,0
+15,2,veep,377,1,hand picked 1,1,47,zipper,0
+18,2,ceep,377,1,hand picked 1,1,47,zipper,0
+21,2,veep,377,1,hand picked 1,1,47,zipper,0
+45,2,zeep,377,1,hand picked 1,1,47,zipper,0
+61,2,feep,377,1,hand picked 1,1,47,zipper,0
+64,2,zeeee pp,377,1,hand picked 1,1,47,zipper,0
+77,2,Veep,377,1,hand picked 1,1,47,zipper,0
+85,2,veeeep,377,1,hand picked 1,1,47,zipper,0
+98,2,veep,377,1,hand picked 1,1,47,zipper,0
+99,2,veeb,377,1,hand picked 1,1,47,zipper,0
+111,2,veeb,377,1,hand picked 1,1,47,zipper,0
+115,2,Veeeep,377,1,hand picked 1,1,47,zipper,0
+132,2,veep,377,1,hand picked 1,1,47,zipper,0
+134,2,beep,377,1,hand picked 1,1,47,zipper,0
+156,2,veyip,377,1,hand picked 1,1,47,zipper,0
+157,2,veekup,377,1,hand picked 1,1,47,zipper,0
+174,2,veeeeee,377,1,hand picked 1,1,47,zipper,0
+179,2,BEEP,377,1,hand picked 1,1,47,zipper,0
+180,2,veep,377,1,hand picked 1,1,47,zipper,0
+189,2,veeep,377,1,hand picked 1,1,47,zipper,0
+200,2,Bveeeeeep,377,1,hand picked 1,1,47,zipper,0
+201,2,veeeeeep,377,1,hand picked 1,1,47,zipper,0
+12,5,sheyah,522,1,hand picked 1,1,41,tear,0
+23,5,sheeaa,522,1,hand picked 1,1,41,tear,0
+30,5,SHEAY,522,1,hand picked 1,1,41,tear,0
+36,5,sheah,522,1,hand picked 1,1,41,tear,0
+55,5,tchiah,522,1,hand picked 1,1,41,tear,0
+60,5,shiiaap,522,1,hand picked 1,1,41,tear,0
+69,5,cheea,522,1,hand picked 1,1,41,tear,0
+75,5,Chia,522,1,hand picked 1,1,41,tear,0
+87,5,sheeeaaah,522,1,hand picked 1,1,41,tear,0
+88,5,Shear,522,1,hand picked 1,1,41,tear,0
+100,5,schiya,522,1,hand picked 1,1,41,tear,0
+110,5,cheeaa,522,1,hand picked 1,1,41,tear,0
+121,5,sheah,522,1,hand picked 1,1,41,tear,0
+123,5,Sheeyaa,522,1,hand picked 1,1,41,tear,0
+143,5,sheya,522,1,hand picked 1,1,41,tear,0
+145,5,sheeya,522,1,hand picked 1,1,41,tear,0
+150,5,shiyah,522,1,hand picked 1,1,41,tear,0
+153,5,shiyah,522,1,hand picked 1,1,41,tear,0
+171,5,sheyah,522,1,hand picked 1,1,41,tear,0
+172,5,SHE,522,1,hand picked 1,1,41,tear,0
+184,5,sheah,522,1,hand picked 1,1,41,tear,0
+195,5,Shiyaab,522,1,hand picked 1,1,41,tear,0
+210,5,cheeyah,522,1,hand picked 1,1,41,tear,0
+14,7,dundunda,566,1,hand picked 1,1,34,glass,0
+28,7,dundundah,566,1,hand picked 1,1,34,glass,0
+41,7,dundunda,566,1,hand picked 1,1,34,glass,0
+49,7,duh duh dah,566,1,hand picked 1,1,34,glass,0
+50,7,dunduhduh,566,1,hand picked 1,1,34,glass,0
+53,7,DUNDUNTA,566,1,hand picked 1,1,34,glass,0
+72,7,Tantata,566,1,hand picked 1,1,34,glass,0
+73,7,tunduntah,566,1,hand picked 1,1,34,glass,0
+86,7,dundunduh,566,1,hand picked 1,1,34,glass,0
+91,7,dundunda,566,1,hand picked 1,1,34,glass,0
+103,7,dundunda,566,1,hand picked 1,1,34,glass,0
+112,7,dundunda,566,1,hand picked 1,1,34,glass,0
+122,7,Dundunda,566,1,hand picked 1,1,34,glass,0
+127,7,dun-du-dah,566,1,hand picked 1,1,34,glass,0
+130,7,dahduhda,566,1,hand picked 1,1,34,glass,0
+141,7,dundunda,566,1,hand picked 1,1,34,glass,0
+152,7,temthemda,566,1,hand picked 1,1,34,glass,0
+162,7,dundunda,566,1,hand picked 1,1,34,glass,0
+163,7,dundunduh,566,1,hand picked 1,1,34,glass,0
+185,7,dundunda,566,1,hand picked 1,1,34,glass,0
+196,7,dundundah,566,1,hand picked 1,1,34,glass,0
+202,7,dun dun dah,566,1,hand picked 1,1,34,glass,0
+31,8,achichuwe,560,1,hand picked 1,1,39,tear,0
+32,8,ititchum,560,1,hand picked 1,1,39,tear,0
+34,8,Atitchoo,560,1,hand picked 1,1,39,tear,0
+40,8,achichoo,560,1,hand picked 1,1,39,tear,0
+48,8,ATTETCHUW,560,1,hand picked 1,1,39,tear,0
+51,8,a chechyu,560,1,hand picked 1,1,39,tear,0
+57,8,Achetssue,560,1,hand picked 1,1,39,tear,0
+70,8,Achechew,560,1,hand picked 1,1,39,tear,0
+90,8,achechsshshshshoooo,560,1,hand picked 1,1,39,tear,0
+92,8,pachechu,560,1,hand picked 1,1,39,tear,0
+93,8,ashechechu,560,1,hand picked 1,1,39,tear,0
+113,8,achechchu,560,1,hand picked 1,1,39,tear,0
+125,8,Achetshooo,560,1,hand picked 1,1,39,tear,0
+137,8,achechu,560,1,hand picked 1,1,39,tear,0
+140,8,a-chitch-shu,560,1,hand picked 1,1,39,tear,0
+154,8,achechhh-shu,560,1,hand picked 1,1,39,tear,0
+164,8,A SHOE,560,1,hand picked 1,1,39,tear,0
+178,8,achishoe,560,1,hand picked 1,1,39,tear,0
+181,8,achetshue,560,1,hand picked 1,1,39,tear,0
+188,8,A church shoe,560,1,hand picked 1,1,39,tear,0
+194,8,achitchu,560,1,hand picked 1,1,39,tear,0
+203,8,Achedtshhhooo,560,1,hand picked 1,1,39,tear,0
+212,8,ahchich-choo,560,1,hand picked 1,1,39,tear,0
+16,3,glongglong,466,1,hand picked 1,1,45,water,0
+17,3,glonglong,466,1,hand picked 1,1,45,water,0
+24,3,glonglong,466,1,hand picked 1,1,45,water,0
+26,3,GLONGLONG,466,1,hand picked 1,1,45,water,0
+37,3,glongglong,466,1,hand picked 1,1,45,water,0
+62,3,glon glon,466,1,hand picked 1,1,45,water,0
+71,3,glongglong,466,1,hand picked 1,1,45,water,0
+76,3,Glongglong,466,1,hand picked 1,1,45,water,0
+89,3,glonglong,466,1,hand picked 1,1,45,water,0
+96,3,glongglong,466,1,hand picked 1,1,45,water,0
+102,3,glongglong,466,1,hand picked 1,1,45,water,0
+108,3,glongglong,466,1,hand picked 1,1,45,water,0
+117,3,Glong Glong,466,1,hand picked 1,1,45,water,0
+129,3,glong-glong,466,1,hand picked 1,1,45,water,0
+142,3,glonglong,466,1,hand picked 1,1,45,water,0
+147,3,glongglong,466,1,hand picked 1,1,45,water,0
+149,3,glongalon,466,1,hand picked 1,1,45,water,0
+167,3,GLONG GLONG,466,1,hand picked 1,1,45,water,0
+168,3,glonglong,466,1,hand picked 1,1,45,water,0
+169,3,glong-glong,466,1,hand picked 1,1,45,water,0
+192,3,Glong,466,1,hand picked 1,1,45,water,0
+193,3,galonggalong,466,1,hand picked 1,1,45,water,0
+197,3,glonglong,466,1,hand picked 1,1,45,water,0
+208,3,glong glong,466,1,hand picked 1,1,45,water,0
+35,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+38,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+39,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+42,1,aligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+59,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+79,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+84,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+97,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+106,1,aligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+116,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+135,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+139,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+158,1,ALLIGATOR,568,1,hand picked 1,1,568,alligator_1.wav,1
+159,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+166,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+182,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+186,1,Alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+205,1,Aligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+211,1,alligator,568,1,hand picked 1,1,568,alligator_1.wav,1
+226,22,pfff,41,3,hand picked 1 seeds,19,41,tear,0
+243,22,crish,41,3,hand picked 1 seeds,19,41,tear,0
+247,22,frarr,41,3,hand picked 1 seeds,19,41,tear,0
+251,22,Rip,41,3,hand picked 1 seeds,19,41,tear,0
+262,22,Chrrrrup,41,3,hand picked 1 seeds,19,41,tear,0
+273,22,gweeshhhht,41,3,hand picked 1 seeds,19,41,tear,0
+288,22,huhwish,41,3,hand picked 1 seeds,19,41,tear,0
+293,22,rrrrip,41,3,hand picked 1 seeds,19,41,tear,0
+300,22,Tearing,41,3,hand picked 1 seeds,19,41,tear,0
+311,22,air,41,3,hand picked 1 seeds,19,41,tear,0
+321,22,chraw,41,3,hand picked 1 seeds,19,41,tear,0
+330,22,zeeeep,41,3,hand picked 1 seeds,19,41,tear,0
+334,22,schwoo,41,3,hand picked 1 seeds,19,41,tear,0
+341,22,Crunch,41,3,hand picked 1 seeds,19,41,tear,0
+350,22,sheerk,41,3,hand picked 1 seeds,19,41,tear,0
+365,22,shrash,41,3,hand picked 1 seeds,19,41,tear,0
+377,22,scratch,41,3,hand picked 1 seeds,19,41,tear,0
+380,22,ssscrrriii,41,3,hand picked 1 seeds,19,41,tear,0
+391,22,pufft,41,3,hand picked 1 seeds,19,41,tear,0
+396,22,tear,41,3,hand picked 1 seeds,19,41,tear,0
+227,20,grink,35,3,hand picked 1 seeds,19,35,glass,0
+237,20,klickitt,35,3,hand picked 1 seeds,19,35,glass,0
+246,20,glasses clanking,35,3,hand picked 1 seeds,19,35,glass,0
+252,20,clappun,35,3,hand picked 1 seeds,19,35,glass,0
+264,20,Clinket,35,3,hand picked 1 seeds,19,35,glass,0
+272,20,breetu,35,3,hand picked 1 seeds,19,35,glass,0
+283,20,eeka,35,3,hand picked 1 seeds,19,35,glass,0
+297,20,cribbett,35,3,hand picked 1 seeds,19,35,glass,0
+304,20,Cranking,35,3,hand picked 1 seeds,19,35,glass,0
+316,20,kricht,35,3,hand picked 1 seeds,19,35,glass,0
+332,20,ding,35,3,hand picked 1 seeds,19,35,glass,0
+338,20,ka-tick,35,3,hand picked 1 seeds,19,35,glass,0
+351,20,click,35,3,hand picked 1 seeds,19,35,glass,0
+356,20,klak,35,3,hand picked 1 seeds,19,35,glass,0
+359,20,clink,35,3,hand picked 1 seeds,19,35,glass,0
+367,20,clink,35,3,hand picked 1 seeds,19,35,glass,0
+382,20,katink,35,3,hand picked 1 seeds,19,35,glass,0
+385,20,klika,35,3,hand picked 1 seeds,19,35,glass,0
+402,20,clink,35,3,hand picked 1 seeds,19,35,glass,0
+228,27,bugongong,34,3,hand picked 1 seeds,19,34,glass,0
+240,27,cluclaclut,34,3,hand picked 1 seeds,19,34,glass,0
+241,27,a piece of metal being dropped,34,3,hand picked 1 seeds,19,34,glass,0
+259,27,clipapap,34,3,hand picked 1 seeds,19,34,glass,0
+265,27,Bubtedew,34,3,hand picked 1 seeds,19,34,glass,0
+271,27,didingdink,34,3,hand picked 1 seeds,19,34,glass,0
+280,27,atinga,34,3,hand picked 1 seeds,19,34,glass,0
+289,27,clatter,34,3,hand picked 1 seeds,19,34,glass,0
+302,27,Clanking,34,3,hand picked 1 seeds,19,34,glass,0
+315,27,tintanging,34,3,hand picked 1 seeds,19,34,glass,0
+327,27,ta-ting-go,34,3,hand picked 1 seeds,19,34,glass,0
+335,27,ding,34,3,hand picked 1 seeds,19,34,glass,0
+344,27,ting-ding,34,3,hand picked 1 seeds,19,34,glass,0
+345,27,clank,34,3,hand picked 1 seeds,19,34,glass,0
+362,27,clank,34,3,hand picked 1 seeds,19,34,glass,0
+371,27,clunk,34,3,hand picked 1 seeds,19,34,glass,0
+383,27,patinka,34,3,hand picked 1 seeds,19,34,glass,0
+386,27,oqueo,34,3,hand picked 1 seeds,19,34,glass,0
+397,27,cling,34,3,hand picked 1 seeds,19,34,glass,0
+229,23,ploosh,42,3,hand picked 1 seeds,19,42,water,0
+248,23,splooaoo,42,3,hand picked 1 seeds,19,42,water,0
+253,23,Splash,42,3,hand picked 1 seeds,19,42,water,0
+260,23,wishaz,42,3,hand picked 1 seeds,19,42,water,0
+266,23,Swished,42,3,hand picked 1 seeds,19,42,water,0
+275,23,blorgh,42,3,hand picked 1 seeds,19,42,water,0
+281,23,wellow,42,3,hand picked 1 seeds,19,42,water,0
+296,23,pushawater,42,3,hand picked 1 seeds,19,42,water,0
+299,23,Water,42,3,hand picked 1 seeds,19,42,water,0
+313,23,shplush,42,3,hand picked 1 seeds,19,42,water,0
+324,23,sploonge,42,3,hand picked 1 seeds,19,42,water,0
+326,23,swish,42,3,hand picked 1 seeds,19,42,water,0
+342,23,splowsh,42,3,hand picked 1 seeds,19,42,water,0
+349,23,splash,42,3,hand picked 1 seeds,19,42,water,0
+363,23,splash,42,3,hand picked 1 seeds,19,42,water,0
+368,23,whoosh,42,3,hand picked 1 seeds,19,42,water,0
+381,23,spluush,42,3,hand picked 1 seeds,19,42,water,0
+388,23,foovo,42,3,hand picked 1 seeds,19,42,water,0
+399,23,whoosh,42,3,hand picked 1 seeds,19,42,water,0
+230,25,ziip,49,3,hand picked 1 seeds,19,49,zipper,0
+235,25,zimp,49,3,hand picked 1 seeds,19,49,zipper,0
+242,25,vritt,49,3,hand picked 1 seeds,19,49,zipper,0
+257,25,Zip,49,3,hand picked 1 seeds,19,49,zipper,0
+261,25,bahvup,49,3,hand picked 1 seeds,19,49,zipper,0
+263,25,ziiip,49,3,hand picked 1 seeds,19,49,zipper,0
+274,25,pzzzzzuit,49,3,hand picked 1 seeds,19,49,zipper,0
+287,25,zuhhip,49,3,hand picked 1 seeds,19,49,zipper,0
+292,25,zzzzip,49,3,hand picked 1 seeds,19,49,zipper,0
+301,25,Zipper,49,3,hand picked 1 seeds,19,49,zipper,0
+309,25,fft,49,3,hand picked 1 seeds,19,49,zipper,0
+320,25,zhrup,49,3,hand picked 1 seeds,19,49,zipper,0
+323,25,zup,49,3,hand picked 1 seeds,19,49,zipper,0
+331,25,wreep,49,3,hand picked 1 seeds,19,49,zipper,0
+343,25,Burp,49,3,hand picked 1 seeds,19,49,zipper,0
+352,25,brip,49,3,hand picked 1 seeds,19,49,zipper,0
+364,25,zip,49,3,hand picked 1 seeds,19,49,zipper,0
+372,25,zipping,49,3,hand picked 1 seeds,19,49,zipper,0
+376,25,vvvrrip,49,3,hand picked 1 seeds,19,49,zipper,0
+387,25,pfiph,49,3,hand picked 1 seeds,19,49,zipper,0
+398,25,zip,49,3,hand picked 1 seeds,19,49,zipper,0
+231,21,kushhh,39,3,hand picked 1 seeds,19,39,tear,0
+238,21,richipit,39,3,hand picked 1 seeds,19,39,tear,0
+239,21,paper being torn,39,3,hand picked 1 seeds,19,39,tear,0
+244,21,stusstt,39,3,hand picked 1 seeds,19,39,tear,0
+269,21,Tarip,39,3,hand picked 1 seeds,19,39,tear,0
+276,21,Kuhssssssuit,39,3,hand picked 1 seeds,19,39,tear,0
+284,21,kuhzip,39,3,hand picked 1 seeds,19,39,tear,0
+294,21,clickadrag,39,3,hand picked 1 seeds,19,39,tear,0
+305,21,Tearing,39,3,hand picked 1 seeds,19,39,tear,0
+319,21,kitzee,39,3,hand picked 1 seeds,19,39,tear,0
+322,21,kizzle,39,3,hand picked 1 seeds,19,39,tear,0
+328,21,kureep,39,3,hand picked 1 seeds,19,39,tear,0
+347,21,tashir,39,3,hand picked 1 seeds,19,39,tear,0
+354,21,smudge,39,3,hand picked 1 seeds,19,39,tear,0
+366,21,shrish,39,3,hand picked 1 seeds,19,39,tear,0
+370,21,scrape,39,3,hand picked 1 seeds,19,39,tear,0
+384,21,crisshhh,39,3,hand picked 1 seeds,19,39,tear,0
+389,21,cliflika,39,3,hand picked 1 seeds,19,39,tear,0
+395,21,rip,39,3,hand picked 1 seeds,19,39,tear,0
+232,26,balooshboosh,45,3,hand picked 1 seeds,19,45,water,0
+245,26,water lapping on a shore,45,3,hand picked 1 seeds,19,45,water,0
+249,26,shirpahuhuh,45,3,hand picked 1 seeds,19,45,water,0
+254,26,wuuwaaa,45,3,hand picked 1 seeds,19,45,water,0
+268,26,Wooshed,45,3,hand picked 1 seeds,19,45,water,0
+278,26,Buhlorghorgh,45,3,hand picked 1 seeds,19,45,water,0
+282,26,atrishown,45,3,hand picked 1 seeds,19,45,water,0
+291,26,sloosh-splash,45,3,hand picked 1 seeds,19,45,water,0
+303,26,Splash,45,3,hand picked 1 seeds,19,45,water,0
+312,26,water,45,3,hand picked 1 seeds,19,45,water,0
+314,26,fljushpah,45,3,hand picked 1 seeds,19,45,water,0
+329,26,swash,45,3,hand picked 1 seeds,19,45,water,0
+336,26,splunge-plunge,45,3,hand picked 1 seeds,19,45,water,0
+346,26,swoosh,45,3,hand picked 1 seeds,19,45,water,0
+357,26,blowosh,45,3,hand picked 1 seeds,19,45,water,0
+361,26,sploosh,45,3,hand picked 1 seeds,19,45,water,0
+375,26,splash,45,3,hand picked 1 seeds,19,45,water,0
+378,26,splush,45,3,hand picked 1 seeds,19,45,water,0
+390,26,pkiluffa,45,3,hand picked 1 seeds,19,45,water,0
+400,26,splash,45,3,hand picked 1 seeds,19,45,water,0
+234,24,brrip,47,3,hand picked 1 seeds,19,47,zipper,0
+236,24,fizzim,47,3,hand picked 1 seeds,19,47,zipper,0
+250,24,vritt,47,3,hand picked 1 seeds,19,47,zipper,0
+255,24,Zip,47,3,hand picked 1 seeds,19,47,zipper,0
+270,24,rrrzip,47,3,hand picked 1 seeds,19,47,zipper,0
+277,24,przzzzzt,47,3,hand picked 1 seeds,19,47,zipper,0
+285,24,whuup,47,3,hand picked 1 seeds,19,47,zipper,0
+295,24,growwff,47,3,hand picked 1 seeds,19,47,zipper,0
+306,24,Zipping,47,3,hand picked 1 seeds,19,47,zipper,0
+310,24,grunt,47,3,hand picked 1 seeds,19,47,zipper,0
+318,24,zhrip,47,3,hand picked 1 seeds,19,47,zipper,0
+325,24,wreep,47,3,hand picked 1 seeds,19,47,zipper,0
+339,24,zzzip,47,3,hand picked 1 seeds,19,47,zipper,0
+353,24,breep,47,3,hand picked 1 seeds,19,47,zipper,0
+355,24,rip,47,3,hand picked 1 seeds,19,47,zipper,0
+360,24,zip,47,3,hand picked 1 seeds,19,47,zipper,0
+369,24,zip,47,3,hand picked 1 seeds,19,47,zipper,0
+379,24,vrri,47,3,hand picked 1 seeds,19,47,zipper,0
+393,24,zwip,47,3,hand picked 1 seeds,19,47,zipper,0
+394,24,zip,47,3,hand picked 1 seeds,19,47,zipper,0

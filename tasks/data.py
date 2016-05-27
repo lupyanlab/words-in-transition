@@ -4,12 +4,15 @@ from shutil import copytree
 from invoke import task, run
 import pandas as pd
 from unipath import Path
+import enchant
 
 from .tidy import *
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')
 csv_output_dir = Path(r_pkg_root, 'data-raw')
+
+d = enchant.Dict('en_US')
 
 
 @task
@@ -48,12 +51,27 @@ def csv():
     transcription_questions = make_transcription_questions(Path(src_dir, 'transcribe.MessageToTranscribe.json'))
     transcriptions = make_transcriptions(Path(src_dir, 'transcribe.Transcription.json'))
     # Apparently some people used ASCII characters
-    transcriptions['text'] = transcriptions.text.str.encode('utf-8')
+    transcriptions['text'] = transcriptions.text.str.encode('utf-8').str.strip()
 
     transcriptions = transcriptions.merge(transcription_questions)
     transcriptions = transcriptions.merge(transcription_surveys)
     transcriptions = transcriptions.merge(messages[['message_id', 'seed_id', 'chain_name']])
+
+    transcriptions = transcriptions.ix[transcriptions.transcription_survey_name.isin(['hand picked 1', 'hand picked 1 seeds'])]
+    transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
+
+    frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
+    frequencies['text'] = frequencies.text.str.lower()
+    groupers = ['chain_name', 'seed_id', 'message_id']
+    frequencies = (frequencies.groupby(groupers)
+                              .text
+                              .value_counts()
+                              .reset_index()
+                              .rename(columns={0: 'n'}))
+    frequencies['is_english'] = frequencies.text.apply(check_english).astype(int)
+    frequencies.to_csv(Path(csv_output_dir, 'frequencies.csv'),
+                       index=False)
 
 
 @task
@@ -73,3 +91,7 @@ def install():
     ]
     for r_command in r_commands:
         run("Rscript -e '{}'".format(r_command))
+
+
+def check_english(text):
+    return all([d.check(w) for w in text.split(' ')])
