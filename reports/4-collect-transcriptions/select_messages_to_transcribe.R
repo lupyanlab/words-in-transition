@@ -1,10 +1,14 @@
+# As a first pass, 2 imitations from each category were hand selected.
+# This script labels the imitations that were selected, and displays
+# the match to seed guessing accuracy for these messages.
+
 library(dplyr)
 library(ggplot2)
 library(tidyr)
 library(broom)
 
 library(wordsintransition)
-data(responses)
+data("responses")
 
 # Summarize branch performance
 branches <- responses %>%
