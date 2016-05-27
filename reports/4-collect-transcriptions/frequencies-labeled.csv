@@ -17,7 +17,7 @@ hand picked 1,glass,35,502,gorecto,3,2,False
 hand picked 1,glass,35,502,Goracto,2,3,False
 hand picked 1,glass,35,502,CORRECTO,1,4,False
 hand picked 1,glass,35,502,DIRECTO,1,5,False
-hand picked 1,glass,35,502,Garage door,1,6,False
+hand picked 1,glass,35,502,Garage door,1,6,True
 hand picked 1,glass,35,502,Gorracto,1,7,False
 hand picked 1,glass,35,502,Ygoradtdo,1,8,False
 hand picked 1,glass,35,502,correcto,1,9,False
@@ -31,8 +31,8 @@ hand picked 1,glass,35,502,gorato,1,16,False
 hand picked 1,glass,35,502,gorcto,1,17,False
 hand picked 1,glass,35,502,gordato,1,18,False
 hand picked 1,glass,35,502,roracto,1,19,False
-hand picked 1,tear,39,560,A SHOE,1,1,False
-hand picked 1,tear,39,560,A church shoe,1,2,False
+hand picked 1,tear,39,560,A SHOE,1,1,True
+hand picked 1,tear,39,560,A church shoe,1,2,True
 hand picked 1,tear,39,560,ATTETCHUW,1,3,False
 hand picked 1,tear,39,560,Achechew,1,4,False
 hand picked 1,tear,39,560,Achedtshhhooo,1,5,False
@@ -142,7 +142,7 @@ hand picked 1,zipper,49,505,izzzzit,1,14,False
 hand picked 1 seeds,glass,34,34,clank,2,1,True
 hand picked 1 seeds,glass,34,34,Bubtedew,1,2,False
 hand picked 1 seeds,glass,34,34,Clanking,1,3,True
-hand picked 1 seeds,glass,34,34,a piece of metal being dropped,1,4,False
+hand picked 1 seeds,glass,34,34,a piece of metal being dropped,1,4,True
 hand picked 1 seeds,glass,34,34,atinga,1,5,False
 hand picked 1 seeds,glass,34,34,bugongong,1,6,False
 hand picked 1 seeds,glass,34,34,clatter,1,7,True
@@ -166,7 +166,7 @@ hand picked 1 seeds,glass,35,35,click,1,6,True
 hand picked 1 seeds,glass,35,35,cribbett,1,7,False
 hand picked 1 seeds,glass,35,35,ding,1,8,True
 hand picked 1 seeds,glass,35,35,eeka,1,9,False
-hand picked 1 seeds,glass,35,35,glasses clanking,1,10,False
+hand picked 1 seeds,glass,35,35,glasses clanking,1,10,True
 hand picked 1 seeds,glass,35,35,grink,1,11,False
 hand picked 1 seeds,glass,35,35,ka-tick,1,12,False
 hand picked 1 seeds,glass,35,35,katink,1,13,False
@@ -185,7 +185,7 @@ hand picked 1 seeds,tear,39,39,kizzle,1,8,False
 hand picked 1 seeds,tear,39,39,kuhzip,1,9,False
 hand picked 1 seeds,tear,39,39,kureep,1,10,False
 hand picked 1 seeds,tear,39,39,kushhh,1,11,False
-hand picked 1 seeds,tear,39,39,paper being torn,1,12,False
+hand picked 1 seeds,tear,39,39,paper being torn,1,12,True
 hand picked 1 seeds,tear,39,39,richipit,1,13,False
 hand picked 1 seeds,tear,39,39,rip,1,14,True
 hand picked 1 seeds,tear,39,39,scrape,1,15,True
@@ -247,7 +247,7 @@ hand picked 1 seeds,water,45,45,splush,1,14,False
 hand picked 1 seeds,water,45,45,swash,1,15,True
 hand picked 1 seeds,water,45,45,swoosh,1,16,True
 hand picked 1 seeds,water,45,45,water,1,17,True
-hand picked 1 seeds,water,45,45,water lapping on a shore,1,18,False
+hand picked 1 seeds,water,45,45,water lapping on a shore,1,18,True
 hand picked 1 seeds,water,45,45,wuuwaaa,1,19,False
 hand picked 1 seeds,zipper,47,47,zip,3,1,True
 hand picked 1 seeds,zipper,47,47,Zip,1,2,True
