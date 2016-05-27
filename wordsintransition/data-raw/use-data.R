@@ -20,4 +20,18 @@ responses <- mutate(responses,
                     is_correct = as.numeric(selection == answer),
                     chance = 0.25)
 
-use_data(messages, questions, responses, subjects, surveys, transcriptions, matches, overwrite = TRUE)
+# Combine qualtrics matches and app matches
+# ...
+
+# Rename datasets
+imitations <- messages
+match_imitations <- responses
+match_transcriptions <- matches
+
+use_data(
+  imitations,
+  match_imitations,
+  transcriptions,
+  match_transcriptions,
+  overwrite = TRUE
+)
