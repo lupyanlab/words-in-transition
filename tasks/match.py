@@ -77,4 +77,4 @@ def tidy_survey():
     final = final[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
-    final.to_csv(Path(report_dir, 'matches.csv'), index=False)
+    final.to_csv(Path(report_dir, 'match_transcriptions_1.csv'), index=False)
