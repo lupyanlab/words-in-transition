@@ -1,6 +1,41 @@
 """Convert json DB dumps from telephone app to csvs for analysis."""
 import pandas as pd
 
+from unipath import Path
+
+
+def make_subjects(subjects_csv):
+    """Process the MTurk assignments so they can be merged with responses.
+
+    TODO: Some people took the survey multiple times, so codes should be labeled
+          with run number for each subject.
+    """
+    mturk = pd.read_csv(subjects_csv)
+    split = mturk.completionCode.str.split('-')
+    def zip_codes(completion_code):
+        try:
+            return {k: v for k, v in enumerate(completion_code)}
+        except TypeError:
+            return {}
+    codes = pd.DataFrame.from_records(split.apply(zip_codes))
+    codes['subj_id'] = mturk.WorkerId
+    labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
+
+    def coerce_int(x):
+        # replace non-int response_ids with missing values
+        try:
+            int(x)
+        except ValueError:
+            return ''
+        else:
+            return x
+
+    labeled['response_id'] = labeled.response_id.apply(coerce_int)
+    labeled = labeled.ix[labeled.response_id != '']
+    labeled['response_id'] = labeled.response_id.astype(int)
+    labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
+    return labeled
+
 
 def make_imitations(imitations_json):
     imitations = pd.read_json(imitations_json)
@@ -34,7 +69,6 @@ def make_surveys(surveys_json):
     surveys = surveys[surveys.survey_type != 'test']
 
     return surveys
-
 
 def make_questions(questions_json, imitations):
     questions = pd.read_json(questions_json)
@@ -88,40 +122,6 @@ def make_questions(questions_json, imitations):
 
     return questions
 
-
-def make_subjects(subjects_csv):
-    """Process the MTurk assignments so they can be merged with responses.
-
-    TODO: Some people took the survey multiple times, so codes should be labeled
-          with run number for each subject.
-    """
-    mturk = pd.read_csv(subjects_csv)
-    split = mturk.completionCode.str.split('-')
-    def zip_codes(completion_code):
-        try:
-            return {k: v for k, v in enumerate(completion_code)}
-        except TypeError:
-            return {}
-    codes = pd.DataFrame.from_records(split.apply(zip_codes))
-    codes['subj_id'] = mturk.WorkerId
-    labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
-
-    def coerce_int(x):
-        # replace non-int response_ids with missing values
-        try:
-            int(x)
-        except ValueError:
-            return ''
-        else:
-            return x
-
-    labeled['response_id'] = labeled.response_id.apply(coerce_int)
-    labeled = labeled.ix[labeled.response_id != '']
-    labeled['response_id'] = labeled.response_id.astype(int)
-    labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
-    return labeled
-
-
 def make_match_imitations(responses_json):
     match_imitations = pd.read_json(responses_json)
     del match_imitations['model']
@@ -148,7 +148,6 @@ def make_transcription_surveys(surveys_json):
 
     return surveys
 
-
 def make_transcription_questions(questions_json):
     questions = pd.read_json(questions_json)
     del questions['model']
@@ -162,7 +161,6 @@ def make_transcription_questions(questions_json):
 
     return questions
 
-
 def make_transcriptions(transcriptions_json):
     transcriptions = pd.read_json(transcriptions_json)
     del transcriptions['model']
@@ -175,6 +173,43 @@ def make_transcriptions(transcriptions_json):
     )
 
     return transcriptions
+
+
+def make_match_transcriptions(src_dir):
+    surveys = pd.read_json(Path(src_dir, 'words.Survey.json'))
+    del surveys['model']
+    unfold_model_fields(surveys, ['name', 'catch_trial_id'])
+    surveys.rename(
+        columns=dict(pk='survey_id', name='survey_name'),
+        inplace=True,
+    )
+
+    questions = pd.read_json(Path(src_dir, 'words.Question.json'))
+    del questions['model']
+    unfold_model_fields(questions, ['word', 'survey', 'choices'])
+    questions.rename(
+        columns=dict(pk='question_id', survey='survey_id'),
+        inplace=True,
+    )
+
+    # determine correct answer for each question!
+    # questions['answer'] = ...
+
+    # determine question type for each question
+    # e.g., catch_trial, true_seed, category_match
+    # questions['question_type'] = ...
+
+    responses = pd.read_json(Path(src_dir, 'words.Response.json'))
+    del responses['model']
+    unfold_model_fields(responses, ['selection', 'question'])
+    responses.rename(
+        columns=dict(pk='response_id', question='question_id'),
+        inplace=True,
+    )
+
+    match_transcriptions = (responses.merge(questions)
+                                     .merge(surveys))
+    return match_transcriptions
 
 
 def unfold(objects, name):

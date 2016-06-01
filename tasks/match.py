@@ -9,7 +9,6 @@ report_dir = Path('reports/5-match-to-seed-transcriptions/')
 qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
 
 
-@task
 def download_qualtrics():
     """Download match imitation data from Qualtrics."""
     qualtrics = Qualtrics(**get_creds())
@@ -21,8 +20,7 @@ def download_qualtrics():
         )
 
 
-@task
-def tidy_survey():
+def match_to_transcription_pilot_data():
     """Process match imitation surveys from Qualtrics."""
     all_surveys = []
     for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
@@ -77,4 +75,4 @@ def tidy_survey():
     final = final[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
-    final.to_csv(Path(report_dir, 'match_transcriptions_1.csv'), index=False)
+    return final

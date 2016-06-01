@@ -7,6 +7,7 @@ from unipath import Path
 import enchant
 
 from .tidy import *
+from .match import match_to_transcription_pilot_data
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')
@@ -31,6 +32,10 @@ def csv():
     imitations = make_imitations(Path(src_dir, 'grunt.Message.json'))
     imitations.to_csv(Path(csv_output_dir, 'imitations.csv'), index=False)
 
+    subjects = make_subjects(Path(src_dir, 'mturk_survey_results.csv'))
+    subjects.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
+
+    # match imitations
     surveys = make_surveys(Path(src_dir, 'ratings.Survey.json'))
     surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
 
@@ -38,15 +43,13 @@ def csv():
     questions = questions.merge(surveys)
     questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
 
-    subjects = make_subjects(Path(src_dir, 'mturk_survey_results.csv'))
-    subjects.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
-
     match_imitations = make_match_imitations(Path(src_dir, 'ratings.Response.json'))
     match_imitations = match_imitations.merge(questions)
     match_imitations = match_imitations.merge(subjects, how='left')
     match_imitations = match_imitations.merge(imitations)
     match_imitations.to_csv(Path(csv_output_dir, 'match_imitations.csv'), index=False)
 
+    # transcriptions
     transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
     transcription_questions = make_transcription_questions(Path(src_dir, 'transcribe.MessageToTranscribe.json'))
     transcriptions = make_transcriptions(Path(src_dir, 'transcribe.Transcription.json'))
@@ -72,6 +75,34 @@ def csv():
     transcription_frequencies['is_english'] = transcription_frequencies.text.apply(check_english).astype(int)
     transcription_frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
                        index=False)
+
+    # match transcriptions
+    match_to_transcriptions_1 = match_to_transcription_pilot_data()
+    match_to_transcriptions_1['experiment'] = 'pilot'
+    match_to_transcriptions_2 = make_match_transcriptions(Path(src_dir))
+    match_to_transcriptions_2 = match_to_transcriptions_2.merge(subjects, how='left')
+    match_to_transcriptions_2['experiment'] = 'test'
+    match_to_transcriptions = pd.concat(
+        [match_to_transcriptions_1, match_to_transcriptions_2],
+    )
+    match_to_transcriptions.to_csv(
+        Path(csv_output_dir, 'match_transcriptions.csv'),
+        index=False,
+    )
+
+
+def identify_responses(django_app_name):
+    """Join survey and question info to table of responses.
+
+    TODO: Rename transcribe models to be Survey, Question, and Response.
+
+    Args:
+        django_app_name (str): The prefix for the models to look for,
+            e.g., 'words', 'ratings'
+    """
+    surveys = format_survey('words.Survey.json')
+    questions = format_questions('words.Question.json')
+    responses = format_questions('')
 
 
 @task
