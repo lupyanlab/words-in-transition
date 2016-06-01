@@ -37,11 +37,8 @@ def csv():
 
     # match imitations
     surveys = make_surveys(Path(src_dir, 'ratings.Survey.json'))
-    surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
-
     questions = make_questions(Path(src_dir, 'ratings.Question.json'), imitations)
     questions = questions.merge(surveys)
-    questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
 
     match_imitations = make_match_imitations(Path(src_dir, 'ratings.Response.json'))
     match_imitations = match_imitations.merge(questions)
