@@ -2,23 +2,23 @@
 import pandas as pd
 
 
-def make_messages(messages_json):
-    messages = pd.read_json(messages_json)
-    del messages['model']
+def make_imitations(imitations_json):
+    imitations = pd.read_json(imitations_json)
+    del imitations['model']
 
-    message_model_fields = ['audio', 'chain', 'parent', 'generation', 'rejected', 'verified', 'start_at', 'end_at']
-    unfold_model_fields(messages, message_model_fields)
+    imitation_model_fields = ['audio', 'chain', 'parent', 'generation', 'rejected', 'verified', 'start_at', 'end_at']
+    unfold_model_fields(imitations, imitation_model_fields)
 
     # extract game name and chain name from path to wav
-    extract_from_path(messages)
+    extract_from_path(imitations)
 
-    messages.sort_values(['game_name', 'chain_name', 'message_name'], inplace=True)
-    messages.rename(columns=dict(pk='message_id', chain='chain_id', parent='parent_id'), inplace=True)
+    imitations.sort_values(['game_name', 'chain_name', 'imitation_name'], inplace=True)
+    imitations.rename(columns=dict(pk='imitation_id', chain='chain_id', parent='parent_id'), inplace=True)
 
-    messages['seed_id'] = messages.apply(find_message_on_branch, generation=0, frame=messages, axis=1)
-    messages['first_gen_id'] = messages.apply(find_message_on_branch, generation=1, frame=messages, axis=1)
+    imitations['seed_id'] = imitations.apply(find_imitation_on_branch, generation=0, frame=imitations, axis=1)
+    imitations['first_gen_id'] = imitations.apply(find_imitation_on_branch, generation=1, frame=imitations, axis=1)
 
-    return messages
+    return imitations
 
 
 def make_surveys(surveys_json):
@@ -36,25 +36,25 @@ def make_surveys(surveys_json):
     return surveys
 
 
-def make_questions(questions_json, messages):
+def make_questions(questions_json, imitations):
     questions = pd.read_json(questions_json)
     del questions['model']
 
     question_model_fields = ['choices', 'given', 'survey', 'answer']
     unfold_model_fields(questions, question_model_fields)
 
-    questions.rename(columns=dict(pk='question_pk', survey='survey_id', given='message_id'),
+    questions.rename(columns=dict(pk='question_pk', survey='survey_id', given='imitation_id'),
                      inplace=True)
 
-    # question id is unique combination of choices and given message
+    # question id is unique combination of choices and given imitation
     # question pk is unique for all question models in the db
-    question_id_str = questions.choices.astype(str) + questions.message_id.astype(str)
+    question_id_str = questions.choices.astype(str) + questions.imitation_id.astype(str)
     questions['question_id_str'] = question_id_str
     question_id_map = {qstr: qid for qid, qstr in enumerate(question_id_str.unique())}
     questions['question_id'] = questions.question_id_str.apply(lambda x: question_id_map[x])
     del questions['question_id_str']
 
-    seed_map = messages[['message_id', 'seed_id', 'chain_name']]
+    seed_map = imitations[['imitation_id', 'seed_id', 'chain_name']]
     questions = questions.merge(seed_map)
 
     chain_seeds = seed_map[['chain_name', 'seed_id']].drop_duplicates()
@@ -75,7 +75,7 @@ def make_questions(questions_json, messages):
     questions = questions.apply(determine_answer, axis=1)
 
     def determine_question_type(question):
-        if question.message_id in question.choices:
+        if question.imitation_id in question.choices:
             question_type = 'catch_trial'
         elif question.seed_id in question.choices:
             question_type = 'true_seed'
@@ -138,7 +138,11 @@ def make_transcription_surveys(surveys_json):
     del surveys['model']
 
     unfold_model_fields(surveys, ['name', 'catch_trial_id'])
-    surveys.rename(columns=dict(pk='transcription_survey_id', name='transcription_survey_name'), inplace=True)
+    surveys.rename(
+        columns=dict(pk='transcription_survey_id',
+                     name='transcription_survey_name'),
+        inplace=True,
+    )
 
     return surveys
 
@@ -148,8 +152,11 @@ def make_transcription_questions(questions_json):
     del questions['model']
 
     unfold_model_fields(questions, ['given', 'survey'])
-    questions.rename(columns=dict(pk='message_to_transcribe_id', given='message_id', survey='transcription_survey_id'),
-                     inplace=True)
+    questions.rename(
+        columns=dict(pk='imitation_to_transcribe_id', given='imitation_id',
+                     survey='transcription_survey_id'),
+        inplace=True,
+    )
 
     return questions
 
@@ -159,8 +166,11 @@ def make_transcriptions(transcriptions_json):
     del transcriptions['model']
 
     unfold_model_fields(transcriptions, ['message', 'text'])
-    transcriptions.rename(columns=dict(pk='transcription_id', message='message_to_transcribe_id'),
-                          inplace=True)
+    transcriptions.rename(
+        columns=dict(pk='transcription_id',
+                     message='imitation_to_transcribe_id'),
+        inplace=True,
+    )
 
     return transcriptions
 
@@ -178,38 +188,38 @@ def unfold_model_fields(json_frame, fields):
 
 def extract_from_path(frame):
     splits = frame.audio.str.split('/')
-    path_args = ['game_name', 'chain_name', 'message_name']
+    path_args = ['game_name', 'chain_name', 'imitation_name']
     assert len(path_args) <= len(splits[0])
     for i, name in enumerate(path_args):
         frame[name] = splits.str.get(i)
 
-def find_message_on_branch(message, generation, frame):
-    if message.generation == generation:
-        return message.message_id
-    elif message.generation < generation:
-        # message will never be found
+def find_imitation_on_branch(imitation, generation, frame):
+    if imitation.generation == generation:
+        return imitation.imitation_id
+    elif imitation.generation < generation:
+        # imitation will never be found
         return -1
     else:
-        parent = frame.ix[frame.message_id == message.parent_id].squeeze()
-        return find_message_on_branch(parent, generation, frame)
+        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
+        return find_imitation_on_branch(parent, generation, frame)
 
-def label_seed_messages(frame):
-    frame['seed_id'] = frame.apply(find_message_on_branch, generation=0, frame=frame, axis=1)
+def label_seed_imitations(frame):
+    frame['seed_id'] = frame.apply(find_imitation_on_branch, generation=0, frame=frame, axis=1)
 
-    def find_seed(message):
-        if message.generation == 0:
-            return message.message_id
-        parent = frame.ix[frame.message_id == message.parent_id].squeeze()
+    def find_seed(imitation):
+        if imitation.generation == 0:
+            return imitation.imitation_id
+        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
         return find_seed(parent)
 
     frame['seed_id'] = frame.apply(find_seed, axis=1)
 
-def label_seed_messages(frame):
+def label_seed_imitations(frame):
 
-    def find_seed(message):
-        if message.generation == 0:
-            return message.message_id
-        parent = frame.ix[frame.message_id == message.parent_id].squeeze()
+    def find_seed(imitation):
+        if imitation.generation == 0:
+            return imitation.imitation_id
+        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
         return find_seed(parent)
 
     frame['seed_id'] = frame.apply(find_seed, axis=1)

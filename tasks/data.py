@@ -28,13 +28,13 @@ def get():
 @task
 def csv():
     """Create tidy csvs from the raw data dumps."""
-    messages = make_messages(Path(src_dir, 'grunt.Message.json'))
-    messages.to_csv(Path(csv_output_dir, 'messages.csv'), index=False)
+    imitations = make_imitations(Path(src_dir, 'grunt.Message.json'))
+    imitations.to_csv(Path(csv_output_dir, 'imitations.csv'), index=False)
 
     surveys = make_surveys(Path(src_dir, 'ratings.Survey.json'))
     surveys.to_csv(Path(csv_output_dir, 'surveys.csv'), index=False)
 
-    questions = make_questions(Path(src_dir, 'ratings.Question.json'), messages)
+    questions = make_questions(Path(src_dir, 'ratings.Question.json'), imitations)
     questions = questions.merge(surveys)
     questions.to_csv(Path(csv_output_dir, 'questions.csv'), index=False)
 
@@ -44,7 +44,7 @@ def csv():
     responses = make_responses(Path(src_dir, 'ratings.Response.json'))
     responses = responses.merge(questions)
     responses = responses.merge(subjects, how='left')
-    responses = responses.merge(messages)
+    responses = responses.merge(imitations)
     responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
 
     transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
@@ -55,7 +55,7 @@ def csv():
 
     transcriptions = transcriptions.merge(transcription_questions)
     transcriptions = transcriptions.merge(transcription_surveys)
-    transcriptions = transcriptions.merge(messages[['message_id', 'seed_id', 'chain_name']])
+    transcriptions = transcriptions.merge(imitations[['imitation_id', 'seed_id', 'chain_name']])
 
     transcriptions = transcriptions.ix[transcriptions.transcription_survey_name.isin(['hand picked 1', 'hand picked 1 seeds'])]
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
@@ -63,7 +63,7 @@ def csv():
 
     frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
     frequencies['text'] = frequencies.text.str.lower()
-    groupers = ['chain_name', 'seed_id', 'message_id']
+    groupers = ['chain_name', 'seed_id', 'imitation_id']
     frequencies = (frequencies.groupby(groupers)
                               .text
                               .value_counts()
