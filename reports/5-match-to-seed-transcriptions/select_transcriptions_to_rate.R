@@ -1,9 +1,9 @@
 library(dplyr)
 
 library(wordsintransition)
-data("frequencies")
+data("transcription_frequencies")
 
-selected <- frequencies %>%
+selected <- transcription_frequencies %>%
   filter(is_english == 0) %>%
   group_by(chain_name, seed_id, message_id) %>%
   arrange(desc(n)) %>%

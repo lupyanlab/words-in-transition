@@ -61,16 +61,16 @@ def csv():
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
-    frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
-    frequencies['text'] = frequencies.text.str.lower()
+    transcription_frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
+    transcription_frequencies['text'] = transcription_frequencies.text.str.lower()
     groupers = ['chain_name', 'seed_id', 'imitation_id']
-    frequencies = (frequencies.groupby(groupers)
+    transcription_frequencies = (transcription_frequencies.groupby(groupers)
                               .text
                               .value_counts()
                               .reset_index()
                               .rename(columns={0: 'n'}))
-    frequencies['is_english'] = frequencies.text.apply(check_english).astype(int)
-    frequencies.to_csv(Path(csv_output_dir, 'frequencies.csv'),
+    transcription_frequencies['is_english'] = transcription_frequencies.text.apply(check_english).astype(int)
+    transcription_frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
                        index=False)
 
 

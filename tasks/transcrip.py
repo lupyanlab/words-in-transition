@@ -15,9 +15,9 @@ def label_english_words():
     def check_english(text):
         return all([d.check(w) for w in text.split(' ')])
 
-    freqs_csv = unipath.Path(transcrip_dir, 'frequencies.csv')
+    freqs_csv = unipath.Path(transcrip_dir, 'transcription_frequencies.csv')
     transcriptions = pandas.read_csv(freqs_csv)
     transcriptions['is_english'] = transcriptions.text.apply(check_english)
 
-    out_csv = unipath.Path(transcrip_dir, 'frequencies-labeled.csv')
+    out_csv = unipath.Path(transcrip_dir, 'transcription_frequencies_labeled.csv')
     transcriptions.to_csv(out_csv, index=False)
