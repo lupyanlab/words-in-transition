@@ -1,0 +1,1 @@
+[{"fields": {"catch_trial_id": 65, "name": "match imitations seeds 1", "num_questions_per_player": 10}, "model": "words.survey", "pk": 1}, {"fields": {"catch_trial_id": 130, "name": "match imitations seeds 2", "num_questions_per_player": 10}, "model": "words.survey", "pk": 2}]
