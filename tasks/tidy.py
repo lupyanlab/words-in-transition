@@ -122,15 +122,17 @@ def make_subjects(subjects_csv):
     return labeled
 
 
-def make_responses(responses_json):
-    responses = pd.read_json(responses_json)
-    del responses['model']
+def make_match_imitations(responses_json):
+    match_imitations = pd.read_json(responses_json)
+    del match_imitations['model']
 
-    unfold_model_fields(responses, ['selection', 'question'])
-    responses.rename(columns=dict(pk='response_id', question='question_pk'),
-                     inplace=True)
+    unfold_model_fields(match_imitations, ['selection', 'question'])
+    match_imitations.rename(
+        columns=dict(pk='response_id', question='question_pk'),
+        inplace=True,
+    )
 
-    return responses
+    return match_imitations
 
 
 def make_transcription_surveys(surveys_json):

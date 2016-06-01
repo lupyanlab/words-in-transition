@@ -41,11 +41,11 @@ def csv():
     subjects = make_subjects(Path(src_dir, 'mturk_survey_results.csv'))
     subjects.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
 
-    responses = make_responses(Path(src_dir, 'ratings.Response.json'))
-    responses = responses.merge(questions)
-    responses = responses.merge(subjects, how='left')
-    responses = responses.merge(imitations)
-    responses.to_csv(Path(csv_output_dir, 'responses.csv'), index=False)
+    match_imitations = make_match_imitations(Path(src_dir, 'ratings.Response.json'))
+    match_imitations = match_imitations.merge(questions)
+    match_imitations = match_imitations.merge(subjects, how='left')
+    match_imitations = match_imitations.merge(imitations)
+    match_imitations.to_csv(Path(csv_output_dir, 'match_imitations.csv'), index=False)
 
     transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
     transcription_questions = make_transcription_questions(Path(src_dir, 'transcribe.MessageToTranscribe.json'))
