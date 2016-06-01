@@ -14,21 +14,8 @@ for(path in data_files) {
   assign(name, frame)
 }
 
-# Tidy responses data
-# TODO: Move these functions to invoke tasks.
-responses <- mutate(responses,
-                    is_correct = as.numeric(selection == answer),
-                    chance = 0.25)
-
-# Combine qualtrics matches and app matches
-# ...
-
-# Rename datasets
-imitations <- messages
-match_imitations <- responses
-match_transcriptions <- matches
-
 use_data(
+  subjects,
   imitations,
   match_imitations,
   transcriptions,

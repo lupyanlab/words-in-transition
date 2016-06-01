@@ -44,7 +44,14 @@ def csv():
     match_imitations = match_imitations.merge(questions)
     match_imitations = match_imitations.merge(subjects, how='left')
     match_imitations = match_imitations.merge(imitations)
-    match_imitations.to_csv(Path(csv_output_dir, 'match_imitations.csv'), index=False)
+
+    match_imitations['is_correct'] =\
+        (match_imitations.selection == match_imitations.answer).astype(int)
+
+    match_imitations.to_csv(
+        Path(csv_output_dir, 'match_imitations.csv'),
+        index=False,
+    )
 
     # transcriptions
     transcription_surveys = make_transcription_surveys(Path(src_dir, 'transcribe.TranscriptionSurvey.json'))
