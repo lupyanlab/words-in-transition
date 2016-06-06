@@ -4,6 +4,7 @@ import pandas as pd
 
 from .qualtrics import Qualtrics
 from .seeds import convert_wav_to_mp3, get_creds
+from .tidy import unfold_model_fields
 
 report_dir = Path('reports/5-match-to-seed-transcriptions/')
 qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
@@ -21,7 +22,15 @@ def download_qualtrics():
 
 
 def match_to_transcription_pilot_data():
-    """Process match imitation surveys from Qualtrics."""
+    """Process match imitation surveys from Qualtrics.
+
+    This function processes the raw Qualtrics output, labels the Qualtrics
+    columns using the loop and merge csvs, and puts the result in tidy
+    format.
+
+    This function assumes the Qualtrics output has already been downloaded
+    and that the location of the loop and merge csvs is also hard-coded in.
+    """
     all_surveys = []
     for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
         survey = pd.read_csv(
@@ -76,3 +85,44 @@ def match_to_transcription_pilot_data():
     final['is_correct'] = (final.text_category == final.choice_category).astype(int)
 
     return final
+
+
+def make_match_transcriptions(src_dir):
+    """Make match transcriptions data from DB dumps.
+
+    cf. match.match_to_transcription_pilot_data
+    """
+    surveys = pd.read_json(Path(src_dir, 'words.Survey.json'))
+    del surveys['model']
+    unfold_model_fields(surveys, ['name', 'catch_trial_id'])
+    surveys.rename(
+        columns=dict(pk='survey_id', name='survey_name'),
+        inplace=True,
+    )
+
+    questions = pd.read_json(Path(src_dir, 'words.Question.json'))
+    del questions['model']
+    unfold_model_fields(questions, ['word', 'survey', 'choices'])
+    questions.rename(
+        columns=dict(pk='question_id', survey='survey_id'),
+        inplace=True,
+    )
+
+    # determine correct answer for each question!
+    # questions['answer'] = ...
+
+    # determine question type for each question
+    # e.g., catch_trial, true_seed, category_match
+    # questions['question_type'] = ...
+
+    responses = pd.read_json(Path(src_dir, 'words.Response.json'))
+    del responses['model']
+    unfold_model_fields(responses, ['selection', 'question'])
+    responses.rename(
+        columns=dict(pk='response_id', question='question_id'),
+        inplace=True,
+    )
+
+    match_transcriptions = (responses.merge(questions)
+                                     .merge(surveys))
+    return match_transcriptions

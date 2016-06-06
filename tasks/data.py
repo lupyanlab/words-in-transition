@@ -7,7 +7,8 @@ from unipath import Path
 import enchant
 
 from .tidy import *
-from .match import match_to_transcription_pilot_data
+from .match_transcriptions import (match_to_transcription_pilot_data,
+                                   make_match_transcriptions)
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')

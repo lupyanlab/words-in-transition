@@ -175,43 +175,6 @@ def make_transcriptions(transcriptions_json):
     return transcriptions
 
 
-def make_match_transcriptions(src_dir):
-    surveys = pd.read_json(Path(src_dir, 'words.Survey.json'))
-    del surveys['model']
-    unfold_model_fields(surveys, ['name', 'catch_trial_id'])
-    surveys.rename(
-        columns=dict(pk='survey_id', name='survey_name'),
-        inplace=True,
-    )
-
-    questions = pd.read_json(Path(src_dir, 'words.Question.json'))
-    del questions['model']
-    unfold_model_fields(questions, ['word', 'survey', 'choices'])
-    questions.rename(
-        columns=dict(pk='question_id', survey='survey_id'),
-        inplace=True,
-    )
-
-    # determine correct answer for each question!
-    # questions['answer'] = ...
-
-    # determine question type for each question
-    # e.g., catch_trial, true_seed, category_match
-    # questions['question_type'] = ...
-
-    responses = pd.read_json(Path(src_dir, 'words.Response.json'))
-    del responses['model']
-    unfold_model_fields(responses, ['selection', 'question'])
-    responses.rename(
-        columns=dict(pk='response_id', question='question_id'),
-        inplace=True,
-    )
-
-    match_transcriptions = (responses.merge(questions)
-                                     .merge(surveys))
-    return match_transcriptions
-
-
 def unfold(objects, name):
     """Pull the named value out of a list of objects."""
     return objects.apply(lambda x: x[name])
