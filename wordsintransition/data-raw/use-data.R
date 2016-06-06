@@ -20,6 +20,6 @@ use_data(
   match_imitations,
   transcriptions,
   transcription_frequencies,
-  match_transcriptions,
+  transcription_matches,
   overwrite = TRUE
 )

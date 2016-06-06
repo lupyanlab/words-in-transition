@@ -21,7 +21,7 @@ def download_qualtrics():
         )
 
 
-def match_to_transcription_pilot_data():
+def make_transcription_matches_pilot():
     """Process match imitation surveys from Qualtrics.
 
     This function processes the raw Qualtrics output, labels the Qualtrics
@@ -87,10 +87,10 @@ def match_to_transcription_pilot_data():
     return final
 
 
-def make_match_transcriptions(src_dir):
+def make_transcription_matches_app(src_dir):
     """Make match transcriptions data from DB dumps.
 
-    cf. match.match_to_transcription_pilot_data
+    cf. match.make_transcription_matches_pilot
     """
     surveys = pd.read_json(Path(src_dir, 'words.Survey.json'))
     del surveys['model']
@@ -123,6 +123,6 @@ def make_match_transcriptions(src_dir):
         inplace=True,
     )
 
-    match_transcriptions = (responses.merge(questions)
+    transcription_matches = (responses.merge(questions)
                                      .merge(surveys))
-    return match_transcriptions
+    return transcription_matches
