@@ -122,17 +122,17 @@ def make_questions(questions_json, imitations):
 
     return questions
 
-def make_match_imitations(responses_json):
-    match_imitations = pd.read_json(responses_json)
-    del match_imitations['model']
+def make_imitation_matches(responses_json):
+    imitation_matches = pd.read_json(responses_json)
+    del imitation_matches['model']
 
-    unfold_model_fields(match_imitations, ['selection', 'question'])
-    match_imitations.rename(
+    unfold_model_fields(imitation_matches, ['selection', 'question'])
+    imitation_matches.rename(
         columns=dict(pk='response_id', question='question_pk'),
         inplace=True,
     )
 
-    return match_imitations
+    return imitation_matches
 
 
 def make_transcription_surveys(surveys_json):

@@ -41,16 +41,16 @@ def csv():
     questions = make_questions(Path(src_dir, 'ratings.Question.json'), imitations)
     questions = questions.merge(surveys)
 
-    match_imitations = make_match_imitations(Path(src_dir, 'ratings.Response.json'))
-    match_imitations = match_imitations.merge(questions)
-    match_imitations = match_imitations.merge(subjects, how='left')
-    match_imitations = match_imitations.merge(imitations)
+    imitation_matches = make_imitation_matches(Path(src_dir, 'ratings.Response.json'))
+    imitation_matches = imitation_matches.merge(questions)
+    imitation_matches = imitation_matches.merge(subjects, how='left')
+    imitation_matches = imitation_matches.merge(imitations)
 
-    match_imitations['is_correct'] =\
-        (match_imitations.selection == match_imitations.answer).astype(int)
+    imitation_matches['is_correct'] =\
+        (imitation_matches.selection == imitation_matches.answer).astype(int)
 
-    match_imitations.to_csv(
-        Path(csv_output_dir, 'match_imitations.csv'),
+    imitation_matches.to_csv(
+        Path(csv_output_dir, 'imitation_matches.csv'),
         index=False,
     )
 

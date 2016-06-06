@@ -17,7 +17,7 @@ for(path in data_files) {
 use_data(
   subjects,
   imitations,
-  match_imitations,
+  imitation_matches,
   transcriptions,
   transcription_frequencies,
   transcription_matches,
