@@ -7,8 +7,7 @@ from unipath import Path
 import enchant
 
 from .tidy import *
-from .transcription_matches import (make_transcription_matches_pilot,
-                                    make_transcription_matches_app)
+from .transcription_matches import make_transcription_matches
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')
@@ -82,15 +81,8 @@ def csv():
                        index=False)
 
     # match transcriptions
-    match_to_transcriptions_1 = make_transcription_matches_pilot()
-    match_to_transcriptions_1['experiment'] = 'pilot'
-    match_to_transcriptions_2 = make_transcription_matches_app(Path(src_dir))
-    match_to_transcriptions_2 = match_to_transcriptions_2.merge(subjects, how='left')
-    match_to_transcriptions_2['experiment'] = 'test'
-    match_to_transcriptions = pd.concat(
-        [match_to_transcriptions_1, match_to_transcriptions_2],
-    )
-    match_to_transcriptions.to_csv(
+    transcription_matches = make_transcription_matches(Path(src_dir))
+    transcription_matches.to_csv(
         Path(csv_output_dir, 'transcription_matches.csv'),
         index=False,
     )

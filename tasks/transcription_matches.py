@@ -9,20 +9,25 @@ from .tidy import unfold_model_fields
 report_dir = Path('reports/5-match-to-seed-transcriptions/')
 qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
 
+# catch trial word for app surveys
+APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
 
-def download_qualtrics():
-    """Download match imitation data from Qualtrics."""
-    qualtrics = Qualtrics(**get_creds())
-    for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
-        responses = qualtrics.get_survey_responses(survey_name)
-        responses.to_csv(
-            Path(qualtrics_dir, 'responses/{}.csv'.format(survey_name)),
-            index=False,
-        )
+OUTPUT_COLUMNS = [
+    'experiment', 'subj_id',
+    'seed_id', 'message_id', 'word', 'word_category',
+    'question_type', 'choice_id', 'choice_category',
+    'is_correct',
+]
 
+
+def make_transcription_matches(src_dir):
+    pilot = make_transcription_matches_pilot()
+    app = make_transcription_matches_app(src_dir)
+    matches = pd.concat([pilot, app])
+    return matches
 
 def make_transcription_matches_pilot():
-    """Process match imitation surveys from Qualtrics.
+    """Process match imitation surveys from the pilot experiment on Qualtrics.
 
     This function processes the raw Qualtrics output, labels the Qualtrics
     columns using the loop and merge csvs, and puts the result in tidy
@@ -48,14 +53,21 @@ def make_transcription_matches_pilot():
 
         choice_map = pd.melt(choices, var_name='choice_label', value_name='url')
         choice_map['choice'] = choice_map.choice_label.str.extract('(\d)', expand=True).astype(int)
-        choice_map['choice_filename'] = choice_map.url.apply(lambda x: Path(x).stem)
-        choice_map = choice_map[['choice', 'choice_filename']]
+        choice_map['choice_filename'] =\
+            choice_map.url.apply(lambda x: Path(x).stem)
+        choice_map['choice_id'] = (
+            choice_map.choice_filename
+                      .str.extract('(\d+)$', expand=False)
+                      .astype(int))
+        choice_map = choice_map[['choice', 'choice_filename', 'choice_id']]
 
         id_col = 'workerId'
 
-        survey = pd.melt(survey, id_col, var_name='qualtrics_col', value_name='choice')
+        survey = pd.melt(survey, id_col, var_name='qualtrics_col',
+                         value_name='choice')
         re_seed = r'^([a-z]+\-\d+)\ \((\d)\)$'
-        survey[['filename', 'row']] = survey.qualtrics_col.str.extract(re_seed, expand=True)
+        survey[['filename', 'row']] =\
+            survey.qualtrics_col.str.extract(re_seed, expand=True)
 
         survey.dropna(inplace=True)
         survey['row'] = survey.row.astype(int)
@@ -76,15 +88,26 @@ def make_transcription_matches_pilot():
     final = pd.concat(all_surveys)
     final.sort_values(id_col, inplace=True)
 
-    final['seed_id'] = final.filename.str.split('-').str.get(1)
+    final['seed_id'] = final.filename.str.split('-').str.get(1).astype(int)
     final['choice_category'] = final.choice_filename.str.split('-').str.get(0)
 
-    final.rename(columns=dict(workerId='subj_id', chain_name='text_category'), inplace=True)
+    final.rename(
+        columns=dict(workerId='subj_id',
+                     text='word',
+                     chain_name='word_category'),
+        inplace=True,
+    )
 
-    final = final[['subj_id', 'survey_name', 'seed_id', 'text', 'text_category', 'question_type', 'choice_filename', 'choice_category']]
-    final['is_correct'] = (final.text_category == final.choice_category).astype(int)
+    message_id_labels = pd.read_csv(
+        Path(qualtrics_dir, 'transcriptions/selected.csv')
+    )[['text', 'seed_id', 'message_id']].rename(columns=dict(text='word'))
+    final = final.merge(message_id_labels, how='left')
 
-    return final
+    final['experiment'] = 'pilot'
+    final['is_correct'] = (final.word_category ==
+                           final.choice_category).astype(int)
+
+    return final[OUTPUT_COLUMNS]
 
 
 def make_transcription_matches_app(src_dir):
@@ -108,21 +131,100 @@ def make_transcription_matches_app(src_dir):
         inplace=True,
     )
 
-    # determine correct answer for each question!
-    # questions['answer'] = ...
-
-    # determine question type for each question
-    # e.g., catch_trial, true_seed, category_match
-    # questions['question_type'] = ...
+    # determine question type and answer id
+    answer_key = format_answer_key(src_dir)
+    questions = questions.merge(answer_key)
+    questions['question_type'] = questions.apply(label_question_type, axis=1)
+    labels = format_choice_category_labels(answer_key)
+    questions =\
+        questions.groupby('question_type').apply(label_answer_id, labels=labels)
 
     responses = pd.read_json(Path(src_dir, 'words.Response.json'))
     del responses['model']
     unfold_model_fields(responses, ['selection', 'question'])
     responses.rename(
-        columns=dict(pk='response_id', question='question_id'),
+        columns=dict(pk='response_id',
+                     question='question_id',
+                     selection='choice_id'),
         inplace=True,
     )
+    responses = responses.merge(labels)  # label choice category
 
-    transcription_matches = (responses.merge(questions)
-                                     .merge(surveys))
-    return transcription_matches
+    # combine responses, questions, and surveys
+    matches = (responses.merge(questions)
+                        .merge(surveys))
+    matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
+    matches['experiment'] = 'A'
+    matches['subj_id'] = pd.np.nan
+
+    return matches[OUTPUT_COLUMNS]
+
+
+def download_qualtrics():
+    """Download imitation matches pilot data from Qualtrics."""
+    qualtrics = Qualtrics(**get_creds())
+    for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
+        responses = qualtrics.get_survey_responses(survey_name)
+        responses.to_csv(
+            Path(qualtrics_dir, 'responses/{}.csv'.format(survey_name)),
+            index=False,
+        )
+
+
+def format_answer_key(src_dir):
+    answer_key = pd.read_csv(Path(src_dir, "selected_transcriptions.csv"))
+    answer_key.rename(
+        columns=dict(text="word",
+                     chain_name="word_category"),
+        inplace=True,
+    )
+    catch_trial = dict(word=APP_CATCH_TRIAL_WORD,
+                       word_category="catch_trial", seed_id=-1, message_id=-1)
+    answer_key = answer_key.append(catch_trial, ignore_index=True)
+    return answer_key[["word_category", "word", "seed_id", "message_id"]]
+
+
+def format_choice_category_labels(answer_key):
+    labels = answer_key.ix[answer_key.word_category != 'catch_trial']
+    labels = labels[['word_category', 'seed_id']].drop_duplicates()
+    labels.rename(
+        columns=dict(word_category='choice_category',
+                     seed_id='choice_id'),
+        inplace=True,
+    )
+    return labels
+
+
+def label_question_type(question):
+    if question.seed_id in question.choices:
+        question_type = 'exact'
+    elif question.word == APP_CATCH_TRIAL_WORD:
+        question_type = 'catch_trial'
+    else:
+        question_type = 'category'
+    return question_type
+
+
+def label_answer_id(chunk, labels):
+    question_type = chunk.iloc[0, :]["question_type"]
+
+    if question_type == "catch_trial":
+        # The correct choice on catch trials is the third option
+        chunk['answer_id'] = chunk.choices.apply(lambda x: x[2])
+    elif question_type == "exact":
+        # The choice is the actual seed
+        chunk['answer_id'] = chunk.seed_id
+    else:
+        # The correct choice is the other message in the seeds
+        chunk['answer_id'] =\
+            chunk.apply(label_category_answer, axis=1, labels=labels)
+
+    return chunk
+
+
+def label_category_answer(category_question, labels):
+    category_ix = (labels.choice_category == category_question.word_category)
+    not_exact_match = (labels.choice_id != category_question.seed_id)
+    category_ids = labels.ix[category_ix & not_exact_match, "choice_id"]
+    assert len(category_ids) == 1
+    return category_ids.squeeze()
