@@ -13,16 +13,16 @@ qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
 APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
 
 OUTPUT_COLUMNS = [
-    'experiment', 'subj_id',
+    'version', 'subj_id',
     'seed_id', 'message_id', 'word', 'word_category',
     'question_type', 'choice_id', 'choice_category',
     'is_correct',
 ]
 
 
-def make_transcription_matches(src_dir):
+def make_transcription_matches(app_data_dir, app_subjs):
     pilot = make_transcription_matches_pilot()
-    app = make_transcription_matches_app(src_dir)
+    app = make_transcription_matches_app(app_data_dir, app_subjs)
     matches = pd.concat([pilot, app])
     return matches
 
@@ -107,14 +107,14 @@ def make_transcription_matches_pilot():
     )[['text', 'seed_id', 'message_id']].rename(columns=dict(text='word'))
     final = final.merge(message_id_labels, how='left')
 
-    final['experiment'] = 'pilot'
+    final['version'] = 'pilot'
     final['is_correct'] = (final.word_category ==
                            final.choice_category).astype(int)
 
     return final[OUTPUT_COLUMNS]
 
 
-def make_transcription_matches_app(src_dir):
+def make_transcription_matches_app(src_dir, subjs):
     """Make match transcriptions data from DB dumps.
 
     cf. match.make_transcription_matches_pilot
@@ -158,8 +158,11 @@ def make_transcription_matches_app(src_dir):
     matches = (responses.merge(questions)
                         .merge(surveys))
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
-    matches['experiment'] = 'A'
-    matches['subj_id'] = pd.np.nan
+    matches['version'] = 'A'
+
+    # label subj id
+    subjects = subjs.ix[subjs.experiment == 'transcription_matches']
+    matches = matches.merge(subjects, how='left')
 
     return matches[OUTPUT_COLUMNS]
 

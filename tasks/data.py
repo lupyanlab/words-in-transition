@@ -82,7 +82,9 @@ def csv():
                        index=False)
 
     # match transcriptions
-    transcription_matches = make_transcription_matches(Path(src_dir))
+    transcription_matches = make_transcription_matches(
+        app_data_dir=Path(src_dir), app_subjs=subjects,
+    )
     transcription_matches.to_csv(
         Path(csv_output_dir, 'transcription_matches.csv'),
         index=False,

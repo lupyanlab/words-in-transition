@@ -18,8 +18,12 @@ def make_subjects(subjects_csv):
         except TypeError:
             return {}
     codes = pd.DataFrame.from_records(split.apply(zip_codes))
+
     codes['subj_id'] = mturk.WorkerId
-    labeled = pd.melt(codes, id_vars='subj_id', var_name='response_ix', value_name='response_id')
+    codes['experiment'] = mturk.experiment
+
+    labeled = pd.melt(codes, id_vars=['experiment', 'subj_id'],
+                      var_name='response_ix', value_name='response_id')
 
     def coerce_int(x):
         # replace non-int response_ids with missing values

@@ -1,4 +1,4 @@
-experiment,subj_id,seed_id,message_id,word,word_category,question_type,choice_id,choice_category,is_correct
+version,subj_id,seed_id,message_id,word,word_category,question_type,choice_id,choice_category,is_correct
 pilot,A002160837SWJFPIAI7L7,41,522,sheah,tear,category,34,glass,0
 pilot,A002160837SWJFPIAI7L7,47,377,veep,zipper,exact,47,zipper,1
 pilot,A002160837SWJFPIAI7L7,39,560,a chechyu,tear,exact,39,tear,1
@@ -216,1093 +216,1093 @@ pilot,AYCHPTQRYDT7G,42,563,Chicochicochicochico,water,exact,34,glass,0
 pilot,AYCHPTQRYDT7G,47,377,veep,zipper,exact,39,tear,0
 pilot,AYCHPTQRYDT7G,39,560,a chechyu,tear,exact,47,zipper,0
 A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,47,zipper,0
-A,,41,41,chraw,tear,category,39,tear,1
-A,,41,41,chraw,tear,category,42,water,0
+A,A3F3GKHC1OYHDY,41,41,chraw,tear,category,47,zipper,0
+A,AKA9XW7UANMPJ,41,41,chraw,tear,category,47,zipper,0
+A,A35JCNZJI2MQ20,41,41,chraw,tear,category,47,zipper,0
+A,A1KUOEK3NOUKIW,41,41,chraw,tear,category,47,zipper,0
+A,A4J4GGMKJ68L0,41,41,chraw,tear,category,47,zipper,0
+A,A2C39KTRMOM1XZ,41,41,chraw,tear,category,39,tear,1
+A,A2Q547IGXUG5B6,41,41,chraw,tear,category,42,water,0
 A,,47,377,veeeep,zipper,exact,47,zipper,1
-A,,47,377,veeeep,zipper,exact,47,zipper,1
-A,,47,377,veeeep,zipper,exact,47,zipper,1
-A,,47,377,veeeep,zipper,exact,47,zipper,1
-A,,47,377,veeeep,zipper,exact,47,zipper,1
-A,,47,377,veeeep,zipper,exact,39,tear,0
-A,,47,377,veeeep,zipper,exact,39,tear,0
-A,,49,505,izzit,zipper,category,47,zipper,1
-A,,49,505,izzit,zipper,category,47,zipper,1
-A,,49,505,izzit,zipper,category,47,zipper,1
-A,,49,505,izzit,zipper,category,47,zipper,1
-A,,49,505,izzit,zipper,category,47,zipper,1
-A,,49,505,izzit,zipper,category,39,tear,0
-A,,49,505,izzit,zipper,category,39,tear,0
-A,,49,505,izzit,zipper,category,39,tear,0
-A,,47,377,veeb,zipper,exact,47,zipper,1
-A,,47,377,veeb,zipper,exact,47,zipper,1
-A,,47,377,veeb,zipper,exact,47,zipper,1
-A,,47,377,veeb,zipper,exact,34,glass,0
-A,,47,377,veeb,zipper,exact,39,tear,0
-A,,47,377,veeb,zipper,exact,39,tear,0
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,47,zipper,1
-A,,49,505,izzip,zipper,category,39,tear,0
-A,,49,505,izzip,zipper,category,39,tear,0
-A,,49,505,izzip,zipper,category,39,tear,0
-A,,41,522,cheea,tear,category,47,zipper,0
-A,,41,522,cheea,tear,category,47,zipper,0
-A,,41,522,cheea,tear,category,39,tear,1
-A,,47,47,fizzim,zipper,exact,47,zipper,1
-A,,47,47,fizzim,zipper,exact,47,zipper,1
-A,,47,47,fizzim,zipper,exact,47,zipper,1
-A,,47,47,fizzim,zipper,exact,34,glass,0
-A,,47,47,fizzim,zipper,exact,39,tear,0
-A,,47,47,fizzim,zipper,exact,39,tear,0
-A,,47,47,fizzim,zipper,exact,39,tear,0
-A,,47,47,fizzim,zipper,exact,39,tear,0
-A,,41,522,sheah,tear,category,47,zipper,0
-A,,41,522,sheah,tear,category,47,zipper,0
-A,,41,522,sheah,tear,category,39,tear,1
-A,,41,522,sheah,tear,category,39,tear,1
-A,,41,522,sheah,tear,category,39,tear,1
-A,,41,522,sheah,tear,category,39,tear,1
-A,,41,522,sheah,tear,category,39,tear,1
-A,,41,522,sheah,tear,category,42,water,0
-A,,41,522,sheah,tear,category,42,water,0
-A,,49,49,pfiph,zipper,category,47,zipper,1
-A,,49,49,pfiph,zipper,category,47,zipper,1
-A,,49,49,pfiph,zipper,category,47,zipper,1
-A,,49,49,pfiph,zipper,category,47,zipper,1
-A,,49,49,pfiph,zipper,category,39,tear,0
-A,,49,49,pfiph,zipper,category,39,tear,0
-A,,49,49,pfiph,zipper,category,39,tear,0
-A,,49,49,pfiph,zipper,category,42,water,0
-A,,49,505,izit,zipper,category,47,zipper,1
-A,,49,505,izit,zipper,category,47,zipper,1
-A,,49,505,izit,zipper,category,47,zipper,1
-A,,49,505,izit,zipper,category,39,tear,0
-A,,49,505,izit,zipper,category,39,tear,0
-A,,49,505,izit,zipper,category,39,tear,0
-A,,49,505,izit,zipper,category,42,water,0
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,47,zipper,1
-A,,47,47,growwff,zipper,exact,39,tear,0
-A,,49,49,bahvup,zipper,category,47,zipper,1
-A,,49,49,bahvup,zipper,category,47,zipper,1
-A,,49,49,bahvup,zipper,category,47,zipper,1
-A,,49,49,bahvup,zipper,category,34,glass,0
-A,,49,49,bahvup,zipper,category,39,tear,0
-A,,49,49,bahvup,zipper,category,42,water,0
-A,,49,49,bahvup,zipper,category,42,water,0
-A,,41,522,sheyah,tear,category,47,zipper,0
-A,,41,522,sheyah,tear,category,47,zipper,0
-A,,41,522,sheyah,tear,category,47,zipper,0
-A,,41,522,sheyah,tear,category,34,glass,0
-A,,41,522,sheyah,tear,category,39,tear,1
-A,,41,522,sheyah,tear,category,39,tear,1
-A,,41,522,sheyah,tear,category,39,tear,1
-A,,41,522,sheyah,tear,category,39,tear,1
-A,,41,522,sheyah,tear,category,42,water,0
-A,,49,49,fft,zipper,category,47,zipper,1
-A,,49,49,fft,zipper,category,47,zipper,1
-A,,49,49,fft,zipper,category,39,tear,0
-A,,49,49,fft,zipper,category,39,tear,0
-A,,49,49,fft,zipper,category,39,tear,0
-A,,49,49,fft,zipper,category,39,tear,0
-A,,49,49,fft,zipper,category,39,tear,0
-A,,49,49,fft,zipper,category,39,tear,0
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,47,zipper,1
-A,,47,377,bveeeeeep,zipper,exact,34,glass,0
-A,,47,377,bveeeeeep,zipper,exact,39,tear,0
-A,,39,560,a-chitch-shu,tear,exact,47,zipper,0
-A,,39,560,a-chitch-shu,tear,exact,47,zipper,0
-A,,39,560,a-chitch-shu,tear,exact,34,glass,0
-A,,39,560,a-chitch-shu,tear,exact,39,tear,1
-A,,39,560,a-chitch-shu,tear,exact,42,water,0
-A,,49,49,brip,zipper,category,47,zipper,1
-A,,49,49,brip,zipper,category,47,zipper,1
-A,,49,49,brip,zipper,category,47,zipper,1
-A,,49,49,brip,zipper,category,47,zipper,1
-A,,42,42,blorgh,water,exact,47,zipper,0
-A,,42,42,blorgh,water,exact,47,zipper,0
-A,,42,42,blorgh,water,exact,39,tear,0
+A,AASW4EHSSOG40,47,377,veeeep,zipper,exact,47,zipper,1
+A,AASW4EHSSOG40,47,377,veeeep,zipper,exact,47,zipper,1
+A,A7KLTVEIASF4J,47,377,veeeep,zipper,exact,47,zipper,1
+A,A33KIELSFIQ02Q,47,377,veeeep,zipper,exact,47,zipper,1
+A,A2C39KTRMOM1XZ,47,377,veeeep,zipper,exact,39,tear,0
+A,A288TV72SGDQWE,47,377,veeeep,zipper,exact,39,tear,0
+A,A9YQQIZRWVPIT,49,505,izzit,zipper,category,47,zipper,1
+A,A2YM06JHC0NIQ8,49,505,izzit,zipper,category,47,zipper,1
+A,A2551EKB87S2XY,49,505,izzit,zipper,category,47,zipper,1
+A,AG7C4X3WKKBV,49,505,izzit,zipper,category,47,zipper,1
+A,A2WQTSU6SSBUWC,49,505,izzit,zipper,category,47,zipper,1
+A,A2TZJKKUN0LSHY,49,505,izzit,zipper,category,39,tear,0
+A,A21XD6CWE1JNMQ,49,505,izzit,zipper,category,39,tear,0
+A,A1A3TGZ7DKJWRW,49,505,izzit,zipper,category,39,tear,0
+A,A118DWOXWSI8VC,47,377,veeb,zipper,exact,47,zipper,1
+A,A3KFPH9FIIG9M3,47,377,veeb,zipper,exact,47,zipper,1
+A,AJ3D3XJH84KUU,47,377,veeb,zipper,exact,47,zipper,1
+A,A1NP2XGDX58PSH,47,377,veeb,zipper,exact,34,glass,0
+A,AKA9XW7UANMPJ,47,377,veeb,zipper,exact,39,tear,0
+A,A13ORLC5Y2LJL2,47,377,veeb,zipper,exact,39,tear,0
+A,A9YQQIZRWVPIT,49,505,izzip,zipper,category,47,zipper,1
+A,A130X6CF795CQ5,49,505,izzip,zipper,category,47,zipper,1
+A,A3OK0Q4TLQSQKT,49,505,izzip,zipper,category,47,zipper,1
+A,A7KLTVEIASF4J,49,505,izzip,zipper,category,47,zipper,1
+A,A3F3GKHC1OYHDY,49,505,izzip,zipper,category,47,zipper,1
+A,A3Q5SI9PCKJ2IW,49,505,izzip,zipper,category,47,zipper,1
+A,A26Y58YECZUZZG,49,505,izzip,zipper,category,47,zipper,1
+A,A3M0USQA0RQZ7D,49,505,izzip,zipper,category,39,tear,0
+A,A35E8LAQ1R6I9X,49,505,izzip,zipper,category,39,tear,0
+A,AMPMTF5IAAMK8,49,505,izzip,zipper,category,39,tear,0
+A,A2TZJKKUN0LSHY,41,522,cheea,tear,category,47,zipper,0
+A,A4J4GGMKJ68L0,41,522,cheea,tear,category,47,zipper,0
+A,A2WPTC74LD7KZA,41,522,cheea,tear,category,39,tear,1
+A,A2YM06JHC0NIQ8,47,47,fizzim,zipper,exact,47,zipper,1
+A,A54J53JJGBW0N,47,47,fizzim,zipper,exact,47,zipper,1
+A,A4A7GLP5XKRLG,47,47,fizzim,zipper,exact,47,zipper,1
+A,A1UL0HQUZQPMSX,47,47,fizzim,zipper,exact,34,glass,0
+A,A1NP2XGDX58PSH,47,47,fizzim,zipper,exact,39,tear,0
+A,A1LDZINXOZSW48,47,47,fizzim,zipper,exact,39,tear,0
+A,A3F3GKHC1OYHDY,47,47,fizzim,zipper,exact,39,tear,0
+A,A288TV72SGDQWE,47,47,fizzim,zipper,exact,39,tear,0
+A,A2TZJKKUN0LSHY,41,522,sheah,tear,category,47,zipper,0
+A,A10443E11ZWEHJ,41,522,sheah,tear,category,47,zipper,0
+A,A3BP890CXV4UMN,41,522,sheah,tear,category,39,tear,1
+A,A1KUOEK3NOUKIW,41,522,sheah,tear,category,39,tear,1
+A,A2WQTSU6SSBUWC,41,522,sheah,tear,category,39,tear,1
+A,A2Q547IGXUG5B6,41,522,sheah,tear,category,39,tear,1
+A,A4J4GGMKJ68L0,41,522,sheah,tear,category,39,tear,1
+A,A9YQQIZRWVPIT,41,522,sheah,tear,category,42,water,0
+A,A85ATJSDTIARY,41,522,sheah,tear,category,42,water,0
+A,A1G8T5YIYWR2TJ,49,49,pfiph,zipper,category,47,zipper,1
+A,AASW4EHSSOG40,49,49,pfiph,zipper,category,47,zipper,1
+A,A33KIELSFIQ02Q,49,49,pfiph,zipper,category,47,zipper,1
+A,A13ORLC5Y2LJL2,49,49,pfiph,zipper,category,47,zipper,1
+A,A2TZJKKUN0LSHY,49,49,pfiph,zipper,category,39,tear,0
+A,A7KLTVEIASF4J,49,49,pfiph,zipper,category,39,tear,0
+A,A1WDUICI1FG9F,49,49,pfiph,zipper,category,39,tear,0
+A,AZWNKDPOHO240,49,49,pfiph,zipper,category,42,water,0
+A,A1G8T5YIYWR2TJ,49,505,izit,zipper,category,47,zipper,1
+A,A258MR1IS96JEP,49,505,izit,zipper,category,47,zipper,1
+A,A2WPTC74LD7KZA,49,505,izit,zipper,category,47,zipper,1
+A,A3M0USQA0RQZ7D,49,505,izit,zipper,category,39,tear,0
+A,A3F3GKHC1OYHDY,49,505,izit,zipper,category,39,tear,0
+A,A1UJU2YCP2KPSF,49,505,izit,zipper,category,39,tear,0
+A,A2Q547IGXUG5B6,49,505,izit,zipper,category,42,water,0
+A,A2TZJKKUN0LSHY,47,47,growwff,zipper,exact,47,zipper,1
+A,A1LDZINXOZSW48,47,47,growwff,zipper,exact,47,zipper,1
+A,A130X6CF795CQ5,47,47,growwff,zipper,exact,47,zipper,1
+A,A28P0DQ7UYZQAC,47,47,growwff,zipper,exact,47,zipper,1
+A,AMPMTF5IAAMK8,47,47,growwff,zipper,exact,47,zipper,1
+A,A2WPTC74LD7KZA,47,47,growwff,zipper,exact,47,zipper,1
+A,A1WDUICI1FG9F,47,47,growwff,zipper,exact,47,zipper,1
+A,A3BP890CXV4UMN,47,47,growwff,zipper,exact,39,tear,0
+A,A1NP2XGDX58PSH,49,49,bahvup,zipper,category,47,zipper,1
+A,A10443E11ZWEHJ,49,49,bahvup,zipper,category,47,zipper,1
+A,AG7C4X3WKKBV,49,49,bahvup,zipper,category,47,zipper,1
+A,A258MR1IS96JEP,49,49,bahvup,zipper,category,34,glass,0
+A,A35E8LAQ1R6I9X,49,49,bahvup,zipper,category,39,tear,0
+A,A3SZBR2YDXLQV7,49,49,bahvup,zipper,category,42,water,0
+A,A4A7GLP5XKRLG,49,49,bahvup,zipper,category,42,water,0
+A,A2TZJKKUN0LSHY,41,522,sheyah,tear,category,47,zipper,0
+A,A85ATJSDTIARY,41,522,sheyah,tear,category,47,zipper,0
+A,A35E8LAQ1R6I9X,41,522,sheyah,tear,category,47,zipper,0
+A,AKA9XW7UANMPJ,41,522,sheyah,tear,category,34,glass,0
+A,A1G8T5YIYWR2TJ,41,522,sheyah,tear,category,39,tear,1
+A,A2CF2BD4Q0ZDJN,41,522,sheyah,tear,category,39,tear,1
+A,A25AX0DNHKJCQT,41,522,sheyah,tear,category,39,tear,1
+A,A2C39KTRMOM1XZ,41,522,sheyah,tear,category,39,tear,1
+A,A12J4IRF5Z06BT,41,522,sheyah,tear,category,42,water,0
+A,AGXY6QZ8PUH81,49,49,fft,zipper,category,47,zipper,1
+A,A10443E11ZWEHJ,49,49,fft,zipper,category,47,zipper,1
+A,A1G8T5YIYWR2TJ,49,49,fft,zipper,category,39,tear,0
+A,A25AX0DNHKJCQT,49,49,fft,zipper,category,39,tear,0
+A,A258MR1IS96JEP,49,49,fft,zipper,category,39,tear,0
+A,AJ3D3XJH84KUU,49,49,fft,zipper,category,39,tear,0
+A,A54J53JJGBW0N,49,49,fft,zipper,category,39,tear,0
+A,A2Q547IGXUG5B6,49,49,fft,zipper,category,39,tear,0
+A,A2CF2BD4Q0ZDJN,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,A1LDZINXOZSW48,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,A3M0USQA0RQZ7D,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,A3OK0Q4TLQSQKT,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,AJ3D3XJH84KUU,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,AO8L5183QI611,47,377,bveeeeeep,zipper,exact,47,zipper,1
+A,A1NP2XGDX58PSH,47,377,bveeeeeep,zipper,exact,34,glass,0
+A,AKA9XW7UANMPJ,47,377,bveeeeeep,zipper,exact,39,tear,0
+A,A2CF2BD4Q0ZDJN,39,560,a-chitch-shu,tear,exact,47,zipper,0
+A,A130X6CF795CQ5,39,560,a-chitch-shu,tear,exact,47,zipper,0
+A,A2WPTC74LD7KZA,39,560,a-chitch-shu,tear,exact,34,glass,0
+A,A3F3GKHC1OYHDY,39,560,a-chitch-shu,tear,exact,39,tear,1
+A,A21XD6CWE1JNMQ,39,560,a-chitch-shu,tear,exact,42,water,0
+A,A2CF2BD4Q0ZDJN,49,49,brip,zipper,category,47,zipper,1
+A,AKA9XW7UANMPJ,49,49,brip,zipper,category,47,zipper,1
+A,A288TV72SGDQWE,49,49,brip,zipper,category,47,zipper,1
+A,A13ORLC5Y2LJL2,49,49,brip,zipper,category,47,zipper,1
+A,A25AX0DNHKJCQT,42,42,blorgh,water,exact,47,zipper,0
+A,A2551EKB87S2XY,42,42,blorgh,water,exact,47,zipper,0
+A,A10443E11ZWEHJ,42,42,blorgh,water,exact,39,tear,0
 A,,42,42,blorgh,water,exact,42,water,1
-A,,42,42,blorgh,water,exact,42,water,1
-A,,42,42,blorgh,water,exact,42,water,1
-A,,42,42,blorgh,water,exact,42,water,1
-A,,42,42,blorgh,water,exact,42,water,1
-A,,47,47,brrip,zipper,exact,47,zipper,1
-A,,47,47,brrip,zipper,exact,47,zipper,1
-A,,47,47,brrip,zipper,exact,47,zipper,1
-A,,47,47,brrip,zipper,exact,34,glass,0
-A,,47,47,brrip,zipper,exact,34,glass,0
-A,,47,47,brrip,zipper,exact,39,tear,0
-A,,47,47,brrip,zipper,exact,39,tear,0
-A,,47,47,brrip,zipper,exact,42,water,0
-A,,35,502,directo,glass,category,47,zipper,0
-A,,35,502,directo,glass,category,47,zipper,0
-A,,35,502,directo,glass,category,47,zipper,0
-A,,35,502,directo,glass,category,47,zipper,0
-A,,35,502,directo,glass,category,39,tear,0
-A,,39,560,a chechyu,tear,exact,47,zipper,0
-A,,39,560,a chechyu,tear,exact,34,glass,0
-A,,39,560,a chechyu,tear,exact,34,glass,0
-A,,39,560,a chechyu,tear,exact,34,glass,0
-A,,39,560,a chechyu,tear,exact,39,tear,1
-A,,39,560,a chechyu,tear,exact,39,tear,1
-A,,39,560,a chechyu,tear,exact,42,water,0
-A,,47,47,breep,zipper,exact,47,zipper,1
-A,,47,47,breep,zipper,exact,47,zipper,1
-A,,47,47,breep,zipper,exact,47,zipper,1
-A,,47,47,breep,zipper,exact,47,zipper,1
-A,,47,47,breep,zipper,exact,34,glass,0
+A,AGXY6QZ8PUH81,42,42,blorgh,water,exact,42,water,1
+A,AKA9XW7UANMPJ,42,42,blorgh,water,exact,42,water,1
+A,AMPMTF5IAAMK8,42,42,blorgh,water,exact,42,water,1
+A,AG7C4X3WKKBV,42,42,blorgh,water,exact,42,water,1
+A,A25AX0DNHKJCQT,47,47,brrip,zipper,exact,47,zipper,1
+A,A3Q5SI9PCKJ2IW,47,47,brrip,zipper,exact,47,zipper,1
+A,A288TV72SGDQWE,47,47,brrip,zipper,exact,47,zipper,1
+A,A2WPTC74LD7KZA,47,47,brrip,zipper,exact,34,glass,0
+A,A2Q547IGXUG5B6,47,47,brrip,zipper,exact,34,glass,0
+A,A3KFPH9FIIG9M3,47,47,brrip,zipper,exact,39,tear,0
+A,A35JCNZJI2MQ20,47,47,brrip,zipper,exact,39,tear,0
+A,A2C39KTRMOM1XZ,47,47,brrip,zipper,exact,42,water,0
+A,A3KFPH9FIIG9M3,35,502,directo,glass,category,47,zipper,0
+A,AASW4EHSSOG40,35,502,directo,glass,category,47,zipper,0
+A,A7KLTVEIASF4J,35,502,directo,glass,category,47,zipper,0
+A,A10M8ULK8QMRU6,35,502,directo,glass,category,47,zipper,0
+A,AG7C4X3WKKBV,35,502,directo,glass,category,39,tear,0
+A,A3M0USQA0RQZ7D,39,560,a chechyu,tear,exact,47,zipper,0
+A,A15Y215D57OSO5,39,560,a chechyu,tear,exact,34,glass,0
+A,A3KFPH9FIIG9M3,39,560,a chechyu,tear,exact,34,glass,0
+A,A2WQTSU6SSBUWC,39,560,a chechyu,tear,exact,34,glass,0
+A,AZWNKDPOHO240,39,560,a chechyu,tear,exact,39,tear,1
+A,A12J4IRF5Z06BT,39,560,a chechyu,tear,exact,39,tear,1
+A,A10443E11ZWEHJ,39,560,a chechyu,tear,exact,42,water,0
+A,A3M0USQA0RQZ7D,47,47,breep,zipper,exact,47,zipper,1
+A,A2YGAEODJ5SSF6,47,47,breep,zipper,exact,47,zipper,1
+A,A1A3TGZ7DKJWRW,47,47,breep,zipper,exact,47,zipper,1
+A,A1KUOEK3NOUKIW,47,47,breep,zipper,exact,47,zipper,1
+A,A118DWOXWSI8VC,47,47,breep,zipper,exact,34,glass,0
 A,,47,47,breep,zipper,exact,39,tear,0
-A,,47,47,breep,zipper,exact,39,tear,0
-A,,47,47,breep,zipper,exact,39,tear,0
-A,,47,47,breep,zipper,exact,42,water,0
-A,,39,560,achechchu,tear,exact,47,zipper,0
-A,,39,560,achechchu,tear,exact,47,zipper,0
-A,,39,560,achechchu,tear,exact,47,zipper,0
-A,,39,560,achechchu,tear,exact,47,zipper,0
-A,,39,560,achechchu,tear,exact,47,zipper,0
-A,,39,560,achechchu,tear,exact,39,tear,1
-A,,39,560,achechchu,tear,exact,39,tear,1
-A,,39,560,achechchu,tear,exact,39,tear,1
-A,,39,560,achechchu,tear,exact,42,water,0
-A,,47,377,ceep,zipper,exact,47,zipper,1
-A,,47,377,ceep,zipper,exact,47,zipper,1
-A,,47,377,ceep,zipper,exact,34,glass,0
-A,,47,377,ceep,zipper,exact,34,glass,0
-A,,47,377,ceep,zipper,exact,39,tear,0
-A,,47,377,ceep,zipper,exact,39,tear,0
-A,,39,560,achechew,tear,exact,47,zipper,0
-A,,39,560,achechew,tear,exact,47,zipper,0
-A,,39,560,achechew,tear,exact,47,zipper,0
-A,,39,560,achechew,tear,exact,34,glass,0
-A,,39,560,achechew,tear,exact,34,glass,0
-A,,39,560,achechew,tear,exact,34,glass,0
-A,,39,560,achechew,tear,exact,34,glass,0
-A,,39,560,achechew,tear,exact,39,tear,1
-A,,39,560,achechew,tear,exact,39,tear,1
-A,,39,560,achechew,tear,exact,42,water,0
-A,,35,35,cribbett,glass,category,47,zipper,0
-A,,35,35,cribbett,glass,category,34,glass,1
-A,,35,35,cribbett,glass,category,34,glass,1
-A,,35,35,cribbett,glass,category,34,glass,1
-A,,35,35,cribbett,glass,category,39,tear,0
-A,,35,35,cribbett,glass,category,42,water,0
-A,,39,39,kitzee,tear,exact,47,zipper,0
-A,,39,39,kitzee,tear,exact,47,zipper,0
-A,,39,39,kitzee,tear,exact,47,zipper,0
-A,,39,39,kitzee,tear,exact,34,glass,0
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,39,39,kitzee,tear,exact,39,tear,1
-A,,41,41,frarr,tear,category,47,zipper,0
-A,,41,41,frarr,tear,category,47,zipper,0
-A,,41,41,frarr,tear,category,42,water,0
-A,,45,45,buhlorghorgh,water,category,47,zipper,0
+A,A2YM06JHC0NIQ8,47,47,breep,zipper,exact,39,tear,0
+A,A10443E11ZWEHJ,47,47,breep,zipper,exact,39,tear,0
+A,A2C39KTRMOM1XZ,47,47,breep,zipper,exact,42,water,0
+A,A130X6CF795CQ5,39,560,achechchu,tear,exact,47,zipper,0
+A,A10M8ULK8QMRU6,39,560,achechchu,tear,exact,47,zipper,0
+A,AJ3D3XJH84KUU,39,560,achechchu,tear,exact,47,zipper,0
+A,A3SZBR2YDXLQV7,39,560,achechchu,tear,exact,47,zipper,0
+A,A54J53JJGBW0N,39,560,achechchu,tear,exact,47,zipper,0
+A,AGXY6QZ8PUH81,39,560,achechchu,tear,exact,39,tear,1
+A,AZWNKDPOHO240,39,560,achechchu,tear,exact,39,tear,1
+A,A4J4GGMKJ68L0,39,560,achechchu,tear,exact,39,tear,1
+A,A35JCNZJI2MQ20,39,560,achechchu,tear,exact,42,water,0
+A,A3KFPH9FIIG9M3,47,377,ceep,zipper,exact,47,zipper,1
+A,A3BP890CXV4UMN,47,377,ceep,zipper,exact,47,zipper,1
+A,A2C39KTRMOM1XZ,47,377,ceep,zipper,exact,34,glass,0
+A,A33KIELSFIQ02Q,47,377,ceep,zipper,exact,34,glass,0
+A,A1UL0HQUZQPMSX,47,377,ceep,zipper,exact,39,tear,0
+A,A54J53JJGBW0N,47,377,ceep,zipper,exact,39,tear,0
+A,A2C39KTRMOM1XZ,39,560,achechew,tear,exact,47,zipper,0
+A,A10443E11ZWEHJ,39,560,achechew,tear,exact,47,zipper,0
+A,A21XD6CWE1JNMQ,39,560,achechew,tear,exact,47,zipper,0
+A,A2TZJKKUN0LSHY,39,560,achechew,tear,exact,34,glass,0
+A,AMPMTF5IAAMK8,39,560,achechew,tear,exact,34,glass,0
+A,AO8L5183QI611,39,560,achechew,tear,exact,34,glass,0
+A,A1WDUICI1FG9F,39,560,achechew,tear,exact,34,glass,0
+A,A26Y58YECZUZZG,39,560,achechew,tear,exact,39,tear,1
+A,A2WQTSU6SSBUWC,39,560,achechew,tear,exact,39,tear,1
+A,A3F3GKHC1OYHDY,39,560,achechew,tear,exact,42,water,0
+A,A15Y215D57OSO5,35,35,cribbett,glass,category,47,zipper,0
+A,A2C39KTRMOM1XZ,35,35,cribbett,glass,category,34,glass,1
+A,A3Q5SI9PCKJ2IW,35,35,cribbett,glass,category,34,glass,1
+A,A1KUOEK3NOUKIW,35,35,cribbett,glass,category,34,glass,1
+A,AGXY6QZ8PUH81,35,35,cribbett,glass,category,39,tear,0
+A,A4J4GGMKJ68L0,35,35,cribbett,glass,category,42,water,0
+A,A3F3GKHC1OYHDY,39,39,kitzee,tear,exact,47,zipper,0
+A,AKA9XW7UANMPJ,39,39,kitzee,tear,exact,47,zipper,0
+A,A1UJU2YCP2KPSF,39,39,kitzee,tear,exact,47,zipper,0
+A,A1NP2XGDX58PSH,39,39,kitzee,tear,exact,34,glass,0
+A,A2YM06JHC0NIQ8,39,39,kitzee,tear,exact,39,tear,1
+A,A1LDZINXOZSW48,39,39,kitzee,tear,exact,39,tear,1
+A,A3M0USQA0RQZ7D,39,39,kitzee,tear,exact,39,tear,1
+A,A3Q5SI9PCKJ2IW,39,39,kitzee,tear,exact,39,tear,1
+A,A10M8ULK8QMRU6,39,39,kitzee,tear,exact,39,tear,1
+A,A1A3TGZ7DKJWRW,39,39,kitzee,tear,exact,39,tear,1
+A,A1KUOEK3NOUKIW,39,39,kitzee,tear,exact,39,tear,1
+A,A7KLTVEIASF4J,41,41,frarr,tear,category,47,zipper,0
+A,A288TV72SGDQWE,41,41,frarr,tear,category,47,zipper,0
+A,A3BP890CXV4UMN,41,41,frarr,tear,category,42,water,0
+A,A33KIELSFIQ02Q,45,45,buhlorghorgh,water,category,47,zipper,0
 A,,45,45,buhlorghorgh,water,category,34,glass,0
-A,,45,45,buhlorghorgh,water,category,34,glass,0
-A,,45,45,buhlorghorgh,water,category,34,glass,0
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,45,45,buhlorghorgh,water,category,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,47,zipper,0
+A,A3Q5SI9PCKJ2IW,45,45,buhlorghorgh,water,category,34,glass,0
+A,A10M8ULK8QMRU6,45,45,buhlorghorgh,water,category,34,glass,0
+A,A118DWOXWSI8VC,45,45,buhlorghorgh,water,category,42,water,1
+A,A2CF2BD4Q0ZDJN,45,45,buhlorghorgh,water,category,42,water,1
+A,A15Y215D57OSO5,45,45,buhlorghorgh,water,category,42,water,1
+A,A35E8LAQ1R6I9X,45,45,buhlorghorgh,water,category,42,water,1
+A,A258MR1IS96JEP,45,45,buhlorghorgh,water,category,42,water,1
+A,AJ3D3XJH84KUU,45,45,buhlorghorgh,water,category,42,water,1
+A,A2WPTC74LD7KZA,45,45,buhlorghorgh,water,category,42,water,1
+A,A28P0DQ7UYZQAC,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,47,zipper,0
 A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
-A,,41,522,shiyah,tear,category,47,zipper,0
-A,,41,522,shiyah,tear,category,47,zipper,0
-A,,41,522,shiyah,tear,category,47,zipper,0
-A,,41,522,shiyah,tear,category,47,zipper,0
-A,,41,522,shiyah,tear,category,47,zipper,0
-A,,41,522,shiyah,tear,category,39,tear,1
-A,,41,522,shiyah,tear,category,42,water,0
-A,,41,522,shiyah,tear,category,42,water,0
-A,,41,41,chrrrrup,tear,category,47,zipper,0
-A,,41,41,chrrrrup,tear,category,47,zipper,0
-A,,41,41,chrrrrup,tear,category,47,zipper,0
-A,,41,41,chrrrrup,tear,category,47,zipper,0
-A,,41,41,chrrrrup,tear,category,39,tear,1
-A,,41,41,chrrrrup,tear,category,39,tear,1
-A,,41,41,chrrrrup,tear,category,42,water,0
-A,,41,41,chrrrrup,tear,category,42,water,0
-A,,49,505,iszit,zipper,category,47,zipper,1
-A,,49,505,iszit,zipper,category,47,zipper,1
-A,,49,505,iszit,zipper,category,47,zipper,1
-A,,49,505,iszit,zipper,category,39,tear,0
-A,,49,505,iszit,zipper,category,39,tear,0
-A,,49,505,iszit,zipper,category,39,tear,0
-A,,49,505,iszit,zipper,category,42,water,0
-A,,35,502,gorecto,glass,category,47,zipper,0
+A,A118DWOXWSI8VC,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A9YQQIZRWVPIT,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2YM06JHC0NIQ8,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2TZJKKUN0LSHY,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1G8T5YIYWR2TJ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1NP2XGDX58PSH,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AGXY6QZ8PUH81,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2CF2BD4Q0ZDJN,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A25AX0DNHKJCQT,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1LDZINXOZSW48,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3M0USQA0RQZ7D,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A15Y215D57OSO5,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A130X6CF795CQ5,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3KFPH9FIIG9M3,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AASW4EHSSOG40,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2C39KTRMOM1XZ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3OK0Q4TLQSQKT,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A10443E11ZWEHJ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A7KLTVEIASF4J,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3F3GKHC1OYHDY,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A33KIELSFIQ02Q,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3Q5SI9PCKJ2IW,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A288TV72SGDQWE,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AKA9XW7UANMPJ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A10M8ULK8QMRU6,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A85ATJSDTIARY,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1UL0HQUZQPMSX,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1UJU2YCP2KPSF,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A26Y58YECZUZZG,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A35E8LAQ1R6I9X,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A258MR1IS96JEP,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2YGAEODJ5SSF6,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AZWNKDPOHO240,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2551EKB87S2XY,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A21XD6CWE1JNMQ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1A3TGZ7DKJWRW,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AO8L5183QI611,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A35JCNZJI2MQ20,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AMPMTF5IAAMK8,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AJ3D3XJH84KUU,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3BP890CXV4UMN,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A3SZBR2YDXLQV7,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,AG7C4X3WKKBV,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A12J4IRF5Z06BT,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A54J53JJGBW0N,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A4A7GLP5XKRLG,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2WPTC74LD7KZA,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1KUOEK3NOUKIW,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A13ORLC5Y2LJL2,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2WQTSU6SSBUWC,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A2Q547IGXUG5B6,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A4J4GGMKJ68L0,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A1WDUICI1FG9F,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,42,water,1
+A,A85ATJSDTIARY,41,522,shiyah,tear,category,47,zipper,0
+A,A1UJU2YCP2KPSF,41,522,shiyah,tear,category,47,zipper,0
+A,A1A3TGZ7DKJWRW,41,522,shiyah,tear,category,47,zipper,0
+A,A4A7GLP5XKRLG,41,522,shiyah,tear,category,47,zipper,0
+A,A2Q547IGXUG5B6,41,522,shiyah,tear,category,47,zipper,0
+A,A1KUOEK3NOUKIW,41,522,shiyah,tear,category,39,tear,1
+A,A2YM06JHC0NIQ8,41,522,shiyah,tear,category,42,water,0
+A,A1UL0HQUZQPMSX,41,522,shiyah,tear,category,42,water,0
+A,A85ATJSDTIARY,41,41,chrrrrup,tear,category,47,zipper,0
+A,AZWNKDPOHO240,41,41,chrrrrup,tear,category,47,zipper,0
+A,A1A3TGZ7DKJWRW,41,41,chrrrrup,tear,category,47,zipper,0
+A,A1KUOEK3NOUKIW,41,41,chrrrrup,tear,category,47,zipper,0
+A,A9YQQIZRWVPIT,41,41,chrrrrup,tear,category,39,tear,1
+A,A3BP890CXV4UMN,41,41,chrrrrup,tear,category,39,tear,1
+A,A25AX0DNHKJCQT,41,41,chrrrrup,tear,category,42,water,0
+A,A1UL0HQUZQPMSX,41,41,chrrrrup,tear,category,42,water,0
+A,A1UL0HQUZQPMSX,49,505,iszit,zipper,category,47,zipper,1
+A,A3SZBR2YDXLQV7,49,505,iszit,zipper,category,47,zipper,1
+A,A1WDUICI1FG9F,49,505,iszit,zipper,category,47,zipper,1
+A,A2TZJKKUN0LSHY,49,505,iszit,zipper,category,39,tear,0
+A,A2YGAEODJ5SSF6,49,505,iszit,zipper,category,39,tear,0
+A,A1A3TGZ7DKJWRW,49,505,iszit,zipper,category,39,tear,0
+A,A35JCNZJI2MQ20,49,505,iszit,zipper,category,42,water,0
+A,A26Y58YECZUZZG,35,502,gorecto,glass,category,47,zipper,0
 A,,35,502,gorecto,glass,category,34,glass,1
-A,,35,502,gorecto,glass,category,34,glass,1
-A,,35,502,gorecto,glass,category,34,glass,1
-A,,35,502,gorecto,glass,category,39,tear,0
-A,,35,502,gorecto,glass,category,39,tear,0
-A,,35,502,gorecto,glass,category,42,water,0
-A,,35,502,goracto,glass,category,47,zipper,0
+A,A3Q5SI9PCKJ2IW,35,502,gorecto,glass,category,34,glass,1
+A,A2WQTSU6SSBUWC,35,502,gorecto,glass,category,34,glass,1
+A,AGXY6QZ8PUH81,35,502,gorecto,glass,category,39,tear,0
+A,A3OK0Q4TLQSQKT,35,502,gorecto,glass,category,39,tear,0
+A,A2Q547IGXUG5B6,35,502,gorecto,glass,category,42,water,0
+A,A2551EKB87S2XY,35,502,goracto,glass,category,47,zipper,0
 A,,35,502,goracto,glass,category,34,glass,1
-A,,35,502,goracto,glass,category,34,glass,1
-A,,35,502,goracto,glass,category,34,glass,1
-A,,35,502,goracto,glass,category,39,tear,0
-A,,35,502,goracto,glass,category,39,tear,0
-A,,35,502,goracto,glass,category,39,tear,0
-A,,35,502,goracto,glass,category,39,tear,0
-A,,35,502,goracto,glass,category,39,tear,0
-A,,35,502,goracto,glass,category,42,water,0
-A,,35,502,goracto,glass,category,42,water,0
-A,,45,466,glonglong,water,category,47,zipper,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,34,glass,0
-A,,45,466,glonglong,water,category,39,tear,0
-A,,45,466,glonglong,water,category,42,water,1
-A,,45,466,glonglong,water,category,42,water,1
-A,,45,466,glong-glong,water,category,47,zipper,0
-A,,45,466,glong-glong,water,category,34,glass,0
-A,,45,466,glong-glong,water,category,34,glass,0
-A,,45,466,glong-glong,water,category,34,glass,0
-A,,45,466,glong-glong,water,category,34,glass,0
-A,,45,466,glong-glong,water,category,34,glass,0
-A,,45,466,glong-glong,water,category,42,water,1
-A,,41,41,crish,tear,category,47,zipper,0
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,39,tear,1
-A,,41,41,crish,tear,category,42,water,0
-A,,41,41,crish,tear,category,42,water,0
-A,,39,39,crisshhh,tear,exact,47,zipper,0
-A,,39,39,crisshhh,tear,exact,34,glass,0
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,39,tear,1
-A,,39,39,crisshhh,tear,exact,42,water,0
-A,,39,39,clickadrag,tear,exact,47,zipper,0
-A,,39,39,clickadrag,tear,exact,34,glass,0
-A,,39,39,clickadrag,tear,exact,34,glass,0
-A,,39,39,clickadrag,tear,exact,34,glass,0
-A,,39,39,clickadrag,tear,exact,39,tear,1
-A,,39,39,clickadrag,tear,exact,39,tear,1
-A,,39,39,clickadrag,tear,exact,39,tear,1
+A,A1NP2XGDX58PSH,35,502,goracto,glass,category,34,glass,1
+A,AJ3D3XJH84KUU,35,502,goracto,glass,category,34,glass,1
+A,A118DWOXWSI8VC,35,502,goracto,glass,category,39,tear,0
+A,AASW4EHSSOG40,35,502,goracto,glass,category,39,tear,0
+A,A1UJU2YCP2KPSF,35,502,goracto,glass,category,39,tear,0
+A,A13ORLC5Y2LJL2,35,502,goracto,glass,category,39,tear,0
+A,A4A7GLP5XKRLG,35,502,goracto,glass,category,39,tear,0
+A,AMPMTF5IAAMK8,35,502,goracto,glass,category,42,water,0
+A,A2WPTC74LD7KZA,35,502,goracto,glass,category,42,water,0
+A,A21XD6CWE1JNMQ,45,466,glonglong,water,category,47,zipper,0
+A,A9YQQIZRWVPIT,45,466,glonglong,water,category,34,glass,0
+A,A1G8T5YIYWR2TJ,45,466,glonglong,water,category,34,glass,0
+A,AGXY6QZ8PUH81,45,466,glonglong,water,category,34,glass,0
+A,A2YGAEODJ5SSF6,45,466,glonglong,water,category,34,glass,0
+A,A1A3TGZ7DKJWRW,45,466,glonglong,water,category,34,glass,0
+A,AO8L5183QI611,45,466,glonglong,water,category,34,glass,0
+A,AG7C4X3WKKBV,45,466,glonglong,water,category,34,glass,0
+A,A13ORLC5Y2LJL2,45,466,glonglong,water,category,34,glass,0
+A,A3BP890CXV4UMN,45,466,glonglong,water,category,39,tear,0
+A,A7KLTVEIASF4J,45,466,glonglong,water,category,42,water,1
+A,A3Q5SI9PCKJ2IW,45,466,glonglong,water,category,42,water,1
+A,A3BP890CXV4UMN,45,466,glong-glong,water,category,47,zipper,0
+A,A2YM06JHC0NIQ8,45,466,glong-glong,water,category,34,glass,0
+A,AGXY6QZ8PUH81,45,466,glong-glong,water,category,34,glass,0
+A,A35E8LAQ1R6I9X,45,466,glong-glong,water,category,34,glass,0
+A,AZWNKDPOHO240,45,466,glong-glong,water,category,34,glass,0
+A,A2551EKB87S2XY,45,466,glong-glong,water,category,34,glass,0
+A,AKA9XW7UANMPJ,45,466,glong-glong,water,category,42,water,1
+A,A12J4IRF5Z06BT,41,41,crish,tear,category,47,zipper,0
+A,A3KFPH9FIIG9M3,41,41,crish,tear,category,39,tear,1
+A,A33KIELSFIQ02Q,41,41,crish,tear,category,39,tear,1
+A,A288TV72SGDQWE,41,41,crish,tear,category,39,tear,1
+A,A258MR1IS96JEP,41,41,crish,tear,category,39,tear,1
+A,A2Q547IGXUG5B6,41,41,crish,tear,category,39,tear,1
+A,A1WDUICI1FG9F,41,41,crish,tear,category,39,tear,1
+A,A2551EKB87S2XY,41,41,crish,tear,category,42,water,0
+A,A3SZBR2YDXLQV7,41,41,crish,tear,category,42,water,0
+A,A12J4IRF5Z06BT,39,39,crisshhh,tear,exact,47,zipper,0
+A,A3BP890CXV4UMN,39,39,crisshhh,tear,exact,34,glass,0
+A,A118DWOXWSI8VC,39,39,crisshhh,tear,exact,39,tear,1
+A,AASW4EHSSOG40,39,39,crisshhh,tear,exact,39,tear,1
+A,A15Y215D57OSO5,39,39,crisshhh,tear,exact,39,tear,1
+A,A33KIELSFIQ02Q,39,39,crisshhh,tear,exact,39,tear,1
+A,A28P0DQ7UYZQAC,39,39,crisshhh,tear,exact,39,tear,1
+A,A85ATJSDTIARY,39,39,crisshhh,tear,exact,39,tear,1
+A,A26Y58YECZUZZG,39,39,crisshhh,tear,exact,39,tear,1
+A,AMPMTF5IAAMK8,39,39,crisshhh,tear,exact,39,tear,1
+A,A2WPTC74LD7KZA,39,39,crisshhh,tear,exact,39,tear,1
+A,A1WDUICI1FG9F,39,39,crisshhh,tear,exact,39,tear,1
+A,AG7C4X3WKKBV,39,39,crisshhh,tear,exact,42,water,0
+A,A54J53JJGBW0N,39,39,clickadrag,tear,exact,47,zipper,0
+A,A2CF2BD4Q0ZDJN,39,39,clickadrag,tear,exact,34,glass,0
+A,A25AX0DNHKJCQT,39,39,clickadrag,tear,exact,34,glass,0
+A,AASW4EHSSOG40,39,39,clickadrag,tear,exact,34,glass,0
+A,A130X6CF795CQ5,39,39,clickadrag,tear,exact,39,tear,1
+A,A7KLTVEIASF4J,39,39,clickadrag,tear,exact,39,tear,1
+A,AO8L5183QI611,39,39,clickadrag,tear,exact,39,tear,1
 A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,34,566,dundunduh,glass,exact,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,34,glass,1
-A,,35,35,clinket,glass,category,39,tear,0
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,34,glass,1
-A,,35,35,clappun,glass,category,42,water,0
-A,,34,566,dahduhda,glass,exact,34,glass,1
-A,,34,566,dahduhda,glass,exact,34,glass,1
-A,,34,566,dahduhda,glass,exact,34,glass,1
-A,,34,566,dahduhda,glass,exact,39,tear,0
-A,,34,566,dahduhda,glass,exact,39,tear,0
-A,,34,566,dahduhda,glass,exact,42,water,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,34,glass,0
-A,,42,563,chicochicochicochico,water,exact,39,tear,0
-A,,42,563,chicochicochicochico,water,exact,39,tear,0
-A,,42,563,chicochicochicochico,water,exact,39,tear,0
+A,A130X6CF795CQ5,34,566,dundunduh,glass,exact,34,glass,1
+A,A3Q5SI9PCKJ2IW,34,566,dundunduh,glass,exact,34,glass,1
+A,A10M8ULK8QMRU6,34,566,dundunduh,glass,exact,34,glass,1
+A,A2YGAEODJ5SSF6,34,566,dundunduh,glass,exact,34,glass,1
+A,AZWNKDPOHO240,34,566,dundunduh,glass,exact,34,glass,1
+A,A21XD6CWE1JNMQ,34,566,dundunduh,glass,exact,34,glass,1
+A,A9YQQIZRWVPIT,35,35,clinket,glass,category,34,glass,1
+A,AGXY6QZ8PUH81,35,35,clinket,glass,category,34,glass,1
+A,A2CF2BD4Q0ZDJN,35,35,clinket,glass,category,34,glass,1
+A,A26Y58YECZUZZG,35,35,clinket,glass,category,34,glass,1
+A,A1UJU2YCP2KPSF,35,35,clinket,glass,category,34,glass,1
+A,AZWNKDPOHO240,35,35,clinket,glass,category,34,glass,1
+A,AMPMTF5IAAMK8,35,35,clinket,glass,category,34,glass,1
+A,AJ3D3XJH84KUU,35,35,clinket,glass,category,34,glass,1
+A,A28P0DQ7UYZQAC,35,35,clinket,glass,category,39,tear,0
+A,A118DWOXWSI8VC,35,35,clappun,glass,category,34,glass,1
+A,A3M0USQA0RQZ7D,35,35,clappun,glass,category,34,glass,1
+A,A3KFPH9FIIG9M3,35,35,clappun,glass,category,34,glass,1
+A,A3OK0Q4TLQSQKT,35,35,clappun,glass,category,34,glass,1
+A,A10M8ULK8QMRU6,35,35,clappun,glass,category,34,glass,1
+A,A2551EKB87S2XY,35,35,clappun,glass,category,34,glass,1
+A,A4A7GLP5XKRLG,35,35,clappun,glass,category,34,glass,1
+A,A3SZBR2YDXLQV7,35,35,clappun,glass,category,42,water,0
+A,A118DWOXWSI8VC,34,566,dahduhda,glass,exact,34,glass,1
+A,A2TZJKKUN0LSHY,34,566,dahduhda,glass,exact,34,glass,1
+A,AJ3D3XJH84KUU,34,566,dahduhda,glass,exact,34,glass,1
+A,A1LDZINXOZSW48,34,566,dahduhda,glass,exact,39,tear,0
+A,A4A7GLP5XKRLG,34,566,dahduhda,glass,exact,39,tear,0
+A,A15Y215D57OSO5,34,566,dahduhda,glass,exact,42,water,0
+A,A9YQQIZRWVPIT,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A1LDZINXOZSW48,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A3F3GKHC1OYHDY,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A33KIELSFIQ02Q,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A85ATJSDTIARY,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A258MR1IS96JEP,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A1A3TGZ7DKJWRW,42,563,chicochicochicochico,water,exact,34,glass,0
+A,AJ3D3XJH84KUU,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A2WQTSU6SSBUWC,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A4J4GGMKJ68L0,42,563,chicochicochicochico,water,exact,34,glass,0
+A,A130X6CF795CQ5,42,563,chicochicochicochico,water,exact,39,tear,0
+A,A2YGAEODJ5SSF6,42,563,chicochicochicochico,water,exact,39,tear,0
+A,A35JCNZJI2MQ20,42,563,chicochicochicochico,water,exact,39,tear,0
 A,,42,563,chicochicochicochico,water,exact,42,water,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,34,34,bugongong,glass,exact,34,glass,1
-A,,39,39,cliflika,tear,exact,34,glass,0
-A,,39,39,cliflika,tear,exact,34,glass,0
-A,,39,39,cliflika,tear,exact,34,glass,0
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,34,glass,1
-A,,34,34,atinga,glass,exact,39,tear,0
-A,,34,34,atinga,glass,exact,42,water,0
-A,,42,563,chochocchoocho,water,exact,34,glass,0
-A,,42,563,chochocchoocho,water,exact,34,glass,0
-A,,42,563,chochocchoocho,water,exact,34,glass,0
-A,,42,563,chochocchoocho,water,exact,39,tear,0
-A,,42,563,chochocchoocho,water,exact,39,tear,0
-A,,42,563,chochocchoocho,water,exact,39,tear,0
-A,,42,563,chochocchoocho,water,exact,39,tear,0
-A,,35,502,correcto,glass,category,34,glass,1
-A,,35,502,correcto,glass,category,34,glass,1
-A,,35,502,correcto,glass,category,34,glass,1
-A,,35,502,correcto,glass,category,39,tear,0
-A,,35,502,correcto,glass,category,39,tear,0
-A,,35,502,correcto,glass,category,39,tear,0
-A,,34,566,dundundah,glass,exact,34,glass,1
-A,,34,566,dundundah,glass,exact,34,glass,1
-A,,34,566,dundundah,glass,exact,39,tear,0
-A,,34,566,dundundah,glass,exact,39,tear,0
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,34,glass,1
-A,,34,34,clipapap,glass,exact,42,water,0
-A,,34,34,clipapap,glass,exact,42,water,0
-A,,34,34,clipapap,glass,exact,42,water,0
-A,,34,34,clipapap,glass,exact,42,water,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,34,glass,0
-A,,45,466,glong glong,water,category,42,water,1
-A,,34,34,bubtedew,glass,exact,34,glass,1
-A,,34,34,bubtedew,glass,exact,34,glass,1
-A,,34,34,bubtedew,glass,exact,34,glass,1
-A,,34,34,bubtedew,glass,exact,34,glass,1
-A,,34,34,bubtedew,glass,exact,34,glass,1
-A,,34,34,bubtedew,glass,exact,39,tear,0
-A,,34,34,bubtedew,glass,exact,42,water,0
-A,,34,34,bubtedew,glass,exact,42,water,0
-A,,34,34,bubtedew,glass,exact,42,water,0
-A,,45,45,balooshboosh,water,category,34,glass,0
-A,,45,45,balooshboosh,water,category,34,glass,0
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,45,45,balooshboosh,water,category,42,water,1
-A,,42,563,chewscutcutsew,water,exact,34,glass,0
-A,,42,563,chewscutcutsew,water,exact,39,tear,0
-A,,42,563,chewscutcutsew,water,exact,39,tear,0
-A,,42,563,chewscutcutsew,water,exact,39,tear,0
-A,,42,563,chewscutcutsew,water,exact,39,tear,0
-A,,42,563,chewscutcutsew,water,exact,39,tear,0
-A,,42,563,chewscutcutsew,water,exact,42,water,1
-A,,42,563,chewchewshewa,water,exact,34,glass,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,39,tear,0
-A,,42,563,chewchewshewa,water,exact,42,water,1
-A,,35,35,breetu,glass,category,34,glass,1
-A,,35,35,breetu,glass,category,39,tear,0
-A,,35,35,breetu,glass,category,39,tear,0
-A,,35,35,breetu,glass,category,42,water,0
-A,,35,35,breetu,glass,category,42,water,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,45,466,glongglong,water,category,34,glass,0
-A,,34,566,dundunda,glass,exact,34,glass,1
-A,,34,566,dundunda,glass,exact,34,glass,1
-A,,34,566,dundunda,glass,exact,34,glass,1
-A,,34,566,dundunda,glass,exact,34,glass,1
-A,,45,45,atrishown,water,category,34,glass,0
-A,,45,45,atrishown,water,category,34,glass,0
-A,,45,45,atrishown,water,category,34,glass,0
-A,,45,45,atrishown,water,category,39,tear,0
-A,,45,45,atrishown,water,category,39,tear,0
-A,,45,45,atrishown,water,category,39,tear,0
-A,,45,45,atrishown,water,category,39,tear,0
-A,,45,45,atrishown,water,category,42,water,1
-A,,45,45,atrishown,water,category,42,water,1
-A,,45,45,atrishown,water,category,42,water,1
-A,,42,42,foovo,water,exact,34,glass,0
-A,,42,42,foovo,water,exact,39,tear,0
-A,,42,42,foovo,water,exact,39,tear,0
-A,,42,42,foovo,water,exact,39,tear,0
-A,,42,42,foovo,water,exact,39,tear,0
-A,,45,45,blowosh,water,category,39,tear,0
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,45,45,blowosh,water,category,42,water,1
-A,,42,42,pushawater,water,exact,39,tear,0
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,pushawater,water,exact,42,water,1
-A,,42,42,ploosh,water,exact,42,water,1
-A,,42,42,ploosh,water,exact,42,water,1
-A,,42,42,ploosh,water,exact,42,water,1
+A,A2YM06JHC0NIQ8,34,34,bugongong,glass,exact,34,glass,1
+A,A1LDZINXOZSW48,34,34,bugongong,glass,exact,34,glass,1
+A,A7KLTVEIASF4J,34,34,bugongong,glass,exact,34,glass,1
+A,A288TV72SGDQWE,34,34,bugongong,glass,exact,34,glass,1
+A,A85ATJSDTIARY,34,34,bugongong,glass,exact,34,glass,1
+A,A258MR1IS96JEP,34,34,bugongong,glass,exact,34,glass,1
+A,A2WQTSU6SSBUWC,34,34,bugongong,glass,exact,34,glass,1
+A,A9YQQIZRWVPIT,39,39,cliflika,tear,exact,34,glass,0
+A,AMPMTF5IAAMK8,39,39,cliflika,tear,exact,34,glass,0
+A,A3SZBR2YDXLQV7,39,39,cliflika,tear,exact,34,glass,0
+A,A1G8T5YIYWR2TJ,34,34,atinga,glass,exact,34,glass,1
+A,AGXY6QZ8PUH81,34,34,atinga,glass,exact,34,glass,1
+A,A15Y215D57OSO5,34,34,atinga,glass,exact,34,glass,1
+A,A3OK0Q4TLQSQKT,34,34,atinga,glass,exact,34,glass,1
+A,AKA9XW7UANMPJ,34,34,atinga,glass,exact,34,glass,1
+A,A288TV72SGDQWE,34,34,atinga,glass,exact,34,glass,1
+A,A35E8LAQ1R6I9X,34,34,atinga,glass,exact,34,glass,1
+A,A2YGAEODJ5SSF6,34,34,atinga,glass,exact,34,glass,1
+A,A35JCNZJI2MQ20,34,34,atinga,glass,exact,34,glass,1
+A,A3SZBR2YDXLQV7,34,34,atinga,glass,exact,34,glass,1
+A,A2551EKB87S2XY,34,34,atinga,glass,exact,39,tear,0
+A,A21XD6CWE1JNMQ,34,34,atinga,glass,exact,42,water,0
+A,A1NP2XGDX58PSH,42,563,chochocchoocho,water,exact,34,glass,0
+A,A3Q5SI9PCKJ2IW,42,563,chochocchoocho,water,exact,34,glass,0
+A,A35E8LAQ1R6I9X,42,563,chochocchoocho,water,exact,34,glass,0
+A,AASW4EHSSOG40,42,563,chochocchoocho,water,exact,39,tear,0
+A,A28P0DQ7UYZQAC,42,563,chochocchoocho,water,exact,39,tear,0
+A,A35JCNZJI2MQ20,42,563,chochocchoocho,water,exact,39,tear,0
+A,A13ORLC5Y2LJL2,42,563,chochocchoocho,water,exact,39,tear,0
+A,A1NP2XGDX58PSH,35,502,correcto,glass,category,34,glass,1
+A,A3KFPH9FIIG9M3,35,502,correcto,glass,category,34,glass,1
+A,A1WDUICI1FG9F,35,502,correcto,glass,category,34,glass,1
+A,A130X6CF795CQ5,35,502,correcto,glass,category,39,tear,0
+A,AG7C4X3WKKBV,35,502,correcto,glass,category,39,tear,0
+A,A13ORLC5Y2LJL2,35,502,correcto,glass,category,39,tear,0
+A,A1NP2XGDX58PSH,34,566,dundundah,glass,exact,34,glass,1
+A,A3BP890CXV4UMN,34,566,dundundah,glass,exact,34,glass,1
+A,A1UL0HQUZQPMSX,34,566,dundundah,glass,exact,39,tear,0
+A,A258MR1IS96JEP,34,566,dundundah,glass,exact,39,tear,0
+A,A2CF2BD4Q0ZDJN,34,34,clipapap,glass,exact,34,glass,1
+A,A3M0USQA0RQZ7D,34,34,clipapap,glass,exact,34,glass,1
+A,A3OK0Q4TLQSQKT,34,34,clipapap,glass,exact,34,glass,1
+A,A28P0DQ7UYZQAC,34,34,clipapap,glass,exact,34,glass,1
+A,A10M8ULK8QMRU6,34,34,clipapap,glass,exact,34,glass,1
+A,AZWNKDPOHO240,34,34,clipapap,glass,exact,34,glass,1
+A,A12J4IRF5Z06BT,34,34,clipapap,glass,exact,34,glass,1
+A,AG7C4X3WKKBV,34,34,clipapap,glass,exact,34,glass,1
+A,A1G8T5YIYWR2TJ,34,34,clipapap,glass,exact,42,water,0
+A,A288TV72SGDQWE,34,34,clipapap,glass,exact,42,water,0
+A,A1UL0HQUZQPMSX,34,34,clipapap,glass,exact,42,water,0
+A,A1WDUICI1FG9F,34,34,clipapap,glass,exact,42,water,0
+A,A15Y215D57OSO5,45,466,glong glong,water,category,34,glass,0
+A,A33KIELSFIQ02Q,45,466,glong glong,water,category,34,glass,0
+A,A1UJU2YCP2KPSF,45,466,glong glong,water,category,34,glass,0
+A,AO8L5183QI611,45,466,glong glong,water,category,34,glass,0
+A,AG7C4X3WKKBV,45,466,glong glong,water,category,34,glass,0
+A,A12J4IRF5Z06BT,45,466,glong glong,water,category,34,glass,0
+A,A54J53JJGBW0N,45,466,glong glong,water,category,34,glass,0
+A,A4J4GGMKJ68L0,45,466,glong glong,water,category,42,water,1
+A,AASW4EHSSOG40,34,34,bubtedew,glass,exact,34,glass,1
+A,A10443E11ZWEHJ,34,34,bubtedew,glass,exact,34,glass,1
+A,A28P0DQ7UYZQAC,34,34,bubtedew,glass,exact,34,glass,1
+A,A1UL0HQUZQPMSX,34,34,bubtedew,glass,exact,34,glass,1
+A,A1A3TGZ7DKJWRW,34,34,bubtedew,glass,exact,34,glass,1
+A,A21XD6CWE1JNMQ,34,34,bubtedew,glass,exact,39,tear,0
+A,A118DWOXWSI8VC,34,34,bubtedew,glass,exact,42,water,0
+A,A9YQQIZRWVPIT,34,34,bubtedew,glass,exact,42,water,0
+A,A2C39KTRMOM1XZ,34,34,bubtedew,glass,exact,42,water,0
+A,A10443E11ZWEHJ,45,45,balooshboosh,water,category,34,glass,0
+A,A2WQTSU6SSBUWC,45,45,balooshboosh,water,category,34,glass,0
+A,A2YM06JHC0NIQ8,45,45,balooshboosh,water,category,42,water,1
+A,A15Y215D57OSO5,45,45,balooshboosh,water,category,42,water,1
+A,A3OK0Q4TLQSQKT,45,45,balooshboosh,water,category,42,water,1
+A,A33KIELSFIQ02Q,45,45,balooshboosh,water,category,42,water,1
+A,A258MR1IS96JEP,45,45,balooshboosh,water,category,42,water,1
+A,A35E8LAQ1R6I9X,45,45,balooshboosh,water,category,42,water,1
+A,AO8L5183QI611,45,45,balooshboosh,water,category,42,water,1
+A,A1KUOEK3NOUKIW,45,45,balooshboosh,water,category,42,water,1
+A,A85ATJSDTIARY,42,563,chewscutcutsew,water,exact,34,glass,0
+A,A25AX0DNHKJCQT,42,563,chewscutcutsew,water,exact,39,tear,0
+A,A28P0DQ7UYZQAC,42,563,chewscutcutsew,water,exact,39,tear,0
+A,A1UJU2YCP2KPSF,42,563,chewscutcutsew,water,exact,39,tear,0
+A,A12J4IRF5Z06BT,42,563,chewscutcutsew,water,exact,39,tear,0
+A,A4A7GLP5XKRLG,42,563,chewscutcutsew,water,exact,39,tear,0
+A,A4J4GGMKJ68L0,42,563,chewscutcutsew,water,exact,42,water,1
+A,A85ATJSDTIARY,42,563,chewchewshewa,water,exact,34,glass,0
+A,A1G8T5YIYWR2TJ,42,563,chewchewshewa,water,exact,39,tear,0
+A,A2CF2BD4Q0ZDJN,42,563,chewchewshewa,water,exact,39,tear,0
+A,A1UL0HQUZQPMSX,42,563,chewchewshewa,water,exact,39,tear,0
+A,A3SZBR2YDXLQV7,42,563,chewchewshewa,water,exact,39,tear,0
+A,AO8L5183QI611,42,563,chewchewshewa,water,exact,39,tear,0
+A,A12J4IRF5Z06BT,42,563,chewchewshewa,water,exact,39,tear,0
+A,A130X6CF795CQ5,42,563,chewchewshewa,water,exact,42,water,1
+A,A26Y58YECZUZZG,35,35,breetu,glass,category,34,glass,1
+A,A10M8ULK8QMRU6,35,35,breetu,glass,category,39,tear,0
+A,A1UJU2YCP2KPSF,35,35,breetu,glass,category,39,tear,0
+A,A1LDZINXOZSW48,35,35,breetu,glass,category,42,water,0
+A,A2WPTC74LD7KZA,35,35,breetu,glass,category,42,water,0
+A,A26Y58YECZUZZG,45,466,glongglong,water,category,34,glass,0
+A,A2YGAEODJ5SSF6,45,466,glongglong,water,category,34,glass,0
+A,A2551EKB87S2XY,45,466,glongglong,water,category,34,glass,0
+A,AO8L5183QI611,45,466,glongglong,water,category,34,glass,0
+A,A12J4IRF5Z06BT,45,466,glongglong,water,category,34,glass,0
+A,A2Q547IGXUG5B6,45,466,glongglong,water,category,34,glass,0
+A,A2YGAEODJ5SSF6,34,566,dundunda,glass,exact,34,glass,1
+A,AMPMTF5IAAMK8,34,566,dundunda,glass,exact,34,glass,1
+A,A54J53JJGBW0N,34,566,dundunda,glass,exact,34,glass,1
+A,A4J4GGMKJ68L0,34,566,dundunda,glass,exact,34,glass,1
+A,A2551EKB87S2XY,45,45,atrishown,water,category,34,glass,0
+A,A21XD6CWE1JNMQ,45,45,atrishown,water,category,34,glass,0
+A,A13ORLC5Y2LJL2,45,45,atrishown,water,category,34,glass,0
+A,A1LDZINXOZSW48,45,45,atrishown,water,category,39,tear,0
+A,A3KFPH9FIIG9M3,45,45,atrishown,water,category,39,tear,0
+A,AZWNKDPOHO240,45,45,atrishown,water,category,39,tear,0
+A,A54J53JJGBW0N,45,45,atrishown,water,category,39,tear,0
+A,A1G8T5YIYWR2TJ,45,45,atrishown,water,category,42,water,1
+A,A28P0DQ7UYZQAC,45,45,atrishown,water,category,42,water,1
+A,AO8L5183QI611,45,45,atrishown,water,category,42,water,1
+A,A35JCNZJI2MQ20,42,42,foovo,water,exact,34,glass,0
+A,A25AX0DNHKJCQT,42,42,foovo,water,exact,39,tear,0
+A,A3F3GKHC1OYHDY,42,42,foovo,water,exact,39,tear,0
+A,A28P0DQ7UYZQAC,42,42,foovo,water,exact,39,tear,0
+A,A4A7GLP5XKRLG,42,42,foovo,water,exact,39,tear,0
+A,A118DWOXWSI8VC,45,45,blowosh,water,category,39,tear,0
+A,A2YM06JHC0NIQ8,45,45,blowosh,water,category,42,water,1
+A,A3OK0Q4TLQSQKT,45,45,blowosh,water,category,42,water,1
+A,A26Y58YECZUZZG,45,45,blowosh,water,category,42,water,1
+A,A35E8LAQ1R6I9X,45,45,blowosh,water,category,42,water,1
+A,A2YGAEODJ5SSF6,45,45,blowosh,water,category,42,water,1
+A,A54J53JJGBW0N,45,45,blowosh,water,category,42,water,1
+A,A13ORLC5Y2LJL2,45,45,blowosh,water,category,42,water,1
+A,A4A7GLP5XKRLG,45,45,blowosh,water,category,42,water,1
+A,A15Y215D57OSO5,42,42,pushawater,water,exact,39,tear,0
+A,A25AX0DNHKJCQT,42,42,pushawater,water,exact,42,water,1
+A,A3OK0Q4TLQSQKT,42,42,pushawater,water,exact,42,water,1
+A,A7KLTVEIASF4J,42,42,pushawater,water,exact,42,water,1
+A,A10M8ULK8QMRU6,42,42,pushawater,water,exact,42,water,1
+A,A21XD6CWE1JNMQ,42,42,pushawater,water,exact,42,water,1
+A,A3SZBR2YDXLQV7,42,42,pushawater,water,exact,42,water,1
+A,A35JCNZJI2MQ20,42,42,pushawater,water,exact,42,water,1
+A,A1KUOEK3NOUKIW,42,42,pushawater,water,exact,42,water,1
+A,A2WQTSU6SSBUWC,42,42,pushawater,water,exact,42,water,1
+A,A1WDUICI1FG9F,42,42,pushawater,water,exact,42,water,1
+A,A3M0USQA0RQZ7D,42,42,ploosh,water,exact,42,water,1
+A,A1UJU2YCP2KPSF,42,42,ploosh,water,exact,42,water,1
+A,A26Y58YECZUZZG,42,42,ploosh,water,exact,42,water,1
 A,,39,560,a chechyu,tear,category,45,water,0
-A,,39,560,a chechyu,tear,category,41,tear,1
-A,,39,560,a chechyu,tear,category,41,tear,1
-A,,39,560,a chechyu,tear,category,41,tear,1
-A,,39,560,a chechyu,tear,category,41,tear,1
-A,,39,560,a chechyu,tear,category,41,tear,1
-A,,39,560,a chechyu,tear,category,35,glass,0
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,45,water,1
-A,,45,45,buhlorghorgh,water,exact,41,tear,0
-A,,45,45,buhlorghorgh,water,exact,41,tear,0
-A,,45,45,buhlorghorgh,water,exact,41,tear,0
-A,,45,45,buhlorghorgh,water,exact,41,tear,0
-A,,45,45,buhlorghorgh,water,exact,35,glass,0
-A,,45,45,buhlorghorgh,water,exact,35,glass,0
-A,,45,45,buhlorghorgh,water,exact,35,glass,0
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,45,water,1
-A,,45,45,balooshboosh,water,exact,41,tear,0
-A,,45,45,balooshboosh,water,exact,41,tear,0
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,45,water,1
-A,,45,466,glong-glong,water,exact,35,glass,0
-A,,45,466,glongglong,water,exact,45,water,1
-A,,45,466,glongglong,water,exact,45,water,1
-A,,45,466,glongglong,water,exact,45,water,1
-A,,45,466,glongglong,water,exact,45,water,1
-A,,45,466,glongglong,water,exact,45,water,1
-A,,45,466,glongglong,water,exact,35,glass,0
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
-A,,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,41,tear,0
-A,,34,566,dundunduh,glass,category,45,water,0
-A,,34,566,dundunduh,glass,category,45,water,0
-A,,34,566,dundunduh,glass,category,45,water,0
-A,,34,566,dundunduh,glass,category,41,tear,0
-A,,34,566,dundunduh,glass,category,41,tear,0
-A,,34,566,dundunduh,glass,category,49,zipper,0
-A,,34,566,dundunduh,glass,category,35,glass,1
-A,,34,566,dundunduh,glass,category,35,glass,1
-A,,34,566,dundunduh,glass,category,35,glass,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,45,water,1
-A,,45,466,glong glong,water,exact,35,glass,0
-A,,45,45,atrishown,water,exact,45,water,1
-A,,45,45,atrishown,water,exact,45,water,1
-A,,45,45,atrishown,water,exact,45,water,1
-A,,45,45,atrishown,water,exact,41,tear,0
-A,,45,45,atrishown,water,exact,41,tear,0
-A,,45,45,atrishown,water,exact,41,tear,0
-A,,45,45,atrishown,water,exact,49,zipper,0
-A,,45,45,atrishown,water,exact,35,glass,0
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,45,water,1
-A,,45,466,glonglong,water,exact,35,glass,0
-A,,45,466,glonglong,water,exact,35,glass,0
-A,,45,466,glonglong,water,exact,35,glass,0
-A,,45,466,glonglong,water,exact,35,glass,0
-A,,45,466,glonglong,water,exact,35,glass,0
-A,,41,41,chraw,tear,exact,45,water,0
-A,,41,41,chraw,tear,exact,45,water,0
-A,,41,41,chraw,tear,exact,41,tear,1
-A,,41,41,chraw,tear,exact,41,tear,1
-A,,41,41,chraw,tear,exact,41,tear,1
-A,,41,41,chraw,tear,exact,41,tear,1
-A,,41,41,chraw,tear,exact,35,glass,0
-A,,34,34,bugongong,glass,category,45,water,0
-A,,34,34,bugongong,glass,category,45,water,0
-A,,34,34,bugongong,glass,category,45,water,0
-A,,34,34,bugongong,glass,category,45,water,0
-A,,34,34,bugongong,glass,category,45,water,0
-A,,42,42,blorgh,water,category,45,water,1
-A,,42,42,blorgh,water,category,45,water,1
-A,,42,42,blorgh,water,category,45,water,1
-A,,42,42,blorgh,water,category,45,water,1
-A,,42,42,blorgh,water,category,41,tear,0
-A,,42,42,blorgh,water,category,41,tear,0
-A,,42,42,blorgh,water,category,49,zipper,0
-A,,42,42,blorgh,water,category,49,zipper,0
-A,,34,566,dundunda,glass,category,45,water,0
-A,,34,566,dundunda,glass,category,45,water,0
-A,,34,566,dundunda,glass,category,45,water,0
-A,,34,566,dundunda,glass,category,45,water,0
-A,,34,566,dundunda,glass,category,45,water,0
-A,,34,566,dundunda,glass,category,41,tear,0
-A,,34,566,dundunda,glass,category,35,glass,1
-A,,34,566,dundunda,glass,category,35,glass,1
-A,,34,566,dundunda,glass,category,35,glass,1
-A,,34,566,dundundah,glass,category,45,water,0
-A,,34,566,dundundah,glass,category,45,water,0
-A,,34,566,dundundah,glass,category,45,water,0
-A,,34,566,dundundah,glass,category,45,water,0
-A,,34,566,dundundah,glass,category,35,glass,1
-A,,34,566,dundundah,glass,category,35,glass,1
-A,,34,566,dundundah,glass,category,35,glass,1
-A,,34,566,dundundah,glass,category,35,glass,1
-A,,39,39,kitzee,tear,category,45,water,0
-A,,39,39,kitzee,tear,category,41,tear,1
-A,,39,39,kitzee,tear,category,41,tear,1
-A,,39,39,kitzee,tear,category,49,zipper,0
-A,,39,39,kitzee,tear,category,49,zipper,0
-A,,39,39,kitzee,tear,category,35,glass,0
-A,,39,39,kitzee,tear,category,35,glass,0
-A,,35,35,breetu,glass,exact,45,water,0
-A,,35,35,breetu,glass,exact,41,tear,0
-A,,35,35,breetu,glass,exact,49,zipper,0
-A,,35,35,breetu,glass,exact,35,glass,1
-A,,35,35,breetu,glass,exact,35,glass,1
-A,,35,35,breetu,glass,exact,35,glass,1
-A,,35,35,breetu,glass,exact,35,glass,1
-A,,35,35,breetu,glass,exact,35,glass,1
-A,,34,566,dahduhda,glass,category,45,water,0
-A,,34,566,dahduhda,glass,category,45,water,0
-A,,34,566,dahduhda,glass,category,41,tear,0
-A,,34,566,dahduhda,glass,category,41,tear,0
-A,,34,566,dahduhda,glass,category,41,tear,0
-A,,34,566,dahduhda,glass,category,35,glass,1
-A,,35,35,cribbett,glass,exact,45,water,0
-A,,35,35,cribbett,glass,exact,41,tear,0
-A,,35,35,cribbett,glass,exact,41,tear,0
-A,,35,35,cribbett,glass,exact,35,glass,1
-A,,35,35,cribbett,glass,exact,35,glass,1
-A,,35,502,goracto,glass,exact,45,water,0
-A,,35,502,goracto,glass,exact,41,tear,0
-A,,35,502,goracto,glass,exact,41,tear,0
-A,,35,502,goracto,glass,exact,49,zipper,0
-A,,35,502,goracto,glass,exact,49,zipper,0
-A,,35,502,goracto,glass,exact,49,zipper,0
-A,,35,502,goracto,glass,exact,49,zipper,0
-A,,35,502,goracto,glass,exact,35,glass,1
-A,,35,502,goracto,glass,exact,35,glass,1
-A,,42,563,chicochicochicochico,water,category,45,water,1
-A,,42,563,chicochicochicochico,water,category,45,water,1
-A,,42,563,chicochicochicochico,water,category,45,water,1
-A,,42,563,chicochicochicochico,water,category,45,water,1
-A,,42,563,chicochicochicochico,water,category,41,tear,0
-A,,42,563,chicochicochicochico,water,category,35,glass,0
-A,,42,563,chicochicochicochico,water,category,35,glass,0
-A,,41,522,cheea,tear,exact,45,water,0
-A,,41,522,cheea,tear,exact,41,tear,1
-A,,41,522,cheea,tear,exact,41,tear,1
-A,,41,522,cheea,tear,exact,41,tear,1
-A,,41,522,cheea,tear,exact,41,tear,1
-A,,41,522,cheea,tear,exact,49,zipper,0
-A,,41,522,cheea,tear,exact,35,glass,0
-A,,41,522,cheea,tear,exact,35,glass,0
-A,,41,522,cheea,tear,exact,35,glass,0
-A,,35,502,correcto,glass,exact,45,water,0
-A,,35,502,correcto,glass,exact,41,tear,0
-A,,35,502,correcto,glass,exact,49,zipper,0
-A,,35,502,correcto,glass,exact,49,zipper,0
-A,,35,502,correcto,glass,exact,49,zipper,0
-A,,35,502,correcto,glass,exact,35,glass,1
-A,,35,502,correcto,glass,exact,35,glass,1
-A,,35,502,correcto,glass,exact,35,glass,1
-A,,35,502,correcto,glass,exact,35,glass,1
-A,,42,563,chewchewshewa,water,category,45,water,1
-A,,42,563,chewchewshewa,water,category,45,water,1
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,42,563,chewchewshewa,water,category,41,tear,0
-A,,47,47,growwff,zipper,category,45,water,0
-A,,47,47,growwff,zipper,category,45,water,0
-A,,47,47,growwff,zipper,category,41,tear,0
-A,,47,47,growwff,zipper,category,41,tear,0
-A,,47,47,growwff,zipper,category,49,zipper,1
-A,,47,47,growwff,zipper,category,49,zipper,1
-A,,47,47,growwff,zipper,category,49,zipper,1
-A,,47,47,growwff,zipper,category,49,zipper,1
-A,,47,47,growwff,zipper,category,49,zipper,1
-A,,42,42,pushawater,water,category,45,water,1
-A,,42,42,pushawater,water,category,45,water,1
-A,,42,42,pushawater,water,category,45,water,1
-A,,42,42,pushawater,water,category,45,water,1
-A,,42,42,pushawater,water,category,49,zipper,0
-A,,42,563,chochocchoocho,water,category,45,water,1
-A,,42,563,chochocchoocho,water,category,45,water,1
-A,,42,563,chochocchoocho,water,category,41,tear,0
-A,,42,563,chochocchoocho,water,category,49,zipper,0
-A,,42,563,chochocchoocho,water,category,49,zipper,0
-A,,42,563,chochocchoocho,water,category,35,glass,0
-A,,34,34,bubtedew,glass,category,45,water,0
-A,,34,34,bubtedew,glass,category,45,water,0
-A,,34,34,bubtedew,glass,category,45,water,0
-A,,34,34,bubtedew,glass,category,45,water,0
-A,,34,34,bubtedew,glass,category,41,tear,0
-A,,34,34,bubtedew,glass,category,41,tear,0
-A,,34,34,bubtedew,glass,category,41,tear,0
-A,,34,34,bubtedew,glass,category,35,glass,1
-A,,49,49,brip,zipper,exact,45,water,0
-A,,49,49,brip,zipper,exact,45,water,0
-A,,49,49,brip,zipper,exact,45,water,0
-A,,49,49,brip,zipper,exact,45,water,0
-A,,49,49,brip,zipper,exact,41,tear,0
-A,,49,49,brip,zipper,exact,41,tear,0
-A,,49,49,brip,zipper,exact,49,zipper,1
-A,,49,49,brip,zipper,exact,35,glass,0
-A,,35,35,clappun,glass,exact,45,water,0
-A,,35,35,clappun,glass,exact,45,water,0
-A,,35,35,clappun,glass,exact,35,glass,1
-A,,35,35,clappun,glass,exact,35,glass,1
-A,,35,35,clappun,glass,exact,35,glass,1
-A,,35,35,clappun,glass,exact,35,glass,1
-A,,35,35,clappun,glass,exact,35,glass,1
-A,,34,34,clipapap,glass,category,45,water,0
-A,,34,34,clipapap,glass,category,41,tear,0
-A,,34,34,clipapap,glass,category,49,zipper,0
-A,,34,34,clipapap,glass,category,49,zipper,0
-A,,34,34,clipapap,glass,category,35,glass,1
-A,,34,34,clipapap,glass,category,35,glass,1
-A,,34,34,clipapap,glass,category,35,glass,1
-A,,34,34,clipapap,glass,category,35,glass,1
-A,,35,502,gorecto,glass,exact,45,water,0
-A,,35,502,gorecto,glass,exact,41,tear,0
-A,,35,502,gorecto,glass,exact,49,zipper,0
-A,,35,502,gorecto,glass,exact,49,zipper,0
-A,,35,502,gorecto,glass,exact,49,zipper,0
-A,,35,502,gorecto,glass,exact,35,glass,1
-A,,35,502,gorecto,glass,exact,35,glass,1
-A,,35,502,gorecto,glass,exact,35,glass,1
-A,,35,502,gorecto,glass,exact,35,glass,1
-A,,42,42,ploosh,water,category,45,water,1
-A,,42,42,ploosh,water,category,45,water,1
-A,,42,42,ploosh,water,category,41,tear,0
-A,,42,42,ploosh,water,category,49,zipper,0
-A,,39,560,achechew,tear,category,45,water,0
-A,,39,560,achechew,tear,category,45,water,0
-A,,39,560,achechew,tear,category,41,tear,1
-A,,39,560,achechew,tear,category,41,tear,1
-A,,39,560,achechew,tear,category,41,tear,1
-A,,39,560,achechew,tear,category,41,tear,1
-A,,39,560,achechew,tear,category,41,tear,1
-A,,39,560,achechew,tear,category,35,glass,0
-A,,47,47,fizzim,zipper,category,45,water,0
-A,,47,47,fizzim,zipper,category,45,water,0
-A,,47,47,fizzim,zipper,category,45,water,0
-A,,47,47,fizzim,zipper,category,41,tear,0
-A,,47,47,fizzim,zipper,category,41,tear,0
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,fizzim,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,45,water,0
-A,,47,47,brrip,zipper,category,41,tear,0
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,49,zipper,1
-A,,47,47,brrip,zipper,category,35,glass,0
-A,,45,45,blowosh,water,exact,45,water,1
-A,,45,45,blowosh,water,exact,45,water,1
-A,,45,45,blowosh,water,exact,41,tear,0
-A,,45,45,blowosh,water,exact,41,tear,0
-A,,45,45,blowosh,water,exact,41,tear,0
-A,,45,45,blowosh,water,exact,49,zipper,0
-A,,39,560,a-chitch-shu,tear,category,45,water,0
-A,,39,560,a-chitch-shu,tear,category,41,tear,1
-A,,39,560,a-chitch-shu,tear,category,41,tear,1
-A,,39,560,a-chitch-shu,tear,category,41,tear,1
-A,,39,560,a-chitch-shu,tear,category,41,tear,1
-A,,39,560,a-chitch-shu,tear,category,49,zipper,0
-A,,39,560,a-chitch-shu,tear,category,35,glass,0
-A,,39,560,a-chitch-shu,tear,category,35,glass,0
-A,,42,42,foovo,water,category,45,water,1
-A,,42,42,foovo,water,category,41,tear,0
-A,,42,42,foovo,water,category,41,tear,0
-A,,42,42,foovo,water,category,41,tear,0
-A,,42,42,foovo,water,category,41,tear,0
-A,,42,42,foovo,water,category,49,zipper,0
-A,,42,42,foovo,water,category,49,zipper,0
-A,,42,42,foovo,water,category,35,glass,0
-A,,42,42,foovo,water,category,35,glass,0
-A,,39,39,crisshhh,tear,category,45,water,0
-A,,39,39,crisshhh,tear,category,41,tear,1
-A,,39,39,crisshhh,tear,category,41,tear,1
-A,,39,39,crisshhh,tear,category,49,zipper,0
-A,,39,39,crisshhh,tear,category,35,glass,0
-A,,39,39,crisshhh,tear,category,35,glass,0
-A,,49,49,pfiph,zipper,exact,45,water,0
-A,,49,49,pfiph,zipper,exact,41,tear,0
-A,,49,49,pfiph,zipper,exact,41,tear,0
-A,,49,49,pfiph,zipper,exact,41,tear,0
-A,,49,49,pfiph,zipper,exact,41,tear,0
-A,,49,49,pfiph,zipper,exact,49,zipper,1
-A,,49,49,pfiph,zipper,exact,49,zipper,1
-A,,49,49,pfiph,zipper,exact,49,zipper,1
-A,,49,49,pfiph,zipper,exact,35,glass,0
-A,,34,34,atinga,glass,category,45,water,0
-A,,34,34,atinga,glass,category,49,zipper,0
-A,,34,34,atinga,glass,category,49,zipper,0
-A,,34,34,atinga,glass,category,49,zipper,0
-A,,34,34,atinga,glass,category,49,zipper,0
-A,,34,34,atinga,glass,category,35,glass,1
-A,,34,34,atinga,glass,category,35,glass,1
-A,,34,34,atinga,glass,category,35,glass,1
-A,,34,34,atinga,glass,category,35,glass,1
-A,,34,34,atinga,glass,category,35,glass,1
-A,,41,41,chrrrrup,tear,exact,41,tear,1
-A,,41,41,chrrrrup,tear,exact,41,tear,1
-A,,41,41,chrrrrup,tear,exact,49,zipper,0
-A,,49,49,fft,zipper,exact,41,tear,0
-A,,49,49,fft,zipper,exact,41,tear,0
-A,,49,49,fft,zipper,exact,41,tear,0
-A,,49,49,fft,zipper,exact,41,tear,0
-A,,49,49,fft,zipper,exact,41,tear,0
-A,,49,49,fft,zipper,exact,49,zipper,1
-A,,49,49,bahvup,zipper,exact,41,tear,0
-A,,49,49,bahvup,zipper,exact,49,zipper,1
-A,,49,49,bahvup,zipper,exact,35,glass,0
-A,,49,49,bahvup,zipper,exact,35,glass,0
-A,,41,522,shiyah,tear,exact,41,tear,1
-A,,41,522,shiyah,tear,exact,41,tear,1
-A,,41,522,shiyah,tear,exact,41,tear,1
-A,,41,522,shiyah,tear,exact,35,glass,0
-A,,41,522,sheah,tear,exact,41,tear,1
-A,,41,522,sheah,tear,exact,41,tear,1
-A,,41,522,sheah,tear,exact,41,tear,1
-A,,41,522,sheah,tear,exact,41,tear,1
-A,,41,522,sheah,tear,exact,41,tear,1
-A,,41,522,sheah,tear,exact,49,zipper,0
-A,,39,560,achechchu,tear,category,41,tear,1
-A,,39,560,achechchu,tear,category,41,tear,1
-A,,39,560,achechchu,tear,category,41,tear,1
-A,,39,560,achechchu,tear,category,41,tear,1
-A,,39,560,achechchu,tear,category,41,tear,1
-A,,47,377,bveeeeeep,zipper,category,41,tear,0
-A,,47,377,bveeeeeep,zipper,category,49,zipper,1
-A,,47,377,bveeeeeep,zipper,category,49,zipper,1
-A,,47,377,bveeeeeep,zipper,category,49,zipper,1
-A,,47,377,bveeeeeep,zipper,category,35,glass,0
-A,,47,377,bveeeeeep,zipper,category,35,glass,0
-A,,47,377,bveeeeeep,zipper,category,35,glass,0
-A,,47,377,veeeep,zipper,category,41,tear,0
-A,,47,377,veeeep,zipper,category,41,tear,0
-A,,47,377,veeeep,zipper,category,49,zipper,1
-A,,47,377,veeeep,zipper,category,49,zipper,1
-A,,47,377,veeeep,zipper,category,49,zipper,1
-A,,47,377,veeeep,zipper,category,49,zipper,1
-A,,47,377,veeeep,zipper,category,49,zipper,1
-A,,47,377,veeeep,zipper,category,35,glass,0
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,41,tear,1
-A,,41,522,sheyah,tear,exact,49,zipper,0
-A,,41,522,sheyah,tear,exact,35,glass,0
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,41,tear,1
-A,,41,41,crish,tear,exact,49,zipper,0
-A,,41,41,crish,tear,exact,35,glass,0
-A,,41,41,crish,tear,exact,35,glass,0
-A,,41,41,crish,tear,exact,35,glass,0
-A,,42,563,chewscutcutsew,water,category,41,tear,0
-A,,42,563,chewscutcutsew,water,category,41,tear,0
-A,,42,563,chewscutcutsew,water,category,41,tear,0
-A,,42,563,chewscutcutsew,water,category,41,tear,0
-A,,42,563,chewscutcutsew,water,category,41,tear,0
-A,,42,563,chewscutcutsew,water,category,35,glass,0
-A,,41,41,frarr,tear,exact,41,tear,1
-A,,41,41,frarr,tear,exact,41,tear,1
-A,,41,41,frarr,tear,exact,41,tear,1
-A,,41,41,frarr,tear,exact,41,tear,1
-A,,41,41,frarr,tear,exact,49,zipper,0
-A,,41,41,frarr,tear,exact,49,zipper,0
-A,,39,39,clickadrag,tear,category,41,tear,1
-A,,39,39,clickadrag,tear,category,41,tear,1
-A,,39,39,clickadrag,tear,category,49,zipper,0
-A,,39,39,clickadrag,tear,category,49,zipper,0
-A,,39,39,clickadrag,tear,category,49,zipper,0
-A,,39,39,clickadrag,tear,category,49,zipper,0
-A,,39,39,clickadrag,tear,category,49,zipper,0
-A,,39,39,clickadrag,tear,category,35,glass,0
-A,,39,39,clickadrag,tear,category,35,glass,0
-A,,39,39,clickadrag,tear,category,35,glass,0
-A,,47,377,veeb,zipper,category,41,tear,0
-A,,47,377,veeb,zipper,category,49,zipper,1
-A,,47,377,veeb,zipper,category,49,zipper,1
-A,,47,377,veeb,zipper,category,49,zipper,1
-A,,49,505,izit,zipper,exact,41,tear,0
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,49,505,izit,zipper,exact,49,zipper,1
-A,,35,502,directo,glass,exact,41,tear,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,502,directo,glass,exact,49,zipper,0
-A,,35,35,clinket,glass,exact,41,tear,0
-A,,35,35,clinket,glass,exact,49,zipper,0
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,35,35,clinket,glass,exact,35,glass,1
-A,,47,47,breep,zipper,category,49,zipper,1
-A,,47,47,breep,zipper,category,49,zipper,1
-A,,47,47,breep,zipper,category,49,zipper,1
-A,,47,47,breep,zipper,category,35,glass,0
-A,,47,47,breep,zipper,category,35,glass,0
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,49,zipper,1
-A,,49,505,izzip,zipper,exact,35,glass,0
-A,,49,505,iszit,zipper,exact,49,zipper,1
-A,,49,505,iszit,zipper,exact,49,zipper,1
-A,,49,505,iszit,zipper,exact,49,zipper,1
-A,,49,505,iszit,zipper,exact,35,glass,0
-A,,49,505,iszit,zipper,exact,35,glass,0
-A,,49,505,izzit,zipper,exact,49,zipper,1
-A,,49,505,izzit,zipper,exact,49,zipper,1
-A,,49,505,izzit,zipper,exact,49,zipper,1
-A,,49,505,izzit,zipper,exact,35,glass,0
-A,,49,505,izzit,zipper,exact,35,glass,0
-A,,49,505,izzit,zipper,exact,35,glass,0
-A,,49,505,izzit,zipper,exact,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,39,39,cliflika,tear,category,35,glass,0
-A,,47,377,ceep,zipper,category,35,glass,0
+A,A2VE5IV9OD2SK1,39,560,a chechyu,tear,category,41,tear,1
+A,A14REHX8QM847D,39,560,a chechyu,tear,category,41,tear,1
+A,A248P03SBIGVNH,39,560,a chechyu,tear,category,41,tear,1
+A,A1EN3FW93BSXQQ,39,560,a chechyu,tear,category,41,tear,1
+A,AR70SV0RPLDO,39,560,a chechyu,tear,category,41,tear,1
+A,A1JH3F32WDMKLQ,39,560,a chechyu,tear,category,35,glass,0
+A,AD368A1RHHRC3,45,45,buhlorghorgh,water,exact,45,water,1
+A,AEG93GFIOWMKV,45,45,buhlorghorgh,water,exact,45,water,1
+A,A1KJLQDYW9XT9E,45,45,buhlorghorgh,water,exact,45,water,1
+A,AIUKV0KVALMY6,45,45,buhlorghorgh,water,exact,45,water,1
+A,A3IZK0Y337IQJV,45,45,buhlorghorgh,water,exact,45,water,1
+A,A1RWNYJA5X25YH,45,45,buhlorghorgh,water,exact,45,water,1
+A,A2389DERMNF3ZB,45,45,buhlorghorgh,water,exact,45,water,1
+A,A2VE5IV9OD2SK1,45,45,buhlorghorgh,water,exact,41,tear,0
+A,A3JCTHB0J0G2AE,45,45,buhlorghorgh,water,exact,41,tear,0
+A,A2WLGVXAVT2XTR,45,45,buhlorghorgh,water,exact,41,tear,0
+A,A1GPZ5REMDQZ0L,45,45,buhlorghorgh,water,exact,41,tear,0
+A,ALML8V38FDV0,45,45,buhlorghorgh,water,exact,35,glass,0
+A,A31O70O1YDAGAP,45,45,buhlorghorgh,water,exact,35,glass,0
+A,AR5AV0OMG1SJU,45,45,buhlorghorgh,water,exact,35,glass,0
+A,A1SNHH51TDR2JB,45,45,balooshboosh,water,exact,45,water,1
+A,A1640H4RXH8NZE,45,45,balooshboosh,water,exact,45,water,1
+A,A2VE5IV9OD2SK1,45,45,balooshboosh,water,exact,45,water,1
+A,A3K9GTQBOI7O5A,45,45,balooshboosh,water,exact,45,water,1
+A,A1GPZ5REMDQZ0L,45,45,balooshboosh,water,exact,45,water,1
+A,A168QBUOKNFWWK,45,45,balooshboosh,water,exact,45,water,1
+A,AR5AV0OMG1SJU,45,45,balooshboosh,water,exact,45,water,1
+A,A15DBY3Y6XM1ZS,45,45,balooshboosh,water,exact,45,water,1
+A,A3GW3MPLVGG7PZ,45,45,balooshboosh,water,exact,41,tear,0
+A,A1RWNYJA5X25YH,45,45,balooshboosh,water,exact,41,tear,0
+A,AD368A1RHHRC3,45,466,glong-glong,water,exact,45,water,1
+A,A2HNDRV7FB9CAN,45,466,glong-glong,water,exact,45,water,1
+A,A259UZJQOOVE4V,45,466,glong-glong,water,exact,45,water,1
+A,A31O70O1YDAGAP,45,466,glong-glong,water,exact,45,water,1
+A,AWZUBEYJXMICR,45,466,glong-glong,water,exact,45,water,1
+A,A3MHYBS6PHJ5QG,45,466,glong-glong,water,exact,45,water,1
+A,AAXX5LDVJ32F8,45,466,glong-glong,water,exact,45,water,1
+A,A1EN3FW93BSXQQ,45,466,glong-glong,water,exact,45,water,1
+A,A1PNNSNMDVLZ6T,45,466,glong-glong,water,exact,45,water,1
+A,A1MV41OTGYW0AH,45,466,glong-glong,water,exact,45,water,1
+A,A32QJF67JMJFKX,45,466,glong-glong,water,exact,35,glass,0
+A,A2HNDRV7FB9CAN,45,466,glongglong,water,exact,45,water,1
+A,AFQKLIYNCVZTL,45,466,glongglong,water,exact,45,water,1
+A,A31O70O1YDAGAP,45,466,glongglong,water,exact,45,water,1
+A,A3IZK0Y337IQJV,45,466,glongglong,water,exact,45,water,1
+A,A2CKD2WTNGA0OC,45,466,glongglong,water,exact,45,water,1
+A,AR5AV0OMG1SJU,45,466,glongglong,water,exact,35,glass,0
+A,A2HNDRV7FB9CAN,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AD368A1RHHRC3,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AEG93GFIOWMKV,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1SNHH51TDR2JB,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1640H4RXH8NZE,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3K4MDM191NKF6,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AXGSUFCAK8W0H,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2VE5IV9OD2SK1,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A14REHX8QM847D,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AURYD2FH3FUOQ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A259UZJQOOVE4V,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3JCTHB0J0G2AE,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2NT8U7GSYGISJ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2WLGVXAVT2XTR,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2A8GX1LGLXFT5,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1VTDTI1NB6F5C,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1J2SF4IQEQ5OP,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1MUEKEQQVROE7,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A32QJF67JMJFKX,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A364KJDYEBAWC9,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AFQKLIYNCVZTL,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AJ34WB9Z37ILU,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AMA18W8F60Y2J,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3AO2N7BNFDGF3,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A31O70O1YDAGAP,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3K9GTQBOI7O5A,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AWZUBEYJXMICR,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1KJLQDYW9XT9E,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A209H73TTW9F87,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3MHYBS6PHJ5QG,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3GW3MPLVGG7PZ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AAXX5LDVJ32F8,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1GPZ5REMDQZ0L,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AKEZYKPQTI65M,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A248P03SBIGVNH,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AIUKV0KVALMY6,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AYFPBOT06WGIZ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1JH3F32WDMKLQ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A3IZK0Y337IQJV,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A168QBUOKNFWWK,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2C2WXXKJOLCZ2,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1EN3FW93BSXQQ,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1PNNSNMDVLZ6T,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2VDV1L5XZ909D,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2CKD2WTNGA0OC,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AR70SV0RPLDO,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1MV41OTGYW0AH,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2270E5SCIHWV8,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A7RAVFS10BUZ1,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,AR5AV0OMG1SJU,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A15DBY3Y6XM1ZS,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A1RWNYJA5X25YH,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,A2389DERMNF3ZB,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,45,water,1
+A,ALML8V38FDV0,-1,-1,Attention check: Pick the third option.,catch_trial,catch_trial,41,tear,0
+A,AD368A1RHHRC3,34,566,dundunduh,glass,category,45,water,0
+A,AJ34WB9Z37ILU,34,566,dundunduh,glass,category,45,water,0
+A,A248P03SBIGVNH,34,566,dundunduh,glass,category,45,water,0
+A,A15DBY3Y6XM1ZS,34,566,dundunduh,glass,category,41,tear,0
+A,A1RWNYJA5X25YH,34,566,dundunduh,glass,category,41,tear,0
+A,ALML8V38FDV0,34,566,dundunduh,glass,category,49,zipper,0
+A,A2VE5IV9OD2SK1,34,566,dundunduh,glass,category,35,glass,1
+A,A1PNNSNMDVLZ6T,34,566,dundunduh,glass,category,35,glass,1
+A,A7RAVFS10BUZ1,34,566,dundunduh,glass,category,35,glass,1
+A,AEG93GFIOWMKV,45,466,glong glong,water,exact,45,water,1
+A,AXGSUFCAK8W0H,45,466,glong glong,water,exact,45,water,1
+A,A3JCTHB0J0G2AE,45,466,glong glong,water,exact,45,water,1
+A,A2NT8U7GSYGISJ,45,466,glong glong,water,exact,45,water,1
+A,A31O70O1YDAGAP,45,466,glong glong,water,exact,45,water,1
+A,A3AO2N7BNFDGF3,45,466,glong glong,water,exact,45,water,1
+A,A3MHYBS6PHJ5QG,45,466,glong glong,water,exact,45,water,1
+A,A248P03SBIGVNH,45,466,glong glong,water,exact,35,glass,0
+A,A1SNHH51TDR2JB,45,45,atrishown,water,exact,45,water,1
+A,A3K4MDM191NKF6,45,45,atrishown,water,exact,45,water,1
+A,A15DBY3Y6XM1ZS,45,45,atrishown,water,exact,45,water,1
+A,A2NT8U7GSYGISJ,45,45,atrishown,water,exact,41,tear,0
+A,A32QJF67JMJFKX,45,45,atrishown,water,exact,41,tear,0
+A,A1EN3FW93BSXQQ,45,45,atrishown,water,exact,41,tear,0
+A,A2270E5SCIHWV8,45,45,atrishown,water,exact,49,zipper,0
+A,AJ34WB9Z37ILU,45,45,atrishown,water,exact,35,glass,0
+A,A1SNHH51TDR2JB,45,466,glonglong,water,exact,45,water,1
+A,A3JCTHB0J0G2AE,45,466,glonglong,water,exact,45,water,1
+A,A2WLGVXAVT2XTR,45,466,glonglong,water,exact,45,water,1
+A,A3MHYBS6PHJ5QG,45,466,glonglong,water,exact,45,water,1
+A,AAXX5LDVJ32F8,45,466,glonglong,water,exact,45,water,1
+A,A1KJLQDYW9XT9E,45,466,glonglong,water,exact,45,water,1
+A,A14REHX8QM847D,45,466,glonglong,water,exact,35,glass,0
+A,AURYD2FH3FUOQ,45,466,glonglong,water,exact,35,glass,0
+A,AKEZYKPQTI65M,45,466,glonglong,water,exact,35,glass,0
+A,A248P03SBIGVNH,45,466,glonglong,water,exact,35,glass,0
+A,A7RAVFS10BUZ1,45,466,glonglong,water,exact,35,glass,0
+A,A3K4MDM191NKF6,41,41,chraw,tear,exact,45,water,0
+A,A15DBY3Y6XM1ZS,41,41,chraw,tear,exact,45,water,0
+A,A2A8GX1LGLXFT5,41,41,chraw,tear,exact,41,tear,1
+A,A1J2SF4IQEQ5OP,41,41,chraw,tear,exact,41,tear,1
+A,A3MHYBS6PHJ5QG,41,41,chraw,tear,exact,41,tear,1
+A,A2VDV1L5XZ909D,41,41,chraw,tear,exact,41,tear,1
+A,A31O70O1YDAGAP,41,41,chraw,tear,exact,35,glass,0
+A,A1640H4RXH8NZE,34,34,bugongong,glass,category,45,water,0
+A,A1VTDTI1NB6F5C,34,34,bugongong,glass,category,45,water,0
+A,A32QJF67JMJFKX,34,34,bugongong,glass,category,45,water,0
+A,A1PNNSNMDVLZ6T,34,34,bugongong,glass,category,45,water,0
+A,A2VDV1L5XZ909D,34,34,bugongong,glass,category,45,water,0
+A,A14REHX8QM847D,42,42,blorgh,water,category,45,water,1
+A,A364KJDYEBAWC9,42,42,blorgh,water,category,45,water,1
+A,AIUKV0KVALMY6,42,42,blorgh,water,category,45,water,1
+A,A3IZK0Y337IQJV,42,42,blorgh,water,category,45,water,1
+A,AEG93GFIOWMKV,42,42,blorgh,water,category,41,tear,0
+A,AJ34WB9Z37ILU,42,42,blorgh,water,category,41,tear,0
+A,A1640H4RXH8NZE,42,42,blorgh,water,category,49,zipper,0
+A,ALML8V38FDV0,42,42,blorgh,water,category,49,zipper,0
+A,A1640H4RXH8NZE,34,566,dundunda,glass,category,45,water,0
+A,A2WLGVXAVT2XTR,34,566,dundunda,glass,category,45,water,0
+A,A1VTDTI1NB6F5C,34,566,dundunda,glass,category,45,water,0
+A,A1PNNSNMDVLZ6T,34,566,dundunda,glass,category,45,water,0
+A,A1MV41OTGYW0AH,34,566,dundunda,glass,category,45,water,0
+A,AXGSUFCAK8W0H,34,566,dundunda,glass,category,41,tear,0
+A,A3AO2N7BNFDGF3,34,566,dundunda,glass,category,35,glass,1
+A,AKEZYKPQTI65M,34,566,dundunda,glass,category,35,glass,1
+A,A3IZK0Y337IQJV,34,566,dundunda,glass,category,35,glass,1
+A,A1640H4RXH8NZE,34,566,dundundah,glass,category,45,water,0
+A,A3JCTHB0J0G2AE,34,566,dundundah,glass,category,45,water,0
+A,A2WLGVXAVT2XTR,34,566,dundundah,glass,category,45,water,0
+A,A1GPZ5REMDQZ0L,34,566,dundundah,glass,category,45,water,0
+A,AXGSUFCAK8W0H,34,566,dundundah,glass,category,35,glass,1
+A,A1MUEKEQQVROE7,34,566,dundundah,glass,category,35,glass,1
+A,A32QJF67JMJFKX,34,566,dundundah,glass,category,35,glass,1
+A,AR70SV0RPLDO,34,566,dundundah,glass,category,35,glass,1
+A,AXGSUFCAK8W0H,39,39,kitzee,tear,category,45,water,0
+A,A1GPZ5REMDQZ0L,39,39,kitzee,tear,category,41,tear,1
+A,AR5AV0OMG1SJU,39,39,kitzee,tear,category,41,tear,1
+A,A3AO2N7BNFDGF3,39,39,kitzee,tear,category,49,zipper,0
+A,A2C2WXXKJOLCZ2,39,39,kitzee,tear,category,49,zipper,0
+A,A1J2SF4IQEQ5OP,39,39,kitzee,tear,category,35,glass,0
+A,AYFPBOT06WGIZ,39,39,kitzee,tear,category,35,glass,0
+A,A2VE5IV9OD2SK1,35,35,breetu,glass,exact,45,water,0
+A,A2270E5SCIHWV8,35,35,breetu,glass,exact,41,tear,0
+A,A2C2WXXKJOLCZ2,35,35,breetu,glass,exact,49,zipper,0
+A,A2A8GX1LGLXFT5,35,35,breetu,glass,exact,35,glass,1
+A,AFQKLIYNCVZTL,35,35,breetu,glass,exact,35,glass,1
+A,AWZUBEYJXMICR,35,35,breetu,glass,exact,35,glass,1
+A,A209H73TTW9F87,35,35,breetu,glass,exact,35,glass,1
+A,A1PNNSNMDVLZ6T,35,35,breetu,glass,exact,35,glass,1
+A,AXGSUFCAK8W0H,34,566,dahduhda,glass,category,45,water,0
+A,A1VTDTI1NB6F5C,34,566,dahduhda,glass,category,45,water,0
+A,AD368A1RHHRC3,34,566,dahduhda,glass,category,41,tear,0
+A,AR5AV0OMG1SJU,34,566,dahduhda,glass,category,41,tear,0
+A,A2389DERMNF3ZB,34,566,dahduhda,glass,category,41,tear,0
+A,AWZUBEYJXMICR,34,566,dahduhda,glass,category,35,glass,1
+A,ALML8V38FDV0,35,35,cribbett,glass,exact,45,water,0
+A,AFQKLIYNCVZTL,35,35,cribbett,glass,exact,41,tear,0
+A,A2C2WXXKJOLCZ2,35,35,cribbett,glass,exact,41,tear,0
+A,A3K4MDM191NKF6,35,35,cribbett,glass,exact,35,glass,1
+A,A3MHYBS6PHJ5QG,35,35,cribbett,glass,exact,35,glass,1
+A,ALML8V38FDV0,35,502,goracto,glass,exact,45,water,0
+A,A209H73TTW9F87,35,502,goracto,glass,exact,41,tear,0
+A,A2270E5SCIHWV8,35,502,goracto,glass,exact,41,tear,0
+A,A2HNDRV7FB9CAN,35,502,goracto,glass,exact,49,zipper,0
+A,A31O70O1YDAGAP,35,502,goracto,glass,exact,49,zipper,0
+A,A1GPZ5REMDQZ0L,35,502,goracto,glass,exact,49,zipper,0
+A,AYFPBOT06WGIZ,35,502,goracto,glass,exact,49,zipper,0
+A,A2WLGVXAVT2XTR,35,502,goracto,glass,exact,35,glass,1
+A,AMA18W8F60Y2J,35,502,goracto,glass,exact,35,glass,1
+A,ALML8V38FDV0,42,563,chicochicochicochico,water,category,45,water,1
+A,A1MUEKEQQVROE7,42,563,chicochicochicochico,water,category,45,water,1
+A,A364KJDYEBAWC9,42,563,chicochicochicochico,water,category,45,water,1
+A,A209H73TTW9F87,42,563,chicochicochicochico,water,category,45,water,1
+A,A2270E5SCIHWV8,42,563,chicochicochicochico,water,category,41,tear,0
+A,AFQKLIYNCVZTL,42,563,chicochicochicochico,water,category,35,glass,0
+A,A3AO2N7BNFDGF3,42,563,chicochicochicochico,water,category,35,glass,0
+A,ALML8V38FDV0,41,522,cheea,tear,exact,45,water,0
+A,A2HNDRV7FB9CAN,41,522,cheea,tear,exact,41,tear,1
+A,A32QJF67JMJFKX,41,522,cheea,tear,exact,41,tear,1
+A,A248P03SBIGVNH,41,522,cheea,tear,exact,41,tear,1
+A,A1MV41OTGYW0AH,41,522,cheea,tear,exact,41,tear,1
+A,A3IZK0Y337IQJV,41,522,cheea,tear,exact,49,zipper,0
+A,A364KJDYEBAWC9,41,522,cheea,tear,exact,35,glass,0
+A,AJ34WB9Z37ILU,41,522,cheea,tear,exact,35,glass,0
+A,A2VDV1L5XZ909D,41,522,cheea,tear,exact,35,glass,0
+A,AURYD2FH3FUOQ,35,502,correcto,glass,exact,45,water,0
+A,A3JCTHB0J0G2AE,35,502,correcto,glass,exact,41,tear,0
+A,A1J2SF4IQEQ5OP,35,502,correcto,glass,exact,49,zipper,0
+A,AYFPBOT06WGIZ,35,502,correcto,glass,exact,49,zipper,0
+A,A2389DERMNF3ZB,35,502,correcto,glass,exact,49,zipper,0
+A,A259UZJQOOVE4V,35,502,correcto,glass,exact,35,glass,1
+A,A248P03SBIGVNH,35,502,correcto,glass,exact,35,glass,1
+A,A168QBUOKNFWWK,35,502,correcto,glass,exact,35,glass,1
+A,A1PNNSNMDVLZ6T,35,502,correcto,glass,exact,35,glass,1
+A,A259UZJQOOVE4V,42,563,chewchewshewa,water,category,45,water,1
+A,A1GPZ5REMDQZ0L,42,563,chewchewshewa,water,category,45,water,1
+A,AFQKLIYNCVZTL,42,563,chewchewshewa,water,category,41,tear,0
+A,A31O70O1YDAGAP,42,563,chewchewshewa,water,category,41,tear,0
+A,AMA18W8F60Y2J,42,563,chewchewshewa,water,category,41,tear,0
+A,A1EN3FW93BSXQQ,42,563,chewchewshewa,water,category,41,tear,0
+A,AR70SV0RPLDO,42,563,chewchewshewa,water,category,41,tear,0
+A,A2CKD2WTNGA0OC,42,563,chewchewshewa,water,category,41,tear,0
+A,A1MV41OTGYW0AH,42,563,chewchewshewa,water,category,41,tear,0
+A,A7RAVFS10BUZ1,42,563,chewchewshewa,water,category,41,tear,0
+A,A2389DERMNF3ZB,42,563,chewchewshewa,water,category,41,tear,0
+A,A2NT8U7GSYGISJ,47,47,growwff,zipper,category,45,water,0
+A,A2CKD2WTNGA0OC,47,47,growwff,zipper,category,45,water,0
+A,A1SNHH51TDR2JB,47,47,growwff,zipper,category,41,tear,0
+A,ALML8V38FDV0,47,47,growwff,zipper,category,41,tear,0
+A,A14REHX8QM847D,47,47,growwff,zipper,category,49,zipper,1
+A,A3JCTHB0J0G2AE,47,47,growwff,zipper,category,49,zipper,1
+A,A1KJLQDYW9XT9E,47,47,growwff,zipper,category,49,zipper,1
+A,A168QBUOKNFWWK,47,47,growwff,zipper,category,49,zipper,1
+A,A1EN3FW93BSXQQ,47,47,growwff,zipper,category,49,zipper,1
+A,A2WLGVXAVT2XTR,42,42,pushawater,water,category,45,water,1
+A,A209H73TTW9F87,42,42,pushawater,water,category,45,water,1
+A,A2C2WXXKJOLCZ2,42,42,pushawater,water,category,45,water,1
+A,A2389DERMNF3ZB,42,42,pushawater,water,category,45,water,1
+A,A2270E5SCIHWV8,42,42,pushawater,water,category,49,zipper,0
+A,A2NT8U7GSYGISJ,42,563,chochocchoocho,water,category,45,water,1
+A,A2VDV1L5XZ909D,42,563,chochocchoocho,water,category,45,water,1
+A,A1MV41OTGYW0AH,42,563,chochocchoocho,water,category,41,tear,0
+A,A14REHX8QM847D,42,563,chochocchoocho,water,category,49,zipper,0
+A,AURYD2FH3FUOQ,42,563,chochocchoocho,water,category,49,zipper,0
+A,A7RAVFS10BUZ1,42,563,chochocchoocho,water,category,35,glass,0
+A,A1VTDTI1NB6F5C,34,34,bubtedew,glass,category,45,water,0
+A,A364KJDYEBAWC9,34,34,bubtedew,glass,category,45,water,0
+A,AWZUBEYJXMICR,34,34,bubtedew,glass,category,45,water,0
+A,AIUKV0KVALMY6,34,34,bubtedew,glass,category,45,water,0
+A,A3K9GTQBOI7O5A,34,34,bubtedew,glass,category,41,tear,0
+A,A2C2WXXKJOLCZ2,34,34,bubtedew,glass,category,41,tear,0
+A,A2CKD2WTNGA0OC,34,34,bubtedew,glass,category,41,tear,0
+A,A2VDV1L5XZ909D,34,34,bubtedew,glass,category,35,glass,1
+A,A1VTDTI1NB6F5C,49,49,brip,zipper,exact,45,water,0
+A,AJ34WB9Z37ILU,49,49,brip,zipper,exact,45,water,0
+A,A3AO2N7BNFDGF3,49,49,brip,zipper,exact,45,water,0
+A,A2CKD2WTNGA0OC,49,49,brip,zipper,exact,45,water,0
+A,A1J2SF4IQEQ5OP,49,49,brip,zipper,exact,41,tear,0
+A,AMA18W8F60Y2J,49,49,brip,zipper,exact,41,tear,0
+A,AAXX5LDVJ32F8,49,49,brip,zipper,exact,49,zipper,1
+A,A2NT8U7GSYGISJ,49,49,brip,zipper,exact,35,glass,0
+A,A1J2SF4IQEQ5OP,35,35,clappun,glass,exact,45,water,0
+A,A1MUEKEQQVROE7,35,35,clappun,glass,exact,45,water,0
+A,A14REHX8QM847D,35,35,clappun,glass,exact,35,glass,1
+A,A259UZJQOOVE4V,35,35,clappun,glass,exact,35,glass,1
+A,A3JCTHB0J0G2AE,35,35,clappun,glass,exact,35,glass,1
+A,AIUKV0KVALMY6,35,35,clappun,glass,exact,35,glass,1
+A,AR70SV0RPLDO,35,35,clappun,glass,exact,35,glass,1
+A,A1J2SF4IQEQ5OP,34,34,clipapap,glass,category,45,water,0
+A,AWZUBEYJXMICR,34,34,clipapap,glass,category,41,tear,0
+A,AMA18W8F60Y2J,34,34,clipapap,glass,category,49,zipper,0
+A,AKEZYKPQTI65M,34,34,clipapap,glass,category,49,zipper,0
+A,A2HNDRV7FB9CAN,34,34,clipapap,glass,category,35,glass,1
+A,A2A8GX1LGLXFT5,34,34,clipapap,glass,category,35,glass,1
+A,A3AO2N7BNFDGF3,34,34,clipapap,glass,category,35,glass,1
+A,A2VDV1L5XZ909D,34,34,clipapap,glass,category,35,glass,1
+A,AJ34WB9Z37ILU,35,502,gorecto,glass,exact,45,water,0
+A,AR5AV0OMG1SJU,35,502,gorecto,glass,exact,41,tear,0
+A,A1J2SF4IQEQ5OP,35,502,gorecto,glass,exact,49,zipper,0
+A,A3AO2N7BNFDGF3,35,502,gorecto,glass,exact,49,zipper,0
+A,A2270E5SCIHWV8,35,502,gorecto,glass,exact,49,zipper,0
+A,A2WLGVXAVT2XTR,35,502,gorecto,glass,exact,35,glass,1
+A,A1MUEKEQQVROE7,35,502,gorecto,glass,exact,35,glass,1
+A,A168QBUOKNFWWK,35,502,gorecto,glass,exact,35,glass,1
+A,A2CKD2WTNGA0OC,35,502,gorecto,glass,exact,35,glass,1
+A,A31O70O1YDAGAP,42,42,ploosh,water,category,45,water,1
+A,A2VDV1L5XZ909D,42,42,ploosh,water,category,45,water,1
+A,A3GW3MPLVGG7PZ,42,42,ploosh,water,category,41,tear,0
+A,A3K9GTQBOI7O5A,42,42,ploosh,water,category,49,zipper,0
+A,AMA18W8F60Y2J,39,560,achechew,tear,category,45,water,0
+A,A3IZK0Y337IQJV,39,560,achechew,tear,category,45,water,0
+A,A2HNDRV7FB9CAN,39,560,achechew,tear,category,41,tear,1
+A,AFQKLIYNCVZTL,39,560,achechew,tear,category,41,tear,1
+A,A3GW3MPLVGG7PZ,39,560,achechew,tear,category,41,tear,1
+A,AAXX5LDVJ32F8,39,560,achechew,tear,category,41,tear,1
+A,AYFPBOT06WGIZ,39,560,achechew,tear,category,41,tear,1
+A,A1SNHH51TDR2JB,39,560,achechew,tear,category,35,glass,0
+A,A3AO2N7BNFDGF3,47,47,fizzim,zipper,category,45,water,0
+A,A2270E5SCIHWV8,47,47,fizzim,zipper,category,45,water,0
+A,A15DBY3Y6XM1ZS,47,47,fizzim,zipper,category,45,water,0
+A,A1VTDTI1NB6F5C,47,47,fizzim,zipper,category,41,tear,0
+A,A1EN3FW93BSXQQ,47,47,fizzim,zipper,category,41,tear,0
+A,AEG93GFIOWMKV,47,47,fizzim,zipper,category,49,zipper,1
+A,A3K4MDM191NKF6,47,47,fizzim,zipper,category,49,zipper,1
+A,AIUKV0KVALMY6,47,47,fizzim,zipper,category,49,zipper,1
+A,A1PNNSNMDVLZ6T,47,47,fizzim,zipper,category,49,zipper,1
+A,A2VDV1L5XZ909D,47,47,fizzim,zipper,category,49,zipper,1
+A,AR70SV0RPLDO,47,47,fizzim,zipper,category,49,zipper,1
+A,A1RWNYJA5X25YH,47,47,fizzim,zipper,category,49,zipper,1
+A,A2389DERMNF3ZB,47,47,fizzim,zipper,category,49,zipper,1
+A,A3K9GTQBOI7O5A,47,47,brrip,zipper,category,45,water,0
+A,AMA18W8F60Y2J,47,47,brrip,zipper,category,41,tear,0
+A,A1SNHH51TDR2JB,47,47,brrip,zipper,category,49,zipper,1
+A,AURYD2FH3FUOQ,47,47,brrip,zipper,category,49,zipper,1
+A,A259UZJQOOVE4V,47,47,brrip,zipper,category,49,zipper,1
+A,A2A8GX1LGLXFT5,47,47,brrip,zipper,category,49,zipper,1
+A,A1MUEKEQQVROE7,47,47,brrip,zipper,category,49,zipper,1
+A,A3MHYBS6PHJ5QG,47,47,brrip,zipper,category,49,zipper,1
+A,A168QBUOKNFWWK,47,47,brrip,zipper,category,49,zipper,1
+A,AR70SV0RPLDO,47,47,brrip,zipper,category,49,zipper,1
+A,A7RAVFS10BUZ1,47,47,brrip,zipper,category,49,zipper,1
+A,A15DBY3Y6XM1ZS,47,47,brrip,zipper,category,35,glass,0
+A,AAXX5LDVJ32F8,45,45,blowosh,water,exact,45,water,1
+A,A168QBUOKNFWWK,45,45,blowosh,water,exact,45,water,1
+A,AURYD2FH3FUOQ,45,45,blowosh,water,exact,41,tear,0
+A,A209H73TTW9F87,45,45,blowosh,water,exact,41,tear,0
+A,A248P03SBIGVNH,45,45,blowosh,water,exact,41,tear,0
+A,A1SNHH51TDR2JB,45,45,blowosh,water,exact,49,zipper,0
+A,A1GPZ5REMDQZ0L,39,560,a-chitch-shu,tear,category,45,water,0
+A,AEG93GFIOWMKV,39,560,a-chitch-shu,tear,category,41,tear,1
+A,A1J2SF4IQEQ5OP,39,560,a-chitch-shu,tear,category,41,tear,1
+A,A1JH3F32WDMKLQ,39,560,a-chitch-shu,tear,category,41,tear,1
+A,AR70SV0RPLDO,39,560,a-chitch-shu,tear,category,41,tear,1
+A,A14REHX8QM847D,39,560,a-chitch-shu,tear,category,49,zipper,0
+A,A3K9GTQBOI7O5A,39,560,a-chitch-shu,tear,category,35,glass,0
+A,AKEZYKPQTI65M,39,560,a-chitch-shu,tear,category,35,glass,0
+A,AYFPBOT06WGIZ,42,42,foovo,water,category,45,water,1
+A,AD368A1RHHRC3,42,42,foovo,water,category,41,tear,0
+A,A2NT8U7GSYGISJ,42,42,foovo,water,category,41,tear,0
+A,A3GW3MPLVGG7PZ,42,42,foovo,water,category,41,tear,0
+A,A1MV41OTGYW0AH,42,42,foovo,water,category,41,tear,0
+A,A14REHX8QM847D,42,42,foovo,water,category,49,zipper,0
+A,A1RWNYJA5X25YH,42,42,foovo,water,category,49,zipper,0
+A,A2VE5IV9OD2SK1,42,42,foovo,water,category,35,glass,0
+A,AURYD2FH3FUOQ,42,42,foovo,water,category,35,glass,0
+A,A1JH3F32WDMKLQ,39,39,crisshhh,tear,category,45,water,0
+A,AWZUBEYJXMICR,39,39,crisshhh,tear,category,41,tear,1
+A,AKEZYKPQTI65M,39,39,crisshhh,tear,category,41,tear,1
+A,A2C2WXXKJOLCZ2,39,39,crisshhh,tear,category,49,zipper,0
+A,A1SNHH51TDR2JB,39,39,crisshhh,tear,category,35,glass,0
+A,A259UZJQOOVE4V,39,39,crisshhh,tear,category,35,glass,0
+A,A2C2WXXKJOLCZ2,49,49,pfiph,zipper,exact,45,water,0
+A,A2WLGVXAVT2XTR,49,49,pfiph,zipper,exact,41,tear,0
+A,A1VTDTI1NB6F5C,49,49,pfiph,zipper,exact,41,tear,0
+A,A364KJDYEBAWC9,49,49,pfiph,zipper,exact,41,tear,0
+A,AYFPBOT06WGIZ,49,49,pfiph,zipper,exact,41,tear,0
+A,AEG93GFIOWMKV,49,49,pfiph,zipper,exact,49,zipper,1
+A,A3GW3MPLVGG7PZ,49,49,pfiph,zipper,exact,49,zipper,1
+A,A2CKD2WTNGA0OC,49,49,pfiph,zipper,exact,49,zipper,1
+A,A1640H4RXH8NZE,49,49,pfiph,zipper,exact,35,glass,0
+A,A1MV41OTGYW0AH,34,34,atinga,glass,category,45,water,0
+A,A1MUEKEQQVROE7,34,34,atinga,glass,category,49,zipper,0
+A,AFQKLIYNCVZTL,34,34,atinga,glass,category,49,zipper,0
+A,A209H73TTW9F87,34,34,atinga,glass,category,49,zipper,0
+A,A15DBY3Y6XM1ZS,34,34,atinga,glass,category,49,zipper,0
+A,A3K4MDM191NKF6,34,34,atinga,glass,category,35,glass,1
+A,A1640H4RXH8NZE,34,34,atinga,glass,category,35,glass,1
+A,A3GW3MPLVGG7PZ,34,34,atinga,glass,category,35,glass,1
+A,A1JH3F32WDMKLQ,34,34,atinga,glass,category,35,glass,1
+A,A2389DERMNF3ZB,34,34,atinga,glass,category,35,glass,1
+A,AD368A1RHHRC3,41,41,chrrrrup,tear,exact,41,tear,1
+A,A3K9GTQBOI7O5A,41,41,chrrrrup,tear,exact,41,tear,1
+A,A7RAVFS10BUZ1,41,41,chrrrrup,tear,exact,49,zipper,0
+A,AD368A1RHHRC3,49,49,fft,zipper,exact,41,tear,0
+A,AURYD2FH3FUOQ,49,49,fft,zipper,exact,41,tear,0
+A,A2NT8U7GSYGISJ,49,49,fft,zipper,exact,41,tear,0
+A,AIUKV0KVALMY6,49,49,fft,zipper,exact,41,tear,0
+A,A1JH3F32WDMKLQ,49,49,fft,zipper,exact,41,tear,0
+A,A1KJLQDYW9XT9E,49,49,fft,zipper,exact,49,zipper,1
+A,AD368A1RHHRC3,49,49,bahvup,zipper,exact,41,tear,0
+A,A1EN3FW93BSXQQ,49,49,bahvup,zipper,exact,49,zipper,1
+A,A364KJDYEBAWC9,49,49,bahvup,zipper,exact,35,glass,0
+A,A1RWNYJA5X25YH,49,49,bahvup,zipper,exact,35,glass,0
+A,AEG93GFIOWMKV,41,522,shiyah,tear,exact,41,tear,1
+A,A2WLGVXAVT2XTR,41,522,shiyah,tear,exact,41,tear,1
+A,AJ34WB9Z37ILU,41,522,shiyah,tear,exact,41,tear,1
+A,A3K9GTQBOI7O5A,41,522,shiyah,tear,exact,35,glass,0
+A,A3K4MDM191NKF6,41,522,sheah,tear,exact,41,tear,1
+A,A14REHX8QM847D,41,522,sheah,tear,exact,41,tear,1
+A,A3MHYBS6PHJ5QG,41,522,sheah,tear,exact,41,tear,1
+A,A1MV41OTGYW0AH,41,522,sheah,tear,exact,41,tear,1
+A,A1RWNYJA5X25YH,41,522,sheah,tear,exact,41,tear,1
+A,A32QJF67JMJFKX,41,522,sheah,tear,exact,49,zipper,0
+A,AXGSUFCAK8W0H,39,560,achechchu,tear,category,41,tear,1
+A,A1MUEKEQQVROE7,39,560,achechchu,tear,category,41,tear,1
+A,A364KJDYEBAWC9,39,560,achechchu,tear,category,41,tear,1
+A,AR70SV0RPLDO,39,560,achechchu,tear,category,41,tear,1
+A,A2389DERMNF3ZB,39,560,achechchu,tear,category,41,tear,1
+A,A259UZJQOOVE4V,47,377,bveeeeeep,zipper,category,41,tear,0
+A,AD368A1RHHRC3,47,377,bveeeeeep,zipper,category,49,zipper,1
+A,A1VTDTI1NB6F5C,47,377,bveeeeeep,zipper,category,49,zipper,1
+A,A209H73TTW9F87,47,377,bveeeeeep,zipper,category,49,zipper,1
+A,AEG93GFIOWMKV,47,377,bveeeeeep,zipper,category,35,glass,0
+A,A3JCTHB0J0G2AE,47,377,bveeeeeep,zipper,category,35,glass,0
+A,A32QJF67JMJFKX,47,377,bveeeeeep,zipper,category,35,glass,0
+A,ALML8V38FDV0,47,377,veeeep,zipper,category,41,tear,0
+A,A1VTDTI1NB6F5C,47,377,veeeep,zipper,category,41,tear,0
+A,A2HNDRV7FB9CAN,47,377,veeeep,zipper,category,49,zipper,1
+A,A259UZJQOOVE4V,47,377,veeeep,zipper,category,49,zipper,1
+A,A248P03SBIGVNH,47,377,veeeep,zipper,category,49,zipper,1
+A,AIUKV0KVALMY6,47,377,veeeep,zipper,category,49,zipper,1
+A,AR5AV0OMG1SJU,47,377,veeeep,zipper,category,49,zipper,1
+A,A2A8GX1LGLXFT5,47,377,veeeep,zipper,category,35,glass,0
+A,A259UZJQOOVE4V,41,522,sheyah,tear,exact,41,tear,1
+A,AWZUBEYJXMICR,41,522,sheyah,tear,exact,41,tear,1
+A,AAXX5LDVJ32F8,41,522,sheyah,tear,exact,41,tear,1
+A,A1KJLQDYW9XT9E,41,522,sheyah,tear,exact,41,tear,1
+A,A3IZK0Y337IQJV,41,522,sheyah,tear,exact,41,tear,1
+A,A1PNNSNMDVLZ6T,41,522,sheyah,tear,exact,41,tear,1
+A,AR5AV0OMG1SJU,41,522,sheyah,tear,exact,41,tear,1
+A,A7RAVFS10BUZ1,41,522,sheyah,tear,exact,41,tear,1
+A,A2VE5IV9OD2SK1,41,522,sheyah,tear,exact,49,zipper,0
+A,A3GW3MPLVGG7PZ,41,522,sheyah,tear,exact,35,glass,0
+A,AURYD2FH3FUOQ,41,41,crish,tear,exact,41,tear,1
+A,A2A8GX1LGLXFT5,41,41,crish,tear,exact,41,tear,1
+A,A32QJF67JMJFKX,41,41,crish,tear,exact,41,tear,1
+A,A3K9GTQBOI7O5A,41,41,crish,tear,exact,41,tear,1
+A,A209H73TTW9F87,41,41,crish,tear,exact,41,tear,1
+A,A168QBUOKNFWWK,41,41,crish,tear,exact,41,tear,1
+A,A2C2WXXKJOLCZ2,41,41,crish,tear,exact,41,tear,1
+A,AR70SV0RPLDO,41,41,crish,tear,exact,49,zipper,0
+A,A1J2SF4IQEQ5OP,41,41,crish,tear,exact,35,glass,0
+A,AMA18W8F60Y2J,41,41,crish,tear,exact,35,glass,0
+A,A1GPZ5REMDQZ0L,41,41,crish,tear,exact,35,glass,0
+A,A364KJDYEBAWC9,42,563,chewscutcutsew,water,category,41,tear,0
+A,AMA18W8F60Y2J,42,563,chewscutcutsew,water,category,41,tear,0
+A,AAXX5LDVJ32F8,42,563,chewscutcutsew,water,category,41,tear,0
+A,AYFPBOT06WGIZ,42,563,chewscutcutsew,water,category,41,tear,0
+A,A2VDV1L5XZ909D,42,563,chewscutcutsew,water,category,41,tear,0
+A,A3JCTHB0J0G2AE,42,563,chewscutcutsew,water,category,35,glass,0
+A,AFQKLIYNCVZTL,41,41,frarr,tear,exact,41,tear,1
+A,A3AO2N7BNFDGF3,41,41,frarr,tear,exact,41,tear,1
+A,A2C2WXXKJOLCZ2,41,41,frarr,tear,exact,41,tear,1
+A,A7RAVFS10BUZ1,41,41,frarr,tear,exact,41,tear,1
+A,AEG93GFIOWMKV,41,41,frarr,tear,exact,49,zipper,0
+A,A3K9GTQBOI7O5A,41,41,frarr,tear,exact,49,zipper,0
+A,A1KJLQDYW9XT9E,39,39,clickadrag,tear,category,41,tear,1
+A,A1RWNYJA5X25YH,39,39,clickadrag,tear,category,41,tear,1
+A,AJ34WB9Z37ILU,39,39,clickadrag,tear,category,49,zipper,0
+A,A209H73TTW9F87,39,39,clickadrag,tear,category,49,zipper,0
+A,AKEZYKPQTI65M,39,39,clickadrag,tear,category,49,zipper,0
+A,A168QBUOKNFWWK,39,39,clickadrag,tear,category,49,zipper,0
+A,A15DBY3Y6XM1ZS,39,39,clickadrag,tear,category,49,zipper,0
+A,AXGSUFCAK8W0H,39,39,clickadrag,tear,category,35,glass,0
+A,A2A8GX1LGLXFT5,39,39,clickadrag,tear,category,35,glass,0
+A,A7RAVFS10BUZ1,39,39,clickadrag,tear,category,35,glass,0
+A,A1KJLQDYW9XT9E,47,377,veeb,zipper,category,41,tear,0
+A,A3MHYBS6PHJ5QG,47,377,veeb,zipper,category,49,zipper,1
+A,AKEZYKPQTI65M,47,377,veeb,zipper,category,49,zipper,1
+A,A1JH3F32WDMKLQ,47,377,veeb,zipper,category,49,zipper,1
+A,AKEZYKPQTI65M,49,505,izit,zipper,exact,41,tear,0
+A,A2HNDRV7FB9CAN,49,505,izit,zipper,exact,49,zipper,1
+A,A3K4MDM191NKF6,49,505,izit,zipper,exact,49,zipper,1
+A,AXGSUFCAK8W0H,49,505,izit,zipper,exact,49,zipper,1
+A,A2A8GX1LGLXFT5,49,505,izit,zipper,exact,49,zipper,1
+A,A1MUEKEQQVROE7,49,505,izit,zipper,exact,49,zipper,1
+A,A1KJLQDYW9XT9E,49,505,izit,zipper,exact,49,zipper,1
+A,A3IZK0Y337IQJV,49,505,izit,zipper,exact,49,zipper,1
+A,A248P03SBIGVNH,35,502,directo,glass,exact,41,tear,0
+A,AJ34WB9Z37ILU,35,502,directo,glass,exact,49,zipper,0
+A,AMA18W8F60Y2J,35,502,directo,glass,exact,49,zipper,0
+A,A3MHYBS6PHJ5QG,35,502,directo,glass,exact,49,zipper,0
+A,AAXX5LDVJ32F8,35,502,directo,glass,exact,49,zipper,0
+A,A1GPZ5REMDQZ0L,35,502,directo,glass,exact,49,zipper,0
+A,AYFPBOT06WGIZ,35,502,directo,glass,exact,49,zipper,0
+A,A1PNNSNMDVLZ6T,35,502,directo,glass,exact,49,zipper,0
+A,A2270E5SCIHWV8,35,35,clinket,glass,exact,41,tear,0
+A,AXGSUFCAK8W0H,35,35,clinket,glass,exact,49,zipper,0
+A,A2NT8U7GSYGISJ,35,35,clinket,glass,exact,35,glass,1
+A,AFQKLIYNCVZTL,35,35,clinket,glass,exact,35,glass,1
+A,A32QJF67JMJFKX,35,35,clinket,glass,exact,35,glass,1
+A,A1KJLQDYW9XT9E,35,35,clinket,glass,exact,35,glass,1
+A,A1JH3F32WDMKLQ,35,35,clinket,glass,exact,35,glass,1
+A,A168QBUOKNFWWK,35,35,clinket,glass,exact,35,glass,1
+A,A1RWNYJA5X25YH,35,35,clinket,glass,exact,35,glass,1
+A,A2389DERMNF3ZB,35,35,clinket,glass,exact,35,glass,1
+A,A3K4MDM191NKF6,47,47,breep,zipper,category,49,zipper,1
+A,A2VE5IV9OD2SK1,47,47,breep,zipper,category,49,zipper,1
+A,A3GW3MPLVGG7PZ,47,47,breep,zipper,category,49,zipper,1
+A,A31O70O1YDAGAP,47,47,breep,zipper,category,35,glass,0
+A,AKEZYKPQTI65M,47,47,breep,zipper,category,35,glass,0
+A,A1640H4RXH8NZE,49,505,izzip,zipper,exact,49,zipper,1
+A,A3K4MDM191NKF6,49,505,izzip,zipper,exact,49,zipper,1
+A,A2NT8U7GSYGISJ,49,505,izzip,zipper,exact,49,zipper,1
+A,A1MUEKEQQVROE7,49,505,izzip,zipper,exact,49,zipper,1
+A,AWZUBEYJXMICR,49,505,izzip,zipper,exact,49,zipper,1
+A,A1JH3F32WDMKLQ,49,505,izzip,zipper,exact,49,zipper,1
+A,AIUKV0KVALMY6,49,505,izzip,zipper,exact,49,zipper,1
+A,AR5AV0OMG1SJU,49,505,izzip,zipper,exact,49,zipper,1
+A,A2CKD2WTNGA0OC,49,505,izzip,zipper,exact,35,glass,0
+A,A2A8GX1LGLXFT5,49,505,iszit,zipper,exact,49,zipper,1
+A,AWZUBEYJXMICR,49,505,iszit,zipper,exact,49,zipper,1
+A,A1JH3F32WDMKLQ,49,505,iszit,zipper,exact,49,zipper,1
+A,A1640H4RXH8NZE,49,505,iszit,zipper,exact,35,glass,0
+A,AURYD2FH3FUOQ,49,505,iszit,zipper,exact,35,glass,0
+A,A364KJDYEBAWC9,49,505,izzit,zipper,exact,49,zipper,1
+A,A3GW3MPLVGG7PZ,49,505,izzit,zipper,exact,49,zipper,1
+A,AYFPBOT06WGIZ,49,505,izzit,zipper,exact,49,zipper,1
+A,A1SNHH51TDR2JB,49,505,izzit,zipper,exact,35,glass,0
+A,AAXX5LDVJ32F8,49,505,izzit,zipper,exact,35,glass,0
+A,A2CKD2WTNGA0OC,49,505,izzit,zipper,exact,35,glass,0
+A,A15DBY3Y6XM1ZS,49,505,izzit,zipper,exact,35,glass,0
+A,A2HNDRV7FB9CAN,39,39,cliflika,tear,category,35,glass,0
+A,A2VE5IV9OD2SK1,39,39,cliflika,tear,category,35,glass,0
+A,AIUKV0KVALMY6,39,39,cliflika,tear,category,35,glass,0
+A,A3IZK0Y337IQJV,39,39,cliflika,tear,category,35,glass,0
+A,A1EN3FW93BSXQQ,39,39,cliflika,tear,category,35,glass,0
+A,A1MV41OTGYW0AH,39,39,cliflika,tear,category,35,glass,0
+A,A2270E5SCIHWV8,39,39,cliflika,tear,category,35,glass,0
+A,A1EN3FW93BSXQQ,47,377,ceep,zipper,category,35,glass,0
