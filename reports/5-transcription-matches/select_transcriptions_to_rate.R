@@ -11,4 +11,4 @@ selected <- transcription_frequencies %>%
   ungroup() %>%
   filter(order < 5)
 
-write.csv(selected, "reports/5-match-to-seed-transcriptions/selected.csv", row.names = FALSE)
+write.csv(selected, "reports/5-transcription-matches/selected.csv", row.names = FALSE)
