@@ -6,7 +6,7 @@ from .qualtrics import Qualtrics
 from .seeds import convert_wav_to_mp3, get_creds
 from .tidy import unfold_model_fields
 
-report_dir = Path('reports/5-transcription-matches/')
+report_dir = Path('experiments/5-transcription-matches/')
 qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
 
 # catch trial word for app surveys
