@@ -1,0 +1,74 @@
+---
+title: "Match-to-seed accuracy for transcriptions of seeds and n-th generation imitations"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r, config, echo = FALSE}
+library(knitr)
+library(printr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE
+)
+
+read_chunk("results.R")
+```
+
+```{r, setup}
+```
+
+# Methods
+
+## Subjects
+
+```{r, subjects}
+transcription_matches %>%
+  group_by(version) %>%
+  summarize(
+    num_subjects = length(unique(subj_id)),
+    num_responses_per_subject = round(n()/num_subjects)
+  ) %>%
+  kable(col.names = c("Version", "Subjects", "Responses per subject"),
+        align = "l")
+```
+
+### Exclusion criteria
+
+Subjects were excluded if they failed the catch trial, which indicated
+that they should select the third option.
+
+```{r, catch-trials}
+exclusions <- transcription_matches %>%
+  filter(question_type == "catch_trial") %>%
+  mutate(is_correct_f = factor(is_correct, labels = c("Failed", "Passed"))) %>%
+  group_by(version, is_correct_f) %>%
+  summarize(n = length(unique(subj_id)))
+
+label_bump <- 4
+
+ggplot(exclusions, aes(x = is_correct_f, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n, y = ifelse(is_correct_f == "Failed", n + label_bump, n - label_bump))) +
+  scale_x_discrete("")
+```
+
+# Results
+
+```{r, data}
+```
+
+```{r, means}
+ggplot(transcription_matches, aes(x = question_type, y = is_correct)) +
+  geom_bar(stat = "summary", fun.y = "mean") +
+  geom_hline(yintercept = 0.25, lty = 2, alpha = 0.6)
+```
+
+```{r, model}
+```
+
+```{r, model-preds}
+```
