@@ -59,7 +59,7 @@ def make_transcription_matches_pilot():
             choice_map.choice_filename
                       .str.extract('(\d+)$', expand=False)
                       .astype(int))
-        choice_map = choice_map[['choice', 'choice_filename', 'choice_id']]
+        choice_map = choice_map.ix[:, ['choice', 'choice_filename', 'choice_id']]
 
         id_col = 'workerId'
 
@@ -78,8 +78,12 @@ def make_transcription_matches_pilot():
         # Label the question type
         survey_info = pd.read_csv(Path(qualtrics_dir, 'source_info.csv'))
         survey_info['question_type'] = 'exact'
-        survey_info['question_type'] = survey_info.question_type.where(survey_info.survey_name == survey_name, 'category')
-        survey_info['filename'] = survey_info.filename.apply(lambda x: Path(x).stem)
+        survey_info.loc[:, 'question_type'] =\
+            survey_info.question_type.where(
+                survey_info.survey_name == survey_name,
+                'category'
+            )
+        survey_info.loc[:, 'filename'] = survey_info.filename.apply(lambda x: Path(x).stem)
         survey_info = survey_info[['filename', 'question_type']]
         survey = survey.merge(survey_info)
 
@@ -186,7 +190,7 @@ def format_answer_key(src_dir):
 
 def format_choice_category_labels(answer_key):
     labels = answer_key.ix[answer_key.word_category != 'catch_trial']
-    labels = labels[['word_category', 'seed_id']].drop_duplicates()
+    labels = labels.ix[:, ['word_category', 'seed_id']].drop_duplicates()
     labels.rename(
         columns=dict(word_category='choice_category',
                      seed_id='choice_id'),

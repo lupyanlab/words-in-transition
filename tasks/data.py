@@ -69,7 +69,8 @@ def csv():
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
     transcription_frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
-    transcription_frequencies['text'] = transcription_frequencies.text.str.lower()
+    transcription_frequencies.loc[:, 'text'] =\
+        transcription_frequencies.text.str.lower()
     groupers = ['chain_name', 'seed_id', 'imitation_id']
     transcription_frequencies = (transcription_frequencies.groupby(groupers)
                               .text
@@ -86,20 +87,6 @@ def csv():
         Path(csv_output_dir, 'transcription_matches.csv'),
         index=False,
     )
-
-
-def identify_responses(django_app_name):
-    """Join survey and question info to table of responses.
-
-    TODO: Rename transcribe models to be Survey, Question, and Response.
-
-    Args:
-        django_app_name (str): The prefix for the models to look for,
-            e.g., 'words', 'ratings'
-    """
-    surveys = format_survey('words.Survey.json')
-    questions = format_questions('words.Question.json')
-    responses = format_questions('')
 
 
 @task
