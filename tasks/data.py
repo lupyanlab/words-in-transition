@@ -42,7 +42,8 @@ def csv():
 
     imitation_matches = make_imitation_matches(Path(src_dir, 'ratings.Response.json'))
     imitation_matches = imitation_matches.merge(questions)
-    imitation_matches = imitation_matches.merge(subjects, how='left')
+    i_m_subjs = subjects.ix[subjects.experiment == "imitation_matches"]
+    imitation_matches = imitation_matches.merge(i_m_subjs, how='left')
     imitation_matches = imitation_matches.merge(imitations)
 
     imitation_matches['is_correct'] =\
