@@ -1,5 +1,5 @@
 ---
-title: "Match-to-seed accuracy for transcriptions of seeds and n-th generation imitations"
+title: "Match-to-seed accuracy for transcriptions"
 author: "Pierce Edmiston"
 output:
   html_document:
@@ -12,7 +12,10 @@ library(knitr)
 library(printr)
 opts_chunk$set(
   echo = FALSE,
-  message = FALSE
+  message = FALSE,
+  cache.path = ".cache/",
+  fig.path = "figs/",
+  fig.width = 8
 )
 
 read_chunk("results.R")
@@ -22,6 +25,8 @@ read_chunk("results.R")
 ```
 
 # Methods
+
+## Transcriptions
 
 ## Subjects
 
@@ -61,13 +66,17 @@ ggplot(exclusions, aes(x = is_correct_f, y = n)) +
 ```{r, data}
 ```
 
-```{r, means}
-ggplot(transcription_matches, aes(x = question_type, y = is_correct)) +
-  geom_bar(stat = "summary", fun.y = "mean") +
-  geom_hline(yintercept = 0.25, lty = 2, alpha = 0.6)
+```{r, plot-template}
 ```
 
-```{r, model}
+## Means
+
+```{r, plot-means}
+```
+
+## Model
+
+```{r, model, echo = 1, cache = TRUE}
 ```
 
 ```{r, model-preds}
