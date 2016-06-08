@@ -1,0 +1,127 @@
+---
+title: "The emergence of lexical categories from iterated vocal imitation"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r, config, echo = FALSE}
+library(knitr)
+library(printr)
+
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  cache.path = ".cache/",
+  fig.path = "figs/",
+  fig.width = 8
+)
+```
+
+```{r}
+read_chunk("5-transcription-matches/results.R")
+```
+
+```{r, setup}
+```
+
+# Determining the sounds to imitate
+
+# Collecting iterated imitations
+
+# Matching imitations to original sounds
+
+# Collecting transcriptions of sounds
+
+## Methods
+
+### Selected messages
+
+We selected 16 messages to transcribe: 2 of the 4 seed sound effects used
+in each category of sounds, and 2 messages **selected by hand** from later
+generations in each chain.
+
+## Results
+
+There was less agreement among transcribers for the seed sound effects
+than there was among the transcribers of n-th generation imitations.
+
+```{r, fig.width = 4}
+transcription_frequencies %<>%
+  mutate(message_id = imitation_id) %>%
+  recode_message_type
+
+transcription_uniqueness <- transcription_frequencies %>%
+  group_by(message_type, message_id) %>%
+  summarize(
+    num_words = sum(n),
+    num_unique = length(unique(word)),
+    perct_unique = num_unique/num_words
+  )
+
+ggplot(transcription_uniqueness, aes(x = message_type, y = perct_unique)) +
+  geom_point(position = position_jitter(0.1, 0.0), shape = 1) +
+  geom_point(stat = "summary", fun.y = "mean", size = 2)
+```
+
+# Matching transcriptions to original sounds
+
+## Methods
+
+### Selected transcriptions
+
+We obtained match-to-seed accuracy ratings for the 4 most frequent spellings
+of each message that was transcribed.
+
+```{r, selected-transcriptions}
+```
+
+### Subjects
+
+```{r, subjects}
+transcription_matches %>%
+  group_by(version) %>%
+  summarize(
+    num_subjects = length(unique(subj_id)),
+    num_responses_per_subject = round(n()/num_subjects)
+  ) %>%
+  kable(col.names = c("Version", "Subjects", "Responses per subject"),
+        align = "l")
+```
+
+Subjects were excluded if they failed the catch trial, which indicated
+that they should select the third option.
+
+```{r, catch-trials}
+exclusions <- transcription_matches %>%
+  filter(question_type == "catch_trial") %>%
+  mutate(is_correct_f = factor(is_correct, labels = c("Failed", "Passed"))) %>%
+  group_by(version, is_correct_f) %>%
+  summarize(n = length(unique(subj_id)))
+
+label_bump <- 4
+
+ggplot(exclusions, aes(x = is_correct_f, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_label(aes(label = n, y = ifelse(is_correct_f == "Failed", n + label_bump, n - label_bump))) +
+  scale_x_discrete("")
+```
+
+## Results
+
+```{r, data}
+```
+
+```{r, plot-template}
+```
+
+```{r, plot-means}
+```
+
+```{r, model, echo = 1, cache = TRUE}
+```
+
+```{r, model-preds}
+```

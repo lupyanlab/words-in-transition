@@ -26,8 +26,6 @@ read_chunk("results.R")
 
 # Methods
 
-## Transcriptions
-
 ## Subjects
 
 ```{r, subjects}

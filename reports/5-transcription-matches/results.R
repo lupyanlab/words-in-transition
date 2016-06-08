@@ -1,6 +1,7 @@
 # ---- setup
 library(dplyr)
 library(magrittr)
+library(stringr)
 library(ggplot2)
 library(scales)
 library(lme4)
@@ -9,11 +10,23 @@ library(AICcmodavg)
 
 library(wordsintransition)
 data("transcription_matches")
+data("transcription_frequencies")
 
 transcription_matches %<>%
   recode_question_type %>%
   recode_message_type %>%
   recode_version
+
+transcription_frequencies %<>%
+  rename(word = text)
+
+# ---- selected-transcriptions
+transcription_matches %>%
+  filter(question_type != "catch_trial", version != "pilot") %>%
+  group_by(word_category, message_type, message_id) %>%
+  summarize(num_words = length(unique(word))) %>%
+  ungroup %>%
+  arrange(word_category, desc(message_type), message_id)
 
 # ---- data
 bad_subj_ids <- transcription_matches %>%
