@@ -18,29 +18,22 @@ library(dplyr)
 library(ggplot2)
 library(magrittr)
 
-count_valid_responses <- function(frame) {
-  frame <- filter(frame,
-                  failed_catch_trial == 0,
-                  problem_with_audio == 0)
-
-  counts <- frame %>%
-    count(category, filename) %>%
-    arrange(desc(n))
-}
-
 library(wordsintransition)
 data("sound_similarity_6")
 data("sound_similarity_4")
 
-sound_similarity_6 %<>% count_valid_responses
-sound_similarity_4 %<>% count_valid_responses
-
-# label the two most frequently selected sounds per category
-sound_similarity_6 <- sound_similarity_6 %>%
+sound_similarity_6 %<>%
+  count_valid_responses %>%
+  # label the two most frequently selected sounds per category
   group_by(category) %>%
   mutate(odd_one_out = ifelse(n >= n[2], "odd", "normal"))
 
-odd_one_out <- ggplot(aes(x = filename, y = n)) +
+sound_similarity_4 %<>%
+  count_valid_responses %>%
+  # all sounds in the 4-survey were normal, but 2 categories were dropped
+  mutate(odd_one_out = "normal")
+
+odd_one_out <- ggplot(mapping = aes(x = filename, y = n)) +
   geom_bar(aes(fill = odd_one_out), stat = "identity") +
   facet_wrap("category", scales = "free_x", ncol = 2) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
