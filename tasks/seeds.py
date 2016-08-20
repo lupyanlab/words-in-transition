@@ -1,3 +1,4 @@
+"""Determine which seeds to use to start the Telephone chains."""
 from __future__ import print_function
 import os
 from invoke import task, run as local_run
@@ -9,14 +10,19 @@ import pandas as pd
 
 from .qualtrics import Qualtrics
 
-seeds_dir = 'reports/1-determine-seeds/all-seeds'
-host_dst = '/var/www/stimuli/words-in-transition/'
-url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/all-seeds/'
-
 project_root = Path('.').absolute()
 tasks_dir = Path(project_root, 'tasks')
 
-seed_info_csv = 'reports/1-determine-seeds/all-seeds.csv'
+exp_dir = Path(project_root, 'experiments/1-determine-seeds')
+seeds_dir = Path(exp_dir, 'all-seeds')
+seed_info_csv = Path(exp_dir, 'all-seeds.csv')
+
+report_dir = Path(project_root, 'reports/1-determine-seeds')
+
+host_dst = '/var/www/stimuli/words-in-transition/'
+url_dst = 'http://sapir.psych.wisc.edu/stimuli/words-in-transition/all-seeds/'
+
+out_dir = Path(project_root, 'wordsintransition/data-raw')
 
 @task
 def convert_wav_to_mp3(src_dir=None, dst_dir=None):
@@ -59,20 +65,22 @@ def put_seeds_on_server(src_dir=None):
     put(src_dir, host_dst, use_sudo=True)
 
 @task
-def create_loop_merge(survey):
+def create_loop_merge(survey_name):
     """Create a loop and merge spreadsheet."""
-    outfile = 'norm-seeds/{survey}/loop_merge.csv'.format(survey=survey)
     seed_info = pd.read_csv(seed_info_csv)
+    outfile = Path(exp_dir, survey_name, 'loop_merge.csv')
 
-    if survey == 'survey-2':
-        odd_sounds = pd.read_csv('norm-seeds/survey-1/odd_sounds.csv')
+    if survey_name == 'sound_similarity_4':
+        # get odd sounds from previous survey
+        odd_sounds_csv = Path(report_dir, 'odd_sounds.csv')
+        odd_sounds = pd.read_csv(odd_sounds_csv)
         seeds_to_keep = ~seed_info.filename.isin(odd_sounds.filename)
         seed_info = seed_info.ix[seeds_to_keep].reset_index(drop=True)
         # reset id value to be 1:4
         seed_info['id'] = seed_info.groupby('category').cumcount() + 1
 
         # save the selection to file
-        selected_csv = get_survey_path('sound_similarity_4', 'selected_seeds')
+        selected_csv = Path(report_dir, 'selected_seeds.csv')
         seed_info.to_csv(selected_csv, index=False)
 
     loop_merge = seed_info.pivot('category', 'id', 'url')
@@ -80,18 +88,6 @@ def create_loop_merge(survey):
     loop_merge['loop_merge_row'] = range(1, len(loop_merge)+1)
     loop_merge.to_csv(outfile, index=False)
 
-def get_survey_dir(survey_name):
-    survey_dirs = dict(
-        sound_similarity_6='norm-seeds/survey-1',
-        sound_similarity_4='norm-seeds/survey-2',
-    )
-    return survey_dirs[survey_name]
-
-def get_survey_path(survey_name, csv_name=None):
-    csv_name = csv_name or survey_name
-    output = '{}/{}.csv'
-    survey_dir = get_survey_dir(survey_name)
-    return output.format(survey_dir, csv_name)
 
 @task(help={'survey_name': 'sound_similarity_6 or sound_similarity_4'})
 def download_survey_responses(survey_name):
@@ -102,28 +98,43 @@ def download_survey_responses(survey_name):
     """
     qualtrics = Qualtrics(**get_creds())
     responses = qualtrics.get_survey_responses(survey_name)
-    output = get_survey_path(survey_name)
+    survey_dir = Path(exp_dir, survey_name)
+    if not survey_dir.exists():
+        survey_dir.mkdir()
+
+    output = Path(survey_dir, survey_name + '.csv')
     responses.to_csv(output, index=False)
 
 @task
-def tidy_survey(survey_name):
+def tidy_surveys(survey_name=None):
     """Parse the data in tidy format."""
-    # inputs
-    survey_csv = get_survey_path(survey_name)
+    # tidy all surveys by default
+    survey_names = [survey_name] if survey_name else \
+                   ['sound_similarity_6', 'sound_similarity_6']
+    for survey_name in survey_names:
+        _tidy_survey(survey_name)
+
+def _tidy_survey(survey_name):
+    # Inputs
+    survey_csv = Path(exp_dir, survey_name, survey_name + '.csv')
     survey = pd.read_csv(survey_csv, skiprows=[0, ])
 
-    loop_merge_csv = get_survey_path(survey_name, 'loop_merge')
+    loop_merge_csv = Path(exp_dir, survey_name, 'loop_merge.csv')
     loop_merge = pd.read_csv(loop_merge_csv)
 
-    # outputs
-    bad_subjs_csv = get_survey_path(survey_name, 'bad_subjs')
-    odd_one_out_csv = get_survey_path(survey_name, 'odd_one_out')
+    # Outputs
+    survey_dir = Path(out_dir, survey_name)
+    if not survey_dir.exists():
+        survey_dir.mkdir()
+
+    bad_subjs_csv = Path(survey_dir, 'bad_subjs.csv')
+    odd_one_out_csv = Path(survey_dir, 'odd_one_out.csv')
 
     # Begin tidying
-
     id_col = 'workerId'
 
     # label the workers who passed the catch trial
+    survey.loc[:, 'describe_catch'].fillna('', inplace=True)
     survey['failed_catch_trial'] = ~survey.describe_catch.str.contains(
         'piano', case=False
     )
@@ -168,15 +179,21 @@ def tidy_survey(survey_name):
     odd = odd[['workerId', 'failed_catch_trial', 'problem_with_audio', 'category', 'filename']]
     odd.to_csv(odd_one_out_csv, index=False)
 
+
 def get_creds():
     qualtrics_api_creds = Path(tasks_dir, 'qualtrics_api_creds.yml')
     return yaml.load(open(qualtrics_api_creds))
 
 @task
+def determine_odd_sounds():
+    local_run('Rscript reports/1-determine-seeds/odd_sounds.R')
+
+@task
 def select_final_seeds():
-    final_seeds_csv = get_survey_path('sound_similarity_4', 'final_seeds')
+    local_run('Rscript reports/1-determine-seeds/final_seeds.R')
+    final_seeds_csv = Path(report_dir, 'final_seeds.csv')
     final_seeds = pd.read_csv(final_seeds_csv)
-    final_dir = 'norm-seeds/final-seeds'
+    final_dir = Path(exp_dir, 'final-seeds')
     if not os.path.isdir(final_dir):
         os.mkdir(final_dir)
     for seed in final_seeds.filename.tolist():
