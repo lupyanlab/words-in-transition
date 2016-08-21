@@ -1,5 +1,7 @@
 imitation_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_at,game_name,chain_name,imitation_name,seed_id,first_gen_id
 568,bin/alligator_1.wav,,,0,False,False,0.0,,bin,alligator_1.wav,,568,-1
+571,bin/alligator_1_TrDmKXS.wav,,,0,False,False,0.0,,bin,alligator_1_TrDmKXS.wav,,571,-1
+572,bin/alligator_1_fVlqfWK.wav,,,0,False,False,0.0,,bin,alligator_1_fVlqfWK.wav,,572,-1
 569,bin/alligator_1_kkd0O0k.wav,,,0,False,False,0.0,,bin,alligator_1_kkd0O0k.wav,,569,-1
 570,bin/camel_1.wav,,,0,False,False,0.0,,bin,camel_1.wav,,570,-1
 56,words-in-transition/glass/gen-1.wav,5.0,35.0,1,False,True,0.0,,words-in-transition,glass,gen-1.wav,35,56

@@ -65,7 +65,7 @@ def csv():
     transcriptions = transcriptions.merge(transcription_surveys)
     transcriptions = transcriptions.merge(imitations[['imitation_id', 'seed_id', 'chain_name']])
 
-    transcriptions = transcriptions.ix[transcriptions.transcription_survey_name.isin(['hand picked 1', 'hand picked 1 seeds'])]
+    transcriptions = transcriptions.ix[transcriptions.transcription_survey_name.isin(['hand picked 1', 'hand picked 1 seeds', 'remaining-proximal-and-distal-1'])]
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
@@ -112,4 +112,5 @@ def install():
 
 
 def check_english(text):
-    return all([d.check(w) for w in text.split(' ')])
+    text = ' '.join(text.split())  # remove variable white space
+    return all([d.check(w) for w in text.split()])
