@@ -32,7 +32,7 @@ def csv():
     imitations = make_imitations(Path(src_dir, 'grunt.Message.json'))
     imitations.to_csv(Path(csv_output_dir, 'imitations.csv'), index=False)
 
-    subjects = make_subjects(Path(src_dir, 'mturk_survey_results.csv'))
+    subjects = make_subjects(Path(src_dir, 'mturk_subjects.csv'))
     subjects.to_csv(Path(csv_output_dir, 'subjects.csv'), index=False)
 
     # match imitations
