@@ -1,0 +1,48 @@
+---
+title: "Selecting sounds to use as seeds"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  fig.path = "figs/"
+)
+
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+
+library(wordsintransition)
+data("sound_similarity_6")
+data("sound_similarity_4")
+
+sound_similarity_6 %<>%
+  count_valid_responses %>%
+  # label the two most frequently selected sounds per category
+  group_by(category) %>%
+  mutate(odd_one_out = ifelse(n >= n[2], "odd", "normal"))
+
+sound_similarity_4 %<>%
+  count_valid_responses %>%
+  # all sounds in the 4-survey were normal, but 2 categories were dropped
+  mutate(odd_one_out = "normal")
+
+odd_one_out <- ggplot(mapping = aes(x = filename, y = n)) +
+  geom_bar(aes(fill = odd_one_out), stat = "identity") +
+  facet_wrap("category", scales = "free_x", ncol = 2) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r odd-one-out, fig.height = 10}
+(odd_one_out %+% sound_similarity_6) +
+  ggtitle("Odd one out (6 per category)")
+
+(odd_one_out %+% sound_similarity_4) +
+  ggtitle("Odd one out (4 per category)")
+```
