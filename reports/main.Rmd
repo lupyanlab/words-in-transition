@@ -49,7 +49,7 @@ ggplot(imitations, aes(x = generation)) +
 
 # Matching imitations to original sounds
 
-```{r imiation_matches}
+```{r imitation_matches}
 data("imitation_matches")
 
 ggplot(imitation_matches, aes(x = imitation_id)) +
@@ -64,11 +64,9 @@ ggplot(imitation_matches, aes(x = imitation_id)) +
 
 ## Methods
 
-### Selected messages
+### Selected sounds
 
-We selected 16 messages to transcribe: 2 of the 4 seed sound effects used
-in each category of sounds, and 2 messages **selected by hand** from later
-generations in each chain.
+Transcribed sounds include all 16 seed sound effects and all imitatations in the last generation of each iteration chain.
 
 ## Results
 

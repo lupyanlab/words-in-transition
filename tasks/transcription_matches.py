@@ -24,6 +24,7 @@ def make_transcription_matches(app_data_dir, app_subjs):
     pilot = make_transcription_matches_pilot()
     app = make_transcription_matches_app(app_data_dir, app_subjs)
     matches = pd.concat([pilot, app])
+    matches.rename(columns={'message_id': 'imitation_id'}, inplace=True)
     return matches
 
 def make_transcription_matches_pilot():
