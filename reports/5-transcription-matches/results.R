@@ -10,15 +10,11 @@ library(AICcmodavg)
 
 library(wordsintransition)
 data("transcription_matches")
-data("transcription_frequencies")
 
 transcription_matches %<>%
   recode_question_type %>%
   recode_message_type %>%
   recode_version
-
-transcription_frequencies %<>%
-  rename(word = text)
 
 # ---- selected-transcriptions
 transcription_matches %>%
