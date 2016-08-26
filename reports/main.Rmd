@@ -18,13 +18,27 @@ opts_chunk$set(
   fig.path = "figs/",
   fig.width = 8
 )
-```
 
-```{r}
 read_chunk("5-transcription-matches/results.R")
 ```
 
-```{r, setup}
+```{r setup}
+library(dplyr)
+library(magrittr)
+library(stringr)
+library(ggplot2)
+library(scales)
+library(lme4)
+library(broom)
+library(AICcmodavg)
+
+library(wordsintransition)
+data("transcription_matches")
+
+transcription_matches %<>%
+  recode_question_type %>%
+  recode_message_type %>%
+  recode_version
 ```
 
 # Determining the sounds to imitate
@@ -33,32 +47,7 @@ We started with 6 sounds in each of 6 categories and reduced that number to 4 so
 
 # Collecting iterated imitations
 
-```{r num_imitations}
-data("imitations")
-
-ggplot(imitations, aes(x = generation)) +
-  geom_line(stat = "bin", binwidth = 1) +
-  scale_x_continuous(breaks = 0:8)
-
-ggplot(imitations, aes(x = generation)) +
-  geom_line(aes(color = factor(seed_id)),
-            stat = "bin", binwidth = 1,
-            show.legend = FALSE) +
-  scale_x_continuous(breaks = 0:8)
-```
-
 # Matching imitations to original sounds
-
-```{r imitation_matches}
-data("imitation_matches")
-
-ggplot(imitation_matches, aes(x = imitation_id)) +
-  geom_histogram(stat = "bin", binwidth = 1)
-
-ggplot(imitation_matches, aes(x = imitation_id)) +
-  geom_histogram(stat = "bin", binwidth = 1) + 
-  facet_wrap("question_type")
-```
 
 # Collecting transcriptions of sounds
 
@@ -93,19 +82,19 @@ ggplot(transcription_uniqueness, aes(x = message_type, y = perct_unique)) +
 
 # Matching transcriptions to original sounds
 
+```{r 5-setup}
+```
+
 ## Methods
 
 ### Selected transcriptions
 
 We obtained match-to-seed accuracy ratings for the 4 most frequent spellings
-of each message that was transcribed.
-
-```{r, selected-transcriptions}
-```
+of a sample of 8 transcribed sounds.
 
 ### Subjects
 
-```{r, subjects}
+```{r, 5-subjects}
 transcription_matches %>%
   group_by(version) %>%
   summarize(
@@ -119,36 +108,21 @@ transcription_matches %>%
 Subjects were excluded if they failed the catch trial, which indicated
 that they should select the third option.
 
-```{r, catch-trials, fig.width = 4}
-exclusions <- transcription_matches %>%
-  filter(question_type == "catch_trial") %>%
-  mutate(is_correct_f = factor(is_correct, labels = c("Failed", "Passed"))) %>%
-  group_by(version, is_correct_f) %>%
-  summarize(n = length(unique(subj_id)))
-
-label_bump <- 4
-
-ggplot(exclusions, aes(x = is_correct_f, y = n)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = n, y = ifelse(is_correct_f == "Failed", n + label_bump, n - label_bump))) +
-  scale_x_discrete("")
+```{r, 5-catch-trials, fig.width = 4}
 ```
 
 ## Results
 
-```{r, data}
+```{r, 5-plot-template}
 ```
 
-```{r, plot-template}
+```{r, 5-plot-means}
 ```
 
-```{r, plot-means}
+```{r, 5-model, echo = 1, cache = TRUE}
 ```
 
-```{r, model, echo = 1, cache = TRUE}
-```
-
-```{r, model-preds}
+```{r, 5-model-preds}
 ```
 
 ### Agreement as a predictor of matching accuracy

@@ -75,7 +75,11 @@ digraph {
 
 # Imitation matches
 
-Each imitation is matched in three different conditions.
+Each imitation is matched in three different "guess the seed" conditions:
+
+1. Category match (true seed)
+2. Category match
+3. Specific match
 
 ```{r category-match-true-seed, engine = "dot"}
 digraph {
@@ -224,6 +228,16 @@ digraph {
 # Transcriptions
 
 Each imitation is transcribed by 10-20 different people. The unique transcriptions are rated in two match to seed surveys.
+
+Each imitation can be summarized:
+
+1. Transcription agreement
+2. Average "guess the seed" accuracy for top X transcriptions
+
+Each transcription can be summarized:
+
+1. Category match (true seed)
+2. Category match
 
 ```{r transcriptions, engine = "dot"}
 digraph {
