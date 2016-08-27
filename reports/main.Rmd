@@ -34,6 +34,7 @@ library(broom)
 library(AICcmodavg)
 
 library(wordsintransition)
+data("imitation_matches")
 data("transcription_matches")
 
 transcription_matches %<>%
@@ -107,6 +108,8 @@ digraph {
 # Matching imitations to original sounds
 
 ## Methods
+
+### Question types
 
 Each imitation is matched in three different "guess the seed" conditions:
 
@@ -257,6 +260,29 @@ digraph {
   gen1[label="?", style="filled", fillcolor="#FC8D62"];
 }
 ```
+
+### Number of responses per question
+
+```{r 3-num-responses-per-question}
+response_counts <- imitation_matches %>%
+  count(imitation_id, survey_type)
+
+imitation_id_decr <- response_counts %>%
+  group_by(imitation_id) %>%
+  summarize(total_n = sum(n)) %>%
+  arrange(desc(total_n)) %>%
+  .$imitation_id
+response_counts$imitation_id_decr <- factor(response_counts$imitation_id,
+                                            levels = imitation_id_decr)
+
+ggplot(response_counts, aes(x = imitation_id_decr, y = n)) +
+  geom_bar(stat = "identity") +
+  facet_wrap("survey_type", ncol = 1)
+```
+
+## Results
+
+TODO: Add in results presented at EvoLang
 
 # Collecting transcriptions of sounds
 
