@@ -4,6 +4,7 @@ imitation_id,audio,chain_id,parent_id,generation,rejected,verified,start_at,end_
 572,bin/alligator_1_fVlqfWK.wav,,,0,False,False,0.0,,bin,alligator_1_fVlqfWK.wav,,572,-1
 569,bin/alligator_1_kkd0O0k.wav,,,0,False,False,0.0,,bin,alligator_1_kkd0O0k.wav,,569,-1
 570,bin/camel_1.wav,,,0,False,False,0.0,,bin,camel_1.wav,,570,-1
+573,bin/elephant_2.wav,,,0,False,False,0.0,,bin,elephant_2.wav,,573,-1
 56,words-in-transition/glass/gen-1.wav,5.0,35.0,1,False,True,0.0,,words-in-transition,glass,gen-1.wav,35,56
 93,words-in-transition/glass/gen-1_1E6oSTJ.wav,5.0,37.0,1,True,True,0.0,,words-in-transition,glass,gen-1_1E6oSTJ.wav,37,93
 69,words-in-transition/glass/gen-1_2C5rNCa.wav,5.0,34.0,1,True,True,0.0,,words-in-transition,glass,gen-1_2C5rNCa.wav,34,69
