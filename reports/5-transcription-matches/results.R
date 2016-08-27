@@ -38,6 +38,18 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct)) +
   theme_minimal(base_size = 12) +
   theme(axis.ticks = element_blank())
 
+# ---- 5-responses-per-question
+decr_word_n <- count(transcription_matches, word) %>%
+  arrange(-n) %>% 
+  .$word
+transcription_matches$word_decr <- factor(
+  transcription_matches$word, levels = decr_word_n
+)
+
+ggplot(transcription_matches, aes(x = word_decr)) +
+  geom_bar(stat = "count") +
+  facet_wrap("question_type", ncol = 1)
+
 # ---- 5-catch-trials
 exclusions <- catch_trials %>%
   mutate(is_correct_f = factor(is_correct, labels = c("Failed", "Passed"))) %>%

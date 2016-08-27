@@ -316,6 +316,11 @@ that they should select the third option.
 ```{r, 5-catch-trials, fig.width = 4}
 ```
 
+### Number of responses
+
+```{r 5-responses-per-question}
+```
+
 ## Results
 
 ```{r, 5-plot-template}
