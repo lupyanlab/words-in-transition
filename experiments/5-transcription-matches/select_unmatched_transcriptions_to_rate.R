@@ -32,7 +32,7 @@ survey_types <- 4
 num_questions <- num_words * survey_types
 num_responses_per_question <- 8
 total_num_responses <- num_questions * num_responses_per_question
-responses_per_subj <- 8
-(n_subjs <- total_num_responses/responses_per_subj)
-reward_per_subj <- 0.25
+responses_per_subj <- 30
+(n_subjs <- (total_num_responses/responses_per_subj) %>% ceiling)
+reward_per_subj <- 0.75
 (base_cost <- n_subjs * reward_per_subj)
