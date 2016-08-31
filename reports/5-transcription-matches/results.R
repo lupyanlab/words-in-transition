@@ -23,7 +23,7 @@ bad_subj_ids <- transcription_matches %>%
 catch_trials <- transcription_matches %>%
   filter(question_type == "catch_trial")
 
-transcription_matches <- transcription_matches %>%
+transcription_matches %<>%
   filter(question_type != "catch_trial", !(subj_id %in% bad_subj_ids))
 
 scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))

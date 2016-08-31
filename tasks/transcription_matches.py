@@ -129,6 +129,17 @@ def make_transcription_matches_app(src_dir, subjs):
         inplace=True,
     )
 
+    # label survey version
+    survey_labels = {}
+    survey_versions = dict(
+        version_a = ['match imitations seeds %s' % n for n in [1, 2]],
+        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]]
+    )
+    for label, survey_names in survey_versions.items():
+        for survey_name in survey_names:
+            survey_labels[survey_name] = label
+    surveys['version'] = surveys.survey_name.map(survey_labels)
+
     questions = pd.read_json(Path(src_dir, 'words.Question.json'))
     del questions['model']
     unfold_model_fields(questions, ['word', 'survey', 'choices'])
@@ -160,7 +171,6 @@ def make_transcription_matches_app(src_dir, subjs):
     matches = (responses.merge(questions)
                         .merge(surveys))
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
-    matches['version'] = 'A'
 
     # label subj id
     subjects = subjs.ix[subjs.experiment == 'transcription_matches']

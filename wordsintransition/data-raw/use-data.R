@@ -4,6 +4,7 @@ library(devtools)
 library(readr)
 library(dplyr)
 library(stringr)
+library(magrittr)
 
 sound_similarity_6 <- read_csv("data-raw/sound_similarity_6/odd_one_out.csv")
 sound_similarity_4 <- read_csv("data-raw/sound_similarity_4/odd_one_out.csv")
@@ -16,6 +17,10 @@ for(path in data_files) {
   name <- stem(path)
   assign(name, frame)
 }
+
+# Label generation of message being transcribed
+transcription_matches %<>%
+  left_join(imitations[, c("message_id", "generation")])
 
 use_data(
   subjects,
