@@ -104,7 +104,7 @@ def make_transcription_matches_pilot():
     )
 
     message_id_labels = pd.read_csv(
-        Path(qualtrics_dir, 'transcriptions/selected_pilot.csv')
+        Path(qualtrics_dir, 'transcriptions/selected-edited.csv')
     )[['text', 'seed_id', 'message_id']].rename(columns=dict(text='word'))
     final = final.merge(message_id_labels, how='left')
 
