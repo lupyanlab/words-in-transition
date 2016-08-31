@@ -14,7 +14,7 @@ write.csv(all_transcriptions_to_match,
 
 words_already_matched <- unique(transcription_matches$word)
 most_frequent_unmatched_transcriptions <- all_transcriptions_to_match %>%
-  group_by(chain_name, seed_id, imitation_id) %>%
+  group_by(chain_name, seed_id, message_id) %>%
   arrange(desc(n)) %>%
   mutate(order = 1:n()) %>%
   ungroup() %>%

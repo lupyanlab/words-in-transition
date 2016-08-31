@@ -265,17 +265,17 @@ digraph {
 
 ```{r 3-num-responses-per-question}
 response_counts <- imitation_matches %>%
-  count(imitation_id, survey_type)
+  count(message_id, survey_type)
 
-imitation_id_decr <- response_counts %>%
-  group_by(imitation_id) %>%
+message_id_decr <- response_counts %>%
+  group_by(message_id) %>%
   summarize(total_n = sum(n)) %>%
   arrange(desc(total_n)) %>%
-  .$imitation_id
-response_counts$imitation_id_decr <- factor(response_counts$imitation_id,
-                                            levels = imitation_id_decr)
+  .$message_id
+response_counts$message_id_decr <- factor(response_counts$message_id,
+                                            levels = message_id_decr)
 
-ggplot(response_counts, aes(x = imitation_id_decr, y = n)) +
+ggplot(response_counts, aes(x = message_id_decr, y = n)) +
   geom_bar(stat = "identity") +
   facet_wrap("survey_type", ncol = 1)
 ```

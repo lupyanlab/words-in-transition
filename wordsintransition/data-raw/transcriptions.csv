@@ -1,4 +1,4 @@
-transcription_id,imitation_to_transcribe_id,text,imitation_id,transcription_survey_id,transcription_survey_name,catch_trial_id,seed_id,chain_name,is_catch_trial
+transcription_id,imitation_to_transcribe_id,text,message_id,transcription_survey_id,transcription_survey_name,catch_trial_id,seed_id,chain_name,is_catch_trial
 19,6,izzip,505,1,hand picked 1,1,49,zipper,0
 20,6,izzit,505,1,hand picked 1,1,49,zipper,0
 43,6,izit,505,1,hand picked 1,1,49,zipper,0

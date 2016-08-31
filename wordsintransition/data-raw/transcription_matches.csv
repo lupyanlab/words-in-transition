@@ -1,4 +1,4 @@
-version,subj_id,seed_id,imitation_id,word,word_category,question_type,choice_id,choice_category,is_correct
+version,subj_id,seed_id,message_id,word,word_category,question_type,choice_id,choice_category,is_correct
 pilot,A002160837SWJFPIAI7L7,41,522,sheah,tear,category,34,glass,0
 pilot,A002160837SWJFPIAI7L7,47,377,veep,zipper,exact,47,zipper,1
 pilot,A002160837SWJFPIAI7L7,39,560,a chechyu,tear,exact,39,tear,1

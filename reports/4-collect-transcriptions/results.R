@@ -15,7 +15,7 @@ imitations %<>%
 transcriptions %<>%
   filter(is_catch_trial == 0) %>%
   # label the generation of the imitations being transcribed
-  left_join(imitations[, c("imitation_id", "generation")])
+  left_join(imitations[, c("message_id", "generation")])
 
 
 base <- ggplot() +
@@ -32,7 +32,7 @@ hist <- base +
 
 # ---- 4-num-sounds-transcribed
 transcribed_imitations <- imitations %>%
-  filter(imitation_id %in% transcriptions$imitation_id)
+  filter(message_id %in% transcriptions$message_id)
 
 (hist %+% transcribed_imitations) +
   ggtitle("Number of transcribed sounds")
@@ -46,15 +46,15 @@ hist_no_labels$layers[[2]] <- NULL
   ggtitle("Proportion of sounds transcribed")
 
 # ---- 4-num-transcriptions-per-imitation
-decr_imitation_ids <- count(transcriptions, imitation_id) %>%
+decr_message_ids <- count(transcriptions, message_id) %>%
   arrange(-n) %>% 
-  .$imitation_id
-transcriptions$imitation_id_decr <- factor(transcriptions$imitation_id,
-                                           levels = decr_imitation_ids)
-ylim_upr <- (transcriptions %>% count(imitation_id) %>% .$n %>% max) + 4
+  .$message_id
+transcriptions$message_id_decr <- factor(transcriptions$message_id,
+                                           levels = decr_message_ids)
+ylim_upr <- (transcriptions %>% count(message_id) %>% .$n %>% max) + 4
 
 (base %+% transcriptions) +
-  geom_bar(aes(x = imitation_id_decr, fill = generation), stat = "count",
+  geom_bar(aes(x = message_id_decr, fill = generation), stat = "count",
            width = 1.0, color = "white", alpha = 0.8) +
   scale_x_discrete("Imitation ID") +
   scale_y_continuous(expand = c(0, 0)) +
@@ -64,11 +64,11 @@ ylim_upr <- (transcriptions %>% count(imitation_id) %>% .$n %>% max) + 4
 
 # ---- 4-transcription-agreement
 transcription_frequencies %<>%
-  mutate(message_id = imitation_id) %>%
+  mutate(message_id = message_id) %>%
   recode_message_type
 
 transcription_uniqueness <- transcription_frequencies %>%
-  group_by(message_type, imitation_id) %>%
+  group_by(message_type, message_id) %>%
   summarize(
     num_words = sum(n),
     num_unique = n_distinct(text),
@@ -87,17 +87,17 @@ data("transcription_matches")
 
 transcription_matches %<>%
   filter(question_type != "catch_trial", version != "pilot") %>%
-  mutate(imitation_id = message_id) %>%
+  mutate(message_id = message_id) %>%
   recode_message_type
 
 transcription_match_accuracies <- transcription_matches %>%
-  group_by(imitation_id, message_type, question_type) %>%
+  group_by(message_id, message_type, question_type) %>%
   summarize(
     match_accuracy = mean(is_correct)
   )
 
 transcription_agreement_and_uniqueness <- transcription_uniqueness %>%
-  select(message_type, imitation_id, perct_agreement) %>%
+  select(message_type, message_id, perct_agreement) %>%
   left_join(transcription_match_accuracies) %>%
   filter(!is.na(question_type))
 

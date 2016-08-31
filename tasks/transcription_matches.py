@@ -15,7 +15,7 @@ APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
 
 OUTPUT_COLUMNS = [
     'version', 'subj_id',
-    'seed_id', 'imitation_id', 'word', 'word_category',
+    'seed_id', 'message_id', 'word', 'word_category',
     'question_type', 'choice_id', 'choice_category',
     'is_correct',
 ]
@@ -111,7 +111,7 @@ def make_transcription_matches_pilot():
     final['version'] = 'pilot'
     final['is_correct'] = (final.word_category ==
                            final.choice_category).astype(int)
-    final.rename(columns={'message_id': 'imitation_id'}, inplace=True)
+    final.rename(columns={'message_id': 'message_id'}, inplace=True)
 
     return final[OUTPUT_COLUMNS]
 
@@ -196,9 +196,9 @@ def format_answer_key(src_dir):
     catch_trial = dict(word=APP_CATCH_TRIAL_WORD,
                        word_category="catch_trial",
                        seed_id=-1,
-                       imitation_id=-1)
+                       message_id=-1)
     answer_key = answer_key.append(catch_trial, ignore_index=True)
-    return answer_key[["word_category", "word", "seed_id", "imitation_id"]]
+    return answer_key[["word_category", "word", "seed_id", "message_id"]]
 
 
 def format_choice_category_labels(answer_key):

@@ -12,14 +12,14 @@ imitations %<>%
 transcriptions %<>%
   filter(is_catch_trial == 0)
 
-transcribed_imitation_ids <- unique(transcriptions$imitation_id)
+transcribed_message_ids <- unique(transcriptions$message_id)
 
 untranscribed_imitations <- imitations %>%
-  filter(!(imitation_id %in% transcribed_imitation_ids))
+  filter(!(message_id %in% transcribed_message_ids))
 
 untranscribed_seed_message_ids <- untranscribed_imitations %>%
   filter(generation == 0) %>%
-  .$imitation_id
+  .$message_id
 
 pick_terminal_messages <- function(branch, n = 1) {
   max_gen <- max(branch$generation)
@@ -33,7 +33,7 @@ untranscribed_terminal_message_ids <- untranscribed_imitations %>%
   filter(generation > 0) %>%
   group_by(seed_id) %>%
   do({ pick_terminal_messages(., n = 1) }) %>%
-  .$imitation_id
+  .$message_id
 
 untranscribed_message_ids <- c(untranscribed_seed_message_ids,
                                untranscribed_terminal_message_ids)

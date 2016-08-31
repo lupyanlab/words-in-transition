@@ -52,7 +52,7 @@ def make_imitations(imitations_json):
     extract_from_path(imitations)
 
     imitations.sort_values(['game_name', 'chain_name', 'imitation_name'], inplace=True)
-    imitations.rename(columns=dict(pk='imitation_id', chain='chain_id', parent='parent_id'), inplace=True)
+    imitations.rename(columns=dict(pk='message_id', chain='chain_id', parent='parent_id'), inplace=True)
 
     imitations['seed_id'] = imitations.apply(find_imitation_on_branch, generation=0, frame=imitations, axis=1)
     imitations['first_gen_id'] = imitations.apply(find_imitation_on_branch, generation=1, frame=imitations, axis=1)
@@ -81,18 +81,18 @@ def make_questions(questions_json, imitations):
     question_model_fields = ['choices', 'given', 'survey', 'answer']
     unfold_model_fields(questions, question_model_fields)
 
-    questions.rename(columns=dict(pk='question_pk', survey='survey_id', given='imitation_id'),
+    questions.rename(columns=dict(pk='question_pk', survey='survey_id', given='message_id'),
                      inplace=True)
 
     # question id is unique combination of choices and given imitation
     # question pk is unique for all question models in the db
-    question_id_str = questions.choices.astype(str) + questions.imitation_id.astype(str)
+    question_id_str = questions.choices.astype(str) + questions.message_id.astype(str)
     questions['question_id_str'] = question_id_str
     question_id_map = {qstr: qid for qid, qstr in enumerate(question_id_str.unique())}
     questions['question_id'] = questions.question_id_str.apply(lambda x: question_id_map[x])
     del questions['question_id_str']
 
-    seed_map = imitations[['imitation_id', 'seed_id', 'chain_name']]
+    seed_map = imitations[['message_id', 'seed_id', 'chain_name']]
     questions = questions.merge(seed_map)
 
     chain_seeds = seed_map[['chain_name', 'seed_id']].drop_duplicates()
@@ -113,7 +113,7 @@ def make_questions(questions_json, imitations):
     questions = questions.apply(determine_answer, axis=1)
 
     def determine_question_type(question):
-        if question.imitation_id in question.choices:
+        if question.message_id in question.choices:
             question_type = 'catch_trial'
         elif question.seed_id in question.choices:
             question_type = 'true_seed'
@@ -158,7 +158,7 @@ def make_transcription_questions(questions_json):
 
     unfold_model_fields(questions, ['given', 'survey'])
     questions.rename(
-        columns=dict(pk='imitation_to_transcribe_id', given='imitation_id',
+        columns=dict(pk='imitation_to_transcribe_id', given='message_id',
                      survey='transcription_survey_id'),
         inplace=True,
     )
@@ -199,12 +199,12 @@ def extract_from_path(frame):
 
 def find_imitation_on_branch(imitation, generation, frame):
     if imitation.generation == generation:
-        return imitation.imitation_id
+        return imitation.message_id
     elif imitation.generation < generation:
         # imitation will never be found
         return -1
     else:
-        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
+        parent = frame.ix[frame.message_id == imitation.parent_id].squeeze()
         return find_imitation_on_branch(parent, generation, frame)
 
 def label_seed_imitations(frame):
@@ -212,8 +212,8 @@ def label_seed_imitations(frame):
 
     def find_seed(imitation):
         if imitation.generation == 0:
-            return imitation.imitation_id
-        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
+            return imitation.message_id
+        parent = frame.ix[frame.message_id == imitation.parent_id].squeeze()
         return find_seed(parent)
 
     frame['seed_id'] = frame.apply(find_seed, axis=1)
@@ -222,8 +222,8 @@ def label_seed_imitations(frame):
 
     def find_seed(imitation):
         if imitation.generation == 0:
-            return imitation.imitation_id
-        parent = frame.ix[frame.imitation_id == imitation.parent_id].squeeze()
+            return imitation.message_id
+        parent = frame.ix[frame.message_id == imitation.parent_id].squeeze()
         return find_seed(parent)
 
     frame['seed_id'] = frame.apply(find_seed, axis=1)

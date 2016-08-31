@@ -1,4 +1,4 @@
-"chain_name","seed_id","imitation_id","text","n","is_english"
+"chain_name","seed_id","message_id","text","n","is_english"
 "glass",34,34,"atinga",1,0
 "glass",34,34,"bubtedew",1,0
 "glass",34,34,"bugongong",1,0

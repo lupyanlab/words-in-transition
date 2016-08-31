@@ -11,25 +11,25 @@ imitations %<>%
 
 transcriptions %<>%
   filter(is_catch_trial == 0) %>%
-  mutate(message_id = imitation_id) %>%
+  mutate(message_id = message_id) %>%
   recode_message_type
 
-transcribed_imitation_ids <- unique(transcriptions$imitation_id)
+transcribed_message_ids <- unique(transcriptions$message_id)
 
 transcribed_imitations_first_gen_ids <- imitations %>%
   filter(
     generation > 1,
-    imitation_id %in% transcribed_imitation_ids
+    message_id %in% transcribed_message_ids
   ) %>%
   .$first_gen_id
 
 untranscribed_first_gen_ids <- imitations %>%
   filter(
     generation == 1,
-    !(imitation_id %in% transcribed_imitation_ids),
-    imitation_id %in% n_gen_transcriptions
+    !(message_id %in% transcribed_message_ids),
+    message_id %in% n_gen_transcriptions
   ) %>%
-  .$imitation_id
+  .$message_id
 
 # Input for New Transcription form
 paste(untranscribed_first_gen_ids, collapse = ",")
