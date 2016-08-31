@@ -14,7 +14,10 @@ recode_question_type <- function(frame) {
 #' @import magrittr
 #' @export
 recode_message_type <- function(frame) {
-  try(frame %<>% mutate(message_type = ifelse(message_id == seed_id, "sound_effect", "imitation")))
+  frame %<>%
+    mutate(
+      message_type = ifelse(message_id == seed_id, "sound_effect", "imitation")
+    )
 
   levels <- c("sound_effect", "imitation") %>% rev
   labels <- c("Sound effect transcription", "Imitation transcription") %>% rev
