@@ -12,11 +12,17 @@ data("transcription_frequencies")
 imitations %<>%
   filter(game_name == "words-in-transition")
 
+gen_labels <- imitations %>%
+  select(message_id, generation)
+
 transcriptions %<>%
   filter(is_catch_trial == 0) %>%
   # label the generation of the imitations being transcribed
-  left_join(imitations[, c("message_id", "generation")])
+  left_join(gen_labels) %>%
+  recode_message_type
 
+transcription_frequencies %<>%
+  left_join(gen_labels)
 
 base <- ggplot() +
   theme_minimal()
@@ -29,6 +35,16 @@ hist <- base +
   geom_text(aes(x = generation, label = ..count..),
             stat = "bin", binwidth = 1, vjust = -0.6) +
   scale_x_generation
+
+# ---- 4-num-sounds
+hist <- base +
+  geom_histogram(aes(x = generation), binwidth = 1,
+                 color = "black", fill = "white", alpha = 0.6) +
+  geom_text(aes(x = generation, label = ..count..),
+            stat = "bin", binwidth = 1, vjust = -0.6) +
+  scale_x_generation
+
+hist %+% imitations
 
 # ---- 4-num-sounds-transcribed
 transcribed_imitations <- imitations %>%
@@ -54,7 +70,7 @@ transcriptions$message_id_decr <- factor(transcriptions$message_id,
 ylim_upr <- (transcriptions %>% count(message_id) %>% .$n %>% max) + 4
 
 (base %+% transcriptions) +
-  geom_bar(aes(x = message_id_decr, fill = generation), stat = "count",
+  geom_bar(aes(x = message_id_decr, fill = message_type), stat = "count",
            width = 1.0, color = "white", alpha = 0.8) +
   scale_x_discrete("Imitation ID") +
   scale_y_continuous(expand = c(0, 0)) +
@@ -64,7 +80,6 @@ ylim_upr <- (transcriptions %>% count(message_id) %>% .$n %>% max) + 4
 
 # ---- 4-transcription-agreement
 transcription_frequencies %<>%
-  mutate(message_id = message_id) %>%
   recode_message_type
 
 transcription_uniqueness <- transcription_frequencies %>%
@@ -87,7 +102,7 @@ data("transcription_matches")
 
 transcription_matches %<>%
   filter(question_type != "catch_trial", version != "pilot") %>%
-  mutate(message_id = message_id) %>%
+  left_join(gen_labels) %>%
   recode_message_type
 
 transcription_match_accuracies <- transcription_matches %>%
