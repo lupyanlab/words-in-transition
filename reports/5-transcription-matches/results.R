@@ -75,7 +75,7 @@ means_plot +
   ggtitle("Match accuracy over experiment versions")
 
 # ---- 5-model
-acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * question_c|subj_id),
+acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
 tidy(acc_mod, effects = "fixed")
 
