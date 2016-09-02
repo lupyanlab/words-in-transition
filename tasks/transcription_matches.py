@@ -133,7 +133,8 @@ def make_transcription_matches_app(src_dir, subjs):
     survey_labels = {}
     survey_versions = dict(
         version_a = ['match imitations seeds %s' % n for n in [1, 2]],
-        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]]
+        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]],
+        version_c = ['version-c-seeds-%s' % n for n in [1, 2, 3, 4]],
     )
     for label, survey_names in survey_versions.items():
         for survey_name in survey_names:
