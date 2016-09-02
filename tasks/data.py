@@ -83,7 +83,7 @@ def csv():
     transcription_frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
     transcription_frequencies.loc[:, 'text'] =\
         transcription_frequencies.text.str.lower()
-    groupers = ['chain_name', 'seed_id', 'message_id']
+    groupers = ['chain_name', 'seed_id', 'message_id', 'transcription_survey_name']
     transcription_frequencies = (transcription_frequencies.groupby(groupers)
                               .text
                               .value_counts()
