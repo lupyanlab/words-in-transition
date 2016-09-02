@@ -20,7 +20,7 @@ branches <- imitation_matches %>%
 hand_picked <- c(566, 502, 560, 522, 466, 563, 377, 505)
 
 selected_branch_ids <- imitation_matches %>%
-  filter(imitation_id %in% hand_picked) %>%
+  filter(message_id %in% hand_picked) %>%
   .$first_gen_id %>%
   unique
 

@@ -34,6 +34,7 @@ library(broom)
 library(AICcmodavg)
 
 library(wordsintransition)
+data("imitation_matches")
 data("transcription_matches")
 
 transcription_matches %<>%
@@ -115,6 +116,8 @@ TODO: Analyze the fidelity of the imitations.
 # Matching imitations to original sounds
 
 ## Methods
+
+### Question types
 
 Each imitation is matched in three different "guess the seed" conditions:
 
@@ -266,10 +269,32 @@ digraph {
 }
 ```
 
-
 ## Results
 
 TODO: Pull in analyses presented at EvoLang.
+=======
+### Number of responses per question
+
+```{r 3-num-responses-per-question}
+response_counts <- imitation_matches %>%
+  count(message_id, survey_type)
+
+message_id_decr <- response_counts %>%
+  group_by(message_id) %>%
+  summarize(total_n = sum(n)) %>%
+  arrange(desc(total_n)) %>%
+  .$message_id
+response_counts$message_id_decr <- factor(response_counts$message_id,
+                                            levels = message_id_decr)
+
+ggplot(response_counts, aes(x = message_id_decr, y = n)) +
+  geom_bar(stat = "identity") +
+  facet_wrap("survey_type", ncol = 1)
+```
+
+## Results
+
+TODO: Add in results presented at EvoLang
 
 # Collecting transcriptions of sounds
 
@@ -335,6 +360,11 @@ Subjects were excluded if they failed the catch trial, which indicated
 that they should select the third option.
 
 ```{r, 5-catch-trials, fig.width = 4}
+```
+
+### Number of responses
+
+```{r 5-responses-per-question}
 ```
 
 ## Results

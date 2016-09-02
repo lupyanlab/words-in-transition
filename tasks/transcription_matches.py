@@ -6,8 +6,9 @@ from .qualtrics import Qualtrics
 from .seeds import convert_wav_to_mp3, get_creds
 from .tidy import unfold_model_fields
 
-report_dir = Path('experiments/5-transcription-matches/')
-qualtrics_dir = Path(report_dir, 'surveys/qualtrics')
+experiment_dir = Path('experiments/5-transcription-matches/')
+surveys_dir = Path(experiment_dir, 'surveys')
+qualtrics_dir = Path(surveys_dir, 'qualtrics')
 
 # catch trial word for app surveys
 APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
@@ -24,7 +25,6 @@ def make_transcription_matches(app_data_dir, app_subjs):
     pilot = make_transcription_matches_pilot()
     app = make_transcription_matches_app(app_data_dir, app_subjs)
     matches = pd.concat([pilot, app])
-    matches.rename(columns={'message_id': 'imitation_id'}, inplace=True)
     return matches
 
 def make_transcription_matches_pilot():
@@ -104,13 +104,14 @@ def make_transcription_matches_pilot():
     )
 
     message_id_labels = pd.read_csv(
-        Path(qualtrics_dir, 'transcriptions/selected.csv')
+        Path(qualtrics_dir, 'transcriptions/selected-edited.csv')
     )[['text', 'seed_id', 'message_id']].rename(columns=dict(text='word'))
     final = final.merge(message_id_labels, how='left')
 
     final['version'] = 'pilot'
     final['is_correct'] = (final.word_category ==
                            final.choice_category).astype(int)
+    final.rename(columns={'message_id': 'message_id'}, inplace=True)
 
     return final[OUTPUT_COLUMNS]
 
@@ -128,6 +129,17 @@ def make_transcription_matches_app(src_dir, subjs):
         inplace=True,
     )
 
+    # label survey version
+    survey_labels = {}
+    survey_versions = dict(
+        version_a = ['match imitations seeds %s' % n for n in [1, 2]],
+        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]]
+    )
+    for label, survey_names in survey_versions.items():
+        for survey_name in survey_names:
+            survey_labels[survey_name] = label
+    surveys['version'] = surveys.survey_name.map(survey_labels)
+
     questions = pd.read_json(Path(src_dir, 'words.Question.json'))
     del questions['model']
     unfold_model_fields(questions, ['word', 'survey', 'choices'])
@@ -137,7 +149,7 @@ def make_transcription_matches_app(src_dir, subjs):
     )
 
     # determine question type and answer id
-    answer_key = format_answer_key(src_dir)
+    answer_key = format_answer_keys()
     questions = questions.merge(answer_key)
     questions['question_type'] = questions.apply(label_question_type, axis=1)
     labels = format_choice_category_labels(answer_key)
@@ -159,7 +171,6 @@ def make_transcription_matches_app(src_dir, subjs):
     matches = (responses.merge(questions)
                         .merge(surveys))
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
-    matches['version'] = 'A'
 
     # label subj id
     subjects = subjs.ix[subjs.experiment == 'transcription_matches']
@@ -179,6 +190,12 @@ def download_qualtrics():
         )
 
 
+def format_answer_keys():
+    answer_key_1 = format_answer_key(Path(surveys_dir, 'version-a'))
+    answer_key_2 = format_answer_key(Path(surveys_dir, 'version-b'))
+    return pd.concat([answer_key_1, answer_key_2])
+
+
 def format_answer_key(src_dir):
     answer_key = pd.read_csv(Path(src_dir, "selected_transcriptions.csv"))
     answer_key.rename(
@@ -187,7 +204,9 @@ def format_answer_key(src_dir):
         inplace=True,
     )
     catch_trial = dict(word=APP_CATCH_TRIAL_WORD,
-                       word_category="catch_trial", seed_id=-1, message_id=-1)
+                       word_category="catch_trial",
+                       seed_id=-1,
+                       message_id=-1)
     answer_key = answer_key.append(catch_trial, ignore_index=True)
     return answer_key[["word_category", "word", "seed_id", "message_id"]]
 
@@ -233,6 +252,8 @@ def label_answer_id(chunk, labels):
 def label_category_answer(category_question, labels):
     category_ix = (labels.choice_category == category_question.word_category)
     not_exact_match = (labels.choice_id != category_question.seed_id)
-    category_ids = labels.ix[category_ix & not_exact_match, "choice_id"]
+    in_choices = labels.choice_id.isin(category_question.choices)
+    category_ids = labels.ix[category_ix & not_exact_match & in_choices,
+                             "choice_id"]
     assert len(category_ids) == 1
     return category_ids.squeeze()

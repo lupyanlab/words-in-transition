@@ -63,16 +63,27 @@ def csv():
 
     transcriptions = transcriptions.merge(transcription_questions)
     transcriptions = transcriptions.merge(transcription_surveys)
-    transcriptions = transcriptions.merge(imitations[['imitation_id', 'seed_id', 'chain_name']])
+    transcriptions = transcriptions.merge(imitations[['message_id', 'seed_id', 'chain_name']])
 
-    transcriptions = transcriptions.ix[transcriptions.transcription_survey_name.isin(['hand picked 1', 'hand picked 1 seeds', 'remaining-proximal-and-distal-1'])]
+    transcription_survey_names = [
+        'hand picked 1',
+        'hand picked 1 seeds',
+        'remaining-proximal-and-distal-1',
+        'first-gen-partial-1',
+    ]
+
+    transcriptions = transcriptions.ix[
+        transcriptions.transcription_survey_name.isin(
+            transcription_survey_names
+        )
+    ]
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
     transcription_frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
     transcription_frequencies.loc[:, 'text'] =\
         transcription_frequencies.text.str.lower()
-    groupers = ['chain_name', 'seed_id', 'imitation_id']
+    groupers = ['chain_name', 'seed_id', 'message_id']
     transcription_frequencies = (transcription_frequencies.groupby(groupers)
                               .text
                               .value_counts()

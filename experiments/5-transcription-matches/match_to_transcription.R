@@ -1,28 +1,29 @@
 library(dplyr)
+library(magrittr)
 library(stringr)
 library(ggplot2)
 
 library(wordsintransition)
-data(matches)
+data("transcription_matches")
 
-matches$chance <- 0.25
+chance <- 0.25
 
-accuracy <- matches %>%
-  group_by(text_category, question_type, text) %>%
+transcription_matches %<>%
+  mutate(chance = chance) %>%
+  filter(word_category != "catch_trial")
+
+accuracy <- transcription_matches %>%
+  group_by(word_category, question_type, word) %>%
   summarize(
     accuracy = mean(is_correct),
     n = n()
   )
 
-ggplot(accuracy, aes(x = text_category, y = accuracy)) +
+ggplot(accuracy, aes(x = word_category, y = accuracy)) +
   geom_point(shape = 1) +
-  geom_text(aes(label = text), hjust = -0.1, angle = 45) +
+  geom_text(aes(label = word), hjust = -0.1, angle = 45) +
   facet_wrap("question_type")
 
-ggplot(guesses, aes(x = 1, y = is_correct)) +
-  geom_bar(stat = "summary", fun.y = "mean") +
-  facet_wrap("question_type")
-
-summary(glm(is_correct ~ 1, offset = chance, data = matches))
-summary(glm(is_correct ~ 1, offset = chance, data = filter(matches, question_type == "exact")))
-summary(glm(is_correct ~ 1, offset = chance, data = filter(matches, question_type == "category")))
+summary(glm(is_correct ~ 1, offset = chance, data = transcription_matches))
+summary(glm(is_correct ~ 1, offset = chance, data = filter(transcription_matches, question_type == "exact")))
+summary(glm(is_correct ~ 1, offset = chance, data = filter(transcription_matches, question_type == "category")))

@@ -23,7 +23,7 @@ bad_subj_ids <- transcription_matches %>%
 catch_trials <- transcription_matches %>%
   filter(question_type == "catch_trial")
 
-transcription_matches <- transcription_matches %>%
+transcription_matches %<>%
   filter(question_type != "catch_trial", !(subj_id %in% bad_subj_ids))
 
 scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))
@@ -37,6 +37,18 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct)) +
   coord_cartesian(ylim = c(0.0, 0.61)) +
   theme_minimal(base_size = 12) +
   theme(axis.ticks = element_blank())
+
+# ---- 5-responses-per-question
+decr_word_n <- count(transcription_matches, word) %>%
+  arrange(-n) %>% 
+  .$word
+transcription_matches$word_decr <- factor(
+  transcription_matches$word, levels = decr_word_n
+)
+
+ggplot(transcription_matches, aes(x = word_decr)) +
+  geom_bar(stat = "count") +
+  facet_wrap("question_type", ncol = 1)
 
 # ---- 5-catch-trials
 exclusions <- catch_trials %>%
@@ -63,7 +75,7 @@ means_plot +
   ggtitle("Match accuracy over experiment versions")
 
 # ---- 5-model
-acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * question_c|subj_id),
+acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
 tidy(acc_mod, effects = "fixed")
 
