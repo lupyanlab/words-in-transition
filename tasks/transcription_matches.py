@@ -11,7 +11,11 @@ surveys_dir = Path(experiment_dir, 'surveys')
 qualtrics_dir = Path(surveys_dir, 'qualtrics')
 
 # catch trial word for app surveys
-APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
+APP_CATCH_TRIAL_WORDS = [
+    "Attention check: Pick the third option.",
+    "Attention check: Pick the third option",
+]
+
 
 OUTPUT_COLUMNS = [
     'version', 'subj_id',
@@ -150,7 +154,7 @@ def make_transcription_matches_app(src_dir, subjs):
     )
 
     # determine question type and answer id
-    answer_key = format_answer_keys()
+    answer_key = format_answer_key()
     questions = questions.merge(answer_key)
     questions['question_type'] = questions.apply(label_question_type, axis=1)
     labels = format_choice_category_labels(answer_key)
@@ -191,25 +195,24 @@ def download_qualtrics():
         )
 
 
-def format_answer_keys():
-    answer_key_1 = format_answer_key(Path(surveys_dir, 'version-a'))
-    answer_key_2 = format_answer_key(Path(surveys_dir, 'version-b'))
-    return pd.concat([answer_key_1, answer_key_2])
-
-
-def format_answer_key(src_dir):
-    answer_key = pd.read_csv(Path(src_dir, "selected_transcriptions.csv"))
+def format_answer_key():
+    """Format the eligble transcriptions to be merged with the questions."""
+    answer_key = pd.read_csv(Path(experiment_dir,
+                                  "all_transcriptions_to_match.csv"))
     answer_key.rename(
         columns=dict(text="word",
                      chain_name="word_category"),
         inplace=True,
     )
-    catch_trial = dict(word=APP_CATCH_TRIAL_WORD,
-                       word_category="catch_trial",
-                       seed_id=-1,
+
+    # Add the catch trials to the answer key
+    catch_trial = dict(word_category="catch_trial", seed_id=-1,
                        message_id=-1)
-    answer_key = answer_key.append(catch_trial, ignore_index=True)
-    return answer_key[["word_category", "word", "seed_id", "message_id"]]
+    for catch_trial_word in APP_CATCH_TRIAL_WORDS:
+        catch_trial['word'] = catch_trial_word
+        answer_key = answer_key.append(catch_trial, ignore_index=True)
+
+    return answer_key[['word', 'word_category', 'message_id', 'seed_id']]
 
 
 def format_choice_category_labels(answer_key):
@@ -226,7 +229,7 @@ def format_choice_category_labels(answer_key):
 def label_question_type(question):
     if question.seed_id in question.choices:
         question_type = 'exact'
-    elif question.word == APP_CATCH_TRIAL_WORD:
+    elif question.word in APP_CATCH_TRIAL_WORDS:
         question_type = 'catch_trial'
     else:
         question_type = 'category'

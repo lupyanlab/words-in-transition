@@ -38,6 +38,45 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct)) +
   theme_minimal(base_size = 12) +
   theme(axis.ticks = element_blank())
 
+# ---- 5-num-sounds-transcribed-and-matched
+data("imitatons")
+data("transcriptions")
+
+imitations %<>%
+  filter(game_name == "words-in-transition")
+
+gen_labels <- imitations %>%
+  select(message_id, generation)
+
+transcriptions %<>%
+  filter(is_catch_trial == 0) %>%
+  # label the generation of the imitations being transcribed
+  left_join(gen_labels) %>%
+  recode_message_type
+
+base <- ggplot() +
+  theme_minimal()
+
+scale_x_generation <- scale_x_continuous(breaks = 0:8)
+
+hist <- base +
+  geom_histogram(aes(x = generation), binwidth = 1,
+                 color = "black", fill = "white", alpha = 0.6) +
+  scale_x_generation
+
+transcribed_imitations <- imitations %>%
+  filter(message_id %in% transcriptions$message_id)
+
+matched_imitation_transcriptions <- imitations %>%
+  filter(message_id %in% transcription_matches$message_id)
+
+(hist %+% transcribed_imitations) +
+  geom_histogram(aes(x = generation), data = imitations,
+                 binwidth = 1, fill = "black", alpha = 0.2) +
+  geom_histogram(aes(x = generation), data = matched_imitation_transcriptions,
+                 binwidth = 1, fill = "red", alpha = 0.4) +
+  ggtitle("Proportion of sounds transcribed and matched")
+
 # ---- 5-responses-per-question
 decr_word_n <- count(transcription_matches, word) %>%
   arrange(-n) %>% 
