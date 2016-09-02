@@ -104,6 +104,14 @@ digraph {
 }
 ```
 
+
+## Results
+
+TODO: Analyze the fidelity of the imitations.
+
+1. From generation to generation
+2. Across different branches in the same generation
+
 # Matching imitations to original sounds
 
 ## Methods
@@ -258,6 +266,11 @@ digraph {
 }
 ```
 
+
+## Results
+
+TODO: Pull in analyses presented at EvoLang.
+
 # Collecting transcriptions of sounds
 
 ```{r 4-setup}
@@ -284,6 +297,14 @@ than there was among the transcribers of n-th generation imitations.
 
 ```{r 4-transcription-agreement}
 ```
+
+### Continuous string matching
+
+TODO: Using difflib sequence matcher
+
+### Phonological similarity
+
+TODO: Confusability matrix
 
 # Matching transcriptions to original sounds
 
@@ -333,3 +354,6 @@ that they should select the third option.
 ### Agreement as a predictor of matching accuracy
 
 Do the imitations where there is a lot of agreement in the transcriptions have higher matching accuracy?
+
+```{r 5-transcription-agreement-matching-accuracy}
+```
