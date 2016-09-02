@@ -38,8 +38,8 @@ recode_message_type <- function(frame) {
 #' @import dplyr
 #' @export
 recode_version <- function(frame) {
-  levels <- c("pilot", "version_a", "version_b")
-  labels <- c("Pilot", "Version A", "Version B")
+  levels <- c("pilot", "version_a", "version_b", "version_c")
+  labels <- c("Pilot", "Version A", "Version B", "Version C")
 
   map <- data_frame(
     version = levels,
