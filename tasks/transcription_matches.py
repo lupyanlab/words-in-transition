@@ -152,6 +152,7 @@ def make_transcription_matches_app(src_dir, subjs):
         columns=dict(pk='question_id', survey='survey_id'),
         inplace=True,
     )
+    questions = questions.merge(surveys)
 
     # determine question type and answer id
     answer_key = format_answer_key()
@@ -172,9 +173,8 @@ def make_transcription_matches_app(src_dir, subjs):
     )
     responses = responses.merge(labels)  # label choice category
 
-    # combine responses, questions, and surveys
-    matches = (responses.merge(questions)
-                        .merge(surveys))
+    # combine responses with questions
+    matches = responses.merge(questions)
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
 
     # label subj id
@@ -212,7 +212,17 @@ def format_answer_key():
         catch_trial['word'] = catch_trial_word
         answer_key = answer_key.append(catch_trial, ignore_index=True)
 
-    return answer_key[['word', 'word_category', 'message_id', 'seed_id']]
+    # Add version column to answer key
+    # and only select answers for questions in surveys
+    version_a = read_raw_word_list('version_a', APP_CATCH_TRIAL_WORDS[0])
+    version_b = read_raw_word_list('version_b', APP_CATCH_TRIAL_WORDS[1])
+    version_c = read_raw_word_list('version_c', APP_CATCH_TRIAL_WORDS[1])
+    versions = pd.concat([version_a, version_b, version_c],
+                         ignore_index=True)
+    answer_key = versions.merge(answer_key)
+
+    return answer_key[['version', 'word', 'word_category', 'message_id',
+                       'seed_id']]
 
 
 def format_choice_category_labels(answer_key):
@@ -261,3 +271,11 @@ def label_category_answer(category_question, labels):
                              "choice_id"]
     assert len(category_ids) == 1
     return category_ids.squeeze()
+
+
+def read_raw_word_list(version_label, catch_trial_text):
+    words_txt = Path(surveys_dir, version_label, 'words.txt')
+    words = pd.read_table(words_txt, names=['word'])
+    words = words.append(dict(word=catch_trial_text), ignore_index=True)
+    words['version'] = version_label
+    return words
