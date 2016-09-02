@@ -152,6 +152,22 @@ def make_transcription_matches_app(src_dir, subjs):
         columns=dict(pk='question_id', survey='survey_id'),
         inplace=True,
     )
+    questions = questions.merge(surveys)
+
+    # Label word category, message id, seed id for questions
+    # NOTE: Some transcriptions were given to multiple messages
+    version_a = format_answer_key('version_a', APP_CATCH_TRIAL_WORDS[0])
+    version_b = format_answer_key('version_b', APP_CATCH_TRIAL_WORDS[1])
+    version_c = format_answer_key('version_c', APP_CATCH_TRIAL_WORDS[1])
+    answer_key = pd.concat([version_a, version_b, version_c],
+                           ignore_index=True)
+    questions = questions.merge(answer_key)
+
+    # Label question type and correct answer for each question
+    questions['question_type'] = questions.apply(label_question_type, axis=1)
+    labels = format_choice_category_labels(answer_key)
+    questions =\
+        questions.groupby('question_type').apply(label_answer_id, labels=labels)
 
     responses = pd.read_json(Path(src_dir, 'words.Response.json'))
     del responses['model']
@@ -163,22 +179,10 @@ def make_transcription_matches_app(src_dir, subjs):
         inplace=True,
     )
 
-    responses = (responses.merge(questions)
-                          .merge(surveys))
+    # Label choice category
+    responses = responses.merge(labels)
 
-
-
-    # determine question type and answer id
-    answer_key = format_answer_key()
-    questions = questions.merge(answer_key)
-    questions['question_type'] = questions.apply(label_question_type, axis=1)
-    labels = format_choice_category_labels(answer_key)
-    questions =\
-        questions.groupby('question_type').apply(label_answer_id, labels=labels)
-
-    responses = responses.merge(labels)  # label choice category
-
-    # combine responses with questions
+    # Combine responses with questions
     matches = responses.merge(questions)
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
 
@@ -188,24 +192,21 @@ def make_transcription_matches_app(src_dir, subjs):
 
     return matches[OUTPUT_COLUMNS]
 
-def format_answer_key():
+
+def format_answer_key(version_label, catch_trial_text):
     """Format the eligble transcriptions to be merged with the questions."""
-    answer_key = pd.read_csv(Path(experiment_dir,
-                                  "all_transcriptions_to_match.csv"))
-    answer_key.rename(
-        columns=dict(text="word",
-                     chain_name="word_category"),
-        inplace=True,
-    )
+    selected_csv = Path(surveys_dir, version_label,
+                        'selected_transcriptions.csv')
+    selected = pd.read_csv(selected_csv)
+    selected['version'] = version_label
+    selected = selected[
+        ['version', 'chain_name', 'seed_id', 'message_id', 'text']
+    ].rename(columns={'chain_name': 'word_category', 'text': 'word'})
 
-    # Add the catch trials to the answer key
-    catch_trial = dict(word_category="catch_trial", seed_id=-1,
-                       message_id=-1)
-    for catch_trial_word in APP_CATCH_TRIAL_WORDS:
-        catch_trial['word'] = catch_trial_word
-        answer_key = answer_key.append(catch_trial, ignore_index=True)
-
-    return answer_key[['word', 'word_category', 'message_id', 'seed_id']]
+    catch_trial = dict(word_category='catch_trial', word=catch_trial_text,
+                       version = version_label, seed_id=-1, message_id=-1)
+    selected = selected.append(catch_trial, ignore_index=True)
+    return selected
 
 
 def format_choice_category_labels(answer_key):
@@ -254,12 +255,3 @@ def label_category_answer(category_question, labels):
                              "choice_id"]
     assert len(category_ids) == 1
     return category_ids.squeeze()
-
-
-def read_raw_word_list(version_label, catch_trial_text):
-    words_txt = Path(surveys_dir, version_label, 'words.txt')
-    words = pd.read_table(words_txt, names=['word'])
-    words = words.drop_duplicates()
-    words = words.append(dict(word=catch_trial_text), ignore_index=True)
-    words['version'] = version_label
-    return words
