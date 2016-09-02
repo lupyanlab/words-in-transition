@@ -152,15 +152,6 @@ def make_transcription_matches_app(src_dir, subjs):
         columns=dict(pk='question_id', survey='survey_id'),
         inplace=True,
     )
-    questions = questions.merge(surveys)
-
-    # determine question type and answer id
-    answer_key = format_answer_key()
-    questions = questions.merge(answer_key)
-    questions['question_type'] = questions.apply(label_question_type, axis=1)
-    labels = format_choice_category_labels(answer_key)
-    questions =\
-        questions.groupby('question_type').apply(label_answer_id, labels=labels)
 
     responses = pd.read_json(Path(src_dir, 'words.Response.json'))
     del responses['model']
@@ -171,6 +162,20 @@ def make_transcription_matches_app(src_dir, subjs):
                      selection='choice_id'),
         inplace=True,
     )
+
+    responses = (responses.merge(questions)
+                          .merge(surveys))
+
+
+
+    # determine question type and answer id
+    answer_key = format_answer_key()
+    questions = questions.merge(answer_key)
+    questions['question_type'] = questions.apply(label_question_type, axis=1)
+    labels = format_choice_category_labels(answer_key)
+    questions =\
+        questions.groupby('question_type').apply(label_answer_id, labels=labels)
+
     responses = responses.merge(labels)  # label choice category
 
     # combine responses with questions
@@ -182,18 +187,6 @@ def make_transcription_matches_app(src_dir, subjs):
     matches = matches.merge(subjects, how='left')
 
     return matches[OUTPUT_COLUMNS]
-
-
-def download_qualtrics():
-    """Download imitation matches pilot data from Qualtrics."""
-    qualtrics = Qualtrics(**get_creds())
-    for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
-        responses = qualtrics.get_survey_responses(survey_name)
-        responses.to_csv(
-            Path(qualtrics_dir, 'responses/{}.csv'.format(survey_name)),
-            index=False,
-        )
-
 
 def format_answer_key():
     """Format the eligble transcriptions to be merged with the questions."""
@@ -212,17 +205,7 @@ def format_answer_key():
         catch_trial['word'] = catch_trial_word
         answer_key = answer_key.append(catch_trial, ignore_index=True)
 
-    # Add version column to answer key
-    # and only select answers for questions in surveys
-    version_a = read_raw_word_list('version_a', APP_CATCH_TRIAL_WORDS[0])
-    version_b = read_raw_word_list('version_b', APP_CATCH_TRIAL_WORDS[1])
-    version_c = read_raw_word_list('version_c', APP_CATCH_TRIAL_WORDS[1])
-    versions = pd.concat([version_a, version_b, version_c],
-                         ignore_index=True)
-    answer_key = versions.merge(answer_key)
-
-    return answer_key[['version', 'word', 'word_category', 'message_id',
-                       'seed_id']]
+    return answer_key[['word', 'word_category', 'message_id', 'seed_id']]
 
 
 def format_choice_category_labels(answer_key):
@@ -276,6 +259,7 @@ def label_category_answer(category_question, labels):
 def read_raw_word_list(version_label, catch_trial_text):
     words_txt = Path(surveys_dir, version_label, 'words.txt')
     words = pd.read_table(words_txt, names=['word'])
+    words = words.drop_duplicates()
     words = words.append(dict(word=catch_trial_text), ignore_index=True)
     words['version'] = version_label
     return words
