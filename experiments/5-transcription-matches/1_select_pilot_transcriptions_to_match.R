@@ -12,7 +12,20 @@ selected <- transcription_frequencies %>%
   arrange(desc(n)) %>%
   mutate(order = 1:n()) %>%
   ungroup() %>%
-  filter(order < 5)
+  filter(order < 5) %>%
+  select(
+    transcription_survey_name,
+    chain_name,
+    seed_id,
+    message_id,
+    text,
+    n,
+    order
+  ) %>%
+  arrange(
+    chain_name,
+    seed_id
+  )
 
 write.csv(selected,
           "experiments/5-transcription-matches/surveys/qualtrics/transcriptions/selected_transcriptions.csv",
