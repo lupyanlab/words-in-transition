@@ -1,4 +1,4 @@
-# ---- guess-the-seed
+# ---- 4-setup
 library(ggplot2)
 library(scales)
 library(dplyr)
