@@ -1,10 +1,10 @@
 digraph {
   labelloc="t";
-  label="Category match (true seed)";
+  label="True seed";
 
   graph[fontname="helvetica", fontsize=30];
   node[fontname="helvetica", fontsize=30];
-  
+
   glass[shape="none"];
   tear[shape="none"];
   water[shape="none"];

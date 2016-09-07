@@ -15,7 +15,7 @@ find_graphviz <- function(name) {
 #' @export
 read_all_graphviz_chunks <- function() {
   chunks <- c("design", "transition-wordlike", "games", "transcriptions",
-              "category-match", "category-match-true-seed", "specific-match")
+              "category-match", "true-seed", "specific-match")
   for (chunk in chunks) {
     chunk_path <- find_graphviz(chunk)
     read_chunk(chunk_path, labels = chunk)
