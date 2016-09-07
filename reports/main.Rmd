@@ -19,6 +19,7 @@ opts_chunk$set(
   fig.width = 8
 )
 
+read_chunk("3-match-to-seed-imitations/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
 ```
@@ -294,7 +295,23 @@ ggplot(response_counts, aes(x = message_id_decr, y = n)) +
 
 ## Results
 
-TODO: Add in results presented at EvoLang
+```{r 3-setup}
+```
+
+```{r 3-data}
+```
+
+```{r 3-models}
+```
+
+```{r 3-first-gen}
+```
+
+```{r 3-match-to-seed}
+```
+
+```{r 3-first-last-gen}
+```
 
 # Collecting transcriptions of sounds
 

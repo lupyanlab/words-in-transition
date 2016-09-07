@@ -11,7 +11,11 @@ surveys_dir = Path(experiment_dir, 'surveys')
 qualtrics_dir = Path(surveys_dir, 'qualtrics')
 
 # catch trial word for app surveys
-APP_CATCH_TRIAL_WORD = "Attention check: Pick the third option."
+APP_CATCH_TRIAL_WORDS = [
+    "Attention check: Pick the third option.",
+    "Attention check: Pick the third option",
+]
+
 
 OUTPUT_COLUMNS = [
     'version', 'subj_id',
@@ -133,7 +137,8 @@ def make_transcription_matches_app(src_dir, subjs):
     survey_labels = {}
     survey_versions = dict(
         version_a = ['match imitations seeds %s' % n for n in [1, 2]],
-        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]]
+        version_b = ['version-b-seeds-%s' % n for n in [1, 2, 3, 4]],
+        version_c = ['version-c-seeds-%s' % n for n in [1, 2, 3, 4]],
     )
     for label, survey_names in survey_versions.items():
         for survey_name in survey_names:
@@ -147,10 +152,18 @@ def make_transcription_matches_app(src_dir, subjs):
         columns=dict(pk='question_id', survey='survey_id'),
         inplace=True,
     )
+    questions = questions.merge(surveys)
 
-    # determine question type and answer id
-    answer_key = format_answer_keys()
+    # Label word category, message id, seed id for questions
+    # NOTE: Some transcriptions were given to multiple messages
+    version_a = format_answer_key('version_a', APP_CATCH_TRIAL_WORDS[0])
+    version_b = format_answer_key('version_b', APP_CATCH_TRIAL_WORDS[1])
+    version_c = format_answer_key('version_c', APP_CATCH_TRIAL_WORDS[1])
+    answer_key = pd.concat([version_a, version_b, version_c],
+                           ignore_index=True)
     questions = questions.merge(answer_key)
+
+    # Label question type and correct answer for each question
     questions['question_type'] = questions.apply(label_question_type, axis=1)
     labels = format_choice_category_labels(answer_key)
     questions =\
@@ -165,11 +178,12 @@ def make_transcription_matches_app(src_dir, subjs):
                      selection='choice_id'),
         inplace=True,
     )
-    responses = responses.merge(labels)  # label choice category
 
-    # combine responses, questions, and surveys
-    matches = (responses.merge(questions)
-                        .merge(surveys))
+    # Label choice category
+    responses = responses.merge(labels)
+
+    # Combine responses with questions
+    matches = responses.merge(questions)
     matches['is_correct'] = (matches.choice_id == matches.answer_id).astype(int)
 
     # label subj id
@@ -179,36 +193,20 @@ def make_transcription_matches_app(src_dir, subjs):
     return matches[OUTPUT_COLUMNS]
 
 
-def download_qualtrics():
-    """Download imitation matches pilot data from Qualtrics."""
-    qualtrics = Qualtrics(**get_creds())
-    for survey_name in ['match_to_seed_1', 'match_to_seed_2']:
-        responses = qualtrics.get_survey_responses(survey_name)
-        responses.to_csv(
-            Path(qualtrics_dir, 'responses/{}.csv'.format(survey_name)),
-            index=False,
-        )
+def format_answer_key(version_label, catch_trial_text):
+    """Format the eligble transcriptions to be merged with the questions."""
+    selected_csv = Path(surveys_dir, version_label,
+                        'selected_transcriptions.csv')
+    selected = pd.read_csv(selected_csv)
+    selected['version'] = version_label
+    selected = selected[
+        ['version', 'chain_name', 'seed_id', 'message_id', 'text']
+    ].rename(columns={'chain_name': 'word_category', 'text': 'word'})
 
-
-def format_answer_keys():
-    answer_key_1 = format_answer_key(Path(surveys_dir, 'version-a'))
-    answer_key_2 = format_answer_key(Path(surveys_dir, 'version-b'))
-    return pd.concat([answer_key_1, answer_key_2])
-
-
-def format_answer_key(src_dir):
-    answer_key = pd.read_csv(Path(src_dir, "selected_transcriptions.csv"))
-    answer_key.rename(
-        columns=dict(text="word",
-                     chain_name="word_category"),
-        inplace=True,
-    )
-    catch_trial = dict(word=APP_CATCH_TRIAL_WORD,
-                       word_category="catch_trial",
-                       seed_id=-1,
-                       message_id=-1)
-    answer_key = answer_key.append(catch_trial, ignore_index=True)
-    return answer_key[["word_category", "word", "seed_id", "message_id"]]
+    catch_trial = dict(word_category='catch_trial', word=catch_trial_text,
+                       version = version_label, seed_id=-1, message_id=-1)
+    selected = selected.append(catch_trial, ignore_index=True)
+    return selected
 
 
 def format_choice_category_labels(answer_key):
@@ -225,7 +223,7 @@ def format_choice_category_labels(answer_key):
 def label_question_type(question):
     if question.seed_id in question.choices:
         question_type = 'exact'
-    elif question.word == APP_CATCH_TRIAL_WORD:
+    elif question.word in APP_CATCH_TRIAL_WORDS:
         question_type = 'catch_trial'
     else:
         question_type = 'category'

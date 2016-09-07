@@ -8,10 +8,6 @@ data("transcription_matches")
 all_transcriptions_to_match <- transcription_frequencies %>%
   filter(is_english == 0)
 
-write.csv(all_transcriptions_to_match,
-          "experiments/5-transcription-matches/all_transcriptions_to_match.csv",
-          row.names = FALSE)
-
 words_already_matched <- unique(transcription_matches$word)
 most_frequent_unmatched_transcriptions <- all_transcriptions_to_match %>%
   group_by(chain_name, seed_id, message_id) %>%

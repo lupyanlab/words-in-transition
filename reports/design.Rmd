@@ -13,7 +13,7 @@ opts_chunk$set(
   echo = FALSE,
   fig.path = "figs/",
   cache = TRUE,
-  cache.path = "cache/"
+  cache.path = ".cache/"
 )
 ```
 

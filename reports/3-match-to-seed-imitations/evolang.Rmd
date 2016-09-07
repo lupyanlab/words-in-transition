@@ -1,0 +1,48 @@
+---
+title: "The fidelity of iterated vocal imitation"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+    toc: true
+---
+
+```{r config, echo = FALSE, warning = FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "figs/",
+  fig.width = 9,
+  fig.align = "center",
+  cache = TRUE,
+  cache.path = "cache/"
+)
+
+read_chunk("results.R")
+```
+
+```{r 3-setup}
+```
+
+```{r 3-data}
+```
+
+```{r 3-models}
+```
+
+```{r 3-first-gen}
+```
+
+```{r 3-match-to-seed}
+```
+
+```{r 3-first-last-gen}
+```
+
+```{r 3-transcription-agreement}
+```
+
+```{r 3-transcription-matches}
+```

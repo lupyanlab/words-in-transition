@@ -37,13 +37,6 @@ hist <- base +
   scale_x_generation
 
 # ---- 4-num-sounds
-hist <- base +
-  geom_histogram(aes(x = generation), binwidth = 1,
-                 color = "black", fill = "white", alpha = 0.6) +
-  geom_text(aes(x = generation, label = ..count..),
-            stat = "bin", binwidth = 1, vjust = -0.6) +
-  scale_x_generation
-
 hist %+% imitations
 
 # ---- 4-num-sounds-transcribed
