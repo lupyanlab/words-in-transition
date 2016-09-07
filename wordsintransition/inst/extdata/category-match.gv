@@ -1,0 +1,45 @@
+digraph {
+  labelloc="t";
+  label="Category match";
+
+  graph[fontname="helvetica", fontsize=30];
+  node[fontname="helvetica", fontsize=30];
+  
+  glass[shape="none"];
+  tear[shape="none"];
+  water[shape="none"];
+  zipper[shape="none"];
+
+  glass -> {glass1, glass2, glass3, glass4};
+  tear -> {tear1, tear2, tear3, tear4};
+  water -> {water1, water2, water3, water4};
+  zipper -> {zipper1, zipper2, zipper3, zipper4};
+
+  glass1[style="filled", fillcolor="#66C2A5"];
+  tear3[style="filled", fillcolor="#66C2A5"];
+  water3[style="filled", fillcolor="#66C2A5"];
+  zipper4[style="filled", fillcolor="#66C2A5"];
+
+  glass1[label="1"];
+  glass2[label="2"];
+  glass3[label="3"];
+  glass4[label="4"];
+
+  tear1[label="1"];
+  tear2[label="2"];
+  tear3[label="3"];
+  tear4[label="4"];
+
+  water1[label="1"];
+  water2[label="2"];
+  water3[label="3"];
+  water4[label="4"];
+
+  zipper1[label="1"];
+  zipper2[label="2"];
+  zipper3[label="3"];
+  zipper4[label="4"];
+
+  tear2 -> gen1;
+  gen1[label="?", style="filled", fillcolor="#FC8D62"];
+}

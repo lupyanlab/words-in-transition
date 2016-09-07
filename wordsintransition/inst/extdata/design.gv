@@ -1,0 +1,43 @@
+digraph {
+  node[fontname="helvetica", fontsize=30];
+
+  glass -> {glass1, glass2, glass3, glass4};
+  tear -> {tear1, tear2, tear3, tear4};
+  water -> {water1, water2, water3, water4};
+  zipper -> {zipper1, zipper2, zipper3, zipper4};
+  
+  glass[shape="none"];
+  tear[shape="none"];
+  water[shape="none"];
+  zipper[shape="none"];
+
+  glass1[label="1"];
+  glass2[label="2"];
+  glass3[label="3"];
+  glass4[label="4"];
+
+  tear1[label="1"];
+  tear2[label="2"];
+  tear3[label="3"];
+  tear4[label="4"];
+
+  water1[label="1"];
+  water2[label="2"];
+  water3[label="3"];
+  water4[label="4"];
+
+  zipper1[label="1"];
+  zipper2[label="2"];
+  zipper3[label="3"];
+  zipper4[label="4"];
+
+  glass1 -> subj1;
+  tear2 -> subj2;
+  water3 -> subj3;
+  zipper4 -> subj4;
+
+  subj1[label="S1", style="filled", fillcolor="#66C2A5"];
+  subj2[label="S1", style="filled", fillcolor="#66C2A5"];
+  subj3[label="S1", style="filled", fillcolor="#66C2A5"];
+  subj4[label="S1", style="filled", fillcolor="#66C2A5"];
+}

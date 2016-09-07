@@ -1,0 +1,58 @@
+digraph G {
+  graph[fontname="helvetica"; fontsize=20];
+  node[fontname="helvetica"];
+
+  subgraph cluster0{
+    label = "Telephone game"
+    d -> d1 -> d2 -> d3 -> d4;
+    c -> c1 -> c2 -> c3 -> c4;
+    b -> b1 -> b2 -> b3 -> b4;
+    a -> a1 -> a2 -> a3 -> a4;
+
+    a[style="filled", fillcolor="#66c2a5"];
+    b[style="filled", fillcolor="#66c2a5"];
+    c[style="filled", fillcolor="#66c2a5"];
+    d[style="filled", fillcolor="#66c2a5"];
+
+    a1[label=""];
+    a2[label=""];
+    a3[label=""];
+
+    b1[label=""];
+    b2[label=""];
+    b3[label=""];
+
+    c1[label=""];
+    c2[label=""];
+    c3[label=""];
+
+    d1[label=""];
+    d2[label=""];
+    d3[label=""];
+
+    a4[label="word"];
+    b4[label="word"];
+    c4[label="word", style="filled", fillcolor="#fc8d62"];
+    d4[label="word"];
+  }
+
+  gutter[style=invis];
+
+  subgraph cluster1{
+    label = "Guess the seed"
+    choice_d[label="d"];
+    choice_c[label="c"];
+    choice_b[label="b"];
+    choice_a[label="a"];
+
+    {choice_a, choice_b, choice_c, choice_d} -> question[dir=back];
+
+    choice_a[style="filled", fillcolor="#66c2a5"];
+    choice_b[style="filled", fillcolor="#66c2a5"];
+    choice_c[style="filled", fillcolor="#66c2a5"];
+    choice_d[style="filled", fillcolor="#66c2a5"];
+
+    question[label="word", style="filled", fillcolor="#fc8d62"];
+  }
+
+}

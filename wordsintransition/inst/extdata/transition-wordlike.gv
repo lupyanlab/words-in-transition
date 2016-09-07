@@ -1,0 +1,18 @@
+digraph {
+  node[fontname="helvetica"];
+  rankdir=LR;
+  
+  specific -> categorical;
+
+  imitative -> 1 -> 2 -> 3 -> 4 -> wordlike;
+  1[label=""];
+  2[label=""];
+  3[label=""];
+  4[label="&#8230;"];
+  
+  {rank=same; specific, imitative};
+  {rank=same; categorical, wordlike};
+  
+  specific[shape="none"];
+  categorical[shape="none"];
+}
