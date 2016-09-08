@@ -93,12 +93,20 @@ ggplot(transcription_uniqueness, aes(x = message_type, y = perct_agreement)) +
 # ---- 4-transcription-agreement-distance
 data("transcription_distances")
 
+message_id_map <- select(imitations, message_id, seed_id, generation)
+
 transcription_distances %<>%
+  left_join(message_id_map) %>%
   recode_message_type
 
-ggplot(transcription_distances, aes(x = message_type, y = distance)) +
-  geom_point(position = position_jitter(0.3, 0.0)) +
-  geom_bar(stat = "summary", fun.y = "mean")
+gg_distances <- ggplot(transcription_distances, aes(x = message_type, y = distance)) +
+  geom_bar(stat = "summary", fun.y = "mean",
+           alpha = 0.6) +
+  geom_point(shape = 1, position = position_jitter(0.3, 0.01))
+gg_distances
+
+gg_distances +
+  facet_wrap("no_freq")
 
 # ---- 4-transcription-agreement-and-match-accuracy
 data("transcription_matches")
