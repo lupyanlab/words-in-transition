@@ -8,6 +8,7 @@ from unipath import Path
 from .tidy import *
 from .transcription_matches import make_transcription_matches
 from .transcription_frequencies import summarize_transcription_frequency
+from .transcription_distances import summarize_transcription_distance
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')
@@ -81,6 +82,10 @@ def csv():
     frequencies = summarize_transcription_frequency(transcriptions)
     frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
                        index=False)
+
+    distances = summarize_transcription_distance(transcriptions)
+    distances.to_csv(Path(csv_output_dir, 'transcription_distances.csv'),
+                     index=False)
 
     # match transcriptions
     transcription_matches = make_transcription_matches(
