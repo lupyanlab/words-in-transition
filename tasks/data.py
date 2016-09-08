@@ -4,16 +4,14 @@ from shutil import copytree
 from invoke import task, run
 import pandas as pd
 from unipath import Path
-import enchant
 
 from .tidy import *
 from .transcription_matches import make_transcription_matches
+from .transcription_frequencies import summarize_transcription_frequency
 
 r_pkg_root = Path('wordsintransition')
 src_dir = Path(r_pkg_root, 'data-raw/src')
 csv_output_dir = Path(r_pkg_root, 'data-raw')
-
-d = enchant.Dict('en_US')
 
 
 @task
@@ -80,17 +78,8 @@ def csv():
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
-    transcription_frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
-    transcription_frequencies.loc[:, 'text'] =\
-        transcription_frequencies.text.str.lower()
-    groupers = ['chain_name', 'seed_id', 'message_id', 'transcription_survey_name']
-    transcription_frequencies = (transcription_frequencies.groupby(groupers)
-                              .text
-                              .value_counts()
-                              .reset_index()
-                              .rename(columns={0: 'n'}))
-    transcription_frequencies['is_english'] = transcription_frequencies.text.apply(check_english).astype(int)
-    transcription_frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
+    frequencies = summarize_transcription_frequency(transcriptions)
+    frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
                        index=False)
 
     # match transcriptions
@@ -120,8 +109,3 @@ def install():
     ]
     for r_command in r_commands:
         run("Rscript -e '{}'".format(r_command))
-
-
-def check_english(text):
-    text = ' '.join(text.split())  # remove variable white space
-    return all([d.check(w) for w in text.split()])
