@@ -3,18 +3,17 @@ library(dplyr)
 library(magrittr)
 
 library(wordsintransition)
-data("imitations")
 data("transcriptions")
-
-imitations %<>%
-  filter(game_name == "words-in-transition")
+data("imitations")
 
 transcriptions %<>%
   filter(is_catch_trial == 0) %>%
-  mutate(message_id = message_id) %>%
   recode_message_type
 
 transcribed_message_ids <- unique(transcriptions$message_id)
+
+imitations %<>%
+  filter(game_name == "words-in-transition")
 
 transcribed_imitations_first_gen_ids <- imitations %>%
   filter(
@@ -27,7 +26,7 @@ untranscribed_first_gen_ids <- imitations %>%
   filter(
     generation == 1,
     !(message_id %in% transcribed_message_ids),
-    message_id %in% n_gen_transcriptions
+    message_id %in% transcribed_imitations_first_gen_ids
   ) %>%
   .$message_id
 
