@@ -32,7 +32,7 @@ Sounds include both sound effects (generation 0) and imitations (generation > 0)
 ```{r 4-num-sounds-transcribed}
 ```
 
-# Number of transcriptions for each transcribed sound
+# Number of transcriptions for each selected sound
 
 ```{r 4-num-transcriptions-per-imitation, fig.width = 14}
 ```
@@ -41,7 +41,12 @@ Sounds include both sound effects (generation 0) and imitations (generation > 0)
 
 Transcription agreement for each sound, controlling for case only.
 
-```{r 4-transcription-agreement}
+```{r 4-transcription-agreement-exact}
+```
+
+Transcription agreement by string distance.
+
+```{r 4-transcription-agreement-distance}
 ```
 
 # Transcription agreement and match to seed accuracy

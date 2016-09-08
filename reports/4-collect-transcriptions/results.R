@@ -71,7 +71,7 @@ ylim_upr <- (transcriptions %>% count(message_id) %>% .$n %>% max) + 4
   coord_cartesian(ylim = c(0, ylim_upr)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1.0, vjust = 0.5))
 
-# ---- 4-transcription-agreement
+# ---- 4-transcription-agreement-exact
 transcription_frequencies %<>%
   recode_message_type
 
@@ -89,6 +89,16 @@ ggplot(transcription_uniqueness, aes(x = message_type, y = perct_agreement)) +
   geom_point(position = position_jitter(0.1, 0.0), shape = 1) +
   geom_point(stat = "summary", fun.y = "mean", size = 2) +
   scale_y_continuous("Transcription agreement", labels = percent)
+
+# ---- 4-transcription-agreement-distance
+data("transcription_distances")
+
+transcription_distances %<>%
+  recode_message_type
+
+ggplot(transcription_distances, aes(x = message_type, y = distance)) +
+  geom_point(position = position_jitter(0.3, 0.0)) +
+  geom_bar(stat = "summary", fun.y = "mean")
 
 # ---- 4-transcription-agreement-and-match-accuracy
 data("transcription_matches")
