@@ -97,12 +97,14 @@ message_id_map <- select(imitations, message_id, seed_id, generation)
 
 transcription_distances %<>%
   left_join(message_id_map) %>%
-  recode_message_type
+  recode_message_type %>%
+  filter(message_type != "sound_effect")
 
 gg_distances <- ggplot(transcription_distances, aes(x = message_type, y = distance)) +
   geom_bar(stat = "summary", fun.y = "mean",
            alpha = 0.6) +
-  geom_point(shape = 1, position = position_jitter(0.3, 0.01))
+  geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
+             shape = 1, position = position_jitter(0.3, 0.01))
 gg_distances
 
 gg_distances +
