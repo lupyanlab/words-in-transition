@@ -1,5 +1,5 @@
 ---
-title: "Transcriptions of sounds"
+title: "Transcriptions of first and last generation imitations"
 author: "Pierce Edmiston"
 output:
   html_document:
@@ -14,7 +14,9 @@ opts_chunk$set(
   echo = FALSE,
   message = FALSE,
   warning = FALSE,
-  fig.path = 'figs/'
+  fig.path = "figs/",
+  cache = TRUE,
+  cache.path = ".cache/"
 )
 
 read_chunk("results.R")
@@ -23,36 +25,31 @@ read_chunk("results.R")
 ```{r 4-setup}
 ```
 
-# Number of sounds
+# Sounds
 
-Sounds include both sound effects (generation 0) and imitations (generation > 0).
+Sounds comprise sound effects (generation 0) and imitations (generation > 0).
 
 ```{r 4-num-sounds}
 ```
 
-# Number of sounds that have been transcribed
+# Transcribed sounds
 
 ```{r 4-num-sounds-transcribed}
 ```
 
-# Number of transcriptions for each selected sound
+# Transcriptions per sound
 
 ```{r 4-num-transcriptions-per-imitation, fig.width = 14}
 ```
 
 # Transcription agreement
 
-Transcription agreement for each sound, controlling for case only.
+Transcription agreement for each sound, controlling for case only. Messages with no agreement among transcriptions had all unique transcriptions.
 
 ```{r 4-transcription-agreement-exact}
 ```
 
-Transcription agreement by string distance.
+Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription, and therefore the distance metric is inadequate.
 
 ```{r 4-transcription-agreement-distance}
-```
-
-# Transcription agreement and match to seed accuracy
-
-```{r 4-transcription-agreement-and-match-accuracy}
 ```

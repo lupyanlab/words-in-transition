@@ -115,49 +115,19 @@ transcription_distances %<>%
   filter(message_type != "sound_effect")
 
 distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
-  labs(x = "", y = "Average distance to most frequent") +
+  labs(x = "", y = "Average distance to most frequent transcription") +
   base_theme
 
 distance_plot +
   geom_bar(stat = "summary", fun.y = "mean",
-           alpha = 0.6) +
+           alpha = 0.6, width = 0.96) +
   geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
              shape = 1, position = position_jitter(0.3, 0.01))
 
 distance_plot + 
-  geom_bar(aes(fill = frequency_type), stat = "summary", fun.y = "mean",
+  geom_bar(aes(fill = frequency_type, width = 0.96), stat = "summary", fun.y = "mean",
            alpha = 0.6) +
   geom_point(aes(color = frequency_type, group = message_id), stat = "summary", fun.y = "mean",
              shape = 1, position = position_jitter(0.3, 0.01)) +
   facet_wrap("frequency_type") +
   guides(color = "none", fill = "none")
-
-# ---- 4-transcription-agreement-and-match-accuracy
-data("transcription_matches")
-
-transcription_matches %<>%
-  filter(question_type != "catch_trial", version != "pilot") %>%
-  left_join(gen_labels) %>%
-  recode_message_type
-
-transcription_match_accuracies <- transcription_matches %>%
-  group_by(message_id, message_type, question_type) %>%
-  summarize(
-    match_accuracy = mean(is_correct)
-  )
-
-transcription_agreement_and_uniqueness <- transcription_uniqueness %>%
-  select(message_type, message_id, perct_agreement) %>%
-  left_join(transcription_match_accuracies) %>%
-  filter(!is.na(question_type))
-
-base <- ggplot(transcription_agreement_and_uniqueness,
-               aes(x = perct_agreement, y = match_accuracy, color = message_type))
-base +
-  geom_point(stat = "summary", fun.y = "mean") +
-  ggtitle("Relationship betwen transcription agreement and match accuracy\nacross both question types")
-
-base +
-  geom_point() +
-  facet_wrap("question_type") +
-  ggtitle("Relationship between transcription agreement and match accuracy\nby question type")
