@@ -4,6 +4,7 @@ import pandas
 
 
 def summarize_transcription_distance(transcriptions):
+    transcriptions.loc[:, 'text'] = transcriptions.text.str.lower()
     distances = (transcriptions.groupby('message_id')
                                .apply(distance_to_most_frequent))
 
