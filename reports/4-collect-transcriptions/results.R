@@ -122,7 +122,8 @@ distance_plot +
   geom_bar(stat = "summary", fun.y = "mean",
            alpha = 0.6, width = 0.96) +
   geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
-             shape = 1, position = position_jitter(0.3, 0.01))
+             shape = 1, position = position_jitter(0.3, 0.01)) +
+  labs(title = "Distances get shorter")
 
 distance_plot + 
   geom_bar(aes(fill = frequency_type, width = 0.96), stat = "summary", fun.y = "mean",
@@ -131,3 +132,13 @@ distance_plot +
              shape = 1, position = position_jitter(0.3, 0.01)) +
   facet_wrap("frequency_type") +
   guides(color = "none", fill = "none")
+
+# ---- 4-transcription-length
+length_plot <- ggplot(transcription_distances, aes(message_label, length)) +
+  geom_point(aes(group = message_id, color = frequency_type), stat = "summary", fun.y = "mean",
+             shape = 1, position = position_jitter(0.3, 0.1)) +
+  geom_line(aes(group = frequency_type, color = frequency_type), stat = "summary", fun.y = "mean") +
+  labs(x = "", y = "Average longest substr match length",
+       title = "Matches get longer") + 
+  base_theme
+length_plot

@@ -30,7 +30,9 @@ def distance_to_most_frequent(transcriptions):
 
     def distancer(seq2):
         matcher.set_seq2(seq2)
-        distance = matcher.ratio()
+        # ratio is 1.0 if the sequences are identical,
+        # and 0.0 if they have nothing in common.
+        distance = 1 - matcher.ratio()
 
         match = matcher.find_longest_match(0, len(matcher.a), 0, len(matcher.b))
         length = match.size

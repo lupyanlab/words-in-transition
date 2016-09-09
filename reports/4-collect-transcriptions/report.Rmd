@@ -25,6 +25,11 @@ read_chunk("results.R")
 ```{r 4-setup}
 ```
 
+As imitations were iterated over generations of participants in the telephone game,
+the transcriptions of those imitations became more clustered around particular word 
+forms. There was more agreement on specific transcriptions at later generations, and 
+on average transcriptions become closer together in pattern matching distance.
+
 # Sounds
 
 Sounds comprise sound effects (generation 0) and imitations (generation > 0).
@@ -44,12 +49,22 @@ Sounds comprise sound effects (generation 0) and imitations (generation > 0).
 
 # Transcription agreement
 
+## Exact agreement
+
 Transcription agreement for each sound, controlling for case only. Messages with no agreement among transcriptions had all unique transcriptions.
 
 ```{r 4-transcription-agreement-exact}
 ```
 
-Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription, and therefore the distance metric is inadequate.
+## Pattern distance
+
+Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription (and therefore the distance metric is inappropriate).
 
 ```{r 4-transcription-agreement-distance}
 ```
+
+## Length of pattern
+
+```{r 4-transcription-length}
+```
+
