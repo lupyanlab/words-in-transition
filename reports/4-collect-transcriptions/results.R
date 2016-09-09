@@ -24,8 +24,11 @@ transcriptions %<>%
 transcription_frequencies %<>%
   left_join(gen_labels)
 
+base_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
+
 base <- ggplot() +
-  theme_minimal()
+  base_theme
 
 scale_x_generation <- scale_x_continuous(breaks = 0:8)
 
@@ -73,22 +76,32 @@ ylim_upr <- (transcriptions %>% count(message_id) %>% .$n %>% max) + 4
 
 # ---- 4-transcription-agreement-exact
 transcription_frequencies %<>%
-  recode_message_type
+  recode_message_type %>%
+  filter(message_type != "sound_effect")
 
 transcription_uniqueness <- transcription_frequencies %>%
-  group_by(message_type, message_id) %>%
+  group_by(message_type, message_label, message_id) %>%
   summarize(
     num_words = sum(n),
     num_unique = n_distinct(text),
     perct_unique = num_unique/num_words,
     perct_agreement = 1 - perct_unique
-  )
+  ) %>%
+  ungroup %>%
+  mutate(
+    no_agreement = as.integer(perct_agreement == 0)
+  ) %>%
+  recode_transcription_frequency
 
 set.seed(752)  # for replicable position_jitter
-ggplot(transcription_uniqueness, aes(x = message_type, y = perct_agreement)) +
-  geom_point(position = position_jitter(0.1, 0.0), shape = 1) +
-  geom_point(stat = "summary", fun.y = "mean", size = 2) +
-  scale_y_continuous("Transcription agreement", labels = percent)
+ggplot(transcription_uniqueness, aes(x = message_label, y = perct_agreement)) +
+  geom_point(aes(color = frequency_type),
+             position = position_jitter(0.1, 0.01), shape = 1) +
+  geom_point(stat = "summary", fun.y = "mean", size = 3, alpha = 0.6) +
+  geom_point(aes(color = frequency_type), stat = "summary", fun.y = "mean",
+             size = 3, alpha = 0.6) +
+  scale_y_continuous("Transcription agreement", labels = percent) +
+  base_theme
 
 # ---- 4-transcription-agreement-distance
 data("transcription_distances")
@@ -97,18 +110,27 @@ message_id_map <- select(imitations, message_id, seed_id, generation)
 
 transcription_distances %<>%
   left_join(message_id_map) %>%
+  recode_transcription_frequency %>%
   recode_message_type %>%
   filter(message_type != "sound_effect")
 
-gg_distances <- ggplot(transcription_distances, aes(x = message_type, y = distance)) +
+distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
+  labs(x = "", y = "Average distance to most frequent") +
+  base_theme
+
+distance_plot +
   geom_bar(stat = "summary", fun.y = "mean",
            alpha = 0.6) +
   geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
              shape = 1, position = position_jitter(0.3, 0.01))
-gg_distances
 
-gg_distances +
-  facet_wrap("no_freq")
+distance_plot + 
+  geom_bar(aes(fill = frequency_type), stat = "summary", fun.y = "mean",
+           alpha = 0.6) +
+  geom_point(aes(color = frequency_type, group = message_id), stat = "summary", fun.y = "mean",
+             shape = 1, position = position_jitter(0.3, 0.01)) +
+  facet_wrap("frequency_type") +
+  guides(color = "none", fill = "none")
 
 # ---- 4-transcription-agreement-and-match-accuracy
 data("transcription_matches")

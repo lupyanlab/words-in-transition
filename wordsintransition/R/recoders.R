@@ -23,7 +23,7 @@ recode_message_type <- function(frame) {
   })
 
   levels <- c("sound_effect", "first_gen_imitation", "last_gen_imitation")
-  labels <- c("Sound effect transcription", "First gen transcription", "Last gen transcription")
+  labels <- c("Sound effect", "First gen imitation", "Last gen imitation")
 
   map <- data_frame(
     message_type = levels,
@@ -46,5 +46,16 @@ recode_version <- function(frame) {
     version_label = factor(levels, levels = levels, labels = labels)
   )
 
+  frame %>% left_join(map)
+}
+
+
+#' @import dplyr
+#' @export
+recode_transcription_frequency <- function(frame) {
+  map <- data_frame(
+    no_agreement = c(0, 1),
+    frequency_type = c("Some agreement", "No agreement")
+  )
   frame %>% left_join(map)
 }

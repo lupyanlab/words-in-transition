@@ -7,6 +7,6 @@ def test_transcription_distance_output():
         message_id = [1, 1, 1],
     ))
     distances = summarize_transcription_distance(transcriptions)
-    expected_cols = ('message_id text no_freq most_freq distance '
+    expected_cols = ('message_id text no_agreement most_freq distance '
                      'match length').split()
     assert all([exp in distances for exp in expected_cols])

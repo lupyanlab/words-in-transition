@@ -1,4 +1,4 @@
-message_id,text,no_freq,most_freq,distance,substr,length
+message_id,text,no_agreement,most_freq,distance,substr,length
 505,izzip,0,izit,0.666666666667,iz,2
 505,izzit,0,izit,0.888888888889,zit,3
 505,izit,0,izit,1.0,izit,4
