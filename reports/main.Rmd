@@ -5,15 +5,18 @@ output:
   html_document:
     theme: flatly
     toc: true
+    toc_float: true
 ---
 
-```{r, config, echo = FALSE}
+```{r config, echo = FALSE}
 library(knitr)
 library(printr)
 
 opts_chunk$set(
   echo = FALSE,
   message = FALSE,
+  warning = FALSE,
+  cache = TRUE,
   cache.path = ".cache/",
   fig.path = "figs/",
   fig.width = 8
@@ -44,11 +47,11 @@ transcription_matches %<>%
   recode_version
 ```
 
-# Determining the sounds to imitate
+# Seed selection
 
 We started with 6 sounds in each of 6 categories and reduced that number to 4 sounds in each of 4 categories through two "odd one out" norming experiments.
 
-# Collecting iterated imitations
+# Collecting imitations
 
 ## Methods
 
@@ -106,7 +109,6 @@ digraph {
 }
 ```
 
-
 ## Results
 
 TODO: Analyze the fidelity of the imitations.
@@ -114,7 +116,7 @@ TODO: Analyze the fidelity of the imitations.
 1. From generation to generation
 2. Across different branches in the same generation
 
-# Matching imitations to original sounds
+# Matching imitations to seeds
 
 ## Methods
 
@@ -270,36 +272,18 @@ digraph {
 }
 ```
 
-## Results
-
-TODO: Pull in analyses presented at EvoLang.
-=======
 ### Number of responses per question
-
-```{r 3-num-responses-per-question}
-response_counts <- imitation_matches %>%
-  count(message_id, survey_type)
-
-message_id_decr <- response_counts %>%
-  group_by(message_id) %>%
-  summarize(total_n = sum(n)) %>%
-  arrange(desc(total_n)) %>%
-  .$message_id
-response_counts$message_id_decr <- factor(response_counts$message_id,
-                                            levels = message_id_decr)
-
-ggplot(response_counts, aes(x = message_id_decr, y = n)) +
-  geom_bar(stat = "identity") +
-  facet_wrap("survey_type", ncol = 1)
-```
-
-## Results
 
 ```{r 3-setup}
 ```
 
 ```{r 3-data}
 ```
+
+```{r 3-num-responses-per-question}
+```
+
+## Results
 
 ```{r 3-models}
 ```
@@ -313,7 +297,7 @@ ggplot(response_counts, aes(x = message_id_decr, y = n)) +
 ```{r 3-first-last-gen}
 ```
 
-# Collecting transcriptions of sounds
+# Transcriptions of imitations
 
 ```{r 4-setup}
 ```
@@ -334,21 +318,33 @@ Transcribed sounds include all 16 seed sound effects and all imitatations in the
 
 ## Results
 
+### Exact agreement
+
+Transcription agreement for each sound, controlling for case only. Messages with no agreement among transcriptions had all unique transcriptions.
+
 There was less agreement among transcribers for the seed sound effects
 than there was among the transcribers of n-th generation imitations.
 
-```{r 4-transcription-agreement}
+```{r 4-transcription-agreement-exact}
 ```
 
-### Continuous string matching
+### Pattern distance
 
-TODO: Using difflib sequence matcher
+Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription (and therefore the distance metric is inappropriate).
+
+```{r 4-transcription-agreement-distance}
+```
+
+### Length of pattern
+
+```{r 4-transcription-length}
+```
 
 ### Phonological similarity
 
 TODO: Confusability matrix
 
-# Matching transcriptions to original sounds
+# Matching transcriptions to seeds
 
 ```{r 5-setup}
 ```

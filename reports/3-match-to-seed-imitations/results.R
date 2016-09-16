@@ -94,6 +94,22 @@ question_type_map <- data_frame(
 transcription_matches <- transcription_matches %>%
   left_join(question_type_map)
 
+# ---- 3-num-responses-per-question
+response_counts <- imitation_matches %>%
+  count(message_id, survey_type)
+
+message_id_decr <- response_counts %>%
+  group_by(message_id) %>%
+  summarize(total_n = sum(n)) %>%
+  arrange(desc(total_n)) %>%
+  .$message_id
+response_counts$message_id_decr <- factor(response_counts$message_id,
+                                          levels = message_id_decr)
+
+ggplot(response_counts, aes(x = message_id_decr, y = n)) +
+  geom_bar(stat = "identity") +
+  facet_wrap("survey_type", ncol = 1)
+
 # ---- 3-models
 imitation_matches_mod <- glmer(is_correct ~ generation_1 * (same_v_between + same_v_within) + 
                                  (generation_1|chain_name/seed_id),
