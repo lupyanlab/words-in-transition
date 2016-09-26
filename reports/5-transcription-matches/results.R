@@ -1,6 +1,10 @@
 library(ggplot2)
 global_theme <- theme_minimal() +
-  theme(axis.ticks = element_blank)
+  theme(axis.ticks = element_blank())
+
+colors <- RColorBrewer::brewer.pal(4, "Set2")
+names(colors) <- c("blue", "orange", "green", "pink")
+question_type_colors <- unname(colors[c("green", "blue")])
 
 # ---- 5-setup
 library(dplyr)
@@ -35,12 +39,14 @@ transcription_matches %<>%
 scale_x_message <- scale_x_continuous("Transcriptions", breaks = c(-0.5, 0.5), labels = c("First generation", "Last generation"))
 scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))
 scale_y_accuracy <- scale_y_continuous("Match to seed accuracy", labels = percent,
-                                       breaks = c(0, 1, by = 0.25))
+                                       breaks = c(0, 0.5, by = 0.05))
+scale_fill_question_type <- scale_fill_brewer(palette = "Set2")
 
-gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct)) +
+gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct, fill = question_type)) +
   geom_hline(yintercept = 0.25, lty = 2, alpha = 0.6) +
   scale_x_question +
   scale_y_accuracy +
+  scale_fill_question_type +
   coord_cartesian(ylim = c(0.0, 0.61)) +
   global_theme
 
@@ -107,7 +113,7 @@ ggplot(exclusions, aes(x = is_correct_f, y = n)) +
 
 # ---- 5-plot-means
 means_plot <- gg + geom_bar(stat = "summary", fun.y = "mean",
-                            width = 0.99, alpha = 0.6)
+                            width = 0.99, alpha = 0.8)
 means_plot + 
   facet_wrap("message_type") +
   ggtitle("Match accuracy by origin of transcription")

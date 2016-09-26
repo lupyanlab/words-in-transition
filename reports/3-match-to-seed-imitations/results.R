@@ -2,6 +2,10 @@ library(ggplot2)
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
 
+colors <- RColorBrewer::brewer.pal(4, "Set2")
+names(colors) <- c("blue", "orange", "green", "pink")
+question_type_colors <- unname(colors[c("blue", "orange", "green")])
+
 # ---- 3-setup
 library(dplyr)
 library(ggplot2)
@@ -13,14 +17,12 @@ library(AICcmodavg)
 library(pander)
 
 # colors
-colors <- RColorBrewer::brewer.pal(4, "Set2")
-names(colors) <- c("green", "orange", "blue", "pink")
 between_color <- colors[["green"]]
 within_color <- colors[["blue"]]
 
 # ggplot theme
 distractor_labels <- c("Category match\n(true seed)", "Category match", "Specific match")
-distractor_colors <- c(between_color, colors[["orange"]], within_color)
+distractor_colors <- question_type_colors
 
 scale_y_accuracy <- scale_y_continuous(
   "Guess the seed accuracy",

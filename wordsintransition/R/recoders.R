@@ -1,9 +1,11 @@
 #' @import dplyr
 #' @export
 recode_question_type <- function(frame) {
+  labels <- c("Category match\n(true seed)", "Category match")
   map <- data_frame(
     question_type = c("exact", "category"),
-    question_c = c(-0.5, 0.5)
+    question_c = c(-0.5, 0.5),
+    question_label = factor(labels, levels = labels)
   )
 
   frame %>% left_join(map)
