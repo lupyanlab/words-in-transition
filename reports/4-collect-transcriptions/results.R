@@ -102,7 +102,7 @@ ggplot(transcription_uniqueness, aes(x = message_label, y = perct_agreement)) +
   geom_point(aes(color = frequency_type), stat = "summary", fun.y = "mean",
              size = 3, alpha = 0.6) +
   scale_y_continuous("Transcription agreement", labels = percent) +
-  base_theme
+  global_theme
 
 # ---- 4-transcription-agreement-distance
 data("transcription_distances")
@@ -117,7 +117,7 @@ transcription_distances %<>%
 
 distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
   labs(x = "", y = "Average distance to most frequent transcription") +
-  base_theme
+  global_theme
 
 distance_plot +
   geom_bar(stat = "summary", fun.y = "mean",
@@ -141,5 +141,5 @@ length_plot <- ggplot(transcription_distances, aes(message_label, length)) +
   geom_line(aes(group = frequency_type, color = frequency_type), stat = "summary", fun.y = "mean") +
   labs(x = "", y = "Average longest substr match length",
        title = "Matches get longer") + 
-  base_theme
+  global_theme
 length_plot

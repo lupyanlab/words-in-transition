@@ -162,7 +162,7 @@ ggplot(imitation_matches, aes(x = generation_1, y = is_correct)) +
   scale_color_distractors +
   chance_line +
   distractor_coords +
-  base_theme +
+  global_theme +
   theme(legend.position = "top", legend.key.size = unit(2, "lines"))
 
 # ---- 3-first-last-gen
