@@ -28,7 +28,7 @@ recode_message_type <- function(frame) {
   map <- data_frame(
     message_type = levels,
     message_label = factor(message_type, levels = levels, labels = labels),
-    message_c = c(-0.5, 0.5, 0.5)
+    message_c = c(NA, -0.5, 0.5)
   )
 
   frame %>% left_join(map)
