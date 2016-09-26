@@ -22,6 +22,8 @@ opts_chunk$set(
   fig.width = 8
 )
 
+read_chunk("theme.R")
+
 # read_chunk("1-determine-seeds/results.R")
 # read_chunk("2-collect-imitations/results.R")
 read_chunk("3-match-to-seed-imitations/results.R")
@@ -47,6 +49,9 @@ transcription_matches %<>%
   recode_question_type %>%
   recode_message_type %>%
   recode_version
+```
+
+```{r global-theme}
 ```
 
 # Seed selection

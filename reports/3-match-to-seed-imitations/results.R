@@ -1,3 +1,7 @@
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
+
 # ---- 3-setup
 library(dplyr)
 library(ggplot2)
@@ -53,9 +57,6 @@ scale_color_distractors <- scale_color_manual(
 chance_line <- geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1.5)
 chance_label <- annotate("text", x = 10, y = 0.26, label = "chance",
                          size = 7, vjust = -0.1, fontface = "italic", alpha = 0.4)
-
-base_theme <- theme_minimal(base_size = 24) +
-  theme(axis.ticks = element_blank())
 
 distractor_xlim <- c(-0.2, 7.2)
 distractor_coords <- coord_cartesian(
@@ -145,7 +146,7 @@ ggplot(filter(transition_preds, generation_1 == 0), aes(x = survey_type, y = is_
   scale_y_accuracy +
   scale_x_distractors +
   scale_fill_distractors +
-  base_theme +
+  global_theme +
   chance_line +
   coord_cartesian(ylim = c(0, 1.0)) +
   theme(legend.position = "none") +
@@ -172,7 +173,7 @@ ggplot(filter(transition_preds, generation_1 %in% c(0,7)), aes(x = survey_type, 
   scale_y_accuracy +
   scale_x_distractors +
   scale_fill_distractors +
-  base_theme +
+  global_theme +
   chance_line +
   coord_cartesian(ylim = c(0, 1.0)) +
   theme(legend.position = "none")
@@ -200,7 +201,7 @@ ggplot(examples, aes(x = text, y = n)) +
   scale_y_continuous("Frequency of spelling", breaks = seq(0, 10, by = 2)) +
   scale_fill_categories +
   coord_cartesian(ylim = c(0, 11)) +
-  base_theme +
+  global_theme +
   theme(
     legend.position = "top",
     axis.text.x = element_blank()
@@ -217,6 +218,6 @@ ggplot(transcription_matches, aes(x = question_f, y = is_correct)) +
   scale_x_discrete("", labels = c("Category match (true seed)", "Category match")) +
   scale_y_accuracy +
   scale_fill_categories +
-  base_theme +
+  global_theme +
   theme(legend.position = "none") +
   ggtitle("Guess the seed accuracy with transcriptions")

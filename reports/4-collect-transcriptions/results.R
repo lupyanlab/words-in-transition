@@ -1,3 +1,7 @@
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
+
 # ---- 4-setup
 library(ggplot2)
 library(scales)
@@ -24,11 +28,8 @@ transcriptions %<>%
 transcription_frequencies %<>%
   left_join(gen_labels)
 
-base_theme <- theme_minimal() +
-  theme(axis.ticks = element_blank())
-
 base <- ggplot() +
-  base_theme
+  global_theme
 
 scale_x_generation <- scale_x_continuous(breaks = 0:8)
 

@@ -1,3 +1,7 @@
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank)
+
 # ---- 5-setup
 library(dplyr)
 library(magrittr)
@@ -38,8 +42,7 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct)) +
   scale_x_question +
   scale_y_accuracy +
   coord_cartesian(ylim = c(0.0, 0.61)) +
-  theme_minimal(base_size = 12) +
-  theme(axis.ticks = element_blank())
+  global_theme
 
 # ---- 5-num-sounds-transcribed-and-matched
 data("imitatons")
