@@ -1,0 +1,75 @@
+---
+title: "Matching transcriptions to seeds"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE, message = FALSE}
+library(knitr)
+
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  fig.path = "figs/",
+  cache.path = ".cache/"
+)
+
+read_chunk("results.R")
+```
+
+```{r 5-setup}
+```
+
+## Methods
+
+### Selected transcriptions
+
+We obtained match-to-seed accuracy ratings for the 4 most frequent spellings
+of a sample of 8 transcribed sounds.
+
+### Subjects
+
+```{r, 5-subjects}
+transcription_matches %>%
+  group_by(version) %>%
+  summarize(
+    num_subjects = length(unique(subj_id)),
+    num_responses_per_subject = round(n()/num_subjects)
+  ) %>%
+  kable(col.names = c("Version", "Subjects", "Responses per subject"),
+        align = "l")
+```
+
+Subjects were excluded if they failed the catch trial, which indicated
+that they should select the third option.
+
+```{r 5-catch-trials, fig.width = 4}
+```
+
+### Number of responses
+
+```{r 5-responses-per-question}
+```
+
+## Results
+
+```{r 5-plot-template}
+```
+
+```{r 5-plot-means}
+```
+
+```{r 5-model, echo = 1, cache = TRUE}
+```
+
+```{r 5-model-preds}
+```
+
+### Agreement as a predictor of matching accuracy
+
+Do the imitations where there is a lot of agreement in the transcriptions have higher matching accuracy?
+
+```{r 5-transcription-agreement-matching-accuracy}
+```

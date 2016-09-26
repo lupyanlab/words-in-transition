@@ -22,6 +22,8 @@ opts_chunk$set(
   fig.width = 8
 )
 
+# read_chunk("1-determine-seeds/results.R")
+# read_chunk("2-collect-imitations/results.R")
 read_chunk("3-match-to-seed-imitations/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
@@ -372,7 +374,7 @@ transcription_matches %>%
 Subjects were excluded if they failed the catch trial, which indicated
 that they should select the third option.
 
-```{r, 5-catch-trials, fig.width = 4}
+```{r 5-catch-trials, fig.width = 4}
 ```
 
 ### Number of responses
@@ -382,16 +384,16 @@ that they should select the third option.
 
 ## Results
 
-```{r, 5-plot-template}
+```{r 5-plot-template}
 ```
 
-```{r, 5-plot-means}
+```{r 5-plot-means}
 ```
 
-```{r, 5-model, echo = 1, cache = TRUE}
+```{r 5-model, echo = 1, cache = TRUE}
 ```
 
-```{r, 5-model-preds}
+```{r 5-model-preds}
 ```
 
 ### Agreement as a predictor of matching accuracy
