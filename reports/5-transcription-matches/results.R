@@ -24,8 +24,11 @@ catch_trials <- transcription_matches %>%
   filter(question_type == "catch_trial")
 
 transcription_matches %<>%
-  filter(question_type != "catch_trial", !(subj_id %in% bad_subj_ids))
+  filter(question_type != "catch_trial",
+         !(subj_id %in% bad_subj_ids),
+         message_type != "sound_effect")
 
+scale_x_message <- scale_x_continuous("Transcriptions", breaks = c(-0.5, 0.5), labels = c("First generation", "Last generation"))
 scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))
 scale_y_accuracy <- scale_y_continuous("Match to seed accuracy", labels = percent,
                                        breaks = c(0, 1, by = 0.25))
@@ -92,26 +95,19 @@ ggplot(transcription_matches, aes(x = word_decr)) +
 # ---- 5-catch-trials
 exclusions <- catch_trials %>%
   mutate(is_correct_f = factor(is_correct, labels = c("Failed", "Passed"))) %>%
-  group_by(version, is_correct_f) %>%
+  group_by(is_correct_f) %>%
   summarize(n = length(unique(subj_id)))
-
-label_bump <- 4
 
 ggplot(exclusions, aes(x = is_correct_f, y = n)) +
   geom_bar(stat = "identity") +
-  geom_text(aes(label = n, y = ifelse(is_correct_f == "Failed", n + label_bump, n - label_bump))) +
   scale_x_discrete("")
 
 # ---- 5-plot-means
 means_plot <- gg + geom_bar(stat = "summary", fun.y = "mean",
                             width = 0.99, alpha = 0.6)
-means_plot + ggtitle("Match accuracy by type of match")
 means_plot + 
-  facet_wrap("message_label") +
+  facet_wrap("message_type") +
   ggtitle("Match accuracy by origin of transcription")
-means_plot +
-  facet_grid(version_label ~ message_label) +
-  ggtitle("Match accuracy over experiment versions")
 
 # ---- 5-model
 acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
