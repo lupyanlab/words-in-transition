@@ -61,7 +61,7 @@ exemplars in each to use as seed messages in the main experiment.
 
 ## Methods
 
-```{r definitions, engine = "dot"}
+```{r definitions, engine = "dot", fig.width = 2}
 ```
 
 ## Results
