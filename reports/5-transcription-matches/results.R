@@ -50,6 +50,16 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct, fill = q
   coord_cartesian(ylim = c(0.0, 0.61)) +
   global_theme
 
+# ---- 5-subjects
+transcription_matches %>%
+  group_by(version) %>%
+  summarize(
+    num_subjects = length(unique(subj_id)),
+    num_responses_per_subject = round(n()/num_subjects)
+  ) %>%
+  knitr::kable(col.names = c("Version", "Subjects", "Responses per subject"),
+               align = "l")
+
 # ---- 5-num-sounds-transcribed-and-matched
 data("imitatons")
 data("transcriptions")
