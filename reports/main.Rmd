@@ -4,13 +4,13 @@ author: "Pierce Edmiston"
 output:
   html_document:
     theme: flatly
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
 ---
 
 This research intends to show that conventionalized word forms can arise gradually and uneffortfully simply from the repetition of imitations of environmental sounds. Participants played an online version of the children's game "telephone" where a message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of environment sounds (e.g., glass breaking, water splashing). These imitations were expected to become more wordlike as they are repeated. "Wordlike-ness" is measured in multiple ways, the most important of which is whether imitations take on wordlike meanings as they are repeated. At the beginning of the chains, the meaning of the imitations is expected to be yoked to the particular exemplar being imitated. For example, an imitation of a particular breed and disposition of dog. In contrast, one of the features of word meanings is that they are categorical--that a word doesn't necessarily refer to a particular exemplar within a category. If this is true, and if imitations become more wordlike as they are repeated, then we should expect to see the imitations also take on more categorical meanings as they are repeated.
 
-Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical word meanings. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the evidence that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Together these results suggest that the emergence of conventionalized word forms may simply be a product of repetition within a community of language users, providing a way to account for the pervasive levels of iconicity found in languages spoken today.
+Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical word meanings. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the hypothesis that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Together these results suggest that the emergence of some conventionalized word forms may be a product of repetition without intent, providing a way to account for the pervasive levels of iconicity found in languages spoken today.
 
 ```{r config, echo = FALSE}
 library(knitr)
@@ -28,7 +28,7 @@ opts_chunk$set(
 
 read_chunk("theme.R")
 
-# read_chunk("1-determine-seeds/results.R")
+read_chunk("1-determine-seeds/results.R")
 # read_chunk("2-collect-imitations/results.R")
 read_chunk("3-match-to-seed-imitations/results.R")
 read_chunk("4-collect-transcriptions/results.R")
@@ -36,12 +36,26 @@ read_chunk("5-transcription-matches/results.R")
 wordsintransition::read_wordsintransition_chunks()
 ```
 
-```{r global-theme}
+```{r theme}
 ```
 
-# Seed selection
+# Environmental sounds
 
-We started with 6 sounds in each of 6 categories and reduced that number to 4 sounds in each of 4 categories through two "odd one out" norming experiments.
+To select the environmental sounds to use as "seed" messages in the experiment,
+we first selected 6 categories of sounds and 6 different exemplars within each
+category for a total of 36 sounds. The main constraint on category selection
+was to select categories without conventional wordforms that may confound our
+results. For instance, we didn't use "dog" as a category of sounds because of
+the existence of words like "bark" and "woof" already in the English language.
+Within each category, we selected exemplars to be approximately equidistant
+from one another in terms of psychological distance. To do this, we recruited
+two batches of norming participants to engage in "odd one out" experiments,
+where participants identified outliers in our original batch of sounds.
+Using this norming data we were able to select 4 categories of sounds and 4
+exemplars in each to use as seed messages in the main experiment.
+
+```{r 1-final-seeds, results = 'asis'}
+```
 
 # Collecting imitations
 
