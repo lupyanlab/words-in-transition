@@ -2,6 +2,7 @@
 title: "Selecting sounds to use as seeds"
 author: "Pierce Edmiston"
 output:
+  pdf_document: default
   html_document:
     theme: flatly
 ---
@@ -13,6 +14,8 @@ opts_chunk$set(
   message = FALSE,
   fig.path = "figs/"
 )
+
+read_chunk("results.R")
 
 library(dplyr)
 library(ggplot2)
@@ -45,4 +48,7 @@ odd_one_out <- ggplot(mapping = aes(x = filename, y = n)) +
 
 (odd_one_out %+% sound_similarity_4) +
   ggtitle("Odd one out (4 per category)")
+```
+
+```{r 1-final-seeds, results = 'asis'}
 ```

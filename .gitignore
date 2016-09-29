@@ -1,3 +1,7 @@
+# reproducible
+figs/
+*.html
+
 qualtrics_api_creds.yml
 .DS_Store
 *.swp
