@@ -67,7 +67,7 @@ transcriptions %<>%
   recode_message_type
 
 base <- ggplot() +
-  theme_minimal()
+  global_theme
 
 scale_x_generation <- scale_x_continuous(breaks = 0:8)
 
@@ -88,6 +88,13 @@ matched_imitation_transcriptions <- imitations %>%
   geom_histogram(aes(x = generation), data = matched_imitation_transcriptions,
                  binwidth = 1, fill = "red", alpha = 0.4) +
   ggtitle("Proportion of sounds transcribed and matched")
+
+# ---- 5-prop-transcriptions-matched
+
+# Of the sounds that were transcribed, what
+# proportion of the transcriptions were used
+# in the match to imitation surveys?
+# > the top 4 most frequent transcriptions
 
 # ---- 5-responses-per-question
 decr_word_n <- count(transcription_matches, word) %>%
@@ -140,3 +147,54 @@ model_plot + ggtitle("GLM point estimates with standard error bars")
 model_plot +
   geom_point(data = transcription_matches, stat = "summary", fun.y = "mean") +
   ggtitle("GLM predictions with overlayed sample means")
+
+# ---- 5-matching-by-transcription-agreement
+data("transcription_distances")
+
+transcription_distances %<>%
+  left_join(select(transcription_frequencies, message_id, text, n))
+
+transcription_agreement <- transcription_distances %>%
+  group_by(message_id) %>%
+  summarize(agreement = 1 - weighted.mean(distance, n))
+
+matching_summary <- transcription_matches %>%
+  group_by(message_id, seed_id, generation, question_type) %>%
+  summarize(matching_accuracy = mean(is_correct))
+
+matching_by_agreement <- left_join(matching_summary, transcription_agreement) %>%
+  recode_message_type
+
+gg_matching_by_agreement <- matching_by_agreement %>%
+  ggplot(aes(agreement, matching_accuracy)) +
+  geom_point()
+
+mod1 <- lm(matching_accuracy ~ agreement, data = matching_by_agreement)
+tidy(mod1) %>%
+  kable(caption = "Overall relationship between agreement predicting matching accuracy.")
+
+gg_matching_by_agreement
+
+mod2 <- lm(matching_accuracy ~ agreement * question_type, data = matching_by_agreement)
+tidy(mod2) %>%
+  kable(caption = "Model results with an agreement x question type (true seed or category match) interaciton term.")
+
+gg_matching_by_agreement +
+  facet_wrap("question_type") +
+  geom_smooth(method = "lm")
+
+mod3 <- lm(matching_accuracy ~ agreement * message_type, data = matching_by_agreement)
+tidy(mod3) %>%
+  kable(caption = "Model results allowing an interaction between agreement x message type (first or last generation).")
+
+gg_matching_by_agreement +
+  facet_wrap("message_type") +
+  geom_smooth(method = "lm")
+
+mod4 <- lm(matching_accuracy ~ agreement * message_type * question_type, data = matching_by_agreement)
+tidy(mod4) %>%
+  kable(caption = "Model results with three way interaction.")
+
+gg_matching_by_agreement +
+  facet_grid(message_type ~ question_type) +
+  geom_smooth(method = "lm")

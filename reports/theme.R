@@ -1,6 +1,6 @@
-library(ggplot2)
 
 # ---- global-theme
+require(ggplot2)
 global_theme <- theme_minimal() +
   theme(
     axis.ticks = element_blank(),
