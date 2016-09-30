@@ -19,10 +19,11 @@ def clear_cache(match=None, dry_run=False):
 
 
 @task
-def render(match=None, name=None, dry_run=False, clear_cache=False):
+def render(name=None, match_dir=None, dry_run=False, cache_reset=False,
+           figs_reset=False, open_after=False, ext='html'):
     """Render RMarkdown reports."""
-    report_dir = Path(REPORTS, name or '*.Rmd')
-    reports = glob(report_dir)
+    report_dir = Path(match_dir or REPORTS, name or '*.Rmd')
+    reports = [Path(report) for report in glob(report_dir)]
 
     if dry_run:
         print '\n'.join(reports)
@@ -30,9 +31,16 @@ def render(match=None, name=None, dry_run=False, clear_cache=False):
 
     cmd = 'Rscript -e "rmarkdown::render(\'{}\')"'
     for report in reports:
-        if clear_cache:
+        if cache_reset:
             _clear_cache_for_report(report)
+        if figs_reset:
+            _clear_figs_for_report(report)
+
         run(cmd.format(report))
+
+        if open_after:
+            output_file = Path(report.parent, '{}.{}'.format(report.stem, ext))
+            run('open {}'.format(output_file))
 
 
 def _clear_cache_for_report(report):
@@ -41,3 +49,10 @@ def _clear_cache_for_report(report):
     if cache_dir.isdir():
         print 'removing cache dir:\n\t{}'.format(cache_dir)
         cache_dir.rmtree()
+
+def _clear_figs_for_report(report):
+    report_dir = Path(report).parent
+    figs_dir = Path(report_dir, 'figs')
+    if figs_dir.isdir():
+        print 'removing figs dir:\n\t{}'.format(figs_dir)
+        figs_dir.rmtree()
