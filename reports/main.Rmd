@@ -61,7 +61,7 @@ exemplars in each to use as seed messages in the main experiment.
 
 ## Methods
 
-```{r definitions, engine = "dot", fig.width = 2}
+```{r definitions, engine = "dot", cache = FALSE, fig.width = 2}
 ```
 
 ## Results
@@ -83,13 +83,13 @@ Each imitation is matched in three different "guess the seed" conditions:
 2. Category match
 3. Specific match
 
-```{r true-seed, engine = "dot"}
+```{r true-seed, engine = "dot", cache = FALSE}
 ```
 
-```{r category-match, engine = "dot"}
+```{r category-match, engine = "dot", cache = FALSE}
 ```
 
-```{r specific-match, engine = "dot"}
+```{r specific-match, engine = "dot", cache = FALSE}
 ```
 
 ### Number of responses per question
