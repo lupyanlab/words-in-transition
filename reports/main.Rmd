@@ -30,7 +30,7 @@ read_chunk("theme.R")
 
 read_chunk("1-determine-seeds/results.R")
 # read_chunk("2-collect-imitations/results.R")
-read_chunk("3-match-to-seed-imitations/results.R")
+read_chunk("3-imitation-matches/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
 wordsintransition::read_wordsintransition_chunks()
