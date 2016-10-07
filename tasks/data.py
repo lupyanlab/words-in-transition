@@ -11,18 +11,32 @@ from .transcription_frequencies import summarize_transcription_frequency
 from .transcription_distances import summarize_transcription_distance
 
 r_pkg_root = Path('wordsintransition')
-src_dir = Path(r_pkg_root, 'data-raw/src')
+data_raw = Path(r_pkg_root, 'data-raw')
+src_dir = Path(data_raw, 'src')
 csv_output_dir = Path(r_pkg_root, 'data-raw')
 
 
-@task
-def get():
-    """Get the data from the telephone-app project."""
-    app_dir = Path('../telephone-app')
-    snapshot_dir = Path(app_dir, 'words-in-transition')
-    if src_dir.exists():
-        src_dir.rmtree()
-    copytree(snapshot_dir, src_dir)
+@task(help=dict(project="'telephone-app' or 'acoustic-similarity'"))
+def get(project=None):
+    """Get the data from the telephone-app and acoustic-similarity."""
+    if project is None or project == 'telephone-app':
+        app_dir = Path('../telephone-app')
+        snapshot_dir = Path(app_dir, 'words-in-transition')
+        if src_dir.exists():
+            src_dir.rmtree()
+        copytree(snapshot_dir, src_dir)
+
+    if project is None or project == 'acoustic-similarity':
+        # src
+        proj_dir = Path('../acoustic-similarity/data')
+
+        # dst
+        acoustic_similarity_dir = Path(data_raw, 'acoustic-similarity')
+        if not acoustic_similarity_dir.isdir():
+            acoustic_similarity_dir.mkdir()
+
+        for csv in proj_dir.listdir('*.csv'):
+            csv.move(acoustic_similarity_dir)
 
 
 @task
