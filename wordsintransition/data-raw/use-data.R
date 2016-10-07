@@ -5,11 +5,10 @@ library(readr)
 library(dplyr)
 library(stringr)
 library(magrittr)
+library(lazyeval)
 
-sound_similarity_6 <- read_csv("data-raw/sound_similarity_6/odd_one_out.csv")
-sound_similarity_4 <- read_csv("data-raw/sound_similarity_4/odd_one_out.csv")
-
-data_files <- list.files("data-raw", pattern = "*.csv", full.names = TRUE)
+data_files <- list.files("data-raw", pattern = "*.csv", full.names = TRUE,
+                         recursive = TRUE)
 stem <- function(path) strsplit(basename(path), "\\.")[[1]][1]
 
 for(path in data_files) {
@@ -18,9 +17,40 @@ for(path in data_files) {
   assign(name, frame)
 }
 
+# Read these in separately because they are named the same.
+sound_similarity_6 <- read_csv("data-raw/sound_similarity_6/odd_one_out.csv")
+sound_similarity_4 <- read_csv("data-raw/sound_similarity_4/odd_one_out.csv")
+
+generation_map <- imitations[, c("message_id", "generation")]
+
 # Label generation of message being transcribed
 transcription_matches %<>%
-  left_join(imitations[, c("message_id", "generation")])
+  left_join(generation_map)
+
+# Label generation of linear messages
+label_edge <- function(frame, edge_col) {
+  generation_col_name <- paste(edge_col, "generation", sep = "_")
+  generation_map %>%
+    plyr::rename(c("message_id" = edge_col, "generation" = generation_col_name)) %>%
+    left_join(frame, .)
+}
+
+label_edge_generation <- function(frame) {
+  edge_combinations <- frame %>%
+    select(contains("generation")) %>%
+    unique %>%
+    arrange(sound_x_generation) %>%
+    mutate(
+      edge_generations = paste(sound_x_generation, sound_y_generation, sep = "-")
+    )
+  frame %>%
+    left_join(edge_combinations)
+}
+
+acoustic_similarity_linear <- linear %>%
+  label_edge("sound_x") %>%
+  label_edge("sound_y") %>%
+  label_edge_generation
 
 use_data(
   subjects,
@@ -33,5 +63,6 @@ use_data(
   transcription_frequencies,
   transcription_distances,
   transcription_matches,
+  acoustic_similarity_linear,
   overwrite = TRUE
 )
