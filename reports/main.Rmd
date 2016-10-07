@@ -29,7 +29,7 @@ opts_chunk$set(
 read_chunk("theme.R")
 
 read_chunk("1-determine-seeds/results.R")
-# read_chunk("2-collect-imitations/results.R")
+read_chunk("2-collect-imitations/results.R")
 read_chunk("3-imitation-matches/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
@@ -59,6 +59,9 @@ exemplars in each to use as seed messages in the main experiment.
 
 # Collecting imitations
 
+```{r 2-setup}
+```
+
 ## Methods
 
 ```{r definitions, engine = "dot", cache = FALSE, fig.width = 2}
@@ -66,10 +69,8 @@ exemplars in each to use as seed messages in the main experiment.
 
 ## Results
 
-TODO: Analyze the fidelity of the imitations.
-
-1. From generation to generation
-2. Across different branches in the same generation
+```{r 2-similarity-within-chains}
+```
 
 # Matching imitations to seeds
 

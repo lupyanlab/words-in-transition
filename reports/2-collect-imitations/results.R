@@ -1,0 +1,15 @@
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
+
+# ---- 2-setup
+library(wordsintransition)
+data("acoustic_similarity_linear")
+
+# ---- 2-similarity-within-chains
+set.seed(603)
+ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
+  geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
+  geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
+  global_theme
