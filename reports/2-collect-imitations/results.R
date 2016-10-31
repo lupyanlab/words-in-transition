@@ -5,10 +5,19 @@ global_theme <- theme_minimal() +
 # ---- 2-setup
 library(wordsintransition)
 data("acoustic_similarity_linear")
+data("acoustic_similarity_judgments")
 
 # ---- 2-similarity-within-chains
 set.seed(603)
 ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
+  geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
+  geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
+  global_theme
+
+# ---- 2-similarity-judgments-within-chains
+set.seed(604)
+ggplot(acoustic_similarity_judgments, aes(x = edge_generations, y = similarity)) +
   geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
   geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
   geom_smooth(aes(group = 1), method = "lm", se = FALSE) +

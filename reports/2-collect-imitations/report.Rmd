@@ -1,0 +1,36 @@
+---
+title: "Calculations of acoustic similarity between generations of imitations"
+author: "Pierce Edmiston"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "figs/",
+  cache.path = ".cache/"
+)
+read_chunk("results.R")
+
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
+```
+
+```{r 2-setup}
+```
+
+## Acoustic similarity (algorithmic)
+
+```{r 2-similarity-within-chains}
+```
+
+## Acoustic similarity (judgments)
+
+```{r 2-similarity-judgments-within-chains}
+```
