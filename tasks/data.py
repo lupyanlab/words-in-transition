@@ -18,7 +18,7 @@ csv_output_dir = Path(r_pkg_root, 'data-raw')
 
 @task(help=dict(project="'telephone-app' or 'acoustic-similarity'"))
 def get(project=None):
-    """Get the data from the telephone-app and acoustic-similarity."""
+    """Get the data from the telephone-app and acoustic-similarity projects."""
     if project is None or project == 'telephone-app':
         app_dir = Path('../telephone-app')
         snapshot_dir = Path(app_dir, 'words-in-transition')
