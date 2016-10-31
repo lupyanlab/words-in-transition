@@ -32,5 +32,8 @@ global_theme <- theme_minimal() +
 
 ## Acoustic similarity (judgments)
 
+```{r 2-raters}
+```
+
 ```{r 2-similarity-judgments-within-chains}
 ```
