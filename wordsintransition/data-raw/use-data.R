@@ -52,6 +52,11 @@ acoustic_similarity_linear <- linear %>%
   label_edge("sound_y") %>%
   label_edge_generation
 
+acoustic_similarity_judgments <- judgments %>%
+  label_edge("sound_x") %>%
+  label_edge("sound_y") %>%
+  label_edge_generation
+
 use_data(
   subjects,
   sound_similarity_6,
@@ -64,5 +69,6 @@ use_data(
   transcription_distances,
   transcription_matches,
   acoustic_similarity_linear,
+  acoustic_similarity_judgments,
   overwrite = TRUE
 )

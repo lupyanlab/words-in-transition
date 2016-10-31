@@ -4,8 +4,8 @@ import os
 from invoke import task, run as local_run
 import yaml
 from unipath import Path
-from fabric.api import env
-from fabric.operations import sudo, put
+# from fabric.api import env
+# from fabric.operations import sudo, put
 import pandas as pd
 
 from .qualtrics import Qualtrics

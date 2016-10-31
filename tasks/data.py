@@ -29,14 +29,23 @@ def get(project=None):
     if project is None or project == 'acoustic-similarity':
         # src
         proj_dir = Path('../acoustic-similarity/data')
+        judgments = Path(proj_dir, 'judgments')
 
         # dst
         acoustic_similarity_dir = Path(data_raw, 'acoustic-similarity')
         if not acoustic_similarity_dir.isdir():
             acoustic_similarity_dir.mkdir()
 
+        # copy the csvs in the root proj data dir
         for csv in proj_dir.listdir('*.csv'):
-            csv.move(acoustic_similarity_dir)
+            csv.copy(acoustic_similarity_dir)
+
+        # concat and save judgments files
+        judgments_csv = Path(acoustic_similarity_dir, 'judgments.csv')
+        judgments = [pd.read_csv(x) for x in judgments.listdir('*.csv')]
+        if judgments:
+            (pd.concat(judgments, ignore_index=True)
+                   .to_csv(judgments_csv, index=False))
 
 
 @task
