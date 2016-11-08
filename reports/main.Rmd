@@ -15,6 +15,7 @@ Overall, the fidelity of imitations of environmental sounds in our experiment la
 ```{r config, echo = FALSE}
 library(knitr)
 library(printr)
+library(broom)
 
 opts_chunk$set(
   echo = FALSE,
@@ -69,10 +70,25 @@ exemplars in each to use as seed messages in the main experiment.
 
 ## Results
 
-```{r 2-similarity-within-chains}
+### Acoustic similarity (judgments)
+
+```{r 2-similarity-judgments-mod, echo = 1}
+```
+
+```{r}
+tidy(similarity_judgments_mod, effects = "fixed")
+```
+
+```{r 2-similarity-judgments-error-plot}
 ```
 
 # Matching imitations to seeds
+
+```{r 3-setup}
+```
+
+```{r 3-data}
+```
 
 ## Methods
 
@@ -84,24 +100,13 @@ Each imitation is matched in three different "guess the seed" conditions:
 2. Category match
 3. Specific match
 
-```{r true-seed, engine = "dot", cache = FALSE}
+```{r true-seed, engine = "dot", cache = FALSE, fig.width = 4}
 ```
 
-```{r category-match, engine = "dot", cache = FALSE}
+```{r category-match, engine = "dot", cache = FALSE, fig.width = 4}
 ```
 
-```{r specific-match, engine = "dot", cache = FALSE}
-```
-
-### Number of responses per question
-
-```{r 3-setup}
-```
-
-```{r 3-data}
-```
-
-```{r 3-num-responses-per-question}
+```{r specific-match, engine = "dot", cache = FALSE, fig.width = 4}
 ```
 
 ## Results
@@ -128,14 +133,6 @@ Each imitation is matched in three different "guess the seed" conditions:
 ### Selected sounds
 
 Transcribed sounds include all 16 seed sound effects and all imitatations in the last generation of each iteration chain.
-
-```{r 4-num-sounds-transcribed}
-```
-
-### Number of transcriptions for each sound
-
-```{r 4-num-transcriptions-per-imitation, fig.width = 14}
-```
 
 ## Results
 
@@ -185,31 +182,13 @@ of a sample of 8 transcribed sounds.
 Subjects were excluded if they failed the catch trial, which indicated
 that they should select the third option.
 
-```{r 5-catch-trials, fig.width = 4}
-```
-
-### Number of responses
-
-```{r 5-responses-per-question}
-```
-
 ## Results
 
 ```{r 5-plot-template}
-```
-
-```{r 5-plot-means}
 ```
 
 ```{r 5-model, echo = 1, cache = TRUE}
 ```
 
 ```{r 5-model-preds}
-```
-
-### Agreement as a predictor of matching accuracy
-
-Do the imitations where there is a lot of agreement in the transcriptions have higher matching accuracy?
-
-```{r 5-transcription-agreement-matching-accuracy}
 ```

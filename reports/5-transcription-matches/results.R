@@ -33,8 +33,10 @@ catch_trials <- transcription_matches %>%
 
 transcription_matches %<>%
   filter(question_type != "catch_trial",
-         !(subj_id %in% bad_subj_ids),
-         message_type != "sound_effect")
+         !(subj_id %in% bad_subj_ids))
+
+all_transcription_matches <- transcription_matches
+transcription_matches %<>% filter(message_type != "sound_effect")
 
 scale_x_message <- scale_x_continuous("Transcriptions", breaks = c(-0.5, 0.5), labels = c("First generation", "Last generation"))
 scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))
@@ -154,9 +156,9 @@ model_plot <- (gg %+% preds) +
   facet_wrap("message_label")
 model_plot + ggtitle("GLM point estimates with standard error bars")
 
-model_plot +
-  geom_point(data = transcription_matches, stat = "summary", fun.y = "mean") +
-  ggtitle("GLM predictions with overlayed sample means")
+# model_plot +
+#   geom_point(data = transcription_matches, stat = "summary", fun.y = "mean") +
+#   ggtitle("GLM predictions with overlayed sample means")
 
 # ---- 5-matching-by-transcription-agreement
 data("transcription_distances")

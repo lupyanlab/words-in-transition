@@ -20,6 +20,10 @@ opts_chunk$set(
 )
 
 read_chunk("results.R")
+
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
 ```
 
 ```{r 4-setup}
