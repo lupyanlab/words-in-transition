@@ -210,3 +210,11 @@ tidy(mod4) %>%
 gg_matching_by_agreement +
   facet_grid(message_type ~ question_type) +
   geom_smooth(method = "lm")
+
+# ----- 5-transcriptions-of-seeds
+(gg %+% all_transcription_matches) +
+  geom_bar(stat = "summary", fun.y = "mean", width = 0.99, alpha = 0.6) +
+  geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
+             position = position_jitter(width = 0.1), alpha = 0.6, shape = 1) +
+  facet_wrap("message_type") +
+  coord_cartesian(ylim = c(0, 1))
