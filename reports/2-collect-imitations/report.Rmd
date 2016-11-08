@@ -8,6 +8,8 @@ output:
 
 ```{r config, echo = FALSE, message = FALSE}
 library(knitr)
+library(printr)
+
 opts_chunk$set(
   echo = FALSE,
   message = FALSE,
@@ -17,7 +19,9 @@ opts_chunk$set(
 )
 read_chunk("results.R")
 
+library(broom)
 library(ggplot2)
+
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
 ```
@@ -36,4 +40,16 @@ global_theme <- theme_minimal() +
 ```
 
 ```{r 2-similarity-judgments-within-chains}
+```
+
+### Model
+
+```{r 2-similarity-judgments-mod, echo = 1}
+```
+
+```{r}
+tidy(similarity_judgments_mod, effects = "fixed")
+```
+
+```{r 2-similarity-judgments-error-plot}
 ```
