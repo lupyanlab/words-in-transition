@@ -1,0 +1,22 @@
+---
+title: "Results for Learning sound names experiment"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r config, echo = FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+read_chunk("results.R")
+```
+
+```{r 6-setup}
+```
+
+```{r 6-rts-over-trials}
+```
