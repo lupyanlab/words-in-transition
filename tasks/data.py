@@ -50,8 +50,9 @@ def get(project=None):
     if project is None or project == 'learning-sound-names':
         src = Path('../learning-sound-names/data')
         dst = Path(data_raw, 'learning_sound_names.csv')
-        data = [pd.read_csv(x) for x in src.listdir('*.csv')]
-        pd.concat(data).to_csv(dst, index=False)
+        data = pd.concat([pd.read_csv(x) for x in src.listdir('*.csv')])
+        data['is_correct'] = data.is_correct.astype(int)
+        data.to_csv(dst, index=False)
 
 
 @task
