@@ -70,5 +70,6 @@ use_data(
   transcription_matches,
   acoustic_similarity_linear,
   acoustic_similarity_judgments,
+  learning_sound_names,
   overwrite = TRUE
 )

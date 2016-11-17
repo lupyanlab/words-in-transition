@@ -16,7 +16,7 @@ src_dir = Path(data_raw, 'src')
 csv_output_dir = Path(r_pkg_root, 'data-raw')
 
 
-@task(help=dict(project="'telephone-app' or 'acoustic-similarity'"))
+@task(help=dict(project="One of telephone-app, acoustic-similarity, learning-sound-names. If none is provided, all are assumed."))
 def get(project=None):
     """Get the data from the telephone-app and acoustic-similarity projects."""
     if project is None or project == 'telephone-app':
@@ -45,7 +45,13 @@ def get(project=None):
         judgments = [pd.read_csv(x) for x in judgments.listdir('*.csv')]
         if judgments:
             (pd.concat(judgments, ignore_index=True)
-                   .to_csv(judgments_csv, index=False))
+               .to_csv(judgments_csv, index=False))
+
+    if project is None or project == 'learning-sound-names':
+        src = Path('../learning-sound-names/data')
+        dst = Path(data_raw, 'learning_sound_names.csv')
+        data = [pd.read_csv(x) for x in src.listdir('*.csv')]
+        pd.concat(data).to_csv(dst, index=False)
 
 
 @task
