@@ -26,10 +26,14 @@ recode_message_type <- function(frame) {
 
   levels <- c("sound_effect", "first_gen_imitation", "last_gen_imitation")
   labels <- c("Sound effect", "First gen imitation", "Last gen imitation")
+  long_labels <- c("Transcription of sound effect",
+                   "Transcription of first gen imitation",
+                   "Transcription of last gen imitation")
 
   map <- data_frame(
     message_type = levels,
     message_label = factor(message_type, levels = levels, labels = labels),
+    message_label_long = factor(message_type, levels = levels, labels = long_labels),
     message_c = c(NA, -0.5, 0.5)
   )
 

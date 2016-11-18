@@ -1,5 +1,5 @@
 ---
-title: "Results for Learning sound names experiment"
+title: "Results: Learning sound names"
 output:
   html_document:
     theme: flatly
@@ -13,6 +13,11 @@ opts_chunk$set(
   warning = FALSE
 )
 read_chunk("results.R")
+read_chunk("../theme.R")
+```
+
+```{r theme}
+# load theme into global environment
 ```
 
 ```{r 6-setup}
