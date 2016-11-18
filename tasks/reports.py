@@ -22,6 +22,10 @@ def clear_cache(match=None, dry_run=False):
 def render(name=None, match_dir=None, dry_run=False, cache_reset=False,
            figs_reset=False, open_after=False, ext='html'):
     """Render RMarkdown reports."""
+    if match_dir and not Path(match_dir).isdir():
+        # then match dir refers to glob inside reports dir
+        match_dir = Path('reports/', match_dir)
+
     report_dir = Path(match_dir or REPORTS, name or '*.Rmd')
     reports = [Path(report) for report in glob(report_dir)]
 
