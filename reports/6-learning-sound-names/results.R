@@ -45,7 +45,7 @@ ggbase_rt <- ggbase +
 ggbase_rt$mapping <- aes(trial_ix, rt)
 
 ggbase_rt +
-  geom_point(aes(color = factor(block_ix))) +
+  geom_point(aes(color = factor(block_ix)), alpha = 0.2) +
   geom_smooth(aes(group = factor(block_ix), color = factor(block_ix)),
               method = "lm", se = FALSE) +
   scale_color_brewer("Block", palette = "Set2") +
@@ -54,7 +54,7 @@ ggbase_rt +
   labs(title = "RTs over blocks by transcription type")
 
 ggbase_rt +
-  geom_point(aes(color = word_category)) +
+  geom_point(aes(color = word_category), alpha = 0.2) +
   geom_smooth(aes(group = word_category_by_block_ix, color = word_category),
               method = "lm", se = FALSE) +
   scale_color_brewer("category:", palette = "Set2") +
