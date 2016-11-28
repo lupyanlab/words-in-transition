@@ -27,5 +27,8 @@ read_chunk("../theme.R")
 ```{r 6-errors}
 ```
 
-```{r 6-rts-over-trials, fig.width = 10}
+```{r 6-rts-over-trials}
+```
+
+```{r 6-results, fig.width = 8}
 ```
