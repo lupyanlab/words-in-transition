@@ -18,7 +18,18 @@ csv_output_dir = Path(r_pkg_root, 'data-raw')
 
 @task(help=dict(project="One of telephone-app, acoustic-similarity, learning-sound-names. If none is provided, all are assumed."))
 def get(project=None):
-    """Get the data from the telephone-app and acoustic-similarity projects."""
+    """Get the data from different experiments.
+
+    Warning! Experiment directories are expected in a particular location
+    outside of this (words-in-transition) directory.
+
+    Options are:
+
+        telephone-app
+        acoustic-similarity
+        learning-sound-names
+
+    """
     if project is None or project == 'telephone-app':
         app_dir = Path('../telephone-app')
         snapshot_dir = Path(app_dir, 'words-in-transition')
