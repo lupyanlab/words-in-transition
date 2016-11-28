@@ -38,6 +38,14 @@ ggbase_error +
   scale_fill_brewer(palette = "Set2") +
   theme(legend.position = "none")
 
+ggbase_error +
+  geom_line(aes(color = factor(message_label)),
+            stat = "summary", fun.y = "sum") +
+  scale_x_continuous("Block number (24 trials per block)", breaks = 1:4) +
+  scale_y_continuous("Total number of errors") +
+  scale_color_brewer("Transcription of", palette = "Set2") +
+  theme(legend.position = "top")
+
 # ---- 6-rts-over-trials
 ggbase_rt <- ggbase +
   scale_x_trial_ix +
