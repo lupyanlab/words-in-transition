@@ -61,9 +61,16 @@ def get(project=None):
     if project is None or project == 'learning-sound-names':
         src = Path('../learning-sound-names/data')
         dst = Path(data_raw, 'learning_sound_names.csv')
-        data = pd.concat([pd.read_csv(x) for x in src.listdir('*.csv')])
+        data = pd.concat([pd.read_csv(x) for x in src.listdir('LSN*.csv')])
         data['is_correct'] = data.is_correct.astype(int)
         data.to_csv(dst, index=False)
+
+        # also get subject info and questionnaire data
+        to_get = ['questionnaire_v1', 'subject_info']
+        for x in to_get:
+            src_file = Path(src, '{}.csv'.format(x))
+            dst_file = Path(data_raw, 'learning_sound_names_{}.csv'.format(x))
+            run('cp {} {}'.format(src_file, dst_file))
 
 
 @task

@@ -57,6 +57,10 @@ acoustic_similarity_judgments <- judgments %>%
   label_edge("sound_y") %>%
   label_edge_generation
 
+# Shorten long csv names
+lsn_questionnaire <- learning_sound_names_questionnaire_v1
+lsn_subj_info <- learning_sound_names_subject_info
+
 use_data(
   subjects,
   sound_similarity_6,
@@ -71,5 +75,7 @@ use_data(
   acoustic_similarity_linear,
   acoustic_similarity_judgments,
   learning_sound_names,
+  lsn_questionnaire,
+  lsn_subj_info,
   overwrite = TRUE
 )
