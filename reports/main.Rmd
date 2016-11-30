@@ -41,43 +41,12 @@ wordsintransition::read_wordsintransition_chunks()
 ```{r theme}
 ```
 
-# Environmental sounds
-
-To select the environmental sounds to use as "seed" messages in the experiment,
-we first selected 6 categories of sounds and 6 different exemplars within each
-category for a total of 36 sounds. The main constraint on category selection
-was to select categories without conventional wordforms that may confound our
-results. For instance, we didn't use "dog" as a category of sounds because of
-the existence of words like "bark" and "woof" already in the English language.
-Within each category, we selected exemplars to be approximately equidistant
-from one another in terms of psychological distance. To do this, we recruited
-two batches of norming participants to engage in "odd one out" experiments,
-where participants identified outliers in our original batch of sounds.
-Using this norming data we were able to select 4 categories of sounds and 4
-exemplars in each to use as seed messages in the main experiment.
-
-```{r 1-final-seeds, results = 'asis'}
-```
-
 # Collecting imitations
 
 ```{r 2-setup}
 ```
 
-## Methods
-
-```{r definitions, engine = "dot", cache = FALSE, fig.width = 2}
-```
-
-## Results
-
-### Acoustic similarity (judgments)
-
 ```{r 2-similarity-judgments-mod, echo = 1}
-```
-
-```{r}
-tidy(similarity_judgments_mod, effects = "fixed")
 ```
 
 ```{r 2-similarity-judgments-error-plot}
@@ -91,37 +60,10 @@ tidy(similarity_judgments_mod, effects = "fixed")
 ```{r 3-data}
 ```
 
-## Methods
-
-### Question types
-
-Each imitation is matched in three different "guess the seed" conditions:
-
-1. Category match (true seed)
-2. Category match
-3. Specific match
-
-```{r true-seed, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-```{r category-match, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-```{r specific-match, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-## Results
-
 ```{r 3-models}
 ```
 
-```{r 3-first-gen}
-```
-
 ```{r 3-match-to-seed}
-```
-
-```{r 3-first-last-gen}
 ```
 
 # Transcriptions of imitations
@@ -129,66 +71,18 @@ Each imitation is matched in three different "guess the seed" conditions:
 ```{r 4-setup}
 ```
 
-## Methods
-
-### Selected sounds
-
-Transcribed sounds include all 16 seed sound effects and all imitatations in the last generation of each iteration chain.
-
-## Results
-
-### Exact agreement
-
-Transcription agreement for each sound, controlling for case only. Messages with no agreement among transcriptions had all unique transcriptions.
-
-There was less agreement among transcribers for the seed sound effects
-than there was among the transcribers of n-th generation imitations.
-
-```{r 4-transcription-agreement-exact}
-```
-
-### Pattern distance
-
-Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription (and therefore the distance metric is inappropriate).
-
 ```{r 4-transcription-agreement-distance}
 ```
-
-### Length of pattern
-
-```{r 4-transcription-length}
-```
-
-### Phonological similarity
-
-TODO: Confusability matrix
 
 # Matching transcriptions to seeds
 
 ```{r 5-setup}
 ```
 
-## Methods
-
-### Selected transcriptions
-
-We obtained match-to-seed accuracy ratings for the 4 most frequent spellings
-of a sample of 8 transcribed sounds.
-
-### Subjects
-
-```{r 5-subjects}
-```
-
-Subjects were excluded if they failed the catch trial, which indicated
-that they should select the third option.
-
-## Results
-
 ```{r 5-plot-template}
 ```
 
-```{r 5-model, echo = 1, cache = TRUE}
+```{r 5-model, cache = TRUE}
 ```
 
 ```{r 5-model-preds}

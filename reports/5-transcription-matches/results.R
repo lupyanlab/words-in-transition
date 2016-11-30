@@ -63,7 +63,7 @@ transcription_matches %>%
                align = "l")
 
 # ---- 5-num-sounds-transcribed-and-matched
-data("imitatons")
+data("imitations")
 data("transcriptions")
 
 imitations %<>%
