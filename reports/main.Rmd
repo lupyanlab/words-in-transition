@@ -34,6 +34,7 @@ read_chunk("2-collect-imitations/results.R")
 read_chunk("3-imitation-matches/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
+read_chunk("6-learning-sound-names/results.R")
 wordsintransition::read_wordsintransition_chunks()
 ```
 
@@ -192,3 +193,23 @@ that they should select the third option.
 
 ```{r 5-model-preds}
 ```
+
+# Using transcriptions as category labels
+
+```{r 6-setup}
+```
+
+## Methods
+
+## Results
+
+```{r 6-errors, fig.show = 'hide'}
+```
+
+```{r 6-rts-over-trials, fig.show = 'hide'}
+```
+
+```{r 6-results}
+```
+
+# Conclusion
