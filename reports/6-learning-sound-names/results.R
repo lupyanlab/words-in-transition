@@ -13,7 +13,7 @@ library(wordsintransition)
 
 recode_word_type <- . %>%
   rename(message_type = word_type) %>%
-  recode_message_type
+  recode_message_type()
 
 data("learning_sound_names")
 learning_sound_names %<>%
