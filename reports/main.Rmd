@@ -4,13 +4,13 @@ author: "Pierce Edmiston"
 output:
   html_document:
     theme: flatly
-    toc: yes
-    toc_float: yes
 ---
 
-This research intends to show that conventionalized word forms can arise gradually and uneffortfully simply from the repetition of imitations of environmental sounds. Participants played an online version of the children's game "telephone" where a message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of environment sounds (e.g., glass breaking, water splashing). These imitations were expected to become more wordlike as they are repeated. "Wordlike-ness" is measured in multiple ways, the most important of which is whether imitations take on wordlike meanings as they are repeated. At the beginning of the chains, the meaning of the imitations is expected to be yoked to the particular exemplar being imitated. For example, an imitation of a particular breed and disposition of dog. In contrast, one of the features of word meanings is that they are categorical--that a word doesn't necessarily refer to a particular exemplar within a category. If this is true, and if imitations become more wordlike as they are repeated, then we should expect to see the imitations also take on more categorical meanings as they are repeated.
+This research intends to show that conventionalized word forms can arise gradually and uneffortfully simply through the repeated imitation of nonverbal, environmental sounds. Participants played an online version of the children's game "telephone" where an auditory message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of nonverbal environment sounds (e.g., glass breaking, water splashing). These imitations were hypothesized to become more wordlike as they are repeated.
 
-Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical meanings of utterances. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the hypothesis that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Together these results suggest that the emergence of some conventionalized word forms may be a product of repetition without intent, providing a potential way to account for the pervasive levels of iconicity found in languages spoken today.
+"Wordlike-ness" was measured in multiple ways, the most important of which is whether imitations take on wordlike meanings as they are repeated. At the beginning of the chains, the meaning of the imitations is expected to be tied to the particular exemplar being imitated. For example, an imitation of a particular breed and disposition of dog. In contrast, one of the fundamental features of word meanings is that they are categorical--that a word doesn't necessarily refer to a particular exemplar within a category and instead refers equally to all members of a category. If this is true, and if imitations become more wordlike as they are repeated, then we should expect to see the imitations also take on more categorical meanings as they are repeated.
+
+Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical meanings of utterances. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the hypothesis that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Finally, the words that emerged through repetition were easier to learn as category labels than words transcribed from first generation imitations. Together these results suggest that the emergence of some conventionalized word forms may be a product of repetition without intent, providing a potential way to account for the pervasive levels of iconicity found in languages spoken today.
 
 ```{r config, echo = FALSE}
 library(knitr)
@@ -29,60 +29,49 @@ opts_chunk$set(
 
 read_chunk("theme.R")
 
-read_chunk("1-determine-seeds/results.R")
 read_chunk("2-collect-imitations/results.R")
 read_chunk("3-imitation-matches/results.R")
 read_chunk("4-collect-transcriptions/results.R")
 read_chunk("5-transcription-matches/results.R")
+read_chunk("6-learning-sound-names/results.R")
+
 wordsintransition::read_wordsintransition_chunks()
 ```
 
 ```{r theme}
 ```
 
-# Environmental sounds
+# The telephone game
 
-To select the environmental sounds to use as "seed" messages in the experiment,
-we first selected 6 categories of sounds and 6 different exemplars within each
-category for a total of 36 sounds. The main constraint on category selection
-was to select categories without conventional wordforms that may confound our
-results. For instance, we didn't use "dog" as a category of sounds because of
-the existence of words like "bark" and "woof" already in the English language.
-Within each category, we selected exemplars to be approximately equidistant
-from one another in terms of psychological distance. To do this, we recruited
-two batches of norming participants to engage in "odd one out" experiments,
-where participants identified outliers in our original batch of sounds.
-Using this norming data we were able to select 4 categories of sounds and 4
-exemplars in each to use as seed messages in the main experiment.
+Participants were recruited to play an online version of the children's game of telephone. They were instructed to reproduce whatever message they received as accurately as possible. Each participant heard 4 messages, one in each of the 4 categories of sounds used in the experiment. Each category had 4 different seed sounds which were selected to be approximately equally distinguishable from one another within a given category through pilot testing. Each seed sound gave rise to 4 different branches, and branches were allowed to run out for a maximum of 8 generations. The recordings were monitored by an experimenter as they came in, and bad quality imitations were removed, which meant that some of the branches did not reach the full 8 generations.
 
-```{r 1-final-seeds, results = 'asis'}
+```{r definitions, engine = "dot", fig.width = 2, fig.cap = "Design of telephone game."}
 ```
 
-# Collecting imitations
+Imitation fidelity was not constant across generations, and imitations from later generations were rated by trained raters to be higher in subjective similarity than imitations from earlier generations.
 
 ```{r 2-setup}
 ```
 
-## Methods
-
-```{r definitions, engine = "dot", cache = FALSE, fig.width = 2}
-```
-
-## Results
-
-### Acoustic similarity (judgments)
-
-```{r 2-similarity-judgments-mod, echo = 1}
-```
-
-```{r}
-tidy(similarity_judgments_mod, effects = "fixed")
+```{r 2-similarity-judgments-mod}
 ```
 
 ```{r 2-similarity-judgments-error-plot}
 ```
 
-# Matching imitations to seeds
+Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
+
+```{r 4-setup}
+```
+
+```{r 4-transcription-agreement-distance}
+```
+
+# Measuring the meaning of the imitations
+
+The meaning of the imitations was measured by having a separate set of participants guess the origin of the imitations given the choice between four of the seed sounds. There were three types of questions. In the first question type, the correct seed was present in the choices, and the three distractor sounds randomly selected from three different categories. In the second question type, the correct seed was also present, but the distractor sounds were the other three sounds in the same category. In the final question type, the distractors were from different categories, but the correct answer was not the actual seed that generated the imitation. Rather, it was a different seed within the same category. Performance on this question type, relative to performance on the other question types, is used as a measure of the categorical nature of the imitation: the extent to which imitation can be used as a reference to all members of a category.
+
+Overall, performance in the guess the seed game decayed over time such that imitations from later generations were less accurately matched to their seeds than earlier generations. But the information decay was not constant across question types, and the information that separated individual imitations from the other seeds in the same category decayed more rapidly than the categorical information distinguishing seeds in one category from the others. This suggests that as imitations are repeated they retain categorical information more readily than individuating information.
 
 ```{r 3-setup}
 ```
@@ -90,105 +79,40 @@ tidy(similarity_judgments_mod, effects = "fixed")
 ```{r 3-data}
 ```
 
-## Methods
-
-### Question types
-
-Each imitation is matched in three different "guess the seed" conditions:
-
-1. Category match (true seed)
-2. Category match
-3. Specific match
-
-```{r true-seed, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-```{r category-match, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-```{r specific-match, engine = "dot", cache = FALSE, fig.width = 4}
-```
-
-## Results
-
 ```{r 3-models}
-```
-
-```{r 3-first-gen}
 ```
 
 ```{r 3-match-to-seed}
 ```
 
-```{r 3-first-last-gen}
-```
-
-# Transcriptions of imitations
-
-```{r 4-setup}
-```
-
-## Methods
-
-### Selected sounds
-
-Transcribed sounds include all 16 seed sound effects and all imitatations in the last generation of each iteration chain.
-
-## Results
-
-### Exact agreement
-
-Transcription agreement for each sound, controlling for case only. Messages with no agreement among transcriptions had all unique transcriptions.
-
-There was less agreement among transcribers for the seed sound effects
-than there was among the transcribers of n-th generation imitations.
-
-```{r 4-transcription-agreement-exact}
-```
-
-### Pattern distance
-
-Transcription agreement by average pattern match distance to the single most frequent transcription. For messages with no duplicate transcriptions, distances are calculated relative to a randomly selected transcription (and therefore the distance metric is inappropriate).
-
-```{r 4-transcription-agreement-distance}
-```
-
-### Length of pattern
-
-```{r 4-transcription-length}
-```
-
-### Phonological similarity
-
-TODO: Confusability matrix
-
-# Matching transcriptions to seeds
+We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
 ```{r 5-setup}
 ```
 
-## Methods
-
-### Selected transcriptions
-
-We obtained match-to-seed accuracy ratings for the 4 most frequent spellings
-of a sample of 8 transcribed sounds.
-
-### Subjects
-
-```{r 5-subjects}
-```
-
-Subjects were excluded if they failed the catch trial, which indicated
-that they should select the third option.
-
-## Results
-
 ```{r 5-plot-template}
 ```
 
-```{r 5-model, echo = 1, cache = TRUE}
+```{r 5-model, cache = TRUE}
 ```
 
 ```{r 5-model-preds}
 ```
+
+# Using transcriptions as category labels
+
+Finally, we used transcriptions taken at first and last generation imitations as category labels in a category learning experiment where participants had to learn a novel name for the categories of sounds. We found that transcriptions of later generation imitations were easier to learn and generalize to new instances than imitations of earlier generation imitations.
+
+```{r 6-setup}
+```
+
+```{r 6-errors, fig.show = 'hide'}
+```
+
+```{r 6-rts-over-trials, fig.show = 'hide'}
+```
+
+```{r 6-results}
+```
+
+# Conclusion
