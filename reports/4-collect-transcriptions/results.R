@@ -1,6 +1,4 @@
-library(ggplot2)
-global_theme <- theme_minimal() +
-  theme(axis.ticks = element_blank())
+source("reports/theme.R")
 
 # ---- 4-setup
 library(ggplot2)
@@ -116,15 +114,20 @@ transcription_distances %<>%
   filter(message_type != "sound_effect")
 
 distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
-  labs(x = "", y = "Average distance to most frequent transcription") +
   global_theme
 
 gg_distance <- distance_plot +
-  geom_bar(stat = "summary", fun.y = "mean",
+  geom_bar(aes(fill = message_label), stat = "summary", fun.y = "mean",
            alpha = 0.6, width = 0.96) +
-  geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
-             shape = 1, position = position_jitter(0.3, 0.01)) +
-  labs(title = "Distances get shorter")
+  geom_point(aes(group = message_id, color = message_label),
+             stat = "summary", fun.y = "mean",
+             position = position_jitter(0.3, 0.01),
+             alpha = 0.8, size = 2) +
+  scale_x_discrete("Imitation generation",
+                   labels = c("First", "Last")) +
+  scale_y_continuous("Transcription distance") +
+  scale_color_manual(values = imitation_gen_colors) +
+  scale_fill_manual(values = imitation_gen_colors)
 gg_distance
 
 # ---- 4-transcription-agreement-distance-separate

@@ -75,7 +75,7 @@ Once collected, a separate set of participants was recruited to transcribe the i
 ```
 -->
 
-```{r telephone-game}
+```{r telephone-game, cache = FL}
 # Make a three-panel plot:
 # (A) telephone game design
 # (B) acoustic similarity
@@ -96,7 +96,7 @@ grid.arrange(
   definitions_grob,
   gg_similarity_judgments,
   gg_distance,
-  nrow = 1
+  nrow = 1, widths = c(0.2, 0.4, 0.4)
 )
 ```
 

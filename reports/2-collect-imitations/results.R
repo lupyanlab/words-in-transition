@@ -86,12 +86,16 @@ similarity_judgments_means <- acoustic_similarity_judgments %>%
 set.seed(949)
 gg_similarity_judgments <- ggplot(similarity_judgments_means) +
   aes(x = edge_generations, y = similarity_z) +
-  geom_point(aes(color = category), position = position_jitter(0.4, 0.2),
-             size = 2, alpha = 0.6) +
+  geom_point(aes(color = category), position = position_jitter(0.6, 0.0),
+             size = 2, alpha = 0.8) +
   geom_smooth(aes(group = 1, ymin = similarity_z - se, ymax = similarity_z + se),
               data = similarity_judgments_preds, stat = "identity",
-              color = "gray") +
-  global_theme
+              alpha = 0.2, color = "gray") +
+  scale_x_discrete("Imitation generation") +
+  scale_y_continuous("Acoustic similarity (z-score)") +
+  scale_color_brewer("Sound category", palette = "Set2") +
+  global_theme +
+  theme(legend.position = "top")
 gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
