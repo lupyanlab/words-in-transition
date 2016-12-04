@@ -1,16 +1,12 @@
 ---
 title: "The emergence of lexical categories from iterated vocal imitation"
-author: "Pierce Edmiston"
+author: "Pierce Edmiston, Marcus Perlman, and Gary Lupyan"
 output:
   html_document:
     theme: flatly
 ---
 
 This research intends to show that conventionalized word forms can arise gradually and uneffortfully simply through the repeated imitation of nonverbal, environmental sounds. Participants played an online version of the children's game "telephone" where an auditory message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of nonverbal environment sounds (e.g., glass breaking, water splashing). These imitations were hypothesized to become more wordlike as they are repeated.
-
-"Wordlike-ness" was measured in multiple ways, the most important of which is whether imitations take on wordlike meanings as they are repeated. At the beginning of the chains, the meaning of the imitations is expected to be tied to the particular exemplar being imitated. For example, an imitation of a particular breed and disposition of dog. In contrast, one of the fundamental features of word meanings is that they are categorical--that a word doesn't necessarily refer to a particular exemplar within a category and instead refers equally to all members of a category. If this is true, and if imitations become more wordlike as they are repeated, then we should expect to see the imitations also take on more categorical meanings as they are repeated.
-
-Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical meanings of utterances. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the hypothesis that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Finally, the words that emerged through repetition were easier to learn as category labels than words transcribed from first generation imitations. Together these results suggest that the emergence of some conventionalized word forms may be a product of repetition without intent, providing a potential way to account for the pervasive levels of iconicity found in languages spoken today.
 
 ```{r config, echo = FALSE, warning = FALSE}
 library(knitr)
@@ -21,6 +17,7 @@ library(grid)
 library(gridExtra)
 library(crotchet)
 library(png)
+library(dplyr)
 
 opts_chunk$set(
   echo = FALSE,
@@ -59,12 +56,6 @@ imitation_meaning_data <- read_results(c(
 
 # The telephone game
 
-Participants were recruited to play an online version of the children's game of telephone. They were instructed to reproduce whatever message they received as accurately as possible. Each participant heard 4 messages, one in each of the 4 categories of sounds used in the experiment. Each category had 4 different seed sounds which were selected to be approximately equally distinguishable from one another within a given category through pilot testing. Each seed sound gave rise to 4 different branches, and branches were allowed to run out for a maximum of 8 generations. The recordings were monitored by an experimenter as they came in, and bad quality imitations were removed, which meant that some of the branches did not reach the full 8 generations.
-
-Imitation fidelity was not constant across generations, and imitations from later generations were rated by trained raters to be higher in subjective similarity than imitations from earlier generations.
-
-Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
-
 <!-- WARNING: Can't hide graphviz output.
 ```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
 ```
@@ -78,13 +69,16 @@ Once collected, a separate set of participants was recruited to transcribe the i
 # (A) telephone game design
 # (B) acoustic similarity
 # (C) transcription distance
+#
 # The telephone game design is build from a graphviz
 # dot source file. Ideally this graphviz file could
-# be read in and converted to a grob but alas it cannot
+# be read in and converted to a grob. Alas it cannot
 # be done.
+#
 # definitions_grob <- find_graphviz("definitions", package = "wordsintransition") %>%
 #   Diagrammer::grViz() %>%
 #   htmlwidget_to_grob()  # doesn't exist
+#
 # A workaround is to render the graphviz as a png file
 # and then load it in as a grob.
 definitions_grob <- "figs/definitions-1.png" %>% readPNG() %>% rasterGrob()
@@ -98,12 +92,6 @@ grid.arrange(
 ```
 
 # Measuring the meaning of the imitations
-
-The meaning of the imitations was measured by having a separate set of participants guess the origin of the imitations given the choice between four of the seed sounds. There were three types of questions. In the first question type, the correct seed was present in the choices, and the three distractor sounds randomly selected from three different categories. In the second question type, the correct seed was also present, but the distractor sounds were the other three sounds in the same category. In the final question type, the distractors were from different categories, but the correct answer was not the actual seed that generated the imitation. Rather, it was a different seed within the same category. Performance on this question type, relative to performance on the other question types, is used as a measure of the categorical nature of the imitation: the extent to which imitation can be used as a reference to all members of a category.
-
-Overall, performance in the guess the seed game decayed over time such that imitations from later generations were less accurately matched to their seeds than earlier generations. But the information decay was not constant across question types, and the information that separated individual imitations from the other seeds in the same category decayed more rapidly than the categorical information distinguishing seeds in one category from the others. This suggests that as imitations are repeated they retain categorical information more readily than individuating information.
-
-We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
 ```{r imitation-meaining-data, code = imitation_meaning_data, fig.show = "hide", results = "hide"}
 ```
