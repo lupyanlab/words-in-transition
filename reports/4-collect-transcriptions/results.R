@@ -1,4 +1,6 @@
-source("reports/theme.R")
+library(ggplot2)
+global_theme <- theme_minimal() +
+  theme(axis.ticks = element_blank())
 
 # ---- 4-setup
 library(ggplot2)

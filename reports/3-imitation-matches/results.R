@@ -4,7 +4,7 @@ global_theme <- theme_minimal() +
 
 colors <- RColorBrewer::brewer.pal(4, "Set2")
 names(colors) <- c("blue", "orange", "green", "pink")
-question_type_colors <- unname(colors[c("blue", "orange", "green")])
+question_type_colors <- unname(colors[c("green", "blue", "orange")])
 
 # ---- 3-setup
 library(dplyr)
@@ -21,7 +21,7 @@ between_color <- colors[["green"]]
 within_color <- colors[["blue"]]
 
 # ggplot theme
-distractor_labels <- c("Category match\n(true seed)", "Category match", "Specific match")
+distractor_labels <- c("True seed", "Category match", "Specific match")
 distractor_colors <- question_type_colors
 
 scale_y_accuracy <- scale_y_continuous(
@@ -56,7 +56,7 @@ scale_color_distractors <- scale_color_manual(
   labels = distractor_labels
 )
 
-chance_line <- geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1.5)
+chance_line <- geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1)
 chance_label <- annotate("text", x = 10, y = 0.26, label = "chance",
                          size = 7, vjust = -0.1, fontface = "italic", alpha = 0.4)
 
@@ -158,14 +158,14 @@ ggplot(filter(transition_preds, generation_1 == 0), aes(x = survey_type, y = is_
 gg_match_to_seed <- ggplot(imitation_matches, aes(x = generation_1, y = is_correct)) +
   geom_smooth(aes(ymin = is_correct - se, ymax = is_correct + se, color = survey_type),
               stat = "identity", data = transition_preds,
-              size = 2.0) +
+              size = 1.0) +
   scale_x_generation_1 +
-  scale_y_accuracy +
+  scale_y_continuous("Accuracy", breaks = seq(0, 1, by = 0.15), labels = percent) +
   scale_color_distractors +
   chance_line +
-  distractor_coords +
+  coord_cartesian(xlim = c(-0.2, 7.2), ylim = c(0.15, 0.75)) +
   global_theme +
-  theme(legend.position = "top", legend.key.size = unit(2, "lines"))
+  theme(legend.position = c(0.8, 0.85))
 gg_match_to_seed
 
 # ---- 3-first-last-gen

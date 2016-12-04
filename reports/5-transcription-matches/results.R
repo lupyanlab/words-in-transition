@@ -39,7 +39,7 @@ all_transcription_matches <- transcription_matches
 transcription_matches %<>% filter(message_type != "sound_effect")
 
 scale_x_message <- scale_x_continuous("Transcriptions", breaks = c(-0.5, 0.5), labels = c("First generation", "Last generation"))
-scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("Match to exact sound", "Match to same category"))
+scale_x_question <- scale_x_continuous("Question type", breaks = c(-0.5, 0.5), labels = c("True seed", "Category match"))
 scale_y_accuracy <- scale_y_continuous("Match to seed accuracy", labels = percent,
                                        breaks = c(0, 0.5, by = 0.05))
 scale_fill_question_type <- scale_fill_brewer(palette = "Set2")
@@ -50,7 +50,8 @@ gg <- ggplot(transcription_matches, aes(x = question_c, y = is_correct, fill = q
   scale_y_accuracy +
   scale_fill_question_type +
   coord_cartesian(ylim = c(0.0, 0.61)) +
-  global_theme
+  global_theme +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # ---- 5-subjects
 transcription_matches %>%
@@ -137,28 +138,35 @@ means_plot +
   facet_wrap("message_type") +
   ggtitle("Match accuracy by origin of transcription")
 
-# ---- 5-model
+# ---- 5-transcription-matches-mod
 acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
-# tidy(acc_mod, effects = "fixed")
 
-# ---- 5-model-preds
+# ---- 5-transcription-matches-plot
 x_preds <- expand.grid(question_c = c(-0.5, 0.5), message_c = c(-0.5, 0.5))
 y_preds <- predictSE(acc_mod, x_preds, se = TRUE)
+
+message_labels <- data_frame(
+  message_type = c("first_gen_imitation", "last_gen_imitation"),
+  message_label_2 = c("First generation", "Last generation")
+)
+
 preds <- cbind(x_preds, y_preds) %>%
   rename(is_correct = fit, se = se.fit) %>%
   recode_question_type %>%
-  recode_message_type
+  recode_message_type %>%
+  left_join(message_labels)
 
-model_plot <- (gg %+% preds) +
+gg_transcription_matches <- (gg %+% preds) +
   geom_bar(stat = "identity", width = 0.99, alpha = 0.6) +
   geom_linerange(aes(ymin = is_correct - se, ymax = is_correct + se)) +
-  facet_wrap("message_label")
-model_plot + ggtitle("GLM point estimates with standard error bars")
-
-# model_plot +
-#   geom_point(data = transcription_matches, stat = "summary", fun.y = "mean") +
-#   ggtitle("GLM predictions with overlayed sample means")
+  scale_y_continuous("Accuracy", breaks = seq(0, 1, by = 0.15),
+                     labels = percent) +
+  scale_fill_manual("", values = unname(colors[c("green", "blue")])) +
+  coord_cartesian(ylim = c(0.15, 0.75)) +
+  facet_wrap("message_label_2") +
+  theme(legend.position = "none")
+gg_transcription_matches
 
 # ---- 5-matching-by-transcription-agreement
 data("transcription_distances")

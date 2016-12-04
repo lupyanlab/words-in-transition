@@ -12,7 +12,7 @@ This research intends to show that conventionalized word forms can arise gradual
 
 Overall, the fidelity of imitations of environmental sounds in our experiment lasted around 8 generations. Over these generations, there was not a uniform degradation of the signal, instead different types of information decayed more rapidly than others. We found that the imitations lost individuating information more quickly than categorical information, suggesting that repetition may be one way to give rise to more categorical meanings of utterances. Additional evidence to support the claim that the imitations are becoming more wordlike was gathered by having participants transcribe imitations taken at different generations into actual English words. The agreement among these transcriptions improves as the imitations are repeated, supporting the hypothesis that repetition leads to more stable word forms. Moreover, the words that were created from these imitations retained some of the iconic properties of the imitation. Naive participants were able to match these novel words back to the original category of environmental sounds at above chance levels. Finally, the words that emerged through repetition were easier to learn as category labels than words transcribed from first generation imitations. Together these results suggest that the emergence of some conventionalized word forms may be a product of repetition without intent, providing a potential way to account for the pervasive levels of iconicity found in languages spoken today.
 
-```{r config, echo = FALSE}
+```{r config, echo = FALSE, warning = FALSE}
 library(knitr)
 library(printr)
 library(broom)
@@ -35,13 +35,23 @@ opts_chunk$set(
 
 read_chunk("theme.R")
 
-read_chunk("2-collect-imitations/results.R")
-read_chunk("3-imitation-matches/results.R")
-read_chunk("4-collect-transcriptions/results.R")
-read_chunk("5-transcription-matches/results.R")
-read_chunk("6-learning-sound-names/results.R")
-
 wordsintransition::read_wordsintransition_chunks()
+
+read_results <- function(experiments) {
+  scripts <- paste(experiments, "results.R", sep = "/")
+  sapply(scripts, readLines)
+}
+
+telephone_game_data <- read_results(c(
+  "2-collect-imitations",
+  "4-collect-transcriptions"
+))
+
+imitation_meaning_data <- read_results(c(
+  "3-imitation-matches",
+  "5-transcription-matches",
+  "6-learning-sound-names"
+))
 ```
 
 ```{r theme}
@@ -55,32 +65,19 @@ Imitation fidelity was not constant across generations, and imitations from late
 
 Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
 
-```{r 2-setup}
-```
-
-```{r 2-similarity-judgments-mod}
-```
-
-```{r 2-similarity-judgments-plot, fig.show = "hide"}
-```
-
-```{r 4-setup}
-```
-
-```{r 4-transcription-agreement-distance, fig.show = "hide"}
-```
-
 <!-- WARNING: Can't hide graphviz output.
 ```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
 ```
 -->
 
-```{r telephone-game, cache = FL}
+```{r telephone-game-data, code = telephone_game_data, fig.show = "hide", results = "hide"}
+```
+
+```{r telephone-game}
 # Make a three-panel plot:
 # (A) telephone game design
 # (B) acoustic similarity
 # (C) transcription distance
-
 # The telephone game design is build from a graphviz
 # dot source file. Ideally this graphviz file could
 # be read in and converted to a grob but alas it cannot
@@ -108,47 +105,22 @@ Overall, performance in the guess the seed game decayed over time such that imit
 
 We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
-```{r 3-setup}
-```
-
-```{r 3-data}
-```
-
-```{r 3-models}
-```
-
-```{r 3-match-to-seed, fig.show = "hide"}
-```
-
-```{r 5-setup}
-```
-
-```{r 5-plot-template}
-```
-
-```{r 5-model, cache = TRUE}
-```
-
-```{r 5-model-preds, fig.show = "hide"}
-```
-
-```{r 6-setup}
-```
-
-```{r 6-errors, fig.keep = "none"}
-```
-
-```{r 6-rts-over-trials, fig.keep = "none"}
-```
-
-```{r 6-results, fig.keep = "none"}
+```{r imitation-meaining-data, code = imitation_meaning_data, fig.show = "hide", results = "hide"}
 ```
 
 ```{r imitation-meaning, fig.width = 7, fig.height = 7}
+gg_rt_plot <- (rt_plot %+% first_last_gen) +
+  scale_color_message_label_2 +
+  theme(legend.position = "none")
+
+gg_error_plot <- (error_plot %+% first_last_gen) +
+  scale_color_message_label_2 +
+  theme(legend.position = c(0.8, 0.9))
+
 grid.arrange(
   gg_match_to_seed,
-  model_plot,
-  (rt_plot %+% first_last_gen) + theme(legend.position = "none"),
-  (error_plot %+% first_last_gen) + theme(legend.position = c(0.8, 0.9))
+  gg_transcription_matches,
+  gg_rt_plot,
+  gg_error_plot
 )
 ```

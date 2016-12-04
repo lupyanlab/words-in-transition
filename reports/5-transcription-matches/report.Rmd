@@ -69,7 +69,7 @@ that they should select the third option.
 ```{r 5-model, echo = 1, cache = TRUE}
 ```
 
-```{r 5-model-preds}
+```{r 5-transcription-matches-plot}
 ```
 
 ### Agreement as a predictor of matching accuracy
