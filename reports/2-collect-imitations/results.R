@@ -77,19 +77,22 @@ similarity_judgments_preds <- data_frame(edge_generation_n = 1:7) %>%
   rename(similarity_z = fit, se = se.fit) %>%
   recode_edge_generations
 
-# ---- 2-similarity-judgments-error-plot
+# ---- 2-similarity-judgments-plot
 similarity_judgments_means <- acoustic_similarity_judgments %>%
   group_by(edge_generations, category) %>%
   summarize(similarity_z = mean(similarity_z, na.rm = TRUE)) %>%
   recode_edge_generations
 
 set.seed(949)
-ggplot(similarity_judgments_means, aes(x = edge_generations, y = similarity_z)) +
-  geom_point(aes(color = category), position = position_jitter(0.4, 0.2), size = 2, alpha = 0.6) +
+gg_similarity_judgments <- ggplot(similarity_judgments_means) +
+  aes(x = edge_generations, y = similarity_z) +
+  geom_point(aes(color = category), position = position_jitter(0.4, 0.2),
+             size = 2, alpha = 0.6) +
   geom_smooth(aes(group = 1, ymin = similarity_z - se, ymax = similarity_z + se),
               data = similarity_judgments_preds, stat = "identity",
               color = "gray") +
   global_theme
+gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
 set.seed(603)

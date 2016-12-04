@@ -7,14 +7,16 @@ REPORTS = Path(PROJ, 'reports')
 
 
 @task
-def clear_cache(match=None, dry_run=False):
-    """Reset knitr cache directories."""
+def clear(match=None, dry_run=False):
+    """Reset knitr cache directories and remove figures."""
     report_dir = Path(PROJ, match or '**', '.cache')
-    cache_dirs = glob(report_dir)
+    fig_dir = Path(PROJ, match or '**', 'figs')
+
+    dirs_to_remove = glob(report_dir) + glob(fig_dir)
     if dry_run:
-        print '\n'.join(cache_dirs)
+        print '\n'.join(dirs_to_remove)
     else:
-        for d in cache_dirs:
+        for d in dirs_to_remove:
             Path(d).rmtree()
 
 

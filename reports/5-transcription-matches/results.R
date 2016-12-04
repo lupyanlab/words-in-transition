@@ -140,7 +140,7 @@ means_plot +
 # ---- 5-model
 acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
-tidy(acc_mod, effects = "fixed")
+# tidy(acc_mod, effects = "fixed")
 
 # ---- 5-model-preds
 x_preds <- expand.grid(question_c = c(-0.5, 0.5), message_c = c(-0.5, 0.5))

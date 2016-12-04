@@ -16,6 +16,11 @@ Overall, the fidelity of imitations of environmental sounds in our experiment la
 library(knitr)
 library(printr)
 library(broom)
+library(DiagrammeR)
+library(grid)
+library(gridExtra)
+library(crotchet)
+library(png)
 
 opts_chunk$set(
   echo = FALSE,
@@ -24,7 +29,8 @@ opts_chunk$set(
   cache = TRUE,
   cache.path = ".cache/",
   fig.path = "figs/",
-  fig.width = 8
+  fig.width = 10,
+  fig.height = 3.5
 )
 
 read_chunk("theme.R")
@@ -45,10 +51,9 @@ wordsintransition::read_wordsintransition_chunks()
 
 Participants were recruited to play an online version of the children's game of telephone. They were instructed to reproduce whatever message they received as accurately as possible. Each participant heard 4 messages, one in each of the 4 categories of sounds used in the experiment. Each category had 4 different seed sounds which were selected to be approximately equally distinguishable from one another within a given category through pilot testing. Each seed sound gave rise to 4 different branches, and branches were allowed to run out for a maximum of 8 generations. The recordings were monitored by an experimenter as they came in, and bad quality imitations were removed, which meant that some of the branches did not reach the full 8 generations.
 
-```{r definitions, engine = "dot", fig.width = 2, fig.cap = "Design of telephone game."}
-```
-
 Imitation fidelity was not constant across generations, and imitations from later generations were rated by trained raters to be higher in subjective similarity than imitations from earlier generations.
+
+Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
 
 ```{r 2-setup}
 ```
@@ -56,15 +61,43 @@ Imitation fidelity was not constant across generations, and imitations from late
 ```{r 2-similarity-judgments-mod}
 ```
 
-```{r 2-similarity-judgments-error-plot}
+```{r 2-similarity-judgments-plot, fig.show = "hide"}
 ```
-
-Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
 
 ```{r 4-setup}
 ```
 
-```{r 4-transcription-agreement-distance}
+```{r 4-transcription-agreement-distance, fig.show = "hide"}
+```
+
+<!-- WARNING: Can't hide graphviz output.
+```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
+```
+-->
+
+```{r telephone-game}
+# Make a three-panel plot:
+# (A) telephone game design
+# (B) acoustic similarity
+# (C) transcription distance
+
+# The telephone game design is build from a graphviz
+# dot source file. Ideally this graphviz file could
+# be read in and converted to a grob but alas it cannot
+# be done.
+# definitions_grob <- find_graphviz("definitions", package = "wordsintransition") %>%
+#   Diagrammer::grViz() %>%
+#   htmlwidget_to_grob()  # doesn't exist
+# A workaround is to render the graphviz as a png file
+# and then load it in as a grob.
+definitions_grob <- "figs/definitions-1.png" %>% readPNG() %>% rasterGrob()
+
+grid.arrange(
+  definitions_grob,
+  gg_similarity_judgments,
+  gg_distance,
+  nrow = 1
+)
 ```
 
 # Measuring the meaning of the imitations
@@ -72,6 +105,8 @@ Once collected, a separate set of participants was recruited to transcribe the i
 The meaning of the imitations was measured by having a separate set of participants guess the origin of the imitations given the choice between four of the seed sounds. There were three types of questions. In the first question type, the correct seed was present in the choices, and the three distractor sounds randomly selected from three different categories. In the second question type, the correct seed was also present, but the distractor sounds were the other three sounds in the same category. In the final question type, the distractors were from different categories, but the correct answer was not the actual seed that generated the imitation. Rather, it was a different seed within the same category. Performance on this question type, relative to performance on the other question types, is used as a measure of the categorical nature of the imitation: the extent to which imitation can be used as a reference to all members of a category.
 
 Overall, performance in the guess the seed game decayed over time such that imitations from later generations were less accurately matched to their seeds than earlier generations. But the information decay was not constant across question types, and the information that separated individual imitations from the other seeds in the same category decayed more rapidly than the categorical information distinguishing seeds in one category from the others. This suggests that as imitations are repeated they retain categorical information more readily than individuating information.
+
+We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
 ```{r 3-setup}
 ```
@@ -82,10 +117,8 @@ Overall, performance in the guess the seed game decayed over time such that imit
 ```{r 3-models}
 ```
 
-```{r 3-match-to-seed}
+```{r 3-match-to-seed, fig.show = "hide"}
 ```
-
-We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
 ```{r 5-setup}
 ```
@@ -96,23 +129,26 @@ We also ran versions of the guess the seed game with the transcriptions of the i
 ```{r 5-model, cache = TRUE}
 ```
 
-```{r 5-model-preds}
+```{r 5-model-preds, fig.show = "hide"}
 ```
-
-# Using transcriptions as category labels
-
-Finally, we used transcriptions taken at first and last generation imitations as category labels in a category learning experiment where participants had to learn a novel name for the categories of sounds. We found that transcriptions of later generation imitations were easier to learn and generalize to new instances than imitations of earlier generation imitations.
 
 ```{r 6-setup}
 ```
 
-```{r 6-errors, fig.show = 'hide'}
+```{r 6-errors, fig.keep = "none"}
 ```
 
-```{r 6-rts-over-trials, fig.show = 'hide'}
+```{r 6-rts-over-trials, fig.keep = "none"}
 ```
 
-```{r 6-results}
+```{r 6-results, fig.keep = "none"}
 ```
 
-# Conclusion
+```{r imitation-meaning, fig.width = 7, fig.height = 7}
+grid.arrange(
+  gg_match_to_seed,
+  model_plot,
+  (rt_plot %+% first_last_gen) + theme(legend.position = "none"),
+  (error_plot %+% first_last_gen) + theme(legend.position = c(0.8, 0.9))
+)
+```

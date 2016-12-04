@@ -155,7 +155,7 @@ ggplot(filter(transition_preds, generation_1 == 0), aes(x = survey_type, y = is_
   ggtitle("First generation imitations")
 
 # ---- 3-match-to-seed
-ggplot(imitation_matches, aes(x = generation_1, y = is_correct)) +
+gg_match_to_seed <- ggplot(imitation_matches, aes(x = generation_1, y = is_correct)) +
   geom_smooth(aes(ymin = is_correct - se, ymax = is_correct + se, color = survey_type),
               stat = "identity", data = transition_preds,
               size = 2.0) +
@@ -166,6 +166,7 @@ ggplot(imitation_matches, aes(x = generation_1, y = is_correct)) +
   distractor_coords +
   global_theme +
   theme(legend.position = "top", legend.key.size = unit(2, "lines"))
+gg_match_to_seed
 
 # ---- 3-first-last-gen
 ggplot(filter(transition_preds, generation_1 %in% c(0,7)), aes(x = survey_type, y = is_correct)) +

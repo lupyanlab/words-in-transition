@@ -119,13 +119,15 @@ distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
   labs(x = "", y = "Average distance to most frequent transcription") +
   global_theme
 
-distance_plot +
+gg_distance <- distance_plot +
   geom_bar(stat = "summary", fun.y = "mean",
            alpha = 0.6, width = 0.96) +
   geom_point(aes(group = message_id), stat = "summary", fun.y = "mean",
              shape = 1, position = position_jitter(0.3, 0.01)) +
   labs(title = "Distances get shorter")
+gg_distance
 
+# ---- 4-transcription-agreement-distance-separate
 distance_plot + 
   geom_bar(aes(fill = frequency_type, width = 0.96), stat = "summary", fun.y = "mean",
            alpha = 0.6) +

@@ -67,6 +67,9 @@ Transcription agreement by average pattern match distance to the single most fre
 ```{r 4-transcription-agreement-distance}
 ```
 
+```{r 4-transcription-agreement-distance-separate}
+```
+
 ## Length of pattern
 
 ```{r 4-transcription-length}
