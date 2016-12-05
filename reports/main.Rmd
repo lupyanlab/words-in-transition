@@ -55,6 +55,11 @@ Imitation fidelity was not constant across generations, and imitations from late
 
 Once collected, a separate set of participants was recruited to transcribe the imitations into English words. Mirroring the results of subjective similarity reported above, transcriptions of later generation imitations were higher in agreement than transcriptions of earlier generations.
 
+<!-- WARNING: Can't hide graphviz output.
+```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
+```
+-->
+
 ```{r 2-setup}
 ```
 
@@ -69,11 +74,6 @@ Once collected, a separate set of participants was recruited to transcribe the i
 
 ```{r 4-transcription-agreement-distance, fig.show = "hide"}
 ```
-
-<!-- WARNING: Can't hide graphviz output.
-```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
-```
--->
 
 ```{r telephone-game}
 # Make a three-panel plot:
@@ -108,6 +108,37 @@ Overall, performance in the guess the seed game decayed over time such that imit
 
 We also ran versions of the guess the seed game with the transcriptions of the imitations. Here we find that guess the seed accuracy decays more uninformly, though imitations taken from later generations are still able to be matched at above chance levels to the category of sounds.
 
+<!-- WARNING: Can't hide graphviz output.
+```{r true-seed, engine = "dot", results = "hide", fig.show = "hide"}
+```
+-->
+
+<!-- WARNING: Can't hide graphviz output.
+```{r category-match, engine = "dot", results = "hide", fig.show = "hide"}
+```
+-->
+
+<!-- WARNING: Can't hide graphviz output.
+```{r specific-match, engine = "dot", results = "hide", fig.show = "hide"}
+```
+-->
+
+```{r question-types, results = "hide", fig.show = "hide", fig.width = 4, fig.height = 4}
+read_chunk_fig <- function(label, draw = TRUE, ...) {
+  label %>%
+    paste0("-1.png") %>%
+    file.path("figs", .) %>%
+    readPNG() %>%
+    rasterGrob(...) %T>%
+    { if(draw) grid.draw(.) }
+}
+
+grid.newpage()
+read_chunk_fig("true-seed", y = 0.8, width = 0.8)
+read_chunk_fig("category-match", y = 0.5, width = 0.8)
+read_chunk_fig("specific-match", y = 0.2, width = 0.8)
+```
+
 ```{r 3-setup}
 ```
 
@@ -123,13 +154,20 @@ We also ran versions of the guess the seed game with the transcriptions of the i
 ```{r 5-setup}
 ```
 
-```{r 5-plot-template}
+```{r 5-match-transcription-to-seed-mod}
 ```
 
-```{r 5-model, cache = TRUE}
+```{r 5-match-transcription-to-seed-plot, fig.show = "hide"}
 ```
 
-```{r 5-model-preds, fig.show = "hide"}
+```{r guess-the-seed}
+question_types_grob <- read_chunk_fig("question-types", draw = FALSE)
+grid.arrange(
+  question_types_grob,
+  gg_match_to_seed,
+  gg_match_transcription,
+  nrow = 1
+)
 ```
 
 ```{r 6-setup}
@@ -147,7 +185,7 @@ We also ran versions of the guess the seed game with the transcriptions of the i
 ```{r imitation-meaning, fig.width = 7, fig.height = 7}
 grid.arrange(
   gg_match_to_seed,
-  model_plot,
+  gg_match_transcription,
   (rt_plot %+% first_last_gen) + theme(legend.position = "none"),
   (error_plot %+% first_last_gen) + theme(legend.position = c(0.8, 0.9))
 )

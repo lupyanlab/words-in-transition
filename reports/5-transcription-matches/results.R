@@ -137,12 +137,10 @@ means_plot +
   facet_wrap("message_type") +
   ggtitle("Match accuracy by origin of transcription")
 
-# ---- 5-model
+# ---- 5-match-transcription-to-seed-mod
 acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
-# tidy(acc_mod, effects = "fixed")
 
-# ---- 5-model-preds
 x_preds <- expand.grid(question_c = c(-0.5, 0.5), message_c = c(-0.5, 0.5))
 y_preds <- predictSE(acc_mod, x_preds, se = TRUE)
 preds <- cbind(x_preds, y_preds) %>%
@@ -150,15 +148,12 @@ preds <- cbind(x_preds, y_preds) %>%
   recode_question_type %>%
   recode_message_type
 
-model_plot <- (gg %+% preds) +
+# ---- 5-match-transcription-to-seed-plot
+gg_match_transcription <- (gg %+% preds) +
   geom_bar(stat = "identity", width = 0.99, alpha = 0.6) +
   geom_linerange(aes(ymin = is_correct - se, ymax = is_correct + se)) +
   facet_wrap("message_label")
-model_plot + ggtitle("GLM point estimates with standard error bars")
-
-# model_plot +
-#   geom_point(data = transcription_matches, stat = "summary", fun.y = "mean") +
-#   ggtitle("GLM predictions with overlayed sample means")
+gg_match_transcription
 
 # ---- 5-matching-by-transcription-agreement
 data("transcription_distances")
