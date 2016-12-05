@@ -91,9 +91,9 @@ gg_similarity_judgments <- ggplot(similarity_judgments_means) +
   geom_smooth(aes(group = 1, ymin = similarity_z - se, ymax = similarity_z + se),
               data = similarity_judgments_preds, stat = "identity",
               alpha = 0.2, color = "gray") +
-  scale_x_discrete("Imitation generation") +
-  scale_y_continuous("Acoustic similarity (z-score)") +
-  scale_color_brewer("Sound category", palette = "Set2") +
+  scale_x_discrete("Generation") +
+  scale_y_continuous("Acoustic similarity") +
+  scale_color_brewer("Category", palette = "Set2") +
   global_theme +
   theme(legend.position = "top")
 gg_similarity_judgments

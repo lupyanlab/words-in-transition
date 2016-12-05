@@ -138,11 +138,10 @@ means_plot +
   facet_wrap("message_type") +
   ggtitle("Match accuracy by origin of transcription")
 
-# ---- 5-transcription-matches-mod
+# ---- 5-match-transcriptions-mod
 acc_mod <- glmer(is_correct ~ question_c * message_c + (question_c * message_c|subj_id),
                  family = binomial, data = transcription_matches)
 
-# ---- 5-transcription-matches-plot
 x_preds <- expand.grid(question_c = c(-0.5, 0.5), message_c = c(-0.5, 0.5))
 y_preds <- predictSE(acc_mod, x_preds, se = TRUE)
 
@@ -157,7 +156,8 @@ preds <- cbind(x_preds, y_preds) %>%
   recode_message_type %>%
   left_join(message_labels)
 
-gg_transcription_matches <- (gg %+% preds) +
+# ---- 5-match-transcriptions-plot
+gg_match_transcriptions <- (gg %+% preds) +
   geom_bar(stat = "identity", width = 0.99, alpha = 0.6) +
   geom_linerange(aes(ymin = is_correct - se, ymax = is_correct + se)) +
   scale_y_continuous("Accuracy", breaks = seq(0, 1, by = 0.15),
@@ -166,7 +166,7 @@ gg_transcription_matches <- (gg %+% preds) +
   coord_cartesian(ylim = c(0.15, 0.75)) +
   facet_wrap("message_label_2") +
   theme(legend.position = "none")
-gg_transcription_matches
+gg_match_transcriptions
 
 # ---- 5-matching-by-transcription-agreement
 data("transcription_distances")
