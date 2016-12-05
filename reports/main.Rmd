@@ -75,7 +75,7 @@ Once collected, a separate set of participants was recruited to transcribe the i
 ```
 -->
 
-```{r telephone-game, cache = FL}
+```{r telephone-game}
 # Make a three-panel plot:
 # (A) telephone game design
 # (B) acoustic similarity

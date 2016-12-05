@@ -123,9 +123,9 @@ gg_distance <- distance_plot +
              stat = "summary", fun.y = "mean",
              position = position_jitter(0.3, 0.01),
              alpha = 0.8, size = 2) +
-  scale_x_discrete("Imitation generation",
+  scale_x_discrete("Generation",
                    labels = c("First", "Last")) +
-  scale_y_continuous("Transcription distance") +
+  scale_y_continuous("Distance between transcriptions") +
   scale_color_manual(values = imitation_gen_colors) +
   scale_fill_manual(values = imitation_gen_colors)
 gg_distance
