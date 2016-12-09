@@ -8,7 +8,7 @@ biblio-style: apalike
 link-citations: yes
 ---
 
-# Abstract
+# Abstract {-}
 
 ```{r include=FALSE}
 # create a bib database for R packages
@@ -31,3 +31,7 @@ words, and even equally predictive nonverbal cues fail to take on the
 categorical properties of words [@EdmistonLupyan2015Cognition]. If the
 imitations in the telephone game are becoming more wordlike, they should also
 begin to take on the categorical properties of words.
+
+# Introduction {-}
+
+This is the introduction
