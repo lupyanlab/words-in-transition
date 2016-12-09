@@ -2,3 +2,33 @@
 
 We collected vocal imitations by conducting a version of the children's game
 "telephone" online.
+
+```{r include=FALSE}
+library(dplyr)
+
+library(wordsintransition)
+data("imitations")
+data("acoustic_similarity_judgments")
+data("subjects")
+```
+
+## Methods
+
+### Participants
+
+```{r 2-participants, echo=FALSE, results="asis"}
+data_frame(
+  Experiment = c("Collect imitations", "Judge similarity"),
+  N = c(
+    round(nrow(imitations %>% filter(generation > 0))/4, 0),
+    length(unique(acoustic_similarity_judgments$name))
+  )
+) %>%
+  pander::pandoc.table()
+```
+
+### Procedure
+
+## Results
+
+## Discussion

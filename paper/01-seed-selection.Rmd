@@ -74,7 +74,7 @@ initial set to a final set of 16 seed sounds: 4 sounds in each of 4 categories.
 
 ### Participants
 
-```{r participants, results="asis", echo=FALSE}
+```{r 1-participants, results="asis", echo=FALSE}
 summarize_participants <- function(frame, round_n) {
   dropped <- frame %>%
     filter(failed_catch_trial == 1) %>%
@@ -109,7 +109,7 @@ distinguishable category members.
 
 ## Results
 
-```{r odd-one-out, include=FALSE}
+```{r 1-odd-one-out, include=FALSE}
 odd_one_out <- ggplot(mapping = aes(x = filename_f, y = n)) +
   geom_bar(aes(fill = odd_one_out), stat = "identity") +
   scale_x_discrete("") +
@@ -127,21 +127,21 @@ odd_one_out <- ggplot(mapping = aes(x = filename_f, y = n)) +
 
 ### Round 1
 
-```{r odd-one-out-1, echo=FALSE, fig.height=10}
+```{r 1-odd-one-out-1, echo=FALSE, fig.height=10}
 (odd_one_out %+% sound_similarity_6_counts) +
   ggtitle("Odd one out (6 per category)")
 ```
 
 ### Round 2
 
-```{r odd-one-out-2, echo=FALSE, fig.height=10}
+```{r 1-odd-one-out-2, echo=FALSE, fig.height=10}
 (odd_one_out %+% sound_similarity_4_counts) +
   ggtitle("Odd one out (4 per category)")
 ```
 
 ### Final seeds
 
-```{r final-seeds, echo=FALSE, results="asis"}
+```{r 1-final-seeds, echo=FALSE, results="asis"}
 # The audio only works with html obviously but whatever goes between
 # the audio tags will be rendered in pdf/word outputs.
 player <- '<audio src="%s" controls>%s</audio>'
