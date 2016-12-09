@@ -2,4 +2,8 @@
 
 ## Materials {-}
 
+The sounds to use as seeds in each transmission chain were selected using a procedure described in Experiment 1. Vocal imitations of these seed sounds were collected via the participants' personal computers and web browsers using a procedure detailed in Experiment 2. A sample of these imitations were transcribed by participants in Experiment 3. The imitations from Experiment 2 and the transcriptions from Experiment 3 were used as materials in Experiments 4 and 5, where participants tried to guess the seed sound that lead to the imitation or the transcription they were presented.
+
 ## Participants {-}
+
+Participants recruited online via Amazon Mechanical Turk were used in Experiments 1-5. Experiment 6 was conducted in-person on University of Wisconsin-Madison undergraduates.
