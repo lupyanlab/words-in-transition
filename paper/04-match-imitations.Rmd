@@ -1,0 +1,4 @@
+# Matching imitations back to seeds
+
+To measure the fidelity of the imitations, we had participants listen to each
+imitation and attempt to match it to it's source--the seed sound.

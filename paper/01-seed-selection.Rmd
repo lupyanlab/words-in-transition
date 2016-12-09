@@ -1,0 +1,12 @@
+# Selecting seeds
+
+To pick the seeds useds in the experiment, we started with an initial set of
+6 categories and 6 sounds in each category and conducted two rounds of norming
+to reduce the initial set to the final set of 16 seed sounds, 4 in each of
+4 categories. The norming procedure was as follows. Participants listened to
+the sounds in each category and picked the one that they thought was the most
+different from the others. In the first round of norming, participants listened
+to 6 sounds. We removed the sounds in each category that were the most different
+from the others, and repeated the norming process again with 5 sounds in each
+category. The resulting sounds that were selected in each category are
+considered to be a set of equally distinguishable category members.
