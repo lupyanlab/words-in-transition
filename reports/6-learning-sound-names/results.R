@@ -67,6 +67,7 @@ ggbase_rt +
   geom_point(aes(color = factor(block_ix)), alpha = 0.2) +
   geom_smooth(aes(group = factor(block_ix), color = factor(block_ix)),
               method = "loess", se = FALSE) +
+  coord_cartesian(ylim = c(0, 2000)) +
   scale_color_brewer(palette = "Set2") +
   theme(legend.position = "none") +
   facet_wrap("message_label_long") +
