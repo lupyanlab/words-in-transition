@@ -1,6 +1,8 @@
 library(ggplot2)
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
+colors <- RColorBrewer::brewer.pal(3, "Set2")
+names(colors) <- c("green", "orange", "blue")
 
 # ---- 6-setup
 library(dplyr)
@@ -35,7 +37,7 @@ scale_color_message_label <- scale_color_manual(
 scale_color_message_label_2 <- scale_color_manual(
   "Transcription of",
   labels = c("First generation", "Last generation"),
-  values = imitation_gen_colors
+  values = unname(colors[c("green", "blue")])
 )
 
 ggbase <- ggplot(learning_sound_names) +
@@ -84,8 +86,13 @@ rt_plot
 
 # ---- 6-results
 first_last_gen <- filter(learning_sound_names, message_type != "sound_effect")
+
 grid.arrange(
-  (rt_plot %+% first_last_gen) + theme(legend.position = "none"),
-  (error_plot %+% first_last_gen) + theme(legend.position = c(0.8, 0.9)),
+  (rt_plot %+% first_last_gen) + 
+    scale_color_message_label_2 +
+    theme(legend.position = "none"),
+  (error_plot %+% first_last_gen) +
+    theme(legend.position = c(0.8, 0.9)) +
+    scale_color_message_label_2,
   nrow = 1
 )
