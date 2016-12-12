@@ -34,3 +34,12 @@ test_that("multiple trial bins", {
   expect_true("first_bin" %in% unique_vals)
   expect_true("last_bin" %in% unique_vals)
 })
+
+context("Label trial number in block")
+
+test_that("trials within blocks are labeled correctly", {
+  frame <- data_frame(subj_id = c("a", "b"), trial_ix = 1:2, block_ix = 1:2)
+  result <- label_trial_in_block(frame)
+  expected <- c(1, 1)  # both trials are first in their block
+  expect_equal(result$trial_in_block, expected)
+})

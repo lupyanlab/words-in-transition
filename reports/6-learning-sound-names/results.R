@@ -22,7 +22,7 @@ learning_sound_names %<>%
   mutate(rt = ifelse(is_correct == 1, rt, NA),
          is_error = 1 - is_correct) %>%
   mutate(word_category_by_block_ix = paste(word_category, block_ix, sep = ":")) %>%
-  recode_word_type
+  recode_word_type()
 
 scale_x_trial_ix <- scale_x_continuous("Trial number (24 trials per block)",
                                        breaks = seq(1, 96, by = 24))
@@ -117,6 +117,13 @@ rt_plot <- ggbase_rt_ave +
   scale_color_message_label +
   theme(legend.position = "top")
 rt_plot
+
+# ---- 6-rt-transition
+
+
+learning_sound_names %>%
+  label_trial_in_block() %>%
+  bin_trials("block_transition", "trial_in_block", before = )
 
 # ---- 6-results
 first_last_gen <- filter(learning_sound_names, message_type != "sound_effect")

@@ -3,6 +3,7 @@
 export(bin_trials)
 export(count_valid_responses)
 export(label_outliers)
+export(label_trial_in_block)
 export(read_wordsintransition_chunks)
 export(recode_message_type)
 export(recode_question_type)
