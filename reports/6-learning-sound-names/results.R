@@ -43,6 +43,39 @@ scale_color_message_label_2 <- scale_color_manual(
 ggbase <- ggplot(learning_sound_names) +
   global_theme
 
+# ---- 6-subjects
+subjects <- learning_sound_names %>%
+  group_by(subj_id) %>%
+  summarize(
+    rt = mean(rt, na.rm = TRUE),
+    error = mean(is_error, na.rm = TRUE)
+  ) %>%
+  mutate(
+    rt_rank = rank(rt, ties.method = "random"),
+    error_rank = rank(error, ties.method = "random")
+  )
+
+subj_plot <- ggplot(subjects) +
+  geom_point(shape = 1) +
+  geom_text(aes(label = subj_id), angle = 90, hjust = -0.1, size = 3) +
+  scale_x_continuous("Rank", breaks = c(1, seq(5, nrow(subjects), by = 10)))
+
+subj_plot +
+  aes(rt_rank, rt) +
+  scale_y_continuous("RT") +
+  coord_cartesian(ylim = c(0, max(subjects$rt) + 200)) +
+  global_theme
+
+subj_plot +
+  aes(error_rank, error) +
+  scale_y_continuous("Error", labels = scales::percent) +
+  coord_cartesian(ylim = c(0, max(subjects$error) + 0.1)) +
+  global_theme
+
+# ---- 6-drop-outliers
+outliers <- c("LSN102", "LSN148", "LSN104", "LSN147")
+learning_sound_names %<>% filter(!(subj_id %in% outliers))
+
 # ---- 6-errors
 ggbase_error <- ggbase
 ggbase_error$mapping <- aes(block_ix, is_error)

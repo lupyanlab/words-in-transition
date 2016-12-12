@@ -24,8 +24,20 @@ read_chunk("../theme.R")
 ```{r 6-setup}
 ```
 
+# Subjects
+
+```{r 6-subjects, fig.width = 8}
+```
+
+```{r 6-drop-outliers, echo = TRUE}
+```
+
+# Errors
+
 ```{r 6-errors}
 ```
+
+# RTs
 
 ```{r 6-rts-over-trials}
 ```
