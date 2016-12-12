@@ -24,7 +24,10 @@ learning_sound_names %<>%
   mutate(rt = ifelse(is_correct == 1, rt, NA),
          is_error = 1 - is_correct) %>%
   mutate(word_category_by_block_ix = paste(word_category, block_ix, sep = ":")) %>%
-  recode_word_type()
+  recode_word_type() %>%
+  mutate(
+    block_ix_sqr = block_ix^2
+  )
 
 
 lsn_transition <- learning_sound_names %>%
@@ -49,7 +52,7 @@ lsn_transition %<>%
              before = (trials_per_block-n_trials):trials_per_block,
              after = 1:n_trials) %>%
   filter(
-    block_ix > 1,
+    !(block_ix == 1 & block_transition == "after"),
     !is.na(block_transition),
     message_type != "sound_effect"
   ) %>%
@@ -121,6 +124,12 @@ error_plot <- ggbase_error +
   scale_color_message_label +
   theme(legend.position = "top")
 error_plot
+
+# ---- 6-rt-by-block-mod
+rt_by_block_mod <- lmer(
+  rt ~ message_c * (block_ix + block_ix_sqr) + (block_ix + block_ix_sqr|subj_id),
+  data = learning_sound_names
+)
 
 # ---- 6-rts-over-trials
 ggbase_rt <- ggbase +
