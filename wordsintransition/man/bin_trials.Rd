@@ -4,7 +4,7 @@
 \alias{bin_trials}
 \title{Bin trials into named groups.}
 \usage{
-bin_trials(frame, bin_col, ...)
+bin_trials(frame, new_bin_col, col_to_bin_on = "trial_ix", ...)
 }
 \description{
 Bin trials into named groups.

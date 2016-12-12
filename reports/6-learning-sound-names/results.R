@@ -10,6 +10,8 @@ library(magrittr)
 library(ggplot2)
 library(scales)
 library(gridExtra)
+library(lme4)
+library(AICcmodavg)
 
 library(wordsintransition)
 
@@ -23,6 +25,36 @@ learning_sound_names %<>%
          is_error = 1 - is_correct) %>%
   mutate(word_category_by_block_ix = paste(word_category, block_ix, sep = ":")) %>%
   recode_word_type()
+
+
+lsn_transition <- learning_sound_names %>%
+  label_trial_in_block()
+
+trials_per_block <- max(lsn_transition$trial_in_block)
+n_trials <- 6
+
+recode_block_transition <- function(frame) {
+  block_transition_levels <- c("before", "after")
+  block_transition_map <- data_frame(
+    block_transition = block_transition_levels,
+    block_transition_label = factor(block_transition_levels,
+                                    levels = block_transition_levels),
+    block_transition_c = c(-0.5, 0.5)
+  )
+  left_join(frame, block_transition_map)
+}
+
+lsn_transition %<>%
+  bin_trials("block_transition", "trial_in_block",
+             before = (trials_per_block-n_trials):trials_per_block,
+             after = 1:n_trials) %>%
+  filter(
+    block_ix > 1,
+    !is.na(block_transition),
+    message_type != "sound_effect"
+  ) %>%
+  recode_block_transition()
+
 
 scale_x_trial_ix <- scale_x_continuous("Trial number (24 trials per block)",
                                        breaks = seq(1, 96, by = 24))
@@ -118,12 +150,35 @@ rt_plot <- ggbase_rt_ave +
   theme(legend.position = "top")
 rt_plot
 
-# ---- 6-rt-transition
+# ---- 6-rt-transition-mod
+transition_mod <- lmer(
+  rt ~ block_transition_c * message_c + block_ix + (block_ix|subj_id),
+  data = lsn_transition
+)
 
+transition_preds <- expand.grid(block_transition_c = c(-0.5, 0.5),
+                                message_c = c(-0.5, 0.5),
+                                block_ix = 3) %>%
+  cbind(., predictSE(transition_mod, ., se = TRUE)) %>%
+  rename(rt = fit, se = se.fit) %>%
+  recode_block_transition() %>%
+  recode_message_type()
 
-learning_sound_names %>%
-  label_trial_in_block() %>%
-  bin_trials("block_transition", "trial_in_block", before = )
+# ---- 6-rt-transition-plot
+dodger <- position_dodge(width = 0.1)
+
+ggplot(lsn_transition) +
+  aes(block_transition_label, rt, color = message_type) +
+  geom_linerange(aes(ymin = rt - se, ymax = rt + se),
+                 data = transition_preds,
+                 position = dodger, show_guide = FALSE) +
+  geom_line(aes(group = message_type), data = transition_preds,
+            position = dodger) +
+  scale_x_discrete("Block transition", labels = c("Before", "After")) +
+  scale_y_rt +
+  scale_color_message_label_2 +
+  global_theme +
+  theme(legend.position = c(0.85, 0.5))
 
 # ---- 6-results
 first_last_gen <- filter(learning_sound_names, message_type != "sound_effect")

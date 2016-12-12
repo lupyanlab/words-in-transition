@@ -42,5 +42,13 @@ read_chunk("../theme.R")
 ```{r 6-rts-over-trials}
 ```
 
-```{r 6-results, fig.width = 8}
+```{r 6-rt-transition-mod, echo = 1}
+```
+
+```{r 6-rt-transition-mod-results}
+broom::tidy(transition_mod, effects = "fixed") %>%
+  knitr::kable()
+```
+
+```{r 6-rt-transition-plot}
 ```

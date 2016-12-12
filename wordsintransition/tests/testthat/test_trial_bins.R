@@ -35,6 +35,12 @@ test_that("multiple trial bins", {
   expect_true("last_bin" %in% unique_vals)
 })
 
+test_that("bin on specific trial col", {
+  frame <- data_frame(other_trial_var = 1:10)
+  result <- bin_trials(frame, "new_bin", "other_trial_var", first_bin = 1)
+  expect_true("first_bin" %in% unique(result$new_bin))
+})
+
 context("Label trial number in block")
 
 test_that("trials within blocks are labeled correctly", {

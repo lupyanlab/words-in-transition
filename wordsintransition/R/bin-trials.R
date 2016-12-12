@@ -1,12 +1,12 @@
 #' Bin trials into named groups.
 #' @export
-bin_trials <- function(frame, bin_col, ...) {
+bin_trials <- function(frame, new_bin_col, col_to_bin_on = "trial_ix", ...) {
+  frame[new_bin_col] <- NA
   trial_labels <- list(...)
-  frame[bin_col] <- NA
 
   for (name in names(trial_labels)) {
-    in_trial_label <- (frame$trial_ix %in% trial_labels[[name]])
-    frame[in_trial_label, bin_col] <- name
+    in_trial_label <- (frame[[col_to_bin_on]] %in% trial_labels[[name]])
+    frame[in_trial_label, new_bin_col] <- name
   }
 
   frame
