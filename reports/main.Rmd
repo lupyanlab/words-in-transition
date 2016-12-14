@@ -162,6 +162,8 @@ grid.arrange(
 )
 ```
 
+# Category learning
+
 ```{r 6-setup}
 ```
 
@@ -174,12 +176,14 @@ grid.arrange(
 ```{r 6-results, fig.show = "hide"}
 ```
 
-# Category learning
-
 ```{r category-learning}
 grid.arrange(
-  (rt_plot %+% first_last_gen) + theme(legend.position = "none"),
-  (error_plot %+% first_last_gen) + theme(legend.position = c(0.8, 0.9)),
+  (rt_plot %+% first_last_gen) + 
+    scale_color_message_label_2 +
+    theme(legend.position = "none"),
+  (error_plot %+% first_last_gen) +
+    theme(legend.position = c(0.8, 0.9)) +
+    scale_color_message_label_2,
   nrow = 1
 )
 ```
