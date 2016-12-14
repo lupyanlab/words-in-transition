@@ -1,3 +1,14 @@
 # General discussion {-}
 
-What did we find?
+We found that categorical information is more resilient to person-to-person
+transfer than individuating information about the particular member of a
+category being referenced. A prediction of our theory that words may be born
+through the stabilization of imitation predicts that imitations that are closer
+to words should also behave more like words cognitively. One of the unique
+properties of words is that they facilitate categorization, which is a process
+that involves abstracting across superficial similarities and seeing the ways in
+which different members are related. Importantly, these properties are unique to
+words, and even equally predictive nonverbal cues fail to take on the
+categorical properties of words [@EdmistonLupyan2015Cognition]. If the
+imitations in the telephone game are becoming more wordlike, they should also
+begin to take on the categorical properties of words.

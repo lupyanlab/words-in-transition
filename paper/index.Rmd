@@ -17,21 +17,6 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-This research intends to show that conventionalized word forms can arise gradually and uneffortfully simply through the repeated imitation of nonverbal, environmental sounds. Participants played an online version of the children's game "telephone" where an auditory message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of nonverbal environment sounds (e.g., glass breaking, water splashing). These imitations were hypothesized to become more wordlike as they are repeated.
-
-We found that categorical information is more resilient to person-to-person
-transfer than individuating information about the particular member of a
-category being referenced. A prediction of our theory that words may be born
-through the stabilization of imitation predicts that imitations that are closer
-to words should also behave more like words cognitively. One of the unique
-properties of words is that they facilitate categorization, which is a process
-that involves abstracting across superficial similarities and seeing the ways in
-which different members are related. Importantly, these properties are unique to
-words, and even equally predictive nonverbal cues fail to take on the
-categorical properties of words [@EdmistonLupyan2015Cognition]. If the
-imitations in the telephone game are becoming more wordlike, they should also
-begin to take on the categorical properties of words.
+This research describes the process by which conventional word forms can arise gradually and uneffortfully through repeated imitation of nonverbal environmental sounds. Participants played an online version of the children's game "Telephone" where an auditory message is passed from person to person with the goal of keeping the message unchanged. Instead of a typical message, participants had to pass on imitations of nonverbal environment sounds (e.g., glass breaking, water splashing). These imitations were hypothesized to become more wordlike as they are repeated. "Wordlike-ness" was measured in two ways. First we measured the stability of the acoustic signal, finding that imitations that were repeated became more stable both in acoustic similarity and in lexical agreement. Second we measured the extent to which each each imitation could be related back to its original source, finding that categorical information about the type of sound is more resilient to transmissional decay than individuating information.
 
 # Introduction {-}
-
-This is the introduction
