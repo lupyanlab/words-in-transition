@@ -113,6 +113,7 @@ distinguishable category members.
 odd_one_out <- ggplot(mapping = aes(x = filename_f, y = n)) +
   geom_bar(aes(fill = odd_one_out), stat = "identity") +
   scale_x_discrete("") +
+  scale_y_continuous("Number of times selected as odd one out") +
   scale_fill_manual("", labels = c("kept", "dropped"),
                     values = RColorBrewer::brewer.pal(3, "Set2")[c(1, 2)]) +
   facet_wrap("category", scales = "free_x", ncol = 2) +

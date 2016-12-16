@@ -1,3 +1,92 @@
 # Collecting transcriptions of imitations
 
 After collecting the imitations, we asked people to transcribe them into words.
+
+```{r, include=FALSE}
+library(ggplot2)
+library(scales)
+library(dplyr)
+library(magrittr)
+
+library(wordsintransition)
+data("imitations")
+data("transcriptions")
+data("transcription_frequencies")
+data("transcription_distances")
+
+imitations %<>%
+  filter(game_name == "words-in-transition")
+
+gen_labels <- imitations %>%
+  select(message_id, generation)
+
+transcriptions %<>%
+  filter(is_catch_trial == 0) %>%
+  # label the generation of the imitations being transcribed
+  left_join(gen_labels) %>%
+  recode_message_type
+
+transcription_frequencies %<>%
+  left_join(gen_labels)
+
+global_theme <- theme_minimal() +
+  theme(
+    axis.ticks = element_blank(),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+colors <- RColorBrewer::brewer.pal(4, "Set2")
+names(colors) <- c("blue", "orange", "green", "pink")
+question_type_colors <- unname(colors[c("green", "orange", "blue")])
+imitation_gen_colors <- unname(colors[c("green", "blue")])
+
+base <- ggplot() +
+  global_theme
+
+scale_x_generation <- scale_x_continuous(breaks = 0:8)
+
+hist <- base +
+  geom_histogram(aes(x = generation), binwidth = 1,
+                 color = "black", fill = "white", alpha = 0.6) +
+  geom_text(aes(x = generation, label = ..count..),
+            stat = "bin", binwidth = 1, vjust = -0.6) +
+  scale_x_generation
+
+message_id_map <- select(imitations, message_id, seed_id, generation)
+
+transcription_distances %<>%
+  left_join(message_id_map) %>%
+  recode_transcription_frequency %>%
+  recode_message_type %>%
+  filter(message_type != "sound_effect")
+```
+
+## Methods
+
+### Participants
+
+### Procedure
+
+## Results
+
+```{r 3-transcription-distance}
+distance_plot <- ggplot(transcription_distances, aes(message_label, distance)) +
+  global_theme
+
+gg_distance <- distance_plot +
+  geom_bar(aes(fill = message_label), stat = "summary", fun.y = "mean",
+           alpha = 0.6, width = 0.96) +
+  geom_point(aes(group = message_id, color = message_label),
+             stat = "summary", fun.y = "mean",
+             position = position_jitter(0.3, 0.01),
+             alpha = 0.8, size = 2) +
+  scale_x_discrete("Generation",
+                   labels = c("First", "Last")) +
+  scale_y_continuous("Distance between transcriptions") +
+  scale_color_manual(values = imitation_gen_colors) +
+  scale_fill_manual(values = imitation_gen_colors)
+gg_distance
+```
+
+## Discussion
