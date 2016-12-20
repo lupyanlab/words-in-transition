@@ -1,9 +1,9 @@
 # General methods {-}
 
-## Materials {-}
+Participants imitated acoustic signals as accurately as possible in a transmission chain design in Experiment 1. These imitations provided the materials used in the remaining experiments. In Experiment 2, participants attempted to match each imitation back to its source (the seed sound). In Experiment 3, participants transcribed a subset of the imitations. In Experiment 4, participants attempted to match these transcriptions back to the seed source. In Experiment 5, we used the transcriptions taken from different generations of imitations as novel names for categories of sounds.
 
-The sounds to use as seeds in each transmission chain were selected using a procedure described in Experiment 1. Vocal imitations of these seed sounds were collected via the participants' personal computers and web browsers using a procedure detailed in Experiment 2. A sample of these imitations were transcribed by participants in Experiment 3. The imitations from Experiment 2 and the transcriptions from Experiment 3 were used as materials in Experiments 4 and 5, where participants tried to guess the seed sound that lead to the imitation or the transcription they were presented.
+<!-- Describe sheer number of imitations and transcriptions. -->
 
 ## Participants {-}
 
-Participants recruited online via Amazon Mechanical Turk were used in Experiments 1-5. Experiment 6 was conducted in-person on University of Wisconsin-Madison undergraduates.
+Participants recruited online via Amazon Mechanical Turk were used in Experiments 1-4. Experiment 5 was conducted in-person on University of Wisconsin-Madison undergraduates.

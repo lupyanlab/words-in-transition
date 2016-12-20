@@ -1,4 +1,4 @@
-# Matching transcriptions of imitations back to seeds
+# Matching transcriptions of imitations to seeds
 
 We next asked whether the transcriptions of the imitations also retained
 some measure of fidelity to the original sound source, as evidenced by
