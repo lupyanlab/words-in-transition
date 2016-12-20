@@ -14,6 +14,8 @@ data("transcriptions")
 data("transcription_frequencies")
 data("transcription_distances")
 
+source("R/img.R")
+
 imitations %<>%
   filter(game_name == "words-in-transition")
 
@@ -67,6 +69,10 @@ transcription_distances %<>%
 ### Participants
 
 ### Procedure
+
+```{r 2-transcribe-imitations-gui, fig.width=3, fig.height=3}
+img("transcribe-imitations-gui")
+```
 
 ## Results
 

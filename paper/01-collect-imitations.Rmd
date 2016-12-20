@@ -17,6 +17,8 @@ data("imitations")
 data("subjects")
 data("acoustic_similarity_judgments")
 
+source("R/img.R")
+
 global_theme <- theme_minimal() +
   theme(
     axis.ticks = element_blank(),
@@ -214,11 +216,8 @@ data_frame(
 
 Participants were given a link to the experiment. The experiment was introduced as a version of the children's game "telephone" where an auditory message is passed from person to person with the goal of leaving the original message unchanged. They were told that the messages they would hear might not be recognizable as English words (as they typically are in the children's game), but that their goal was the same: to repeat whatever they heard as accurately as possible. Participants then listened to messages one at a time and recorded their imitation of it for a total of four messages and imitations. The average time to complete this experiment was less than 5 minutes.
 
-```{r 1-telephone-gui, fig.width=3, fig.height=3, fig.cap="The interface for the telephone game. Initially the only action open to players is to hear the message by clicking the top sound icon. After listening to the message once, they could then initiate a recording of their imitation by clicking the bottom sound icon. Turning the recorder off submitted their response, and a new message was loaded."}
-library(grid)
-library(png)
-grid.newpage()
-grid.draw(readPNG("img/telephone.png") %>% rasterGrob())
+```{r 1-collect-imitations-gui, fig.width=3, fig.height=3, fig.cap="The interface for the telephone game. Initially the only action open to players is to hear the message by clicking the top sound icon. After listening to the message once, they could then initiate a recording of their imitation by clicking the bottom sound icon. Turning the recorder off submitted their response, and a new message was loaded."}
+img("collect-imitations-gui")
 ```
 
 ### Acoustic similarity judgments

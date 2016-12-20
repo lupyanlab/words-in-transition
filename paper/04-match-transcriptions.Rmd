@@ -3,3 +3,21 @@
 We next asked whether the transcriptions of the imitations also retained
 some measure of fidelity to the original sound source, as evidenced by
 above chance guessing as to the "meaning" of the distal sound source.
+
+```{r, include=FALSE}
+source("R/img.R")
+```
+
+## Methods
+
+### Participants
+
+### Procedure
+
+```{r 4-match-transcriptions-gui, fig.width=3, fig.height=3}
+img("match-transcriptions-gui")
+```
+
+## Results
+
+## Discussion

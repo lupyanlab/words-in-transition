@@ -14,6 +14,8 @@ library(AICcmodavg)
 library(pander)
 library(png)
 
+source("R/img.R")
+
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
 
@@ -128,6 +130,12 @@ grid.newpage()
 read_chunk_fig("true-seed", y = 0.8, width = 0.9)
 read_chunk_fig("category-match", y = 0.5, width = 0.9)
 read_chunk_fig("specific-match", y = 0.2, width = 0.9)
+```
+
+### Procedure
+
+```{r 3-match-imitations-gui, fig.width=3, fig.height=3}
+img("match-imitations-gui")
 ```
 
 ## Results
