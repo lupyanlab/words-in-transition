@@ -37,7 +37,7 @@ def make_subjects(subjects_csv):
     labeled['response_id'] = labeled.response_id.apply(coerce_int)
     labeled = labeled.ix[labeled.response_id != '']
     labeled['response_id'] = labeled.response_id.astype(int)
-    labeled.sort_values(['subj_id', 'response_ix'], inplace=True)
+    labeled.sort_values(['experiment', 'subj_id', 'response_ix'], inplace=True)
     return labeled
 
 
