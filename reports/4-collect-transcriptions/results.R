@@ -2,6 +2,8 @@ library(ggplot2)
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
 
+imitation_gen_colors <- unname(colors[c("green", "blue")])
+
 # ---- 4-setup
 library(ggplot2)
 library(scales)

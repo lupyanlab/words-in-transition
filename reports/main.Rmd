@@ -15,9 +15,9 @@ library(broom)
 library(DiagrammeR)
 library(grid)
 library(gridExtra)
-library(crotchet)
 library(png)
 library(dplyr)
+library(crotchet)  # devtools::install_github("pedmiston/crotchet")
 
 opts_chunk$set(
   echo = FALSE,
@@ -32,7 +32,6 @@ opts_chunk$set(
 )
 
 read_chunk("theme.R")
-wordsintransition::read_wordsintransition_chunks()
 
 read_results_chunks <- function(experiments) {
   scripts <- paste(experiments, "results.R", sep = "/")
@@ -51,10 +50,7 @@ read_results_chunks(c(
 ```{r theme}
 ```
 
-<!-- WARNING: Can't hide graphviz output.
-```{r definitions, engine = "dot", results = "hide", fig.show = "hide"}
-```
--->
+# Collecting imitations
 
 ```{r 2-setup}
 ```
@@ -65,71 +61,19 @@ read_results_chunks(c(
 ```{r 2-similarity-judgments-plot, fig.show = "hide"}
 ```
 
-```{r 4-setup}
-```
-
-```{r 4-transcription-agreement-distance, fig.show = "hide"}
-```
-
 ```{r telephone-game}
-# Make a three-panel plot:
+# Make a two-panel plot:
 # (A) telephone game design
 # (B) acoustic similarity
-# (C) transcription distance
-#
-# The telephone game design is build from a graphviz
-# dot source file. Ideally this graphviz file could
-# be read in and converted to a grob. Alas it cannot
-# be done.
-#
-# definitions_grob <- find_graphviz("definitions", package = "wordsintransition") %>%
-#   Diagrammer::grViz() %>%
-#   htmlwidget_to_grob()  # doesn't exist
-#
-# A workaround is to render the graphviz as a png file
-# and then load it in as a grob.
-definitions_grob <- "figs/definitions-1.png" %>% readPNG() %>% rasterGrob()
 
 grid.arrange(
-  definitions_grob,
+  read_graphviz("definitions", "wordsintransition"),
   gg_similarity_judgments,
-  gg_distance,
-  nrow = 1, widths = c(0.2, 0.4, 0.4)
+  nrow = 1, widths = c(0.4, 0.6)
 )
 ```
 
 # Matching back to original
-
-<!-- WARNING: Can't hide graphviz output.
-```{r true-seed, engine = "dot", results = "hide", fig.show = "hide"}
-```
--->
-
-<!-- WARNING: Can't hide graphviz output.
-```{r category-match, engine = "dot", results = "hide", fig.show = "hide"}
-```
--->
-
-<!-- WARNING: Can't hide graphviz output.
-```{r specific-match, engine = "dot", results = "hide", fig.show = "hide"}
-```
--->
-
-```{r question-types, results = "hide", fig.show = "hide", fig.width = 4, fig.height = 4}
-read_chunk_fig <- function(label, draw = TRUE, ...) {
-  label %>%
-    paste0("-1.png") %>%
-    file.path("figs", .) %>%
-    readPNG() %>%
-    rasterGrob(...) %T>%
-    { if(draw) grid.draw(.) }
-}
-
-grid.newpage()
-read_chunk_fig("true-seed", y = 0.8, width = 0.9)
-read_chunk_fig("category-match", y = 0.5, width = 0.9)
-read_chunk_fig("specific-match", y = 0.2, width = 0.9)
-```
 
 ```{r 3-setup}
 ```
@@ -143,6 +87,29 @@ read_chunk_fig("specific-match", y = 0.2, width = 0.9)
 ```{r 3-match-to-seed, fig.show = "hide"}
 ```
 
+```{r guess-the-seed}
+question_types_grob <- arrangeGrob(
+  read_graphviz("true-seed", "wordsintransition"),
+  read_graphviz("category-match", "wordsintransition"),
+  read_graphviz("specific-match", "wordsintransition"),
+  ncol = 1
+)
+
+grid.arrange(
+  question_types_grob,
+  gg_match_to_seed,
+  nrow = 1
+)
+```
+
+# Transcriptions
+
+```{r 4-setup}
+```
+
+```{r 4-transcription-agreement-distance, fig.show = "hide"}
+```
+
 ```{r 5-setup}
 ```
 
@@ -152,11 +119,9 @@ read_chunk_fig("specific-match", y = 0.2, width = 0.9)
 ```{r 5-match-transcriptions-plot, fig.show = "hide"}
 ```
 
-```{r guess-the-seed}
-question_types_grob <- read_chunk_fig("question-types", draw = FALSE)
+```{r transcriptions}
 grid.arrange(
-  question_types_grob,
-  gg_match_to_seed,
+  gg_distance,
   gg_match_transcriptions,
   nrow = 1
 )
