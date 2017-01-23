@@ -8,7 +8,7 @@ library(magrittr)
 library(lazyeval)
 
 data_files <- list.files("data-raw", pattern = "*.csv", full.names = TRUE,
-                         recursive = TRUE)
+                         recursive = FALSE)
 stem <- function(path) strsplit(basename(path), "\\.")[[1]][1]
 
 for(path in data_files) {
@@ -47,12 +47,12 @@ label_edge_generation <- function(frame) {
     left_join(edge_combinations)
 }
 
-acoustic_similarity_linear <- linear %>%
+acoustic_similarity_linear <- read_csv("data-raw/acoustic-similarity/linear.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
   label_edge_generation
 
-acoustic_similarity_judgments <- judgments %>%
+acoustic_similarity_judgments <- read_csv("data-raw/acoustic-similarity/judgments.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
   label_edge_generation
