@@ -41,13 +41,14 @@ sound_similarity_6 <- read_csv("data-raw/sound_similarity_6/odd_one_out.csv")
 sound_similarity_4 <- read_csv("data-raw/sound_similarity_4/odd_one_out.csv")
 
 # Imitations -------------------------------------------------------------------
+# Label generations for all messages, then drop those from unknown subjects.
 imitations %<>%
-  label_subjects("imitations", "message_id")
+  label_subjects("imitations", "message_id", drop_na_subj = FALSE)
 generation_map <- imitations[, c("message_id", "generation")]
+imitations %<>% filter(!is.na(subj_id))
 
 # Acoustic similarity measures -------------------------------------------------
-
-# Label generation of linear messages
+# Label generation of linear messages.
 label_edge <- function(frame, edge_col) {
   generation_col_name <- paste(edge_col, "generation", sep = "_")
   generation_map %>%
@@ -58,7 +59,7 @@ label_edge <- function(frame, edge_col) {
 label_edge_generation <- function(frame) {
   edge_combinations <- frame %>%
     select(contains("generation")) %>%
-    unique %>%
+    unique() %>%
     arrange(sound_x_generation) %>%
     mutate(
       edge_generations = paste(sound_x_generation, sound_y_generation, sep = "-")
@@ -70,16 +71,17 @@ label_edge_generation <- function(frame) {
 acoustic_similarity_linear <- read_csv("data-raw/acoustic-similarity/linear.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
-  label_edge_generation
+  label_edge_generation()
 
 acoustic_similarity_judgments <- read_csv("data-raw/acoustic-similarity/judgments.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
-  label_edge_generation
+  label_edge_generation()
 
 # Imitation matches ------------------------------------------------------------
 imitation_matches %<>%
-  label_subjects("imitation_matches")
+  label_subjects("imitation_matches") %>%
+  left_join(generation_map)
 
 # Transcriptions ---------------------------------------------------------------
 transcriptions %<>%
