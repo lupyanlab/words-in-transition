@@ -4,7 +4,7 @@
 \alias{glmer_mod_results}
 \title{Present the results of a hierarchical generalized linear model as in a results section.}
 \usage{
-glmer_mod_results(glmer_mod, param)
+glmer_mod_results(glmer_mod, param, odds = FALSE)
 }
 \description{
 Present the results of a hierarchical generalized linear model as in a results section.
