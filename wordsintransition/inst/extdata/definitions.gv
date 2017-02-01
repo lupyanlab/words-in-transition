@@ -5,24 +5,24 @@ digraph {
 
   node[fontname="helvetica", fontsize=20, shape=none];
   splines = false;
-  
+
   subgraph cluster0 {
     label = "categories";
     glass, tear, water, zipper;
   }
-  
+
   subgraph cluster1 {
     label = "seeds";
     labelloc = "b";
     glass4, glass3, glass2, glass1;
   }
-  
+
   subgraph cluster2 {
-    label = "branches";
+    label = "chains";
     labelloc = "b";
     subj4, subj3, subj2, subj1;
   }
-  
+
   subgraph cluster3 {
     label = "generations";
     labelloc = "b";
@@ -42,7 +42,7 @@ digraph {
   subj2[label="2"];
   subj3[label="3"];
   subj4[label="4"];
-  
+
   gen2[label="2"];
   gen3[label="3"];
   gen4[label="4"];
@@ -50,5 +50,5 @@ digraph {
   gen6[label="6"];
   gen7[label="7"];
   gen8[label="8"];
-  
+
 }
