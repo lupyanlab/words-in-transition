@@ -9,6 +9,7 @@ library(lme4)
 library(AICcmodavg)
 library(wordsintransition)
 data("acoustic_similarity_linear")
+data("acoustic_similarity_linear_mfcc")
 data("acoustic_similarity_judgments")
 
 z_score_by_subj <- function(frame) {
@@ -100,8 +101,14 @@ gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
 set.seed(603)
-ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
+envelopes <- ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
   geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
   geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
   geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
-  global_theme
+  global_theme +
+  ggtitle("rep = envelopes")
+
+mfcc <- envelopes %+% acoustic_similarity_linear_mfcc + ggtitle("rep = mfcc")
+
+library(gridExtra)
+grid.arrange(envelopes, mfcc, ncol = 1)

@@ -73,6 +73,11 @@ acoustic_similarity_linear <- read_csv("data-raw/acoustic-similarity/linear.csv"
   label_edge("sound_y") %>%
   label_edge_generation()
 
+acoustic_similarity_linear_mfcc <- read_csv("data-raw/acoustic-similarity/linear-mfcc.csv") %>%
+  label_edge("sound_x") %>%
+  label_edge("sound_y") %>%
+  label_edge_generation()
+
 acoustic_similarity_judgments <- read_csv("data-raw/acoustic-similarity/judgments.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
@@ -114,6 +119,7 @@ use_data(
   transcription_distances,
   transcription_matches,
   acoustic_similarity_linear,
+  acoustic_similarity_linear_mfcc,
   acoustic_similarity_judgments,
   learning_sound_names,
   lsn_questionnaire,
