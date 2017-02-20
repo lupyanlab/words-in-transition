@@ -45,6 +45,8 @@ sound_similarity_4 <- read_csv("data-raw/sound_similarity_4/odd_one_out.csv")
 imitations %<>%
   label_subjects("imitations", "message_id", drop_na_subj = FALSE)
 generation_map <- imitations[, c("message_id", "generation")]
+category_map <- imitations[, c("message_id", "chain_name")] %>%
+  rename(category = chain_name)
 imitations %<>% filter(!is.na(subj_id))
 
 # Acoustic similarity measures -------------------------------------------------
@@ -68,10 +70,26 @@ label_edge_generation <- function(frame) {
     left_join(edge_combinations)
 }
 
+label_edge_category <- function(frame) {
+  frame %>%
+    left_join(category_map, by = c("sound_x" = "message_id")) %>%
+    rename(sound_x_category = category) %>%
+    left_join(category_map, by = c("sound_y" = "message_id")) %>%
+    rename(sound_y_category = category) %>%
+    mutate(edge_category_type = ifelse(sound_x_category == sound_y_category, "within", "between"))
+}
+
 acoustic_similarity_linear <- read_csv("data-raw/acoustic-similarity/linear.csv") %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
-  label_edge_generation()
+  label_edge_generation() %>%
+  label_edge_category()
+
+acoustic_similarity_between <- read_csv("data-raw/acoustic-similarity/between.csv") %>%
+  label_edge("sound_x") %>%
+  label_edge("sound_y") %>%
+  label_edge_generation() %>%
+  label_edge_category()
 
 acoustic_similarity_judgments <- read_csv("data-raw/acoustic-similarity/judgments.csv") %>%
   label_edge("sound_x") %>%
@@ -114,6 +132,7 @@ use_data(
   transcription_distances,
   transcription_matches,
   acoustic_similarity_linear,
+  acoustic_similarity_between,
   acoustic_similarity_judgments,
   learning_sound_names,
   lsn_questionnaire,

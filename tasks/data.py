@@ -49,7 +49,7 @@ def get(project=None):
 
         # copy the csvs in the root proj data dir
         for csv in proj_dir.listdir('*.csv'):
-            csv.copy(acoustic_similarity_dir)
+            csv.copy(Path(acoustic_similarity_dir, csv.name))
 
         # concat and save judgments files
         judgments_csv = Path(acoustic_similarity_dir, 'judgments.csv')
