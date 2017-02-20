@@ -9,6 +9,7 @@ library(lme4)
 library(AICcmodavg)
 library(wordsintransition)
 data("acoustic_similarity_linear")
+data("acoustic_similarity_between")
 data("acoustic_similarity_judgments")
 
 z_score_by_subj <- function(frame) {
@@ -105,3 +106,12 @@ ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
   geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
   geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
   global_theme
+
+# ---- 2-acoustic-similarity-comparison
+acoustic_similarity_comparison <- bind_rows(acoustic_similarity_linear,
+                                            acoustic_similarity_between)
+
+ggplot(acoustic_similarity_comparison) +
+  aes(edge_category_type, similarity) +
+  geom_point(position = position_jitter(width = 0.2)) +
+  geom_bar(stat = "summary", fun.y = "mean", alpha = 0.4)
