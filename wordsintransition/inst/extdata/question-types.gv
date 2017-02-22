@@ -1,0 +1,146 @@
+digraph {
+  graph[fontname="helvetica", fontsize=30];
+  node[fontname="helvetica", fontsize=30];
+  labelloc="t";
+
+  {
+      0 [style=invis];
+      01 [style=invis];
+      02 [style=invis];
+      0 -> 01 -> 02;
+  }
+
+  subgraph cluster0 {
+    // The only thing different between question types is
+    // the label and which nodes are filled in.
+    label="True seed";
+    t_glass1[style="filled", fillcolor="#66C2A5"];
+    t_tear2[style="filled", fillcolor="#66C2A5"];
+    t_water3[style="filled", fillcolor="#66C2A5"];
+    t_zipper4[style="filled", fillcolor="#66C2A5"];
+
+    // Everything below is identical across question types.
+    t_glass[label="glass", shape="none"];
+    t_tear[label="tear", shape="none"];
+    t_water[label="water", shape="none"];
+    t_zipper[label="zipper", shape="none"];
+
+    t_glass -> {t_glass1, t_glass2, t_glass3, t_glass4};
+    t_tear -> {t_tear1, t_tear2, t_tear3, t_tear4};
+    t_water -> {t_water1, t_water2, t_water3, t_water4};
+    t_zipper -> {t_zipper1, t_zipper2, t_zipper3, t_zipper4};
+
+    t_glass1[label="1"];
+    t_glass2[label="2"];
+    t_glass3[label="3"];
+    t_glass4[label="4"];
+
+    t_tear1[label="1"];
+    t_tear2[label="2"];
+    t_tear3[label="3"];
+    t_tear4[label="4"];
+
+    t_water1[label="1"];
+    t_water2[label="2"];
+    t_water3[label="3"];
+    t_water4[label="4"];
+
+    t_zipper1[label="1"];
+    t_zipper2[label="2"];
+    t_zipper3[label="3"];
+    t_zipper4[label="4"];
+
+    t_tear2 -> t_gen1;
+    t_gen1[label="?", style="filled", fillcolor="#FC8D62"];
+  }
+
+  subgraph cluster1 {
+    label="Category match";
+
+    c_glass1[style="filled", fillcolor="#66C2A5"];
+    c_tear3[style="filled", fillcolor="#66C2A5"];
+    c_water3[style="filled", fillcolor="#66C2A5"];
+    c_zipper4[style="filled", fillcolor="#66C2A5"];
+
+    // Everything below is identical across question types.
+    c_glass[label="glass", shape="none"];
+    c_tear[label="tear", shape="none"];
+    c_water[label="water", shape="none"];
+    c_zipper[label="zipper", shape="none"];
+
+    c_glass -> {c_glass1, c_glass2, c_glass3, c_glass4};
+    c_tear -> {c_tear1, c_tear2, c_tear3, c_tear4};
+    c_water -> {c_water1, c_water2, c_water3, c_water4};
+    c_zipper -> {c_zipper1, c_zipper2, c_zipper3, c_zipper4};
+
+    c_glass1[label="1"];
+    c_glass2[label="2"];
+    c_glass3[label="3"];
+    c_glass4[label="4"];
+
+    c_tear1[label="1"];
+    c_tear2[label="2"];
+    c_tear3[label="3"];
+    c_tear4[label="4"];
+
+    c_water1[label="1"];
+    c_water2[label="2"];
+    c_water3[label="3"];
+    c_water4[label="4"];
+
+    c_zipper1[label="1"];
+    c_zipper2[label="2"];
+    c_zipper3[label="3"];
+    c_zipper4[label="4"];
+
+    c_tear2 -> c_gen1;
+    c_gen1[label="?", style="filled", fillcolor="#FC8D62"];
+  }
+
+  subgraph cluster2 {
+    label="Specific match";
+
+    s_tear1[style="filled", fillcolor="#66C2A5"];
+    s_tear2[style="filled", fillcolor="#66C2A5"];
+    s_tear3[style="filled", fillcolor="#66C2A5"];
+    s_tear4[style="filled", fillcolor="#66C2A5"];
+
+    // Everything below is identical across question types.
+    s_glass[label="glass", shape="none"];
+    s_tear[label="tear", shape="none"];
+    s_water[label="water", shape="none"];
+    s_zipper[label="zipper", shape="none"];
+
+    s_glass -> {s_glass1, s_glass2, s_glass3, s_glass4};
+    s_tear -> {s_tear1, s_tear2, s_tear3, s_tear4};
+    s_water -> {s_water1, s_water2, s_water3, s_water4};
+    s_zipper -> {s_zipper1, s_zipper2, s_zipper3, s_zipper4};
+
+    s_glass1[label="1"];
+    s_glass2[label="2"];
+    s_glass3[label="3"];
+    s_glass4[label="4"];
+
+    s_tear1[label="1"];
+    s_tear2[label="2"];
+    s_tear3[label="3"];
+    s_tear4[label="4"];
+
+    s_water1[label="1"];
+    s_water2[label="2"];
+    s_water3[label="3"];
+    s_water4[label="4"];
+
+    s_zipper1[label="1"];
+    s_zipper2[label="2"];
+    s_zipper3[label="3"];
+    s_zipper4[label="4"];
+
+    s_tear2 -> s_gen1;
+    s_gen1[label="?", style="filled", fillcolor="#FC8D62"];
+  }
+
+  0 -> "t_zipper"[style=solid];
+  01 -> "c_zipper"[style=invis];
+  02 -> "s_zipper"[style=invis];
+}
