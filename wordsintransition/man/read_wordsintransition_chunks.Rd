@@ -9,4 +9,3 @@ read_wordsintransition_chunks()
 \description{
 Read all available knitr chunks in the wordsintransition package.
 }
-

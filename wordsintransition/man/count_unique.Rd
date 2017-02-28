@@ -9,4 +9,3 @@ count_unique(frame, id_col)
 \description{
 Count the unique values in a tidy data frame.
 }
-

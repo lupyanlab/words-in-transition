@@ -9,4 +9,3 @@ add_chance(frame)
 \description{
 Label chance for 4AFC "Guess the seed" task
 }
-

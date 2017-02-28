@@ -9,4 +9,3 @@ recode_block_transition(frame)
 \description{
 Recode the transition between blocks
 }
-

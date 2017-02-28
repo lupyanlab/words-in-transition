@@ -9,4 +9,3 @@ recode_lsn_word_type(frame)
 \description{
 Recode the word type of the word learned in the LSN experiment.
 }
-

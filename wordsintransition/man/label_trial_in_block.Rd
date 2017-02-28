@@ -9,4 +9,3 @@ label_trial_in_block(frame)
 \description{
 Label trial number within each block.
 }
-
