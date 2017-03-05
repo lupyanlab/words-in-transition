@@ -41,12 +41,13 @@ data("algo_linear")
 data("algo_within_chain")
 data("algo_within_seed")
 data("algo_within_category")
-data("algo_between_category")
+data("algo_between_fixed")
+data("algo_between_consecutive")
 
 algo_linear %<>%
   recode_edge_generations()
 
-algo_between_category %<>%
+algo_between_consecutive %<>%
   recode_edge_generations()
 
 # ---- 2-raters
@@ -110,14 +111,18 @@ gg_similarity_judgments <- ggplot(similarity_judgments_means) +
 gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
-similarity_linear_mod <- lm(similarity ~ edge_generation_n,
-                            data = algo_linear)
+algo_similarity <- bind_rows(
+  within = algo_linear,
+  between = algo_between_consecutive,
+  .id = "edge_type"
+)
 
 set.seed(603)
-ggplot(algo_linear, aes(x = edge_generations, y = similarity)) +
+ggplot(algo_similarity) +
+  aes(edge_generations, similarity, color = edge_type) +
   geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
-  geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
-  geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
+  geom_line(stat = "summary", fun.y = "mean") +
+  geom_smooth(method = "lm", se = FALSE) +
   global_theme
 
 # ---- 2-acoustic-similarity-comparison
@@ -126,11 +131,12 @@ acoustic_similarity_comparison <- bind_rows(
     within_chain = algo_within_chain,
     within_seed = algo_within_seed,
     within_category = algo_within_category,
-    between_fixed = algo_between_category,
+    between_fixed = algo_between_fixed,
+    between_consecutive = algo_between_consecutive,
     .id = "edge_type"
   ) %>%
   mutate(
-    edge_type_label = factor(edge_type, levels = c("linear", "within_chain", "within_seed", "within_category", "between_fixed"))
+    edge_type_label = factor(edge_type, levels = c("linear", "within_chain", "within_seed", "within_category", "between_fixed", "between_consecutive"))
   )
 
 ggplot(acoustic_similarity_comparison) +
