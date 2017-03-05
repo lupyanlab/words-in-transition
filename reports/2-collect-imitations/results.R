@@ -37,13 +37,16 @@ acoustic_similarity_judgments %<>%
   recode_edge_generations() %>%
   determine_trial_id()
 
-data("acoustic_similarity_linear")
-data("acoustic_similarity_between")
+data("algo_linear")
+data("algo_within_chain")
+data("algo_within_seed")
+data("algo_within_category")
+data("algo_between_category")
 
-acoustic_similarity_linear %<>%
+algo_linear %<>%
   recode_edge_generations()
 
-acoustic_similarity_between %<>%
+algo_between_category %<>%
   recode_edge_generations()
 
 # ---- 2-raters
@@ -108,25 +111,29 @@ gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
 similarity_linear_mod <- lm(similarity ~ edge_generation_n,
-                            data = acoustic_similarity_linear)
+                            data = algo_linear)
 
 set.seed(603)
-ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
+ggplot(algo_linear, aes(x = edge_generations, y = similarity)) +
   geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
   geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
   geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
   global_theme
 
 # ---- 2-acoustic-similarity-comparison
-acoustic_similarity_comparison <- bind_rows(acoustic_similarity_linear,
-                                            acoustic_similarity_between)
+acoustic_similarity_comparison <- bind_rows(
+    linear = algo_linear,
+    within_chain = algo_within_chain,
+    within_seed = algo_within_seed,
+    within_category = algo_within_category,
+    between_fixed = algo_between_category,
+    .id = "edge_type"
+  ) %>%
+  mutate(
+    edge_type_label = factor(edge_type, levels = c("linear", "within_chain", "within_seed", "within_category", "between_fixed"))
+  )
 
 ggplot(acoustic_similarity_comparison) +
-  aes(edge_category_type, similarity) +
-  geom_point(position = position_jitter(width = 0.2)) +
+  aes(edge_type_label, similarity) +
+  geom_point(position = position_jitter(width = 0.2), alpha = 0.1) +
   geom_bar(stat = "summary", fun.y = "mean", alpha = 0.4)
-
-# ggplot(acoustic_similarity_comparison) +
-#   aes(edge_generation_n, similarity, color = edge_category_type) +
-#   geom_point(position = position_jitter(0.4, 0), shape = 1) +
-#   geom_smooth(method = "lm")
