@@ -4,7 +4,7 @@ digraph {
 
   graph[fontname="helvetica", fontsize=30];
   node[fontname="helvetica", fontsize=30];
-  
+
   glass[shape="none"];
   tear[shape="none"];
   water[shape="none"];
@@ -15,10 +15,10 @@ digraph {
   water -> {water1, water2, water3, water4};
   zipper -> {zipper1, zipper2, zipper3, zipper4};
 
-  tear1[style="filled", fillcolor="#66C2A5"];
-  tear2[style="filled", fillcolor="#66C2A5"];
-  tear3[style="filled", fillcolor="#66C2A5"];
-  tear4[style="filled", fillcolor="#66C2A5"];
+  tear1[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
+  tear2[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
+  tear3[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
+  tear4[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
 
   glass1[label="1"];
   glass2[label="2"];
@@ -40,6 +40,8 @@ digraph {
   zipper3[label="3"];
   zipper4[label="4"];
 
+  glass1, glass2, glass3, glass4, water1, water2, water3, water4, zipper1, zipper2, zipper3, zipper4[color="gray"];
+
   tear2 -> gen1;
-  gen1[label="?", style="filled", fillcolor="#FC8D62"];
+  gen1[label="?", style="filled, dashed", fillcolor="#FC8D62"];
 }
