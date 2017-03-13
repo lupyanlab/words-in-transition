@@ -9,4 +9,3 @@ label_outliers(transcription_matches)
 \description{
 Label outlier subjects based on catch trial performance.
 }
-

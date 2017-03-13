@@ -9,4 +9,3 @@ recode_survey_type(frame)
 \description{
 Recode survey type for modeling.
 }
-

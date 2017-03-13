@@ -9,4 +9,3 @@ determine_trial_id(frame)
 \description{
 Label the trial id based on sound_x and sound_y of acoustic similarity trial.
 }
-

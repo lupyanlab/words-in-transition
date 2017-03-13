@@ -9,4 +9,3 @@ recode_generation(frame)
 \description{
 Where generation_1 == 0, generation == 1.
 }
-
