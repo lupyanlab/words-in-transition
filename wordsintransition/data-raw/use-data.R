@@ -79,17 +79,20 @@ label_edge_category <- function(frame) {
     mutate(edge_category_type = ifelse(sound_x_category == sound_y_category, "within", "between"))
 }
 
-acoustic_similarity_linear <- read_csv("data-raw/acoustic-similarity/linear.csv") %>%
+read_acoustic_similarities <- . %>%
+  paste0("data-raw/acoustic-similarity/", ., ".csv") %>%
+  read_csv() %>%
   label_edge("sound_x") %>%
   label_edge("sound_y") %>%
   label_edge_generation() %>%
   label_edge_category()
 
-acoustic_similarity_between <- read_csv("data-raw/acoustic-similarity/between.csv") %>%
-  label_edge("sound_x") %>%
-  label_edge("sound_y") %>%
-  label_edge_generation() %>%
-  label_edge_category()
+algo_linear              <- read_acoustic_similarities("linear")
+algo_within_chain        <- read_acoustic_similarities("within_chain")
+algo_within_seed         <- read_acoustic_similarities("within_seed")
+algo_within_category     <- read_acoustic_similarities("within_category")
+algo_between_fixed       <- read_acoustic_similarities("between_fixed")
+algo_between_consecutive <- read_acoustic_similarities("between_consecutive")
 
 acoustic_similarity_judgments <- read_csv("data-raw/acoustic-similarity/judgments.csv") %>%
   label_edge("sound_x") %>%
@@ -131,9 +134,13 @@ use_data(
   transcription_frequencies,
   transcription_distances,
   transcription_matches,
-  acoustic_similarity_linear,
-  acoustic_similarity_between,
   acoustic_similarity_judgments,
+  algo_linear,
+  algo_within_chain,
+  algo_within_seed,
+  algo_within_category,
+  algo_between_fixed,
+  algo_between_consecutive,
   learning_sound_names,
   lsn_questionnaire,
   lsn_subj_info,

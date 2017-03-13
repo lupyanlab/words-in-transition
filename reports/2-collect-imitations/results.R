@@ -8,8 +8,6 @@ library(dplyr)
 library(lme4)
 library(AICcmodavg)
 library(wordsintransition)
-data("acoustic_similarity_linear")
-data("acoustic_similarity_between")
 data("acoustic_similarity_judgments")
 
 z_score_by_subj <- function(frame) {
@@ -35,9 +33,22 @@ determine_trial_id <- function(frame) {
 
 acoustic_similarity_judgments %<>%
   mutate(similarity = ifelse(similarity == -1, NA, similarity)) %>%
-  z_score_by_subj %>%
-  recode_edge_generations %>%
-  determine_trial_id
+  z_score_by_subj() %>%
+  recode_edge_generations() %>%
+  determine_trial_id()
+
+data("algo_linear")
+data("algo_within_chain")
+data("algo_within_seed")
+data("algo_within_category")
+data("algo_between_fixed")
+data("algo_between_consecutive")
+
+algo_linear %<>%
+  recode_edge_generations()
+
+algo_between_consecutive %<>%
+  recode_edge_generations()
 
 # ---- 2-raters
 ggplot(acoustic_similarity_judgments, aes(x = similarity)) +
@@ -100,18 +111,38 @@ gg_similarity_judgments <- ggplot(similarity_judgments_means) +
 gg_similarity_judgments
 
 # ---- 2-similarity-within-chains
+algo_similarity <- bind_rows(
+  within = algo_linear,
+  between = algo_between_consecutive,
+  .id = "edge_type"
+)
+
+lm(similarity ~ edge_generation_n * edge_type, data = algo_similarity) %>%
+  summary()
+
 set.seed(603)
-ggplot(acoustic_similarity_linear, aes(x = edge_generations, y = similarity)) +
-  geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
-  geom_line(aes(group = 1), stat = "summary", fun.y = "mean") +
-  geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
+ggplot(algo_similarity) +
+  aes(edge_generations, similarity, color = edge_type, group = edge_type) +
+  geom_point(position = position_jitter(0.4, 0.0), alpha = 0.1) +
+  geom_line(stat = "summary", fun.y = "mean") +
+  geom_smooth(method = "lm", se = FALSE) +
   global_theme
 
 # ---- 2-acoustic-similarity-comparison
-acoustic_similarity_comparison <- bind_rows(acoustic_similarity_linear,
-                                            acoustic_similarity_between)
+acoustic_similarity_comparison <- bind_rows(
+    linear = algo_linear,
+    within_chain = algo_within_chain,
+    within_seed = algo_within_seed,
+    within_category = algo_within_category,
+    between_fixed = algo_between_fixed,
+    between_consecutive = algo_between_consecutive,
+    .id = "edge_type"
+  ) %>%
+  mutate(
+    edge_type_label = factor(edge_type, levels = c("linear", "within_chain", "within_seed", "within_category", "between_fixed", "between_consecutive"))
+  )
 
 ggplot(acoustic_similarity_comparison) +
-  aes(edge_category_type, similarity) +
-  geom_point(position = position_jitter(width = 0.2)) +
+  aes(edge_type_label, similarity) +
+  geom_point(position = position_jitter(width = 0.2), alpha = 0.1) +
   geom_bar(stat = "summary", fun.y = "mean", alpha = 0.4)

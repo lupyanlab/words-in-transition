@@ -37,7 +37,6 @@ global_theme <- theme_minimal() +
 ```{r 2-acoustic-similarity-comparison}
 ```
 
-
 ## Acoustic similarity (judgments)
 
 ```{r 2-raters}
