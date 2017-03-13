@@ -117,10 +117,13 @@ algo_similarity <- bind_rows(
   .id = "edge_type"
 )
 
+lm(similarity ~ edge_generation_n * edge_type, data = algo_similarity) %>%
+  summary()
+
 set.seed(603)
 ggplot(algo_similarity) +
-  aes(edge_generations, similarity, color = edge_type) +
-  geom_point(position = position_jitter(0.4, 0.0), shape = 1) +
+  aes(edge_generations, similarity, color = edge_type, group = edge_type) +
+  geom_point(position = position_jitter(0.4, 0.0), alpha = 0.1) +
   geom_line(stat = "summary", fun.y = "mean") +
   geom_smooth(method = "lm", se = FALSE) +
   global_theme
