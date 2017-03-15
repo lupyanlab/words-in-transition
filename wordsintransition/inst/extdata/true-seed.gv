@@ -15,10 +15,10 @@ digraph {
   water -> {water1, water2, water3, water4};
   zipper -> {zipper1, zipper2, zipper3, zipper4};
 
-  glass1[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
-  tear2[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
-  water3[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
-  zipper4[style="filled", fillcolor="#66C2A5", color="#66C2A5"];
+  glass1[style="filled", fillcolor="#66C2A5"];
+  tear2[style="filled", fillcolor="#66C2A5"];
+  water3[style="filled", fillcolor="#66C2A5"];
+  zipper4[style="filled", fillcolor="#66C2A5"];
 
   glass1[label="1"];
   glass2[label="2"];
@@ -40,7 +40,7 @@ digraph {
   zipper3[label="3"];
   zipper4[label="4"];
 
-  glass2, glass3, glass4, water1, water2, water4, tear1, tear3, tear4, zipper1, zipper2, zipper3[color="gray"];
+  glass2, glass3, glass4, water1, water2, water4, tear1, tear3, tear4, zipper1, zipper2, zipper3[style="filled", color="lightgray", fillcolor="lightgray"];
 
   tear2 -> gen1;
   gen1[label="?", style="filled, dashed", fillcolor="#FC8D62"];
