@@ -24,6 +24,8 @@ read_chunk("results.R")
 library(ggplot2)
 global_theme <- theme_minimal() +
   theme(axis.ticks = element_blank())
+
+imitation_gen_colors <- RColorBrewer::brewer.pal(3, "Set2")[c(1, 3)]
 ```
 
 ```{r 4-setup}
