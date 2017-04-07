@@ -8,6 +8,7 @@ recode_survey_type <- function(frame) {
     same_v_between = c(1, 0, 0),
     same_v_within = c(0, 0, 1)
   )
+  if (missing(frame)) return(survey_map)
   left_join(frame, survey_map)
 }
 
