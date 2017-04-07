@@ -19,5 +19,10 @@ recode_survey_type <- function(frame) {
 #' @import dplyr
 #' @export
 recode_generation <- function(frame) {
-  frame %>% mutate(generation_1 = generation - 1)
+  generation_map <- data_frame(
+    generation = 1:8,
+    generation_1 = generation - 1
+  )
+  if (missing(frame)) return(generation_map)
+  frame %>% left_join(generation_map)
 }
