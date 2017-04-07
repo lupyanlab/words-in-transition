@@ -1,0 +1,179 @@
+---
+title: "Building up the match accuracy model"
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(magrittr)
+library(lme4)
+library(AICcmodavg)
+
+# devtools::install_github("lupyanlab/words-in-transition", subdir = "wordsintransition")
+library(wordsintransition)
+
+
+# Load the results of the "Guess the seed" surveys.
+data("imitation_matches")
+imitation_matches %<>%
+  filter(question_type != "catch_trial") %>%  # Drop catch trials
+  recode_generation() %>%                     # Create generation_1 variable
+  recode_survey_type() %>%                    # Create treatment contrasts
+  add_chance()                                # Add column for chance offset
+
+
+# Theme colors
+colors <- RColorBrewer::brewer.pal(4, "Set2")
+names(colors) <- c("blue", "orange", "green", "pink")
+question_type_levels <- recode_survey_type()$survey_type
+question_type_labels <- c("True seed", "Category match", "Specific match")
+question_type_colors <- unname(colors[c("blue", "green", "orange")])
+
+# Create a base plot without any layers, just setting up
+# the axes and theme.
+base_plot <- ggplot(imitation_matches) +
+  aes(x = generation_1, y = is_correct, color = survey_type) +
+  scale_x_continuous("Generation", breaks = 0:7, labels = 1:8) +
+  scale_y_continuous("Accuracy", breaks = seq(0, 1, by = 0.1),
+                     labels = scales::percent) +
+  scale_color_manual("", labels = question_type_labels, values = question_type_colors) +
+  geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1) +
+  coord_cartesian(xlim = c(-0.2, 7.2)) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.8, 0.85),
+    legend.key.width = unit(5, "lines"),
+    panel.grid.minor.x = element_blank()
+  )
+```
+
+# Means grouped by seed
+
+The seed is the primary unit of analysis. Each seed is used in approximately 4 different transmission chains. We are collapsing across all of the chains leading from each seed for this analysis.
+
+```{r, echo=FALSE, fig.width=2, results="hide"}
+library(crotchet)  # devtools::install_github("pedmiston/crotchet")
+draw_graphviz("definitions", "wordsintransition")
+```
+
+Since each imitation is tested in three different survey conditions, the following plot has a total of 48 lines (16 seeds x 3 lines for each seed).
+
+```{r}
+# Show means grouped by seed. Each seed is used
+# in approximately 4 transmission chains.
+create_question_type_by_seed_id <- . %>% 
+  mutate(question_type_by_seed_id = paste(survey_type, seed_id, sep = ":"))
+
+imitation_matches %<>% create_question_type_by_seed_id()
+base_plot <- base_plot %+% imitation_matches
+
+seed_means <- imitation_matches %>%
+  group_by(seed_id, survey_type, generation) %>%
+  summarize(
+    is_correct = mean(is_correct),
+    n = n()
+  ) %>%
+  create_question_type_by_seed_id() %>%
+  recode_generation()
+
+# Show means with lines connecting the raw means at each generation
+base_plot +
+  geom_line(aes(group = question_type_by_seed_id, color = survey_type),
+            data = seed_means) +
+  geom_point(aes(size = n, color = survey_type),
+             data = seed_means) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right")
+```
+
+# Fit loess lines
+
+These loess lines are fit to the raw data, so they reflect the different number of observations at each generation.
+
+```{r}
+base_plot +
+  geom_smooth(aes(group = question_type_by_seed_id, color = survey_type),
+              method = "loess", se = FALSE) +
+  geom_point(aes(size = n, color = survey_type),
+             data = seed_means) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right")
+```
+
+# Fit lm lines
+
+```{r}
+base_plot +
+  geom_smooth(aes(group = question_type_by_seed_id, color = survey_type),
+              method = "lm", data = seed_means, se = FALSE) +
+  geom_point(aes(size = n, color = survey_type),
+             data = seed_means) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right")
+```
+
+Note that there are very few positively sloped lines. This indicates that any uptick in matching accuracy at the end of the chains (near generation == 8) is misleading.
+
+# Show facet plots for each seed
+
+Here is the most accurate plot that represents the model we are fitting. There are 16 facets, one for each seed, and for each seed, we are fitting 3 lines, one for each question type.
+
+```{r, fig.width=10, fig.height=10}
+seed_map <- imitation_matches %>%
+  select(seed_id, category = chain_name) %>%
+  unique() %>%
+  group_by(category) %>%
+  arrange(seed_id) %>%
+  mutate(seed_ix = 1:n()) %>%
+  ungroup()
+imitation_matches %<>% left_join(seed_map)
+seed_means %<>% left_join(seed_map)
+base_plot <- base_plot %+% imitation_matches
+
+base_plot +
+  geom_smooth(aes(group = question_type_by_seed_id, color = survey_type),
+              method = "lm", data = seed_means, se = FALSE) +
+  geom_point(aes(size = n, color = survey_type),
+             data = seed_means, alpha = 0.6) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right") +
+  facet_grid(category ~ seed_ix)
+```
+
+# Fit the hierarchical model
+
+This model estimates what is true about the relationship between the three lines within each of the facets in the plot immediately above this one.
+
+```{r cache=TRUE}
+imitation_matches_mod <- glmer(
+  is_correct ~ offset(chance_log) + generation_1 * (same_v_between + same_v_within) +
+    (generation_1|chain_name/seed_id) + (1|subj_id),
+  family = "binomial", data = imitation_matches
+)
+```
+
+```{r}
+imitation_matches_preds <- expand.grid(
+    generation_1 = unique(imitation_matches$generation_1) %>% na.omit(),
+    survey_type = c("between", "same", "within"),
+    stringsAsFactors = FALSE
+  ) %>%
+  recode_survey_type() %>%
+  recode_generation() %>%
+  add_chance() %>%
+  cbind(., predictSE(imitation_matches_mod, newdata = ., se = TRUE)) %>%
+  rename(is_correct = fit, se = se.fit)
+
+base_plot +
+  geom_point(aes(size = n, color = survey_type),
+             data = seed_means, alpha = 0.6,
+             position = position_jitter(width = 0.2)) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right") +
+  geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
+              stat = "identity", data = imitation_matches_preds)
+```
