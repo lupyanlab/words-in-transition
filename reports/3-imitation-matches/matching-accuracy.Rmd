@@ -77,6 +77,7 @@ seed_means <- imitation_matches %>%
     is_correct = mean(is_correct),
     n = n()
   ) %>%
+  ungroup() %>%
   create_question_type_by_seed_id() %>%
   recode_generation()
 
@@ -170,6 +171,69 @@ imitation_matches_preds <- expand.grid(
 
 base_plot +
   geom_point(aes(size = n, color = survey_type),
+             data = seed_means, alpha = 0.6,
+             position = position_jitter(width = 0.2)) +
+  scale_size_continuous("Num survey responses") +
+  theme(legend.position = "right") +
+  geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
+              stat = "identity", data = imitation_matches_preds)
+```
+
+# Transform the means for each seed by subtracting out random effects
+
+```{r}
+library(broom)
+library(stringr)
+
+# Get random effects as a list with different grouping variables as keys
+imitation_matches_ranefs <- ranef(imitation_matches_mod)
+
+# Process the chain_name effects
+# A better name for chain_name would be category
+category_effects <- imitation_matches_ranefs$chain_name %>%
+  as.data.frame() %>%
+  rename(
+    category_intercept = `(Intercept)`,
+    category_slope = generation_1
+  ) %>%
+  do({ mutate(., category = rownames(.)) })
+
+# Process the seed effects
+# The grouping variable is seed_id:chain_name
+seed_effects <- imitation_matches_ranefs$`seed_id:chain_name` %>%
+  as.data.frame() %>%
+  rename(
+    seed_intercept = `(Intercept)`,
+    seed_slope = generation_1
+  )
+
+# Extract the seed_id and chain_name values from the grouping variable
+seed_effects[c("seed_id", "category")] <- str_split_fixed(rownames(seed_effects), ":", 2) %>%
+  as_data_frame() %>%
+  mutate(V1 = as.numeric(V1))
+
+# Merge the two levels of random effect vars
+seed_category_ranefs <- left_join(category_effects, seed_effects)
+
+# Get predictions for each generation
+seed_category_preds <- expand.grid(
+    seed_id = seed_category_ranefs$seed_id,
+    generation_1 = 0:7
+  ) %>%
+  left_join(seed_category_ranefs) %>%
+  mutate(
+    offset = (seed_intercept + seed_slope * generation_1) + 
+             (category_intercept + category_slope * generation_1)
+  ) %>%
+  select(seed_id, generation_1, offset)
+
+# Extract the random effects from the means
+seed_means %<>%
+  left_join(seed_category_preds) %>%
+  mutate(is_correct_adj = is_correct + offset)
+
+base_plot +
+  geom_point(aes(y = is_correct_adj, size = n, color = survey_type),
              data = seed_means, alpha = 0.6,
              position = position_jitter(width = 0.2)) +
   scale_size_continuous("Num survey responses") +
