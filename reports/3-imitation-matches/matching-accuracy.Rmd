@@ -230,7 +230,7 @@ seed_category_preds <- expand.grid(
 # Extract the random effects from the means
 seed_means %<>%
   left_join(seed_category_preds) %>%
-  mutate(is_correct_adj = is_correct + offset)
+  mutate(is_correct_adj = exp(offset)/(1 - exp(offset)))
 
 base_plot +
   geom_point(aes(y = is_correct_adj, size = n, color = survey_type),
@@ -240,4 +240,15 @@ base_plot +
   theme(legend.position = "right") +
   geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
               stat = "identity", data = imitation_matches_preds)
+```
+
+# Investigate the predictions
+
+```{r}
+imitation_matches$predicted <- predict(imitation_matches_mod, type = "response")
+
+ggplot(imitation_matches) +
+  aes(generation_1, predicted, color = survey_type) +
+  geom_point(stat = "summary", fun.y = "mean") +
+  facet_grid(category ~ seed_ix)
 ```
