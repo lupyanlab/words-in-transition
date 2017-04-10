@@ -215,14 +215,24 @@ seed_effects[c("seed_id", "category")] <- str_split_fixed(rownames(seed_effects)
 # Merge the two levels of random effect vars
 seed_category_ranefs <- left_join(category_effects, seed_effects)
 
+# Extract the fixed effects intercept
+mod_fixed_effects <- tidy(imitation_matches_mod, effects="fixed") %>%
+  select(term, estimate) %>%
+  spread(term, estimate) %>%
+  select(
+    fixed_intercept = `(Intercept)`
+  )
+
 # Get predictions for each generation
 seed_category_preds <- expand.grid(
     seed_id = seed_category_ranefs$seed_id,
     generation_1 = 0:7
   ) %>%
   left_join(seed_category_ranefs) %>%
+  left_join(mod_fixed_effects)
   mutate(
-    offset = (seed_intercept + seed_slope * generation_1) + 
+    offset = fixed_intercept +
+             (seed_intercept + seed_slope * generation_1) + 
              (category_intercept + category_slope * generation_1)
   ) %>%
   select(seed_id, generation_1, offset)
@@ -230,7 +240,9 @@ seed_category_preds <- expand.grid(
 # Extract the random effects from the means
 seed_means %<>%
   left_join(seed_category_preds) %>%
-  mutate(is_correct_adj = exp(offset)/(1 - exp(offset)))
+  mutate(
+    is_correct_adj = exp(offset)/(1 - exp(offset))
+  )
 
 base_plot +
   geom_point(aes(y = is_correct_adj, size = n, color = survey_type),
