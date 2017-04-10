@@ -1,5 +1,6 @@
 # reproducible
 figs/
+*files/
 *.html
 
 qualtrics_api_creds.yml

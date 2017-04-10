@@ -12,6 +12,7 @@ library(tidyverse)
 library(magrittr)
 library(lme4)
 library(AICcmodavg)
+library(broom)
 
 # devtools::install_github("lupyanlab/words-in-transition", subdir = "wordsintransition")
 library(wordsintransition)
@@ -109,7 +110,7 @@ base_plot +
 
 ```{r}
 base_plot +
-  geom_smooth(aes(group = question_type_by_seed_id, color = survey_type),
+  geom_smooth(aes(group = question_type_by_seed_id),
               method = "lm", data = seed_means, se = FALSE) +
   geom_point(aes(size = n, color = survey_type),
              data = seed_means) +
@@ -150,9 +151,8 @@ base_plot +
 This model estimates what is true about the relationship between the three lines within each of the facets in the plot immediately above this one.
 
 ```{r cache=TRUE}
-imitation_matches_mod <- glmer(
-  is_correct ~ offset(chance_log) + generation_1 * (same_v_between + same_v_within) +
-    (generation_1|chain_name/seed_id) + (1|subj_id),
+matches_mod <- glmer(
+  is_correct ~ generation_1 * (same_v_between + same_v_within) + (generation_1|seed_id),
   family = "binomial", data = imitation_matches
 )
 ```
@@ -166,7 +166,7 @@ imitation_matches_preds <- expand.grid(
   recode_survey_type() %>%
   recode_generation() %>%
   add_chance() %>%
-  cbind(., predictSE(imitation_matches_mod, newdata = ., se = TRUE)) %>%
+  cbind(., predictSE(matches_mod, newdata = ., se = TRUE)) %>%
   rename(is_correct = fit, se = se.fit)
 
 base_plot +
@@ -181,86 +181,89 @@ base_plot +
 
 # Transform the means for each seed by subtracting out random effects
 
-```{r}
-library(broom)
-library(stringr)
+```{r, fig.height=8, fig.cap = "Visual depiction of mean transformation. The solid circles are the raw means. The solid line is the random effect from the glmer model. The dashed line is the fixed effect from the glmer model. The open circles are the transformed means. The distance between the solid circle and the solid line is the same as the distance between the open circle and the dashed line. The extent of the transformation from the actual mean to the transformed mean is shown as arrows extending from the origin."}
+# Get the predicted effects for each seed by adding together fixed and random effects.
+ranefs_mod <- glmer(
+  is_correct ~ generation_1 + (generation_1|seed_id),
+  family = "binomial", data = imitation_matches
+)
 
-# Get random effects as a list with different grouping variables as keys
-imitation_matches_ranefs <- ranef(imitation_matches_mod)
-
-# Process the chain_name effects
-# A better name for chain_name would be category
-category_effects <- imitation_matches_ranefs$chain_name %>%
+predicted_logodds <- coef(ranefs_mod)$seed_id %>%
   as.data.frame() %>%
-  rename(
-    category_intercept = `(Intercept)`,
-    category_slope = generation_1
-  ) %>%
-  do({ mutate(., category = rownames(.)) })
-
-# Process the seed effects
-# The grouping variable is seed_id:chain_name
-seed_effects <- imitation_matches_ranefs$`seed_id:chain_name` %>%
-  as.data.frame() %>%
-  rename(
-    seed_intercept = `(Intercept)`,
-    seed_slope = generation_1
-  )
-
-# Extract the seed_id and chain_name values from the grouping variable
-seed_effects[c("seed_id", "category")] <- str_split_fixed(rownames(seed_effects), ":", 2) %>%
-  as_data_frame() %>%
-  mutate(V1 = as.numeric(V1))
-
-# Merge the two levels of random effect vars
-seed_category_ranefs <- left_join(category_effects, seed_effects)
-
-# Extract the fixed effects intercept
-mod_fixed_effects <- tidy(imitation_matches_mod, effects="fixed") %>%
-  select(term, estimate) %>%
-  spread(term, estimate) %>%
   select(
-    fixed_intercept = `(Intercept)`
-  )
+    intercept = `(Intercept)`,
+    generation_slope = generation_1
+  ) %>%
+  fix_data_frame(newcol = "seed_id") %>%
+  mutate(seed_id = as.numeric(seed_id))
 
-# Get predictions for each generation
-seed_category_preds <- expand.grid(
-    seed_id = seed_category_ranefs$seed_id,
+predicted_accuracies <- expand.grid(
+    seed_id = predicted_logodds$seed_id,
     generation_1 = 0:7
   ) %>%
-  left_join(seed_category_ranefs) %>%
-  left_join(mod_fixed_effects)
-  mutate(
-    offset = fixed_intercept +
-             (seed_intercept + seed_slope * generation_1) + 
-             (category_intercept + category_slope * generation_1)
-  ) %>%
-  select(seed_id, generation_1, offset)
-
-# Extract the random effects from the means
-seed_means %<>%
-  left_join(seed_category_preds) %>%
-  mutate(
-    is_correct_adj = exp(offset)/(1 - exp(offset))
+  left_join(predicted_logodds, .) %>%
+  transmute(
+    seed_id = as.numeric(seed_id),
+    generation_1,
+    predicted_logodds = intercept + generation_slope * generation_1,
+    predicted_accuracy = exp(predicted_logodds)/(1 + exp(predicted_logodds))
   )
+
+ggplot(predicted_accuracies) +
+  aes(generation_1, predicted_accuracy) +
+  geom_point() +
+  facet_wrap("seed_id")
+
+fixed_effect_preds <- tidy(ranefs_mod, effects = "fixed") %>%
+  select(term, estimate) %>%
+  spread(term, estimate) %>%
+  rename(intercept = `(Intercept)`, generation_slope = generation_1) %>%
+  merge(data_frame(generation_1 = 0:7)) %>%
+  transmute(
+    generation_1,
+    fixef_logodds = intercept + generation_slope * generation_1,
+    fixef_accuracy = exp(fixef_logodds)/(1 + exp(fixef_logodds))
+  )
+
+accuracies <- imitation_matches %>%
+  group_by(seed_id, generation_1) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  ungroup() %>%
+  left_join(predicted_accuracies) %>%
+  left_join(fixed_effect_preds) %>%
+  mutate(
+    residual_accuracy = accuracy - predicted_accuracy,
+    adjusted_accuracy = fixef_accuracy + residual_accuracy,
+    delta = adjusted_accuracy - accuracy
+  )
+
+ggplot(accuracies) +
+  aes(generation_1) +
+  geom_line(aes(y = predicted_accuracy, group = 1)) +
+  geom_point(aes(y = accuracy)) +
+  geom_line(aes(y = fixef_accuracy, group = 1),
+            lty = 2) +
+  geom_point(aes(y = adjusted_accuracy),
+             shape = 1) +
+  geom_segment(aes(x = generation_1, xend = generation_1,
+                   y = 0, yend = delta),
+               arrow = arrow(length = unit(0.1, "cm"))) +
+  facet_wrap("seed_id")
+```
+
+```{r}
+adj_seed_means <- accuracies %>%
+  select(seed_id, generation_1, delta) %>%
+  left_join(seed_means, .) %>%
+  mutate(is_correct_adj = is_correct + delta,
+         is_correct_adj = ifelse(is_correct_adj < 0, 0, is_correct_adj))
 
 base_plot +
   geom_point(aes(y = is_correct_adj, size = n, color = survey_type),
-             data = seed_means, alpha = 0.6,
+             data = adj_seed_means, alpha = 0.6,
              position = position_jitter(width = 0.2)) +
   scale_size_continuous("Num survey responses") +
   theme(legend.position = "right") +
   geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
               stat = "identity", data = imitation_matches_preds)
-```
-
-# Investigate the predictions
-
-```{r}
-imitation_matches$predicted <- predict(imitation_matches_mod, type = "response")
-
-ggplot(imitation_matches) +
-  aes(generation_1, predicted, color = survey_type) +
-  geom_point(stat = "summary", fun.y = "mean") +
-  facet_grid(category ~ seed_ix)
 ```
