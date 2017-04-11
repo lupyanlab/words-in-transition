@@ -43,7 +43,7 @@ base_plot <- ggplot(imitation_matches) +
                      labels = scales::percent) +
   scale_color_manual("", labels = question_type_labels, values = question_type_colors) +
   geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1) +
-  coord_cartesian(xlim = c(-0.2, 7.2)) +
+  coord_cartesian(xlim = c(-0.2, 7.2), ylim = c(0, 1)) +
   theme_minimal() +
   theme(
     legend.position = c(0.8, 0.85),
@@ -152,7 +152,7 @@ This model estimates what is true about the relationship between the three lines
 
 ```{r cache=TRUE}
 matches_mod <- glmer(
-  is_correct ~ generation_1 * (same_v_between + same_v_within) + (generation_1|seed_id),
+  is_correct ~ generation_1 * (same_v_between + same_v_within) + (generation_1|seed_id/chain_name) + (1|subj_id),
   family = "binomial", data = imitation_matches
 )
 ```
@@ -169,7 +169,7 @@ imitation_matches_preds <- expand.grid(
   cbind(., predictSE(matches_mod, newdata = ., se = TRUE)) %>%
   rename(is_correct = fit, se = se.fit)
 
-base_plot +
+original_plot <- base_plot +
   geom_point(aes(size = n, color = survey_type),
              data = seed_means, alpha = 0.6,
              position = position_jitter(width = 0.2)) +
@@ -177,58 +177,82 @@ base_plot +
   theme(legend.position = "right") +
   geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
               stat = "identity", data = imitation_matches_preds)
+original_plot
 ```
 
 # Transform the means for each seed by subtracting out random effects
 
 ```{r, fig.height=8, fig.cap = "Visual depiction of mean transformation. The solid circles are the raw means. The solid line is the random effect from the glmer model. The dashed line is the fixed effect from the glmer model. The open circles are the transformed means. The distance between the solid circle and the solid line is the same as the distance between the open circle and the dashed line. The extent of the transformation from the actual mean to the transformed mean is shown as arrows extending from the origin."}
-# Get the predicted effects for each seed by adding together fixed and random effects.
-ranefs_mod <- glmer(
-  is_correct ~ generation_1 + (generation_1|seed_id),
+
+# Fit the model used to transform the means, removing the random effects
+transform_mod <- glmer(
+  is_correct ~ generation_1 + same_v_between + same_v_within + (generation_1|seed_id),
   family = "binomial", data = imitation_matches
 )
 
-predicted_logodds <- coef(ranefs_mod)$seed_id %>%
+# Get the predicted effects for each seed by adding together fixed and random effects.
+predicted_logodds <- coef(transform_mod)$seed_id %>%
   as.data.frame() %>%
   select(
     intercept = `(Intercept)`,
-    generation_slope = generation_1
+    generation_slope = generation_1,
+    same_v_between_slope = same_v_between,
+    same_v_within_slope = same_v_within
   ) %>%
   fix_data_frame(newcol = "seed_id") %>%
   mutate(seed_id = as.numeric(seed_id))
 
+
 predicted_accuracies <- expand.grid(
     seed_id = predicted_logodds$seed_id,
-    generation_1 = 0:7
+    generation_1 = 0:7,
+    survey_type = c("between", "same", "within")
   ) %>%
+  recode_survey_type() %>%
   left_join(predicted_logodds, .) %>%
   transmute(
     seed_id = as.numeric(seed_id),
     generation_1,
-    predicted_logodds = intercept + generation_slope * generation_1,
+    survey_type,
+    predicted_logodds = intercept +
+      generation_slope * generation_1 +
+      same_v_between_slope * same_v_between +
+      same_v_within_slope * same_v_within,
     predicted_accuracy = exp(predicted_logodds)/(1 + exp(predicted_logodds))
-  )
+  ) %>%
+  recode_survey_type()
 
 ggplot(predicted_accuracies) +
   aes(generation_1, predicted_accuracy) +
   geom_point() +
   facet_wrap("seed_id")
 
-fixed_effect_preds <- tidy(ranefs_mod, effects = "fixed") %>%
+fixed_effect_preds <- tidy(transform_mod, effects = "fixed") %>%
   select(term, estimate) %>%
   spread(term, estimate) %>%
-  rename(intercept = `(Intercept)`, generation_slope = generation_1) %>%
-  merge(data_frame(generation_1 = 0:7)) %>%
+  rename(
+    intercept = `(Intercept)`,
+    generation_slope = generation_1,
+    same_v_between_slope = same_v_between,
+    same_v_within_slope = same_v_within
+  ) %>%
+  merge(., expand.grid(generation_1 = 0:7, survey_type = c("between", "same", "within"))) %>%
+  recode_survey_type() %>%
   transmute(
     generation_1,
-    fixef_logodds = intercept + generation_slope * generation_1,
+    survey_type,
+    fixef_logodds = intercept +
+      generation_slope * generation_1 +
+      same_v_between_slope * same_v_between +
+      same_v_within_slope * same_v_within,
     fixef_accuracy = exp(fixef_logodds)/(1 + exp(fixef_logodds))
   )
 
 accuracies <- imitation_matches %>%
-  group_by(seed_id, generation_1) %>%
+  group_by(seed_id, generation_1, survey_type) %>%
   summarize(accuracy = mean(is_correct)) %>%
   ungroup() %>%
+  recode_survey_type() %>%
   left_join(predicted_accuracies) %>%
   left_join(fixed_effect_preds) %>%
   mutate(
@@ -239,26 +263,26 @@ accuracies <- imitation_matches %>%
 
 ggplot(accuracies) +
   aes(generation_1) +
-  geom_line(aes(y = predicted_accuracy, group = 1)) +
+  geom_line(aes(y = predicted_accuracy, group = survey_type)) +
   geom_point(aes(y = accuracy)) +
-  geom_line(aes(y = fixef_accuracy, group = 1),
+  geom_line(aes(y = fixef_accuracy, group = survey_type),
             lty = 2) +
   geom_point(aes(y = adjusted_accuracy),
              shape = 1) +
-  geom_segment(aes(x = generation_1, xend = generation_1,
-                   y = 0, yend = delta),
-               arrow = arrow(length = unit(0.1, "cm"))) +
+  # geom_segment(aes(x = generation_1, xend = generation_1,
+  #                  y = 0, yend = delta),
+  #              arrow = arrow(length = unit(0.1, "cm"))) +
   facet_wrap("seed_id")
 ```
 
 ```{r}
 adj_seed_means <- accuracies %>%
-  select(seed_id, generation_1, delta) %>%
+  select(seed_id, survey_type, generation_1, delta) %>%
   left_join(seed_means, .) %>%
   mutate(is_correct_adj = is_correct + delta,
          is_correct_adj = ifelse(is_correct_adj < 0, 0, is_correct_adj))
 
-base_plot +
+transformed_plot <- base_plot +
   geom_point(aes(y = is_correct_adj, size = n, color = survey_type),
              data = adj_seed_means, alpha = 0.6,
              position = position_jitter(width = 0.2)) +
@@ -266,4 +290,12 @@ base_plot +
   theme(legend.position = "right") +
   geom_smooth(aes(color = survey_type, ymin = is_correct - se, ymax = is_correct + se),
               stat = "identity", data = imitation_matches_preds)
+```
+
+```{r compare, fig.width = 12}
+gridExtra::grid.arrange(
+  original_plot,
+  transformed_plot,
+  nrow = 1
+)
 ```
