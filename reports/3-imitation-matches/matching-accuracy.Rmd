@@ -19,8 +19,19 @@ library(wordsintransition)
 
 # Load the results of the "Guess the seed" surveys.
 data("imitation_matches")
+
+bad_question_ids <- imitation_matches %>%
+  filter(question_type != "catch_trial") %>%
+  group_by(question_pk) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  filter(accuracy == 0) %>%
+  .$question_pk
+
 imitation_matches %<>%
-  filter(question_type != "catch_trial") %>%  # Drop catch trials
+  filter(
+    question_type != "catch_trial",           # Drop catch trials
+    !(question_pk %in% bad_question_ids)      # Drop bad questions
+  ) %>%
   recode_generation() %>%                     # Create generation_1 variable
   recode_survey_type() %>%                    # Create treatment contrasts
   add_chance()                                # Add column for chance offset
