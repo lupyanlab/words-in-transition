@@ -1,0 +1,191 @@
+---
+output:
+  html_document:
+    theme: flatly
+---
+
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+```{r}
+library(wordsintransition)
+data("imitation_matches")
+
+library(tidyverse)
+library(magrittr)
+
+# Drop catch trials
+imitation_matches %<>%
+  filter(question_type != "catch_trial")
+
+question_accuracies <- imitation_matches %>%
+  group_by(question_pk) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  left_join(
+    # Label the survey type
+    imitation_matches %>% select(question_pk, survey_type) %>% unique()
+  ) %>%
+  arrange(accuracy) %>%
+  mutate(question_ord = factor(question_pk, levels = question_pk))
+```
+
+# Accuracy for all questions
+
+```{r}
+ggplot(question_accuracies) +
+  aes(question_ord, accuracy, fill = survey_type) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_blank())
+```
+
+# Zooming in on questions with accuracy < 30%
+
+```{r}
+ggplot(question_accuracies %>% filter(accuracy < 0.3)) +
+  aes(question_ord, accuracy, fill = survey_type) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_blank())
+```
+
+# Which types of questions have 0% accuracy?
+
+```{r}
+bad_questions <- question_accuracies %>%
+  filter(accuracy == 0)
+
+ggplot(bad_questions) +
+  aes(survey_type) +
+  geom_bar()
+```
+
+# Look only at questions with 0% accuracy
+
+Make a facet for each question so that you can see whether people are selecting a single option or multiple options.
+
+```{r fig.width=12, fig.height=20}
+data("imitation_matches")
+bad_question_ids <- imitation_matches %>%
+  filter(question_type != "catch_trial") %>%
+  group_by(question_pk) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  filter(accuracy == 0) %>%
+  .$question_pk
+setequal(bad_questions$question_pk, bad_question_ids)
+
+bad_questions <- imitation_matches %>%
+  filter(question_pk %in% bad_question_ids)
+
+ggplot(bad_questions) +
+  aes(factor(selection)) +
+  geom_bar() +
+  facet_wrap("question_pk", scales = "free_x")
+```
+
+# Look only at questions with 0% accuracy where everyone chose the same answer
+
+```{r}
+unique_options_per_bad_question <- bad_questions %>%
+  group_by(question_pk) %>%
+  summarize(n_unique_options = length(unique(selection)))
+
+ggplot(unique_options_per_bad_question) +
+  aes(factor(n_unique_options)) +
+  geom_bar()
+```
+
+# How many people agreed on each answer?
+
+```{r}
+bad_questions_with_agreement <- unique_options_per_bad_question %>%
+  filter(n_unique_options == 1) %>%
+  left_join(bad_questions)
+
+ggplot(bad_questions_with_agreement) +
+  aes(factor(question_pk)) +
+  geom_bar() +
+  theme(axis.text.x = element_blank())
+```
+
+# Plot with no 0/100 questions
+
+```{r}
+library(tidyverse)
+library(lme4)
+library(wordsintransition)
+data("imitation_matches")
+
+bad_question_ids <- imitation_matches %>%
+  filter(question_type != "catch_trial") %>%
+  group_by(question_pk) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  filter(accuracy == 0 | accuracy == 1) %>%
+  .$question_pk
+
+imitation_matches %<>%
+  filter(
+    question_type != "catch_trial",           # Drop catch trials
+    !(question_pk %in% bad_question_ids)      # Drop bad questions
+  ) %>%
+  recode_generation() %>%                     # Create generation_1 variable
+  recode_survey_type() %>%                    # Create treatment contrasts
+  add_chance()    
+
+matches_mod <- glmer(
+  is_correct ~ offset(chance_log) + generation_1 * (same_v_between + same_v_within) + (generation_1|seed_id/chain_name) + (1|subj_id),
+  family = "binomial", data = imitation_matches
+)
+
+imitation_matches_preds <- expand.grid(
+    generation_1 = 0:7,
+    survey_type = c("between", "same", "within"),
+    stringsAsFactors = FALSE
+  ) %>%
+  recode_survey_type() %>%
+  recode_generation() %>%
+  add_chance() %>%
+  cbind(., AICcmodavg::predictSE(matches_mod, newdata = ., se = TRUE)) %>%
+  rename(is_correct = fit, se = se.fit)
+
+# Theme colors
+colors <- RColorBrewer::brewer.pal(4, "Set2")
+names(colors) <- c("blue", "orange", "green", "pink")
+question_type_levels <- recode_survey_type()$survey_type
+question_type_labels <- c("True seed", "Category match", "Specific match")
+question_type_colors <- unname(colors[c("blue", "green", "orange")])
+
+create_question_type_by_seed_id <- . %>% 
+  mutate(question_type_by_seed_id = paste(survey_type, seed_id, sep = ":"))
+
+seed_means <- imitation_matches %>%
+  group_by(seed_id, survey_type, generation) %>%
+  summarize(
+    is_correct = mean(is_correct),
+    n = n()
+  ) %>%
+  ungroup() %>%
+  create_question_type_by_seed_id() %>%
+  recode_generation()
+
+ggplot(imitation_matches) +
+  aes(x = generation_1, y = is_correct, color = survey_type) +
+  geom_point(aes(size = n),
+             data = seed_means, alpha = 0.6,
+             position = position_jitter(width = 0.2)) +
+  scale_size_continuous("Num responses") +
+  geom_smooth(aes(ymin = is_correct - se, ymax = is_correct + se),
+              stat = "identity", data = imitation_matches_preds) +
+  scale_x_continuous("Generation", breaks = 0:7, labels = 1:8) +
+  scale_y_continuous("Accuracy", breaks = seq(0, 1, by = 0.1),
+                     labels = scales::percent) +
+  scale_color_manual("", labels = question_type_labels, values = question_type_colors) +
+  geom_hline(yintercept = 0.25, lty = 2, alpha = 0.4, size = 1) +
+  coord_cartesian(xlim = c(-0.2, 7.2), ylim = c(0, 1)) +
+  theme_minimal() +
+  theme(
+    legend.position = c(0.8, 0.85),
+    legend.key.width = unit(5, "lines"),
+    panel.grid.minor.x = element_blank()
+  )
+```
