@@ -27,6 +27,13 @@ bad_question_ids <- imitation_matches %>%
   filter(accuracy == 0 | accuracy == 1) %>%
   .$question_pk
 
+imitation_matches %>%
+  filter(survey_type == "within", question_type != "catch_trial") %>%
+  group_by(question_pk) %>%
+  summarize(accuracy = mean(is_correct)) %>%
+  filter(accuracy == 0) %>%
+  .$question_pk
+
 create_question_type_by_seed_id <- . %>% 
   mutate(question_type_by_seed_id = paste(survey_type, seed_id, sep = ":"))
 
