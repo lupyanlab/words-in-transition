@@ -144,5 +144,6 @@ use_data(
   learning_sound_names,
   lsn_questionnaire,
   lsn_subj_info,
+  edges,
   overwrite = TRUE
 )

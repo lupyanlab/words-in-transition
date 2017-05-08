@@ -9,6 +9,7 @@ from .tidy import *
 from .transcription_matches import make_transcription_matches
 from .transcription_frequencies import summarize_transcription_frequency
 from .transcription_distances import summarize_transcription_distance
+from .edges import make_edges
 
 r_pkg_root = Path('wordsintransition')
 data_raw = Path(r_pkg_root, 'data-raw')
@@ -143,6 +144,10 @@ def csv():
         Path(csv_output_dir, 'transcription_matches.csv'),
         index=False,
     )
+
+    # Make edges
+    edges = make_edges(Path(src_dir, 'grunt.Message.json'))
+    edges.to_csv(Path(csv_output_dir, 'edges.csv'), index=False)
 
 
 @task
