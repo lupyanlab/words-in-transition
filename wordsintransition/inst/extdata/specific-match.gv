@@ -15,10 +15,10 @@ digraph {
   water -> {water1, water2, water3, water4};
   zipper -> {zipper1, zipper2, zipper3, zipper4};
 
-  tear2[style="filled", fillcolor="#66C2A5"];
-  tear3[style="filled", fillcolor="#66C2A5"];
-  tear1[style="filled", fillcolor="#66C2A5"];
-  tear4[style="filled", fillcolor="#66C2A5"];
+  tear2[style="filled", fillcolor="#FC8D62"];
+  tear3[style="filled", fillcolor="#FC8D62"];
+  tear1[style="filled", fillcolor="#FC8D62"];
+  tear4[style="filled", fillcolor="#FC8D62"];
 
   glass1[label="1"];
   glass2[label="2"];
