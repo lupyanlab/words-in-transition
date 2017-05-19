@@ -128,11 +128,13 @@ def csv():
     transcriptions['is_catch_trial'] = transcriptions.chain_name.str.endswith('.wav').astype(int)
     transcriptions.to_csv(Path(csv_output_dir, 'transcriptions.csv'), index=False)
 
-    frequencies = summarize_transcription_frequency(transcriptions)
+    transcriptions_valid = transcriptions.ix[transcriptions.is_catch_trial == 0]
+
+    frequencies = summarize_transcription_frequency(transcriptions_valid)
     frequencies.to_csv(Path(csv_output_dir, 'transcription_frequencies.csv'),
                        index=False)
 
-    distances = summarize_transcription_distance(transcriptions)
+    distances = summarize_transcription_distance(transcriptions_valid)
     distances.to_csv(Path(csv_output_dir, 'transcription_distances.csv'),
                      index=False)
 

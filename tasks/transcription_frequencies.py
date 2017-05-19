@@ -4,7 +4,6 @@ ENGLISH = enchant.Dict('en_US')
 
 
 def summarize_transcription_frequency(transcriptions):
-    frequencies = transcriptions.ix[transcriptions.is_catch_trial == 0]
     frequencies.loc[:, 'text'] = frequencies.text.str.lower()
     groupers = ['chain_name', 'seed_id', 'message_id',
                 'transcription_survey_name']
